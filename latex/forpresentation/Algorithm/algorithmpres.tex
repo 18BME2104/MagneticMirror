@@ -1,0 +1,84 @@
+\documentclass{beamer}
+
+\usepackage{multicol}
+\usepackage{float}
+
+\usetheme[progressbar=frametitle]{metropolis}
+\setbeamertemplate{frame numbering}[fraction]
+\useinnertheme{metropolis}
+\useoutertheme{metropolis}
+\usefonttheme{metropolis}
+\usecolortheme{spruce}
+\setbeamercolor{background canvas}{bg=white}
+%different themes are available
+\definecolor{babyblueeyes}{rgb}{0.63, 0.79, 0.95}
+%define custom theme using rgb, check latexcolor.com for information
+\usecolortheme[named=babyblueeyes]{structure}
+
+
+
+
+\title[]{Magnetic Mirror Effect in Magnetron Plasma:}
+\subtitle{Modeling of Plasma Parameters}
+
+
+%may use macros to set new frame defaults
+
+\setbeamercovered{transparent=25}
+%hide onslide part by making it more transparent
+%cant do this with only, but with onslide
+
+
+\newcommand\myfigure[1]{%
+	\medskip\noindent\begin{minipage}{\columnwidth}
+		\centering%
+		#1%
+		%figure,caption, and label go here
+	\end{minipage}\medskip}
+\newcommand{\comment}[1]{}
+
+\begin{document}
+	\metroset{block=fill}
+	%shades the background of a block
+	
+	%In beamer we create frames 1 frame= 1 page to hold our information
+	\begin{frame}
+		\titlepage	
+	\end{frame}	
+	
+	\begin{frame}[t]{1. Control on Particle Update strategies - NOT a control knob }
+		Not really a control knob. Concerns precision of solution / update. \\
+		
+		\noindent Update strategies used in \textbf{particle.ipynb}\\
+		
+		\noindent Describe the Boris algorithm update strategy.
+	\end{frame}
+
+	\begin{frame}[t]{2. Control of Electric and Magnetic fields - Control Knobs here}
+		Electric and Magnetic field configurations described in \textbf{field.ipynb} \\
+		
+		\noindent Describe the Helmholtz coil magnetic field and electrode potential electric field configurations used. \\
+		
+		\noindent
+		Different Electric field configurations could be used. Simple example: changing the electrode voltages. \\
+		
+		\noindent Different Magnetic field configurations could be used. Simple example: using many Helmholtz coils (number controllable), at different angles (angle controllable).
+	\end{frame}
+
+	\begin{frame}[t]{3. Controlling particle initialization - Control knobs here}
+		Sampling particles with different initial velocities, and positions for example using different density functions f. For example: based on parameters like plasma Temperature. \\
+		
+		\noindent Different particle sampling and initialization strategies used in \textbf{interaction.ipynb}
+		
+		Also track how the velocity distribution changes with time.
+	\end{frame}
+
+	\begin{frame}[t]{References}
+	\begin{thebibliography}{}
+		\bibitem{Borisgood}
+		Qin, H., Zhang, S., Xiao, J., $\&$ Tang, W. M. (April, 2013). \textit{Why is Boris algorithm so good?}. Princeton Plasma Physics Laboratory, PPPL-4872.
+		
+	\end{thebibliography}
+	\end{frame}
+
+\end{document}

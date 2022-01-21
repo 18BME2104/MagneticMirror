@@ -1,0 +1,72 @@
+\documentclass[12pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsfonts,amsmath,amssymb}
+\usepackage{multicol}
+
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[nottoc, notlot, notlof]{tocbibind}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\newcommand{\leavealine}
+{\vskip 0.5cm}
+
+
+% for equation box
+\usepackage{color}
+\definecolor{myblue}{rgb}{.8, .8, 1}
+
+\usepackage[most]{tcolorbox}
+\tcbset{
+	enhanced,
+	colback=myblue!100!white,
+	boxrule=0.1pt,
+	colframe=myblue!100!black,
+	fonttitle=\bfseries
+}
+%until here
+
+\begin{document}
+	{\fontfamily{ppl}\selectfont 
+		\begin{center}
+			\Large{\textbf{Magnetic Mirror Effect in Magnetron Plasma:}} \\
+			\Large{\textbf{Modeling of Plasma Parameters}} \\
+		\end{center}
+		%\color{blue}
+		
+		\section{Control on Particle Update strategies - NOT a control knob}
+		Not really a control knob. Concerns precision of solution / update. \\
+		
+		\noindent Update strategies used in \textbf{particle.ipynb}\\
+		
+		\noindent Describe the Boris algorithm update strategy.
+		
+		\section{Control of Electric and Magnetic fields - Control Knobs here}
+		Electric and Magnetic field configurations described in \textbf{field.ipynb} \\
+		
+		\noindent Describe the Helmholtz coil magnetic field and electrode potential electric field configurations used. \\
+		
+		\noindent Different Electric field configurations could be used. Simple example: changing the electrode voltages. \\
+		
+		\noindent Different Magnetic field configurations could be used. Simple example: using many Helmholtz coils (number controllable), at different angles (angle controllable).
+		
+		
+		\section{Controlling particle initialization - Control knobs here}
+		Sampling particles with different initial velocities, and positions for example using different density functions f. For example: based on parameters like plasma Temperature. \\
+		
+		\noindent Different particle sampling and initialization strategies used in \textbf{interaction.ipynb} \\
+		
+		\noindent Also track how the velocity distribution changes with time.
+			
+	\begin{thebibliography}{}
+		\bibitem{Borisgood}
+		Qin, H., Zhang, S., Xiao, J., $\&$ Tang, W. M. (April, 2013). \textit{Why is Boris algorithm so good?}. Princeton Plasma Physics Laboratory, PPPL-4872.
+		
+	\end{thebibliography}		
+\end{document}

@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.1.1)  20 JAN 2022 17:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.1.1)  21 JAN 2022 15:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**lorentz.tex
-(./lorentz.tex
+**algorithm.tex
+(./algorithm.tex
 LaTeX2e <2020-02-02> patch level 2
 L3 programming layer <2020-02-14>
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
@@ -814,12 +814,8 @@ File: tikzlibraryfadings.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 File: pgflibraryfadings.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 ))) (/usr/share/texlive/texmf-dist/tex/latex/tcolorbox/tcbposter.code.tex
 Library (tcolorbox): 'tcbposter.code.tex' version '4.22'
-)) (./lorentz.aux
-
-LaTeX Warning: Label `eqn:Dlorentz' multiply defined.
-
-)
-\openout1 = `lorentz.aux'.
+)) (./algorithm.aux)
+\openout1 = `algorithm.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
 LaTeX Font Info:    ... okay on input line 35.
@@ -912,9 +908,9 @@ LaTeX Info: Redefining \ref on input line 35.
 LaTeX Info: Redefining \pageref on input line 35.
 LaTeX Info: Redefining \nameref on input line 35.
 
-(./lorentz.out) (./lorentz.out)
+(./algorithm.out) (./algorithm.out)
 \@outlinefile=\write6
-\openout6 = `lorentz.out'.
+\openout6 = `algorithm.out'.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: listings package is loaded.
@@ -927,62 +923,85 @@ LaTeX Font Info:    Trying to load font information for T1+ppl on input line 36
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ppl.fd
 File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 45.
+Underfull \hbox (badness 10000) in paragraph at lines 44--45
 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--47
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 51--52
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 53--54
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 55--56
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 61--62
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 63--64
+
+ []
+
+LaTeX Font Info:    Trying to load font information for U+msa on input line 69.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 45.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 69.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-Underfull \hbox (badness 10000) in paragraph at lines 90--91
+) [1
 
- []
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 72.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 72.
+ (./algorithm.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 72.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 72.
+Package rerunfilecheck Info: File `algorithm.out' has not changed.
+(rerunfilecheck)             Checksum: F293FA953C73A893C57E69E9614383CD;325.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 72.
+ )
+(\end occurred inside a group at level 1)
 
-[1
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 117.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 117.
- (./lorentz.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 117.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 117.
-Package rerunfilecheck Info: File `lorentz.out' has not changed.
-(rerunfilecheck)             Checksum: 37EBA96F7A6CD487CE1A5AF6CF6D32C8;144.
-
-
-LaTeX Warning: There were multiply-defined labels.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 117.
- ) 
+### simple group (level 1) entered at line 36 ({)
+### bottom level 
 Here is how much of TeX's memory you used:
- 25655 strings out of 483183
- 513650 string characters out of 5966293
- 800146 words of memory out of 5000000
- 40187 multiletter control sequences out of 15000+600000
- 549822 words of font info for 58 fonts, out of 8000000 for 9000
+ 25578 strings out of 483183
+ 512194 string characters out of 5966293
+ 795830 words of memory out of 5000000
+ 40118 multiletter control sequences out of 15000+600000
+ 546280 words of font info for 54 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 64i,20n,103p,934b,917s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc} </home/kushik/.te
-xlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/kushik/.
-texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1728.600pk></usr/share/te
-xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8
-a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on lorentz.pdf (2 pages, 118696 bytes).
+ 64i,5n,103p,936b,386s stack positions out of 5000i,500n,10000p,200000b,80000s
+ </home/kushik/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/
+ec/ecrm1200.600pk>{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc} <
+/home/kushik/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1728.600pk>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on algorithm.pdf (1 page, 70220 bytes).
 PDF statistics:
- 176 PDF objects out of 1000 (max. 8388607)
- 105 compressed objects within 2 object streams
- 15 named destinations out of 1000 (max. 500000)
- 181 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 131 PDF objects out of 1000 (max. 8388607)
+ 65 compressed objects within 1 object stream
+ 7 named destinations out of 1000 (max. 500000)
+ 189 words of extra memory for PDF output out of 10000 (max. 10000000)
 
