@@ -32,7 +32,68 @@
 }
 %until here
 
+% for python code
+\usepackage[utf8]{inputenc}
+
+% Default fixed font does not support bold face
+\DeclareFixedFont{\ttb}{T1}{txtt}{bx}{n}{12} % for bold
+\DeclareFixedFont{\ttm}{T1}{txtt}{m}{n}{12}  % for normal
+
+% Custom colors
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+
+% \usepackage{listings}
+
+% Python style for highlighting
+\usepackage[utf8]{inputenc}
+
+% Default fixed font does not support bold face
+\DeclareFixedFont{\ttb}{T1}{txtt}{bx}{n}{12} % for bold
+\DeclareFixedFont{\ttm}{T1}{txtt}{m}{n}{12}  % for normal
+
+% Custom colors
+\usepackage{color}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+\definecolor{almostwhite}{rgb}{0.99,0.99, 0.99}
+
+\usepackage{listings}
+
+% Python style for highlighting
+\lstset{
+		basicstyle  =   \footnotesize,
+		keywordstyle    = \color{deepred}\bfseries,
+		stringstyle     = \color{strings},
+		identifierstyle = \color{black},
+		commentstyle    = \color{deepgreen},
+		breaklines=true,
+		numbersep=-10pt,
+		stepnumber=1,
+		showspaces=false,
+		escapechar=§,
+		showstringspaces=false,
+		showtabs=false,
+		frame=single,  
+		rulecolor=\color{black},
+		tabsize=4,              
+		captionpos=t,           
+		breaklines=true,
+		breakatwhitespace=false,
+		numbers=left,
+		extendedchars=\true,
+		emph=[3]{href, Particle, Boris_update, Field, uniform_E_field, radial_E_field, uniform_B_field, helmholtz_coil_B_field, two_helmholtz_B_field, Sampler, sample_uniform_position, sample_uniform_velocity, sample_velocity_uniformKE, sample_Maxwellian_velocity, sample_parabolic_velocity},
+		emphstyle=[3]{\color{deepblue}},
+		backgroundcolor=\color{almostwhite},
+		language=Python 
+}
+
+%until here
+
 \begin{document}
+	
 	{\fontfamily{ppl}\selectfont 
 		\begin{center}
 			\Large{\textbf{Magnetic Mirror Effect in Magnetron Plasma:}} \\
@@ -47,8 +108,12 @@
 		
 		\noindent Describe the Boris algorithm update strategy.
 		
+		\lstinputlisting[language=Python]{particle.py}
+		
 		\section{Control of Electric and Magnetic fields - Control Knobs here}
 		Electric and Magnetic field configurations described in \textbf{field.ipynb} \\
+		
+		\lstinputlisting[language=Python]{field.py}
 		
 		\noindent Describe the Helmholtz coil magnetic field and electrode potential electric field configurations used. \\
 		
@@ -60,7 +125,9 @@
 		\section{Controlling particle initialization - Control knobs here}
 		Sampling particles with different initial velocities, and positions for example using different density functions f. For example: based on parameters like plasma Temperature. \\
 		
-		\noindent Different particle sampling and initialization strategies used in \textbf{interaction.ipynb} \\
+		\noindent Different particle sampling and initialization strategies used in \textbf{sampling.ipynb} \\
+		
+		\lstinputlisting[language=Python]{sampling.py}
 		
 		\noindent Also track how the velocity distribution changes with time.
 			
