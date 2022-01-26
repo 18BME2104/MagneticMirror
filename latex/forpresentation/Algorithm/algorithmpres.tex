@@ -2,6 +2,7 @@
 
 \usepackage{multicol}
 \usepackage{float}
+\usepackage{lmodern}
 
 \usetheme[progressbar=frametitle]{metropolis}
 \setbeamertemplate{frame numbering}[fraction]
@@ -16,6 +17,54 @@
 \usecolortheme[named=babyblueeyes]{structure}
 
 
+% Python style for highlighting
+\usepackage[utf8]{inputenc}
+
+% Default fixed font does not support bold face
+\DeclareFixedFont{\ttb}{T1}{txtt}{bx}{n}{12} % for bold
+\DeclareFixedFont{\ttm}{T1}{txtt}{m}{n}{12}  % for normal
+
+% Custom colors
+\usepackage{color}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+\definecolor{almostwhite}{rgb}{0.99,0.99, 0.99}
+
+\usepackage{listings}
+
+% Python style for highlighting
+% Check out how to use minted next time
+% Seems simpler
+
+\lstset{
+	basicstyle  =   \footnotesize,
+	keywordstyle    = \color{deepred}\bfseries,
+	stringstyle     = \color{strings},
+	identifierstyle = \color{black},
+	commentstyle    = \color{deepgreen},
+	breaklines=true,
+	numbersep=-10pt,
+	stepnumber=1,
+	showspaces=false,
+	escapechar=§,
+	showstringspaces=false,
+	showtabs=false,
+	frame=single,  
+	rulecolor=\color{black},
+	tabsize=4,              
+	captionpos=t,           
+	breaklines=true,
+	breakatwhitespace=false,
+	numbers=left,
+	extendedchars=\true,
+	emph=[3]{href, Particle, Boris_update, Field, uniform_E_field, radial_E_field, uniform_B_field, helmholtz_coil_B_field, two_helmholtz_B_field, Sampler, sample_uniform_position, sample_uniform_velocity, sample_velocity_uniformKE, sample_Maxwellian_velocity, sample_parabolic_velocity},
+	emphstyle=[3]{\color{deepblue}},
+	backgroundcolor=\color{almostwhite},
+	language=Python 
+}
+
+%until here
 
 
 \title[]{Magnetic Mirror Effect in Magnetron Plasma:}
@@ -46,31 +95,156 @@
 		\titlepage	
 	\end{frame}	
 	
-	\begin{frame}[t]{1. Control on Particle Update strategies - NOT a control knob }
-		Not really a control knob. Concerns precision of solution / update. \\
+	\begin{frame}
+		\begin{block}{GitHub repository:} 
+		 \phantom{a} \\
+		 \hspace{1.5cm}
+		 \textbf{\textit{https://github.com/18BME2104/MagneticMirror}} \\
+		\phantom{a}
+		\end{block}
+	\vspace{0.5cm}
+		\begin{block}{Required functionalities and Files}
+			\begin{enumerate}
+				\item Particle - \textbf{particle.ipynb}
+				\item Electric and Magnetic fields - \textbf{field.ipynb}
+				\item Particle initialization - \textbf{sampling.ipynb}
+				\item Updating the particles - \textbf{step.ipynb}
+				\item Batches of updates - \textbf{run.ipynb}
+				\item Plotting - \textbf{plot.ipynb}
+			\end{enumerate}	
+		\end{block}
 		
-		\noindent Update strategies used in \textbf{particle.ipynb}\\
-		
-		\noindent Describe the Boris algorithm update strategy.
 	\end{frame}
 
-	\begin{frame}[t]{2. Control of Electric and Magnetic fields - Control Knobs here}
-		Electric and Magnetic field configurations described in \textbf{field.ipynb} \\
-		
-		\noindent Describe the Helmholtz coil magnetic field and electrode potential electric field configurations used. \\
-		
-		\noindent
-		Different Electric field configurations could be used. Simple example: changing the electrode voltages. \\
-		
-		\noindent Different Magnetic field configurations could be used. Simple example: using many Helmholtz coils (number controllable), at different angles (angle controllable).
+	\begin{frame}[t]{1. Particle - particle.ipynb}
+		Define state of a particle and update it \\
+		\vspace{1cm}
+		\begin{enumerate}
+			\item Particle State: \\
+			Position and Velocity \\
+			name, mass, charge
+			\item Update State: \\
+			Boris Update \\
+			... other updates strategies
+		\end{enumerate}
+	\end{frame}
+	
+	\begin{frame}
+		\lstinputlisting[language=Python, linerange={1-13}]{particle.py}
+	\end{frame}
+	\begin{frame}
+		\lstinputlisting[language=Python, linerange={14-28}]{particle.py}
 	\end{frame}
 
-	\begin{frame}[t]{3. Controlling particle initialization - Control knobs here}
-		Sampling particles with different initial velocities, and positions for example using different density functions f. For example: based on parameters like plasma Temperature. \\
+	\begin{frame}[t]{2. Electric and Magnetic fields - field.ipynb}
+		Define field configurations \\
+		\vspace{0.5cm}
+		\begin{itemize}
+			\item Electric Field:
+			\begin{enumerate}
+				\item Uniform Electric Field
+				\item Radial Electric Field
+			\end{enumerate}
+			\item Magnetic Field: 
+			\begin{enumerate}
+				\item Uniform Magnetic Field
+				\item Magnetic Field due to Helmholtz Coil
+				\item Magnetic Field due to 2 Helmholtz Coils
+			\end{enumerate}
+		\end{itemize}
+	... other field configurations:
+	\begin{enumerate}
+		\item Analytic field expression
+		\item Apparatus like coils
+	\end{enumerate}
+	\end{frame}
+	\begin{frame}
+		\lstinputlisting[language=Python, linerange={1-13}]{field.py}
+	\end{frame}
+	\begin{frame}
+		\lstinputlisting[language=Python, linerange={1-1, 14-22, 25-27}]{field.py}
+	\end{frame}
+
+	\begin{frame}[t]{3. Particle initialization - sampling.ipynb}
+		Sample initial positions and velocities \\
+		\begin{itemize}
+			\item Initial Position Samping:
+			\begin{enumerate}
+				\item Same position for all: eg: valve position
+				\item Same distance from a point: eg: from an electrode \\
+				... other distributions
+			\end{enumerate}
+			\item Initial Velocity Sampling:
+			\begin{enumerate}
+				\item Same velocity for all: eg: injected by pump
+				\item Same speed for all
+				\item Speeds based on same K.E. : \\ eg: accelerated through same potential
+				\item Maxwellian distributed speeds
+				\item Maxwellian distributed velocities
+				\item Parabolic distribution \\
+				... other distributions
+				
+			\end{enumerate}
+			
+			\item Writing to files \\
+			\hspace{0.5cm}csv format 
+		\end{itemize}
 		
-		\noindent Different particle sampling and initialization strategies used in \textbf{sampling.ipynb}
-		
-		Also track how the velocity distribution changes with time.
+	\end{frame}
+
+	\begin{frame}
+		\lstinputlisting[language=Python, linerange={1-9, 26-30}]{sampling.py}
+	\end{frame}
+	\begin{frame}
+		\lstinputlisting[language=Python, linerange={1-2, 56-65}]{sampling.py}
+	\end{frame}
+	\begin{frame}
+		\lstinputlisting[language=Python, linerange={1-3, 67-77}]{sampling.py}
+	\end{frame}
+
+	\begin{frame}[t]{4. Updating the particles - step.ipynb}
+		Evolve particles under influence of fields
+		\vspace{0.5cm}
+		\begin{enumerate}
+			\item Initialize particles: hold states \\
+			\begin{itemize}
+				\item Use initial positions and velocities directly
+				\item Read initial positions and velocities from saved files
+			\end{itemize}
+			\item Initialize fields: call field configurations
+			\item Update particles: call updates
+		\end{enumerate}
+	\end{frame}
+	\begin{frame}
+		\lstinputlisting[language=Python, linerange={1-13}]{step.py}
+	\end{frame}
+	\begin{frame}
+		\lstinputlisting[language=Python, linerange={15-20, 41-41}]{step.py}
+	\end{frame}
+	\begin{frame}
+		\lstinputlisting[language=Python, linerange={1-3, 21-33 }]{step.py}
+	\end{frame}
+
+	\begin{frame}[t]{5. Batches of updates - run.ipynb}
+		Define dynamic plasma system
+		\vspace{0.5cm}
+		\begin{enumerate}
+			\item Create particles
+			\item Update particles
+			\item Update fields
+			\item Create new particles
+			\item Remove particles
+		\end{enumerate}
+	\end{frame}
+	\begin{frame}
+		\lstinputlisting[language=Python, linerange={1-1, 4-13}]{run.py}
+	\end{frame}
+	\begin{frame}
+		\lstinputlisting[language=Python, linerange={15-21}]{run.py}
+	\end{frame}
+
+	\begin{frame}[t]{6. Plotting - plot.ipynb}
+		Plot functionalities
 	\end{frame}
 
 	\begin{frame}[t]{References}

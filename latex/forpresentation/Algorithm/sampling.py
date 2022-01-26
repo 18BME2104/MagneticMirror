@@ -24,11 +24,9 @@
             return np.array(velocities)
     
         def sample_same_given_speed_all_random_direction(self, s, n):
-            velocities = []
-        
+            velocities = [] 
             for i in range(n):
-                velocities.append(s * uniform_random_unit_vector())
-        
+                velocities.append(s * uniform_random_unit_vector()) 
             return np.array(velocities)
     
         def sample_velocity_uniformKE_same_given_direction(self):

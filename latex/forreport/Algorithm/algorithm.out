@@ -1,4 +1,7 @@
-\BOOKMARK [1][-]{section.1}{Control on Particle Update strategies - NOT a control knob}{}% 1
-\BOOKMARK [1][-]{section.2}{Control of Electric and Magnetic fields - Control Knobs here}{}% 2
-\BOOKMARK [1][-]{section.3}{Controlling particle initialization - Control knobs here}{}% 3
-\BOOKMARK [1][-]{section*.1}{References}{}% 4
+\BOOKMARK [1][-]{section.1}{Particle - particle.ipynb}{}% 1
+\BOOKMARK [1][-]{section.2}{Electric and Magnetic fields - field.ipynb}{}% 2
+\BOOKMARK [1][-]{section.3}{Particle initialization - sampling.ipynb}{}% 3
+\BOOKMARK [1][-]{section.4}{Updating the particles - step.ipynb}{}% 4
+\BOOKMARK [1][-]{section.5}{Batches of updates - run.ipynb}{}% 5
+\BOOKMARK [1][-]{section.6}{Plotting - plot.ipynb}{}% 6
+\BOOKMARK [1][-]{section*.1}{References}{}% 7
