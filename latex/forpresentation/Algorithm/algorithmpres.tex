@@ -105,6 +105,7 @@
 	\vspace{0.5cm}
 		\begin{block}{Required functionalities and Files}
 			\begin{enumerate}
+				\item Constants - \textbf{constants.ipynb}
 				\item Particle - \textbf{particle.ipynb}
 				\item Electric and Magnetic fields - \textbf{field.ipynb}
 				\item Particle initialization - \textbf{sampling.ipynb}
@@ -116,7 +117,13 @@
 		
 	\end{frame}
 
-	\begin{frame}[t]{1. Particle - particle.ipynb}
+	\begin{frame}[t]{1. Constants - constants.ipynb}
+		Define constants
+		\lstinputlisting[language=Python, linerange={1-6}]{constants.py}
+		Useful constants: \\
+		\hspace{0.5cm} electron charge, electron mass, ion masses, ion charges \\ \hspace{0.5cm} atomic mass unit, Avogadro's number, \\ \hspace{0.5cm} permittivity of vacuum,  permeability of vacuum, \\ \hspace{0.5cm} Boltzmann's constant
+	\end{frame}
+	\begin{frame}[t]{2. Particle - particle.ipynb}
 		Define state of a particle and update it \\
 		\vspace{1cm}
 		\begin{enumerate}
@@ -136,7 +143,7 @@
 		\lstinputlisting[language=Python, linerange={14-28}]{particle.py}
 	\end{frame}
 
-	\begin{frame}[t]{2. Electric and Magnetic fields - field.ipynb}
+	\begin{frame}[t]{3. Electric and Magnetic fields - field.ipynb}
 		Define field configurations \\
 		\vspace{0.5cm}
 		\begin{itemize}
@@ -165,7 +172,7 @@
 		\lstinputlisting[language=Python, linerange={1-1, 14-22, 25-27}]{field.py}
 	\end{frame}
 
-	\begin{frame}[t]{3. Particle initialization - sampling.ipynb}
+	\begin{frame}[t]{4. Particle initialization - sampling.ipynb}
 		Sample initial positions and velocities \\
 		\begin{itemize}
 			\item Initial Position Samping:
@@ -202,7 +209,7 @@
 		\lstinputlisting[language=Python, linerange={1-3, 67-77}]{sampling.py}
 	\end{frame}
 
-	\begin{frame}[t]{4. Updating the particles - step.ipynb}
+	\begin{frame}[t]{5. Updating the particles - step.ipynb}
 		Evolve particles under influence of fields
 		\vspace{0.5cm}
 		\begin{enumerate}
@@ -225,7 +232,7 @@
 		\lstinputlisting[language=Python, linerange={1-3, 21-33 }]{step.py}
 	\end{frame}
 
-	\begin{frame}[t]{5. Batches of updates - run.ipynb}
+	\begin{frame}[t]{6. Batches of updates - run.ipynb}
 		Define dynamic plasma system
 		\vspace{0.5cm}
 		\begin{enumerate}
@@ -243,7 +250,7 @@
 		\lstinputlisting[language=Python, linerange={15-21}]{run.py}
 	\end{frame}
 
-	\begin{frame}[t]{6. Plotting - plot.ipynb}
+	\begin{frame}[t]{7. Plotting - plot.ipynb}
 		Plot functionalities
 	\end{frame}
 
