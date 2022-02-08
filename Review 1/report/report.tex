@@ -184,6 +184,7 @@
 	\noindent A magnetic mirror configuration is important in a magnetic plasma trap chamber such as that used in Magnetron sputtering. Particles in a plasma have different speeds depending on the initial distribution which is based on parameters like the plasma temperature. The speeds of particles change depending on the electric and magnetic fields. Based on the magnetic mirror effect, one can determine which particle (having certain velocities) can escape the magnetic trap and which of those are reflected. The less the particles escape the magnetic trap, the more of the flux is used in forming coatings and less of the ionized gas is wasted. This is very useful in understanding the required gas supply and rate of deposition.
 	
 	\section{Literature Review}
+	A large part of the literature review for the project consisted of studying basic plasma physics in order to understand how we could formulate the project and proceed ahead. 
 	
 	\subsection{Plasma as a system}
 	Various models are used to describe Plasma as a system. Some of the common approaches are:
@@ -194,7 +195,7 @@
 			\label{eqn:lorentz}
 			\frac{d \textbf{$\boldsymbol{v}$}}{d t} = \frac{q}{m} \left(\textbf{$\mathbf{E}$} + \textbf{$\boldsymbol{v}$} \times \textbf{$\mathbf{B}$} \right)
 		\end{equation}
-		Describing many particles evolving under the influence of Lorentz force, it is easy to describe a plasma assuming that the mean free path of the particles is much larger than the dimensions of the chamber; meaning that particles hardly ever collide.
+		Describing many particles evolving under the influence of Lorentz force, it is easy to describe a plasma assuming that the mean free path of the particles is much larger than the dimensions of the chamber; meaning that particles hardly ever collide. This is to say that in the simplest case, under this model particles evolve under the influence of electric and magnetic fields but the particles do not produce any electric and magnetic fields of their own or affect the external applied fields and hence also do not interact with other particles.
 	
 		\item \textbf{Kinetic theory} \\
 		The kinetic theory describes the plasma as collection of particles whose state (position and velocity) is treated as a random variable with a density function \\ $ f(x, y, z, v_{x}, v_{y}, v_{z}, t) $ which describes the number of particles at position $ (x, y, z) $ at time $ t $ with velocities between $ v_{x} $ and $ v_{x} + dv_{x} $, $ v_{y} $ and $ v_{y} + dv_{y} $, $ v_{z} $ and $ v_{z} + dv_{z} $ in directions $x$, $y$ and $z$ respectively. For a simpler notation $ f(x, y, z, v_{x}, v_{y}, v_{z}, t) $ is denoted as $ f(\boldsymbol{r}, \boldsymbol{v}, t) $.
@@ -204,13 +205,31 @@
 		
 		$$\frac{\partial f}{\partial t} + \boldsymbol{v} \cdot \nabla f + \frac{\mathbf{F}}{m} \cdot {\partial}_{\boldsymbol{v}} f = \left(\frac{\partial f}{\partial t}\right)_{c}$$
 		\item \textbf{Fluid model} \\
+		The fluid model is describes the plasma in terms of macroscopic variables like Pressure, Temperature, average velocity, density, flux; like ordinary fluid dynamics. The governing Partial Differential Equations are obtained by taking moments of the Boltzmann equation, or a special case of the Boltzmann equation called the Vlasov equation. Such a procedure gives rise to: \\
+		
+		The continuity equation: \\
+		$$\frac{\partial \varrho}{\partial t} + \boldsymbol{\nabla} \cdot \left(\varrho \boldsymbol{v}\right) = 0$$
+		and the Cauchy momentum equation: \\
+		$$\varrho \left(\frac{\partial}{\partial t} + \boldsymbol{v} \cdot \boldsymbol{\nabla}  \right) \boldsymbol{v} = \mathbf{J} \times \mathbf{B} - \boldsymbol{\nabla} p$$
+		Higher moments yield other equations for quantities like the entropy. The fluid equations average over the velocity distribution of the particles to obtain the macroscopic variables like Pressure and Temperature, as discussed earlier- by taking moments of the Kinetic equations like the Boltzmann equation or the Vlasov equation.
 		
 		\item \textbf{Magnetohydrodynamics} \\
+		Magnetohydrodynamics(MHD) is an extension of the fluid model of describing a plasma. In a first approximation, the magnetic and electric fields acting on the fluid and the currents generated are now solved using Faraday's law: \\
+		$$\frac{\partial \mathbf{B}}{\partial t} = - \boldsymbol{\nabla} \times \mathbf{E}$$
+		and the Ampere's law: \\
+		$$\mu_{0} \mathbf{J} = \boldsymbol{\nabla} \times \mathbf{B}$$
+		The full set of Maxwell's equations can also be coupled with the fluid. MHD description of a plasma also describes dynamic waves such as Alfv\'en waves and magnetosonic waves. MHD theory can also be used to describe interaction of the plasma with electromagnetic waves, for example those from a LASER source relevant to LASER plasma processes in surface engineering. Ideal MHD studies plasma as a fluid of single species, however, multi-species plasma can also be studied. \\
+		
+		\item \textbf{The model used in the project} \\
+		In the context of plasma processes like Magnetron Sputtering where particles have a considerably large mean free path, we have decided not to use the fluid model and the MHD descriptions of a plasma. In such processes, it is almost always the case that the strength of the electric and magnetic fields applied by the apparatus is far more stronger than the electric and magnetic fields generated by charged particles in a plasma. This approximation allows us to avoid solving Maxwell's equations and use only the Lorentz force. The model used in the project is mostly similar to the single particle model, where in a collection of particles, each particle evolves under the influence of the electric and magnetic fields set up by the apparatus; governed by the Lorentz force. However, we incorporate a little bit of the Kinetic theory in that we are interested in different initial velocity distributions for particles in the plasma and how the velocity distribution changes over time; as it is important to understand the velocity distribution to characterize the reflection and loss of particles in a magnetic-mirror like trap that may be setup in the plasma chamber.  
+		
 	\end{enumerate}
 	
 	\section{Gaps in Literature}
+	It would take a number of courses on plasma physics to fully understand the current research methods in plasma physics. In the interest of time, we have studied some simple setups; so that we can setup well functioning plasma configuration during the course of the project and study some aspects that we are interested in. The forefront of research in plasma physics concerns complicated devices like Magnetic Confinement Fusion, or Quantum Optic systems. Most research in surface engineering focuses on the properties of coatings obtained and parameters of plasma used; in processes that use plasma. In our project, we would like to set up a simple plasma simulation that can help us study smaller devices like the one available in the School of Mechanical Engineering; where we can control a small flux of particles by tuning the electric and magnetic fields. This section describes, how we construct a simple easy to use, plasma simulation system; which is yet to be functional.
 	
 	\subsection{Particle in Cell Methods}
+	Particle in a cell methods are used to simulate the kinetic theory of plasma. Most  
 	
 	\subsection{Boris Algorithm}
 	
@@ -227,8 +246,28 @@
 	\subsection{Fields}
 	
 	\section{Objectives}
+	The objectives of the project are:
+	\begin{enumerate}
+		\item \textbf{Single Particle Method} \\ 
+		To simulate charged particles that evolve under the influence of electric and magnetic fields; as governed by the Lorentz force.
+		\item \textbf{Field Configurations} \\
+		To simulate a few different configurations of electric and magnetic fields- some describing apparatus like coils; some describing analytic expressions for fields and to study the different evolution of particles.
+		\item \textbf{Kinetic Theory} \\
+		To study different initial velocity distributions and how the velocity distribution of particles changes as the particles evolve. Parameters like the Plasma temperature are to be studied under this topic.
+		\item \textbf{Analysis} \\
+		To analyze different batches or collections of particles, subjected to different field configurations.
+		
+	\end{enumerate}
 	
 	\section{Methodology}
+	
+	\subsection{Single particle and evolution}
+	
+	\subsection{Defining the fields}
+	
+	\subsection{Particle initialization}
+	
+	\subsection{Running different batches}
 	
 	\section{Work carried out so far}
 	
@@ -236,7 +275,7 @@
 	
 	\section{Work to be done}
 	
-	\section{Gantt Chart(Work Plan)}
+	\section{Gant Chart(Work Plan)}
 	
 	\section{Milestones in the project phase}
 	

@@ -15,9 +15,13 @@
 \BOOKMARK [2][-]{subsection.4.3}{Fields}{section.4}% 15
 \BOOKMARK [1][-]{section.5}{Objectives}{}% 16
 \BOOKMARK [1][-]{section.6}{Methodology}{}% 17
-\BOOKMARK [1][-]{section.7}{Work carried out so far}{}% 18
-\BOOKMARK [2][-]{subsection.7.1}{Algorithm Outline}{section.7}% 19
-\BOOKMARK [1][-]{section.8}{Work to be done}{}% 20
-\BOOKMARK [1][-]{section.9}{Gantt Chart\(Work Plan\)}{}% 21
-\BOOKMARK [1][-]{section.10}{Milestones in the project phase}{}% 22
-\BOOKMARK [1][-]{section*.2}{References}{}% 23
+\BOOKMARK [2][-]{subsection.6.1}{Single particle and evolution}{section.6}% 18
+\BOOKMARK [2][-]{subsection.6.2}{Defining the fields}{section.6}% 19
+\BOOKMARK [2][-]{subsection.6.3}{Particle initialization}{section.6}% 20
+\BOOKMARK [2][-]{subsection.6.4}{Running different batches}{section.6}% 21
+\BOOKMARK [1][-]{section.7}{Work carried out so far}{}% 22
+\BOOKMARK [2][-]{subsection.7.1}{Algorithm Outline}{section.7}% 23
+\BOOKMARK [1][-]{section.8}{Work to be done}{}% 24
+\BOOKMARK [1][-]{section.9}{Gant Chart\(Work Plan\)}{}% 25
+\BOOKMARK [1][-]{section.10}{Milestones in the project phase}{}% 26
+\BOOKMARK [1][-]{section*.2}{References}{}% 27
