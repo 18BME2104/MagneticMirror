@@ -8,20 +8,15 @@
 \BOOKMARK [2][-]{subsection.2.1}{Plasma as a system}{section.2}% 8
 \BOOKMARK [1][-]{section.3}{Gaps in Literature}{}% 9
 \BOOKMARK [2][-]{subsection.3.1}{Particle in Cell Methods}{section.3}% 10
-\BOOKMARK [2][-]{subsection.3.2}{Boris Algorithm}{section.3}% 11
-\BOOKMARK [1][-]{section.4}{Problem Definition}{}% 12
-\BOOKMARK [2][-]{subsection.4.1}{Particle Sampling}{section.4}% 13
-\BOOKMARK [2][-]{subsection.4.2}{Particle Evolution}{section.4}% 14
-\BOOKMARK [2][-]{subsection.4.3}{Fields}{section.4}% 15
-\BOOKMARK [1][-]{section.5}{Objectives}{}% 16
-\BOOKMARK [1][-]{section.6}{Methodology}{}% 17
-\BOOKMARK [2][-]{subsection.6.1}{Single particle and evolution}{section.6}% 18
-\BOOKMARK [2][-]{subsection.6.2}{Defining the fields}{section.6}% 19
-\BOOKMARK [2][-]{subsection.6.3}{Particle initialization}{section.6}% 20
-\BOOKMARK [2][-]{subsection.6.4}{Running different batches}{section.6}% 21
-\BOOKMARK [1][-]{section.7}{Work carried out so far}{}% 22
-\BOOKMARK [2][-]{subsection.7.1}{Algorithm Outline}{section.7}% 23
-\BOOKMARK [1][-]{section.8}{Work to be done}{}% 24
-\BOOKMARK [1][-]{section.9}{Gant Chart\(Work Plan\)}{}% 25
-\BOOKMARK [1][-]{section.10}{Milestones in the project phase}{}% 26
-\BOOKMARK [1][-]{section*.2}{References}{}% 27
+\BOOKMARK [1][-]{section.4}{Problem Definition}{}% 11
+\BOOKMARK [1][-]{section.5}{Objectives}{}% 12
+\BOOKMARK [1][-]{section.6}{Methodology}{}% 13
+\BOOKMARK [2][-]{subsection.6.1}{Particle Sampling}{section.6}% 14
+\BOOKMARK [2][-]{subsection.6.2}{Particle Evolution}{section.6}% 15
+\BOOKMARK [2][-]{subsection.6.3}{Fields}{section.6}% 16
+\BOOKMARK [2][-]{subsection.6.4}{Running different batches}{section.6}% 17
+\BOOKMARK [1][-]{section.7}{Work carried out so far}{}% 18
+\BOOKMARK [1][-]{section.8}{Work to be done}{}% 19
+\BOOKMARK [1][-]{section.9}{Gant Chart\(Work Plan\)}{}% 20
+\BOOKMARK [1][-]{section.10}{Milestones in the project phase}{}% 21
+\BOOKMARK [1][-]{section*.3}{References}{}% 22
