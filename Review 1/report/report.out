@@ -11,12 +11,26 @@
 \BOOKMARK [1][-]{section.4}{Problem Definition}{}% 11
 \BOOKMARK [1][-]{section.5}{Objectives}{}% 12
 \BOOKMARK [1][-]{section.6}{Methodology}{}% 13
-\BOOKMARK [2][-]{subsection.6.1}{Particle Sampling}{section.6}% 14
-\BOOKMARK [2][-]{subsection.6.2}{Particle Evolution}{section.6}% 15
-\BOOKMARK [2][-]{subsection.6.3}{Fields}{section.6}% 16
-\BOOKMARK [2][-]{subsection.6.4}{Running different batches}{section.6}% 17
-\BOOKMARK [1][-]{section.7}{Work carried out so far}{}% 18
-\BOOKMARK [1][-]{section.8}{Work to be done}{}% 19
-\BOOKMARK [1][-]{section.9}{Gant Chart\(Work Plan\)}{}% 20
-\BOOKMARK [1][-]{section.10}{Milestones in the project phase}{}% 21
-\BOOKMARK [1][-]{section*.3}{References}{}% 22
+\BOOKMARK [2][-]{subsection.6.1}{Particle Evolution- single particle dynamics}{section.6}% 14
+\BOOKMARK [3][-]{subsubsection.6.1.1}{Lorentz Force}{subsection.6.1}% 15
+\BOOKMARK [3][-]{subsubsection.6.1.2}{Boris Algorithm}{subsection.6.1}% 16
+\BOOKMARK [2][-]{subsection.6.2}{Particle Sampling- kinetic theory}{section.6}% 17
+\BOOKMARK [3][-]{subsubsection.6.2.1}{Maxwellian distribution}{subsection.6.2}% 18
+\BOOKMARK [3][-]{subsubsection.6.2.2}{Parabolic distributions}{subsection.6.2}% 19
+\BOOKMARK [3][-]{subsubsection.6.2.3}{A justification for Parabolic density functions - Vlasov equation}{subsection.6.2}% 20
+\BOOKMARK [3][-]{subsubsection.6.2.4}{A justification for Parabolic density functions - Magnetic mirror}{subsection.6.2}% 21
+\BOOKMARK [2][-]{subsection.6.3}{Fields}{section.6}% 22
+\BOOKMARK [2][-]{subsection.6.4}{Running different batches}{section.6}% 23
+\BOOKMARK [1][-]{section.7}{Work carried out so far}{}% 24
+\BOOKMARK [2][-]{subsection.7.1}{Constants - constants.ipynb}{section.7}% 25
+\BOOKMARK [2][-]{subsection.7.2}{Particle - particle.ipynb}{section.7}% 26
+\BOOKMARK [2][-]{subsection.7.3}{Electric and Magnetic fields - field.ipynb}{section.7}% 27
+\BOOKMARK [2][-]{subsection.7.4}{Particle initialization - sampling.ipynb}{section.7}% 28
+\BOOKMARK [2][-]{subsection.7.5}{Updating the particles - step.ipynb}{section.7}% 29
+\BOOKMARK [1][-]{section.8}{Work to be done}{}% 30
+\BOOKMARK [2][-]{subsection.8.1}{Batches of updates - run.ipynb}{section.8}% 31
+\BOOKMARK [2][-]{subsection.8.2}{Plotting - plot.ipynb}{section.8}% 32
+\BOOKMARK [2][-]{subsection.8.3}{Understanding of the plasma}{section.8}% 33
+\BOOKMARK [1][-]{section.9}{Gant Chart \(Work Plan\)}{}% 34
+\BOOKMARK [1][-]{section.10}{Milestones in the project phase}{}% 35
+\BOOKMARK [1][-]{section*.5}{References}{}% 36

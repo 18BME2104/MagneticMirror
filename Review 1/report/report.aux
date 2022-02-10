@@ -23,16 +23,16 @@
 \citation{SurfaceEng}
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.3}Physical Vapor Deposition}{3}{subsection.1.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.4}Magnetron Sputtering}{3}{subsection.1.4}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Magnetron Sputtering system. credit: \cite  {SurfaceEng}\relax }}{3}{figure.caption.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Magnetron Sputtering system. credit: \cite  {SurfaceEng}\relax }}{4}{figure.caption.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.5}Magnetic Mirror}{4}{subsection.1.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2}Literature Review}{4}{section.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2}Literature Review}{5}{section.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Plasma as a system}{5}{subsection.2.1}\protected@file@percent }
 \newlabel{eqn:lorentz}{{1}{5}{Plasma as a system}{equation.2.1}{}}
 \citation{PIC good}
 \citation{PIC IAS}
 \citation{PIC good}
-\@writefile{toc}{\contentsline {section}{\numberline {3}Gaps in Literature}{7}{section.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Particle in Cell Methods}{7}{subsection.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}Gaps in Literature}{8}{section.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Particle in Cell Methods}{8}{subsection.3.1}\protected@file@percent }
 \citation{PIC good}
 \citation{PIC good}
 \citation{PIC IAS}
@@ -40,24 +40,59 @@
 \citation{PIC IAS}
 \citation{PIC IAS}
 \citation{PIC IAS}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Flowchart for PIC methods. credit: \cite  {PIC IAS}\relax }}{9}{figure.caption.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4}Problem Definition}{9}{section.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5}Objectives}{10}{section.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Flowchart for PIC methods. credit: \cite  {PIC IAS}\relax }}{10}{figure.caption.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}Problem Definition}{10}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}Objectives}{11}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}Methodology}{12}{section.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Particle Evolution- single particle dynamics}{12}{subsection.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.1.1}Lorentz Force}{12}{subsubsection.6.1.1}\protected@file@percent }
+\newlabel{eqn:velocity}{{2}{12}{Lorentz Force}{equation.6.2}{}}
+\newlabel{eqn:Dlorentz}{{3}{12}{Lorentz Force}{equation.6.3}{}}
+\newlabel{eqn:Dvelocity}{{4}{12}{Lorentz Force}{equation.6.4}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.1.2}Boris Algorithm}{13}{subsubsection.6.1.2}\protected@file@percent }
+\newlabel{eqn:halfEpulse1}{{5}{13}{Boris Algorithm}{equation.6.5}{}}
+\newlabel{eqn:Brotation}{{6}{13}{Boris Algorithm}{equation.6.6}{}}
+\newlabel{eqn:halfEpulse2}{{7}{13}{Boris Algorithm}{equation.6.7}{}}
+\newlabel{eqn:Dlorentz}{{6.1.2}{13}{Boris Algorithm}{equation.6.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Particle Sampling- kinetic theory}{13}{subsection.6.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.1}Maxwellian distribution}{14}{subsubsection.6.2.1}\protected@file@percent }
+\newlabel{eqn:maxwellian}{{9}{14}{Maxwellian distribution}{equation.6.9}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.2}Parabolic distributions}{14}{subsubsection.6.2.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces $f_{0}$\relax }}{14}{figure.caption.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces $f_{\delta }$\relax }}{14}{figure.caption.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces $\hat  {f_{1}}$\relax }}{15}{figure.caption.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces $\hat  {f_{2}}$\relax }}{15}{figure.caption.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.3}A justification for Parabolic density functions - Vlasov equation}{15}{subsubsection.6.2.3}\protected@file@percent }
+\newlabel{eqn:MaxwellInVlasov}{{6.2.3}{16}{A justification for Parabolic density functions - Vlasov equation}{subsubsection.6.2.3}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.4}A justification for Parabolic density functions - Magnetic mirror}{18}{subsubsection.6.2.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Fields}{19}{subsection.6.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}Running different batches}{19}{subsection.6.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7}Work carried out so far}{20}{section.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Constants - constants.ipynb}{20}{subsection.7.1}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{constants.py}{20}{lstlisting.-1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}Particle - particle.ipynb}{21}{subsection.7.2}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{particle.py}{21}{lstlisting.-2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.3}Electric and Magnetic fields - field.ipynb}{21}{subsection.7.3}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{field.py}{22}{lstlisting.-3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.4}Particle initialization - sampling.ipynb}{22}{subsection.7.4}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{sampling.py}{23}{lstlisting.-4}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{sampling.py}{24}{lstlisting.-5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.5}Updating the particles - step.ipynb}{24}{subsection.7.5}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{step.py}{24}{lstlisting.-6}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{step.py}{25}{lstlisting.-7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {8}Work to be done}{25}{section.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.1}Batches of updates - run.ipynb}{26}{subsection.8.1}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{run.py}{26}{lstlisting.-8}\protected@file@percent }
 \bibcite{SurfaceEng}{1}
 \bibcite{MKunz}{2}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Methodology}{11}{section.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Particle Sampling}{11}{subsection.6.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Particle Evolution}{11}{subsection.6.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Fields}{11}{subsection.6.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}Running different batches}{11}{subsection.6.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {7}Work carried out so far}{11}{section.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {8}Work to be done}{11}{section.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {9}Gant Chart(Work Plan)}{11}{section.9}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {10}Milestones in the project phase}{11}{section.10}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{References}{11}{section*.3}\protected@file@percent }
 \bibcite{chenbook}{3}
 \bibcite{mirror1}{4}
 \bibcite{mirror2}{5}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.2}Plotting - plot.ipynb}{27}{subsection.8.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.3}Understanding of the plasma}{27}{subsection.8.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {9}Gant Chart (Work Plan)}{27}{section.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {10}Milestones in the project phase}{27}{section.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{References}{27}{section*.5}\protected@file@percent }
 \bibcite{PIC good}{6}
 \bibcite{PIC IAS}{7}
 \bibcite{Borisgood}{8}
