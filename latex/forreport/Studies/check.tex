@@ -1,0 +1,375 @@
+\documentclass[12pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsfonts,amsmath,amssymb}
+\usepackage{multicol}
+
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[nottoc, notlot, notlof]{tocbibind}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usepackage{pgfgantt}
+\usepackage{rotating}
+\usepackage[graphicx]{realboxes}
+
+\usepackage{color}
+\definecolor{myblue}{rgb}{.8, .8, 1}
+\definecolor{LightGray}{gray}{0.9}
+
+\usepackage[most]{tcolorbox}
+\tcbset{
+	enhanced,
+	colback=myblue!100!white,
+	boxrule=0.1pt,
+	colframe=myblue!100!black,
+	fonttitle=\bfseries
+}
+
+\usepackage{minted} % For code 
+\usepackage{tikz} % For checkmark
+
+\def\checkmark{\tikz\fill[scale=0.5](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;} %define checkmark
+
+\begin{document}
+
+	\fontfamily{ppl}\selectfont 
+	\begin{center}
+		\Large{\textbf{Magnetic Mirror Effect in Magnetron Plasma:}} \\
+		\Large{\textbf{Modeling of Plasma Parameters}} \\
+	\end{center}
+	
+	\section{Checks}
+	To verify that our program is working correctly, we perform some checks. We compare results from the program with calculations done by hand; of certain quantities and see if they agree.
+	
+	\subsection{Sampling}
+	As of now we our sampling of particle speeds is based on the Maxwell-Boltzmann distribution, that we have defined previously. We now check if the average speeds of the particles agrees with the calculations done by hand based on the plasma temperature.
+	We recall the Maxwellian density function that we defined earlier. 
+	\begin{equation}
+		\label{eqn:maxwellian}
+		\widehat{f_{M}} := \hat{f}(\boldsymbol{x}, \boldsymbol{v}, t) = \left(\frac{m}{2\pi KT}\right)^{\frac{3}{2}} \mathrm{exp}\left(-\frac{\boldsymbol{v}^{2}}{v_{th}^{2}}\right)
+	\end{equation} where $$v_{th}^{2} = \frac{2 K T}{m}$$
+	For our convenience, we use the density function with speed instead of velocity which is defined as:
+	\begin{equation}
+		\label{eqn:maxwellianSpeed}
+		\widehat{f_{m}} := \hat{f}(\boldsymbol{x}, v, t) = \left(\frac{m}{2\pi KT}\right)^{\frac{3}{2}} 4 \pi v^{2} \: \mathrm{exp}\left(-\frac{v^{2}}{v_{th}^{2}}\right)
+	\end{equation} which is obtained by integrating over the solid angle in the velocity variable. \\
+
+	For this density function we calculate the average speed by with the expression:
+	$$ \int_{v = - \infty}^{v = \infty} d v \: v \: \widehat{f_{m}} = \int_{v = - \infty}^{v = \infty} d v \: v \: \left(\frac{m}{2\pi KT}\right)^{\frac{3}{2}} 4 \pi v^{2} \: \mathrm{exp}\left(-\frac{v^{2}}{v_{th}^{2}}\right)$$
+	$$=  4 \pi \left(\frac{m}{2\pi KT}\right)^{\frac{3}{2}} \int_{v = - \infty}^{v = \infty} d v \: v^{3} \: \mathrm{exp}\left(-\frac{v^{2}}{v_{th}^{2}}\right)$$ $$ = 4 \pi \left(\frac{m}{2\pi KT}\right)^{\frac{3}{2}} \frac{v_{th}^{4}}{2} = 4 \pi \left(\frac{1}{\pi v_{th}^{2}}\right)^{\frac{3}{2}} \frac{v_{th}^{4}}{2}$$ $$= \frac{2}{\sqrt{\pi}} v_{th} = \frac{2}{\sqrt{\pi}} \sqrt{\frac{2 K T}{m}} = \frac{2}{\sqrt{\pi}} \sqrt{\frac{2 R T}{M}} = $$ 
+	\color{red}    \textbf{Task 1} \\
+	do the calculation here ... \color{black}
+	
+	From section 1.1.1 Maxwellian sampling in the \textbf{studies.ipynb} notebook, we take the following:
+	
+	\begin{center}
+		\begin{tcolorbox}[width=3.5cm]
+			Initialization
+		\end{tcolorbox}
+	\end{center}
+	\begin{minted}[
+		frame=lines,
+		framesep=2mm,
+		baselinestretch=1.2,
+		bgcolor=LightGray,
+		fontsize=\footnotesize,
+		linenos=true,
+		breaklines
+		]
+		{python}
+# c1Maxwell means checking the Maxwellian sampling
+c1Maxwell = Run()
+# Create 100 particles based on the data available in the files
+c1Maxwell.create_batch_with_file_initialization('H+', constants.constants['e'][0], constants.constants['m_H'][0] * constants.constants['amu'][0], 100, 100, 'H ions', r_index=0, v_index=1)	
+	\end{minted}
+	\begin{center}
+		\begin{tcolorbox}[width=3cm]
+			Inspection
+		\end{tcolorbox}
+	\end{center}
+	\begin{minted}[
+		frame=lines,
+		framesep=2mm,
+		baselinestretch=1.2,
+		bgcolor=LightGray,
+		fontsize=\footnotesize,
+		linenos=true,
+		breaklines
+		]
+		{python}
+# Take the 0th batch of particles
+c1Maxwell_batch = c1Maxwell.batches[0]['H ions']
+# Take the initial positions and velocities of the particles
+c1Maxwell_positions = []
+c1Maxwell_velocities = []
+for particle in c1Maxwell_batch.particles:
+c1Maxwell_positions.append(particle.r)
+c1Maxwell_velocities.append(particle.v)
+# Let's now look at the velocities
+c1Maxwell_velocities
+# We need to check if they are really Maxwellian distributed
+# Get the speeds 
+c1Maxwell_speeds = np.sqrt( \
+[ (c1Maxwell_velocities[i][0] ** 2) + (c1Maxwell_velocities[i][1] ** 2) + \
+(c1Maxwell_velocities[i][2] ** 2) for i in range(len(c1Maxwell_velocities)) ] )
+c1Maxwell_meanspeed = np.sum(c1Maxwell_speeds) / c1Maxwell_speeds.size	
+	\end{minted}
+We get an average speed of the distribution to be:
+\begin{tcolorbox}
+	\begin{verbatim}
+	14202.764572898674
+\end{verbatim}
+\end{tcolorbox}
+
+\color{red}  \textbf{Task 2} \\
+Check if $\frac{2}{\sqrt{\pi}} \sqrt{\frac{2 K T}{m}} = \frac{2}{\sqrt{\pi}} \sqrt{\frac{2 R T}{M}} = $ is what works out based on what I have used for sampling ... \color{black}
+	\subsection{Update}
+		We recall the Boris Algorithm, that we use to update the particles in the plasma simulation.
+		\begin{center}
+			\begin{tcolorbox}[width=8cm]
+				
+				\begin{equation}
+					\label{Boris Algorithm}
+					\begin{split}
+						\boldsymbol{v}^{-} & = \boldsymbol{v}_{k} + q^{\prime} \mathbf{E}_{k} \\
+						\boldsymbol{v}^{+} & = \boldsymbol{v}^{-} + 2 q^{\prime} \left( \boldsymbol{v}^{-} \times \mathbf{B}_{k} \right) \\
+						\boldsymbol{v}_{k+1} & = \boldsymbol{v}^{+} + q^{\prime} \mathbf{E}_{k} \\
+						\boldsymbol{x}_{k+1} & = \boldsymbol{x}_{k} + \Delta t \hspace{0.2cm}\boldsymbol{v}_{k+1}
+					\end{split}	 			
+				\end{equation}
+			\end{tcolorbox}
+		\end{center}
+		where $q^{\prime} = \frac{\displaystyle q}{\displaystyle m} \frac{\displaystyle \Delta t}{ 2}$.
+		
+		To verify that the simulation works as we expect it to, we perform a calculation and compare it to the output of an algorithm. From section 1.2.1 Boris Update in the \textbf{studies.ipynb} notebook, we take the following:
+		\begin{center}
+			\begin{tcolorbox}[width=3.5cm]
+				Initialization
+			\end{tcolorbox}
+		\end{center}
+
+		\begin{minted}[
+			frame=lines,
+			framesep=2mm,
+			baselinestretch=1.2,
+			bgcolor=LightGray,
+			fontsize=\footnotesize,
+			linenos=true,
+			breaklines
+			]
+			{python}
+# c2Boris means checking the Boris update
+c2Boris = Run()
+#Create 10 particles
+c2Boris.create_batch_with_file_initialization('H+', constants.constants['e'][0], constants.constants['m_H'][0] * constants.constants['amu'][0], 100, 10, 'H ions', r_index=0, v_index=1)		
+		\end{minted}
+		\begin{center}
+			\begin{tcolorbox}[width=4.5cm]
+				Update input data
+			\end{tcolorbox}
+		\end{center}		
+
+		\begin{minted}[
+			frame=lines,
+			framesep=2mm,
+			baselinestretch=1.2,
+			bgcolor=LightGray,
+			fontsize=\footnotesize,
+			linenos=true,
+			breaklines
+			]
+			{python}
+											
+c2Boris_index_update = 0 # Update the first batch in this Run instance run_Boris_check
+c2Boris_particle_track_indices = [i for i in range(10)] # Track all 10 particles
+c2Boris_dT = 10**(-6) # 1 microseconds
+c2Boris_stepT = 10**(-7) # 0.1 microseconds time step
+c2Boris_E0 = 1000 # say 1000 Volts (voltage) per meter (size of chamber) 
+c2Boris_Edirn = [1,0,0] #in the x-direction [1,0,0]
+c2Boris_B0 = 10 * (10**(-3)) # Meant to say 10 mT 
+c2Boris_Bdirn = [0,1,0] #in the y-direction [0,1,0]
+c2Boris_argsE = [element * c2Boris_E0 for element in c2Boris_Edirn] # currently the uniform_E_field configuration is used
+c2Boris_argsB = [element * c2Boris_B0 for element in c2Boris_Bdirn]# currently the uniform_B_field configuration is used
+		\end{minted}
+	
+		\begin{center}
+		\begin{tcolorbox}[width=2.5cm]
+			Update
+		\end{tcolorbox}
+		\end{center}
+	
+	\begin{minted}[
+		frame=lines,
+		framesep=2mm,
+		baselinestretch=1.2,
+		bgcolor=LightGray,
+		fontsize=\footnotesize,
+		linenos=true,
+		breaklines,
+		]          
+		{python}
+c2Boris_positions_and_velocities = c2Boris.update_batch_with_unchanging_fields(c2Boris_index_update, c2Boris_dT, c2Boris_stepT, c2Boris_argsE, c2Boris_argsB, c2Boris_particle_track_indices)	
+
+#Let's inspect the positions and velocities of the particles at index 1 and 7
+c2Boris_p1 = c2Boris_positions_and_velocities[1]
+c2Boris_p7 = c2Boris_positions_and_velocities[7]
+
+#Let's take the positions and velocities of the particle 1 after the 3rd and the 4th time steps.
+c2Boris_p134_p = [c2Boris_p1[3][1], c2Boris_p1[4][1]]
+c2Boris_p134_v = [c2Boris_p1[3][2], c2Boris_p1[4][2]]
+
+#Similary for particle 7
+c2Boris_p734_p = [c2Boris_p7[3][1], c2Boris_p7[4][1]]
+c2Boris_p734_v = [c2Boris_p7[3][2], c2Boris_p7[4][2]]	
+	\end{minted}
+The program gives the following output. For example, we can check the particles 1 and 7 in the update. After the $3^{rd}$ step of the update, the velocity of particle 1 was:
+\begin{tcolorbox}
+	\begin{verbatim}
+		[39771.83801956555, -5029.491038, 4533.343932509505]
+	\end{verbatim}
+\end{tcolorbox}
+and after the $4^{th}$ update, it changed to:
+\begin{tcolorbox}
+	\begin{verbatim}
+	[48909.86581773698, -5029.491038, 8798.399243869582]
+\end{verbatim}
+\end{tcolorbox}
+Its position after the $3^{rd}$ step of the update was:
+\begin{tcolorbox}
+	\begin{verbatim}
+	[-0.48985112694809785, -0.0020117964152, 0.00017005183797547688]
+\end{verbatim}
+\end{tcolorbox}
+which was updated after the $4^{th}$ step of the update to:
+\begin{tcolorbox}
+	\begin{verbatim}
+[-0.4849601403663242, -0.0025147455189999997, 0.001049891762362435] 
+\end{verbatim}
+\end{tcolorbox}
+We now check if the same if true, with a calculation of the update done by hand.
+$$q^{\prime} = \frac{\displaystyle q}{\displaystyle m} \frac{\displaystyle \Delta t}{ 2} = \frac{\displaystyle 1.602176634 \times 10^{-19} \: \mathrm{C}} {\displaystyle 1.008 \: \mathrm{a.m.u.} \times 1.6605390666 \times 10^{-27} \: \mathrm{kg} \: \mathrm{a.m.u.}^{-1}} \frac{\displaystyle 10^{-7} \: \mathrm{s}}{ 2} = 4.78597877761177 \: \mathrm{C} \: \mathrm{s} \: \mathrm{kg}^{-1}$$
+
+$\boldsymbol{v}^{-} = \boldsymbol{v}_{3} + q^{\prime} \mathbf{E} = \begin{bmatrix} 
+	39771.83801956555 \\ -5029.491038 \\ 4533.343932509505
+\end{bmatrix} + 4.78597877761177 \begin{bmatrix}
+ 1000 \\ 0 \\ 0 
+\end{bmatrix} = \begin{bmatrix}
+44557.81679718 \\ -5029.491038 \\  4533.34393251
+\end{bmatrix}$
+$$\boldsymbol{v}^{+} = \boldsymbol{v}^{-} + 2 q^{\prime} \left( \boldsymbol{v}^{-} \times \mathbf{B} \right) = \begin{bmatrix}
+	44557.81679718 \\ -5029.491038 \\  4533.34393251
+\end{bmatrix} + 2 \cdot 4.78597877761177 \left( \begin{bmatrix}
+44557.81679718 \\ -5029.491038 \\  4533.34393251
+\end{bmatrix} \times \begin{bmatrix}
+0.0 \\ 0.01 \\ 0.0
+\end{bmatrix} \right)$$ $$ = \begin{bmatrix}
+44123.88704013 \\ -5029.491038 \\ 8798.39924387
+\end{bmatrix}$$
+\begin{tcolorbox}
+	$$\boldsymbol{v}_{4} = \boldsymbol{v}^{+} + q^{\prime} \mathbf{E} = \begin{bmatrix}
+	44123.88704013 \\ -5029.491038 \\ 8798.39924387
+\end{bmatrix} + 4.78597877761177 \begin{bmatrix}
+1000 \\ 0 \\ 0 
+\end{bmatrix} = \begin{bmatrix}
+48909.86581774 \\ -5029.491038 \\  8798.39924387
+\end{bmatrix}$$
+\end{tcolorbox}
+\begin{tcolorbox}
+	$$\boldsymbol{x}_{4} = \boldsymbol{x}_{3} + \Delta t \hspace{0.2cm}\boldsymbol{v}_{4} = \begin{bmatrix}
+	-4.89851127 \times 10^{-01} \\ -2.01179642\times 10^{-03} \\  1.70051838\times 10^{-04}
+\end{bmatrix} + 10^{-7} \hspace{0.2cm}\ \begin{bmatrix}
+48909.86581774 \\ -5029.491038 \\  8798.39924387
+\end{bmatrix} = \begin{bmatrix}
+-0.48496014 \\ -0.00251475 \\  0.00104989
+\end{bmatrix}$$
+\end{tcolorbox}
+We see that the values for $\boldsymbol{x_{3}}$, $\boldsymbol{x_{4}}$, $\boldsymbol{v_{3}}$ and $\boldsymbol{v_{4}}$ for particle 1 are close (the latter digits differ due to the differing precision of calculations); i.e. the same when done by hand and in the program.
+
+\noindent Similarly, for particle 7. After the $3^{rd}$ step of the update, the velocity of the particle was:
+\begin{tcolorbox}
+	\begin{verbatim}
+[38895.85871094631, -8670.854777, 13914.969423620274]
+\end{verbatim}
+\end{tcolorbox}
+and after the $4^{th}$ update, it changed to:
+\begin{tcolorbox}
+	\begin{verbatim}
+[47135.881299118584, -8670.854777, 18096.176367366777]
+\end{verbatim}
+\end{tcolorbox}
+Its position after the $3^{rd}$ step of the update was:
+\begin{tcolorbox}
+	\begin{verbatim}
+[-0.4896669752432719, -0.0034683419108, 0.0038875496903932644] 
+\end{verbatim}
+\end{tcolorbox}
+which was updated after the $4^{th}$ step of the update to:
+\begin{tcolorbox}
+	\begin{verbatim}
+[-0.48495338711336006, -0.0043354273885, 0.0056971673271299424]
+\end{verbatim}
+\end{tcolorbox}
+
+$\boldsymbol{v}^{-} = \boldsymbol{v}_{3} + q^{\prime} \mathbf{E} = \begin{bmatrix} 
+	 38895.85871095 \\ -8670.854777 \\ 13914.96942362
+\end{bmatrix} + 4.78597877761177 \begin{bmatrix}
+	1000 \\ 0 \\ 0 
+\end{bmatrix} = \begin{bmatrix}
+	43681.83748856 \\ -8670.854777 \\ 13914.96942362
+\end{bmatrix}$
+$$\boldsymbol{v}^{+} = \boldsymbol{v}^{-} + 2 q^{\prime} \left( \boldsymbol{v}^{-} \times \mathbf{B} \right) = \begin{bmatrix}
+	43681.83748856 \\ -8670.854777 \\ 13914.96942362
+\end{bmatrix} + 2 \cdot 4.78597877761177 \left( \begin{bmatrix}
+	43681.83748856 \\ -8670.854777 \\ 13914.96942362
+\end{bmatrix} \times \begin{bmatrix}
+	0.0 \\ 0.01 \\ 0.0
+\end{bmatrix} \right)$$ $$ = \begin{bmatrix}
+	42349.90252151 \\ -8670.854777  \\ 18096.17636737
+\end{bmatrix}$$
+\begin{tcolorbox}
+	$$\boldsymbol{v}_{4} = \boldsymbol{v}^{+} + q^{\prime} \mathbf{E} = \begin{bmatrix}
+	42349.90252151 \\ -8670.854777  \\ 18096.17636737
+\end{bmatrix} + 4.78597877761177 \begin{bmatrix}
+	1000 \\ 0 \\ 0 
+\end{bmatrix} = \begin{bmatrix}
+	47135.88129912 \\ -8670.854777 \\ 18096.17636737
+\end{bmatrix}$$
+\end{tcolorbox}
+\begin{tcolorbox}
+	$$\boldsymbol{x}_{4} = \boldsymbol{x}_{3} + \Delta t \hspace{0.2cm}\boldsymbol{v}_{4} = \begin{bmatrix}
+	-0.48966698 \\ -0.00346834 \\  0.00388755
+\end{bmatrix} + 10^{-7} \hspace{0.2cm}\ \begin{bmatrix}
+	47135.88129912 \\ -8670.854777 \\ 18096.17636737
+\end{bmatrix} = \begin{bmatrix}
+	-0.48495339 \\ -0.00433543 \\  0.00569717
+\end{bmatrix}$$
+\end{tcolorbox}
+We see that the values for $\boldsymbol{x_{3}}$, $\boldsymbol{x_{4}}$, $\boldsymbol{v_{3}}$ and $\boldsymbol{v_{4}}$ for particle 7 are close (the latter digits differ due to the differing precision of calculations); i.e. the same when done by hand and in the program.	
+
+Based on these calculations, we believe that our particle update works as expected; according to the Boris Algorithm, and this part of the program works correctly. \color{green} \checkmark \color{black}  
+		
+	\section{Plasma Stream}
+	\color{red}
+	\begin{itemize}
+		\item Maxwellian distribution
+		\item maybe Parabolic distribution
+	\end{itemize}
+	\begin{itemize}
+		\item Change Voltage of electrode to change electric field
+		\item Change current in Helmholtz coil to change the magnetic field 
+	\end{itemize}
+		while the updates are running.
+		on different batches.
+	\color{black}	
+	
+	\section{The Magnetic Mirror configuration}
+	\color{red}
+	\textbf{need parabolic $\mathbf{B}$ along $z$-axis configuration for $\nabla$$\mathbf{B}$ $\parallel$ $\mathbf{B}$ }
+	\color{black}
+\end{document}

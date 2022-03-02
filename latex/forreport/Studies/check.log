@@ -1,7 +1,7 @@
-This is LuaHBTeX, Version 1.14.0 (MiKTeX 22.1) (format=lualatex 2022.3.2)  2 MAR 2022 19:21
+This is LuaHBTeX, Version 1.14.0 (MiKTeX 22.1) (format=lualatex 2022.3.2)  2 MAR 2022 20:17
  system commands enabled.
-**report.tex
-(./report.tex
+**check.tex
+(./check.tex
 LaTeX2e <2021-11-15> patch level 1
 Lua module: luaotfload 2021-05-21 3.18 Lua based OpenType font support
 Lua module: lualibs 2021-05-20 2.74 ConTeXt Lua standard libraries.
@@ -980,48 +980,147 @@ File: tikzlibraryfadings.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 File: pgflibraryfadings.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 ))) (/usr/local/share/miktex-texmf/tex/latex/tcolorbox/tcbposter.code.tex
 Library (tcolorbox): 'tcbposter.code.tex' version '5.0.2'
+)) (/home/kushik/.miktex/texmfs/install/tex/latex/minted/minted.sty
+Package: minted 2021/12/24 v2.6 Yet another Pygments shim for LaTeX
+
+(/home/kushik/.miktex/texmfs/install/tex/latex/fvextra/fvextra.sty
+Package: fvextra 2019/02/04 v1.4 fvextra - extensions and patches for fancyvrb
+
+(/home/kushik/.miktex/texmfs/install/tex/latex/fancyvrb/fancyvrb.sty
+Package: fancyvrb 2021/12/21 4.1b verbatim text (tvz,hv)
+\FV@CodeLineNo=\count368
+\FV@InFile=\read4
+\FV@TabBox=\box130
+\c@FancyVerbLine=\count369
+\FV@StepNumber=\count370
+\FV@OutFile=\write4
+)
+(/home/kushik/.miktex/texmfs/install/tex/latex/upquote/upquote.sty
+Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
+tim
+
+(/usr/local/share/miktex-texmf/tex/latex/base/textcomp.sty
+Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
 ))
-LaTeX Font Info:    Trying to load font information for T1+txtt on input line 4
-3.
- (/home/kushik/.miktex/texmfs/install/tex/latex/txfonts/t1txtt.fd
-File: t1txtt.fd 2000/12/15 v3.1
+(/home/kushik/.miktex/texmfs/install/tex/latex/lineno/lineno.sty
+Package: lineno 2005/11/02 line numbers on paragraphs v4.41
+\linenopenalty=\count371
+\output=\toks48
+\linenoprevgraf=\count372
+\linenumbersep=\dimen293
+\linenumberwidth=\dimen294
+\c@linenumber=\count373
+\c@pagewiselinenumber=\count374
+\c@LN@truepage=\count375
+\c@internallinenumber=\count376
+\c@internallinenumbers=\count377
+\quotelinenumbersep=\dimen295
+\bframerule=\dimen296
+\bframesep=\dimen297
+\bframebox=\box131
+LaTeX Info: Redefining \\ on input line 3056.
 )
-\symmatha=\mathgroup6
-
-(/usr/local/share/miktex-texmf/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2020/03/24 1.8d listings language file
-) (./report.aux
-
-LaTeX Warning: Label `eqn:Dlorentz' multiply defined.
-
+\c@FV@TrueTabGroupLevel=\count378
+\c@FV@TrueTabCounter=\count379
+\FV@TabBox@Group=\box132
+\FV@TmpLength=\skip58
+\c@FV@HighlightLinesStart=\count380
+\c@FV@HighlightLinesStop=\count381
+\FV@LoopCount=\count382
+\FV@NCharsBox=\box133
+\FV@BreakIndent=\dimen298
+\FV@BreakIndentNChars=\count383
+\FV@BreakSymbolSepLeft=\dimen299
+\FV@BreakSymbolSepLeftNChars=\count384
+\FV@BreakSymbolSepRight=\dimen300
+\FV@BreakSymbolSepRightNChars=\count385
+\FV@BreakSymbolIndentLeft=\dimen301
+\FV@BreakSymbolIndentLeftNChars=\count386
+\FV@BreakSymbolIndentRight=\dimen302
+\FV@BreakSymbolIndentRightNChars=\count387
+\c@FancyVerbLineBreakLast=\count388
+\FV@LineBox=\box134
+\FV@LineIndentBox=\box135
+\FV@LineWidth=\dimen303
 )
-\openout1 = report.aux
+(/usr/local/share/miktex-texmf/tex/latex/tools/calc.sty
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count389
+\calc@Bcount=\count390
+\calc@Adimen=\dimen304
+\calc@Bdimen=\dimen305
+\calc@Askip=\skip59
+\calc@Bskip=\skip60
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count391
+\calc@Cskip=\skip61
+)
+(/home/kushik/.miktex/texmfs/install/tex/latex/ifplatform/ifplatform.sty
+Package: ifplatform 2017/10/13 v0.4a Testing for the operating system
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 131.
-LaTeX Font Info:    ... okay on input line 131.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 131.
-LaTeX Font Info:    ... okay on input line 131.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 131.
-LaTeX Font Info:    ... okay on input line 131.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 131.
-LaTeX Font Info:    ... okay on input line 131.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 131.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 1
-31.
+(/home/kushik/.miktex/texmfs/install/tex/generic/catchfile/catchfile.sty
+Package: catchfile 2019/12/09 v1.8 Catch the contents of a file (HO)
+)
+runsystem(uname -s > "check.w18")...executed
+
+(./check.w18)
+runsystem(rm -- "check.w18")...executed
+)
+(/home/kushik/.miktex/texmfs/install/tex/latex/xstring/xstring.sty
+(/home/kushik/.miktex/texmfs/install/tex/generic/xstring/xstring.tex
+\integerpart=\count392
+\decimalpart=\count393
+)
+Package: xstring 2021/07/21 v1.84 String manipulations (CT)
+)
+(/home/kushik/.miktex/texmfs/install/tex/latex/framed/framed.sty
+Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
+\OuterFrameSep=\skip62
+\fb@frw=\dimen306
+\fb@frh=\dimen307
+\FrameRule=\dimen308
+\FrameSep=\dimen309
+)
+\minted@appexistsfile=\read5
+\minted@bgbox=\box136
+\minted@code=\write5
+\c@minted@FancyVerbLineTemp=\count394
+\c@minted@pygmentizecounter=\count395
+\@float@every@listing=\toks49
+\c@listing=\count396
+)
+runsystem(mkdir -p _minted-check)...executed
+runsystem(which pygmentize && touch check.aex)...executed
+runsystem(rm check.aex)...executed
+ (./check.aux)
+\openout1 = check.aux
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 39.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 3
+9.
  (/usr/local/share/miktex-texmf/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 131.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 131.
-LaTeX Font Info:    ... okay on input line 131.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 131.
-LaTeX Font Info:    ... okay on input line 131.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 131.
-LaTeX Font Info:    ... okay on input line 131.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 131.
-LaTeX Font Info:    ... okay on input line 131.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 131.
-LaTeX Font Info:    ... okay on input line 131.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: luatex
@@ -1059,17 +1158,17 @@ LaTeX Font Info:    ... okay on input line 131.
 
 (/usr/local/share/miktex-texmf/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count368
-\scratchdimen=\dimen293
-\scratchbox=\box130
-\nofMPsegments=\count369
-\nofMParguments=\count370
-\everyMPshowfont=\toks48
-\MPscratchCnt=\count371
-\MPscratchDim=\dimen294
-\MPnumerator=\count372
-\makeMPintoPDFobject=\count373
-\everyMPtoPDFconversion=\toks49
+\scratchcounter=\count397
+\scratchdimen=\dimen310
+\scratchbox=\box137
+\nofMPsegments=\count398
+\nofMParguments=\count399
+\everyMPshowfont=\toks50
+\MPscratchCnt=\count400
+\MPscratchDim=\dimen311
+\MPnumerator=\count401
+\makeMPintoPDFobject=\count402
+\everyMPtoPDFconversion=\toks51
 ) (/usr/local/share/miktex-texmf/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -1078,7 +1177,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 (/usr/local/share/miktex-texmf/tex/latex/00miktex/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring OFF on input line 131.
+Package hyperref Info: Link coloring OFF on input line 39.
 
 (/usr/local/share/miktex-texmf/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
@@ -1090,251 +1189,142 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count374
+\c@section@level=\count403
 )
-LaTeX Info: Redefining \ref on input line 131.
-LaTeX Info: Redefining \pageref on input line 131.
-LaTeX Info: Redefining \nameref on input line 131.
- (./report.out) (./report.out)
-\@outlinefile=\write4
+LaTeX Info: Redefining \ref on input line 39.
+LaTeX Info: Redefining \pageref on input line 39.
+LaTeX Info: Redefining \nameref on input line 39.
+ (./check.out) (./check.out)
+\@outlinefile=\write6
 
-\openout4 = report.out
+\openout6 = check.out
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: listings package is loaded.
 Package caption Info: rotating package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\c@lstlisting=\count375
-LaTeX Font Info:    Trying to load font information for T1+ppl on input line 13
-3.
+\c@lstlisting=\count404
+LaTeX Font Info:    Trying to load font information for T1+ppl on input line 41
+.
 
 (/home/kushik/.miktex/texmfs/install/tex/latex/psnfss/t1ppl.fd
 File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
 )
-Underfull \hbox (badness 10000) in paragraph at lines 142--147
+LaTeX Font Info:    Trying to load font information for U+msa on input line 53.
 
- []
 
-(./report.toc
-LaTeX Font Info:    Trying to load font information for U+msa on input line 2.
- (/usr/local/share/miktex-texmf/tex/latex/amsfonts/umsa.fd
+(/usr/local/share/miktex-texmf/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 2.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 53.
+
 
 (/usr/local/share/miktex-texmf/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for OML+txmi on input line 
-2.
-
-(/home/kushik/.miktex/texmfs/install/tex/latex/txfonts/omltxmi.fd
-File: omltxmi.fd 2000/12/15 v3.1
-) [1
-
-{/home/kushik/.miktex/texmfs/data/fonts/map/pdftex/pdftex.map}])
-\tf@toc=\write5
-
-\openout5 = report.toc
- [2] [3] [4]
-<magnetron sputtering.png, id=262, 1167.36125pt x 778.91pt>
-File: magnetron sputtering.png Graphic file (type png)
-<use magnetron sputtering.png>
-Package luatex.def Info: magnetron sputtering.png  used on input line 215.
-(luatex.def)             Requested size: 341.42953pt x 227.61336pt.
- [5<./magnetron sputtering.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 221--222
+Underfull \hbox (badness 10000) in paragraph at lines 61--62
 
  []
 
-[6] [7]
-Underfull \hbox (badness 10000) in paragraph at lines 256--258
+[1
 
- []
+{/home/kushik/.miktex/texmfs/data/fonts/map/pdftex/pdftex.map}]
+\openout4 = check.pyg
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 259--260
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 260--262
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 265--267
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 267--269
-
- []
-
-[8]
-Underfull \hbox (badness 10000) in paragraph at lines 269--271
-
- []
-
-[9]
-<PIC.png, id=314, 939.51pt x 619.31375pt>
-File: PIC.png Graphic file (type png)
-<use PIC.png>
-Package luatex.def Info: PIC.png  used on input line 304.
-(luatex.def)             Requested size: 341.43456pt x 227.62105pt.
- [10] [11<./PIC.png>] [12] [13]
-Overfull \hbox (13.51799pt too wide) in paragraph at lines 407--408
-\T1/ppl/m/n/12 tuted for $[]$. How-ever, sub-tract-ing equa-tion ([]5[]) from eq
-ua-tion ([]7[]) gives $[] \OT1/cmr/m/n/12 =
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 407--408
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 429--430
-
- []
-
-[14]
-<uniform.png, id=389, 286.06876pt x 162.6075pt>
-File: uniform.png Graphic file (type png)
-<use uniform.png>
-Package luatex.def Info: uniform.png  used on input line 444.
-(luatex.def)             Requested size: 229.8811pt x 142.27376pt.
-<dirac.png, id=390, 338.26375pt x 602.25pt>
-File: dirac.png Graphic file (type png)
-<use dirac.png>
-Package luatex.def Info: dirac.png  used on input line 445.
-(luatex.def)             Requested size: 229.8821pt x 142.26393pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 448--449
-
- []
-
-[15<./uniform.png><./dirac.png>]
-<first.png, id=400, 325.215pt x 204.765pt>
-File: first.png Graphic file (type png)
-<use first.png>
-Package luatex.def Info: first.png  used on input line 482.
-(luatex.def)             Requested size: 229.882pt x 142.27219pt.
-<second.png, id=401, 594.22pt x 336.25626pt>
-File: second.png Graphic file (type png)
-<use second.png>
-Package luatex.def Info: second.png  used on input line 483.
-(luatex.def)             Requested size: 229.87704pt x 142.26309pt.
- [16<./first.png><./second.png>] [17]
-
-LaTeX Warning: Command \textbackslash invalid in math mode on input line 561.
-
-[18]
-Underfull \hbox (badness 10000) in paragraph at lines 578--581
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 582--586
-
- []
-
-[19] [20]
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 649.
- (./constants.py)
-Underfull \hbox (badness 10000) in paragraph at lines 652--653
-
- []
-
-[21] (./particle.py
-LaTeX Font Info:    Trying to load font information for TS1+ppl on input line 6
+(./_minted-check/default.pygstyle)
+(./_minted-check/7928C495743490297E0504B4FC61D5847A89F1F2CD020F52767C856FE70A42
+D9.pygtex
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
 .
+ (/usr/local/share/miktex-texmf/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 
+5.
 
-(/home/kushik/.miktex/texmfs/install/tex/latex/psnfss/ts1ppl.fd
-File: ts1ppl.fd 2001/06/04 font definitions for TS1/ppl.
+(/usr/local/share/miktex-texmf/tex/latex/lm/ts1lmtt.fd
+File: ts1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ))
-Underfull \hbox (badness 10000) in paragraph at lines 659--660
+\openout4 = check.pyg
 
+(./_minted-check/9C5F55EAF993E3C0AC0C9D0029694C877A89F1F2CD020F52767C856FE70A42
+D9.pygtex
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 7.
+) [2]
+\openout4 = check.pyg
+
+(./_minted-check/2906DF1C2A251BDD7E45658E95456C767A89F1F2CD020F52767C856FE70A42
+D9.pygtex)
+\openout4 = check.pyg
+
+(./_minted-check/E23AA2CB6B58318B8BAE4E8FC7B86BDB7A89F1F2CD020F52767C856FE70A42
+D9.pygtex)
+\openout4 = check.pyg
+ [3]
+(./_minted-check/D4B65FBEE4A97309D16B112E730966BE7A89F1F2CD020F52767C856FE70A42
+D9.pygtex)
+Overfull \hbox (25.45924pt too wide) detected at line 256
+\OML/cmm/m/it/12 q[] \OT1/cmr/m/n/12 = [][] = [][] = 4\OML/cmm/m/it/12 :\OT1/cm
+r/m/n/12 78597877761177 C s [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 661--662
-
+Overfull \hbox (41.21245pt too wide) detected at line 271
+[][] \OT1/cmr/m/n/12 = [][] + 2\OML/cmm/m/it/12 q[] [] \OT1/cmr/m/n/12 = [] + 2 \OMS/cmsy/m/n/12  \OT1/cmr/m/n/12 4\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 78597877761177 []
  []
 
-[22] (./field.py)
-Underfull \hbox (badness 10000) in paragraph at lines 670--671
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 672--673
-
- []
-
-[23] (./sampling.py [24]
-consecutive:
-) (./sampling.py
-consecutive:
-) (./step.py [25]
-consecutive:
-) (./step.py
-consecutive:
-) [26] (./run.py) [27]
-Overfull \hbox (31.26364pt too wide) in paragraph at lines 756--757
-[][] 
+[4]
+Overfull \hbox (15.31853pt too wide) detected at line 290
+[][] \OT1/cmr/m/n/12 = [][] + \OML/cmm/m/it/12 t [][] \OT1/cmr/m/n/12 = [] + 10
+[]   [] = []
  []
 
 
-LaTeX Warning: Float too large for page by 2.4106pt on input line 758.
+Overfull \hbox (41.21245pt too wide) detected at line 332
+[][] \OT1/cmr/m/n/12 = [][] + 2\OML/cmm/m/it/12 q[] [] \OT1/cmr/m/n/12 = [] + 2 \OMS/cmsy/m/n/12  \OT1/cmr/m/n/12 4\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 78597877761177 []
+ []
 
-[28] [29] [30
-
-] [31] [32] (./report.aux)
-
-LaTeX Warning: There were multiply-defined labels.
-
-Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: 94FA49DC543219EF2829276D63334411;6602.
+[5] [6] (./check.aux)
+Package rerunfilecheck Info: File `check.out' has not changed.
+(rerunfilecheck)             Checksum: 874037CDB000D7AE5729ECAD2B702BC3;585.
+runsystem(rm check.pyg)...executed
 )
 
 Here is how much of LuaTeX's memory you used:
- 34409 strings out of 477794
- 381551,1373583 words of node,token memory allocated
- 4526 words of node memory still in use:
-   30 hlist, 2 vlist, 14 rule, 2 glue, 436 kern, 1 glyph, 344 attribute, 59 glue
-_spec, 344 attribute_list, 2 write, 24 pdf_literal, 24 pdf_colorstack nodes
-   avail lists: 1:1,2:4966,3:2819,4:10212,5:8056,6:114,7:11799,8:103,9:20403,10:
-40,11:833
- 53319 multiletter control sequences out of 65536+600000
- 105 fonts using 7068087 bytes
- 99i,22n,95p,1185b,942s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/share/miktex-texmf/fonts/enc/dvips/base/8r.enc}{/usr/local/share/mik
-tex-texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/share/miktex-texmf/fonts/enc/
-dvips/lm/lm-ts1.enc}</usr/local/share/miktex-texmf/fonts/type1/public/amsfonts/c
-m/cmbsy10.pfb></usr/local/share/miktex-texmf/fonts/type1/public/amsfonts/cm/cmbx
-12.pfb></usr/local/share/miktex-texmf/fonts/type1/public/amsfonts/cm/cmbx8.pfb><
-/usr/local/share/miktex-texmf/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/lo
-cal/share/miktex-texmf/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/sha
-re/miktex-texmf/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/share/mikte
-x-texmf/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/share/miktex-texmf/
-fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/share/miktex-texmf/fonts/
-type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/share/miktex-texmf/fonts/ty
-pe1/public/amsfonts/cm/cmr12.pfb></usr/local/share/miktex-texmf/fonts/type1/publ
-ic/amsfonts/cm/cmr6.pfb></usr/local/share/miktex-texmf/fonts/type1/public/amsfon
-ts/cm/cmr8.pfb></usr/local/share/miktex-texmf/fonts/type1/public/amsfonts/cm/cms
-y10.pfb></usr/local/share/miktex-texmf/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+ 35798 strings out of 477794
+ 100000,1144653 words of node,token memory allocated
+ 1591 words of node memory still in use:
+   30 hlist, 2 vlist, 14 rule, 2 glue, 31 kern, 1 glyph, 114 attribute, 61 glue_
+spec, 114 attribute_list, 2 write, 24 pdf_literal, 24 pdf_colorstack nodes
+   avail lists: 2:2430,3:1104,4:372,5:509,6:62,7:4941,8:108,9:1205,10:16,11:249
+ 54982 multiletter control sequences out of 65536+600000
+ 75 fonts using 4892183 bytes
+ 99i,22n,95p,894b,915s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/share/miktex-texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/local/share/m
+iktex-texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/share/miktex-texmf/fonts/en
+c/dvips/base/8r.enc}</usr/local/share/miktex-texmf/fonts/type1/public/amsfonts/c
+m/cmbx12.pfb></usr/local/share/miktex-texmf/fonts/type1/public/amsfonts/cm/cmbx8
+.pfb></usr/local/share/miktex-texmf/fonts/type1/public/amsfonts/cm/cmex10.pfb></
+usr/local/share/miktex-texmf/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/loc
+al/share/miktex-texmf/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/share
+/miktex-texmf/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/share/miktex-
+texmf/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/share/miktex-texmf/
+fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/share/miktex-texmf/fonts/ty
+pe1/public/amsfonts/cm/cmr6.pfb></usr/local/share/miktex-texmf/fonts/type1/publi
+c/amsfonts/cm/cmr8.pfb></usr/local/share/miktex-texmf/fonts/type1/public/amsfont
+s/cm/cmsy10.pfb></usr/local/share/miktex-texmf/fonts/type1/public/amsfonts/cm/cm
+sy6.pfb></usr/local/share/miktex-texmf/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
 </usr/local/share/miktex-texmf/fonts/type1/public/lm/lmbx12.pfb></usr/local/shar
-e/miktex-texmf/fonts/type1/public/lm/lmr10.pfb></usr/local/share/miktex-texmf/fo
-nts/type1/public/lm/lmr12.pfb></usr/local/share/miktex-texmf/fonts/type1/public/
-amsfonts/symbols/msbm10.pfb></usr/local/share/miktex-texmf/fonts/type1/urw/palat
-ino/uplb8a.pfb></usr/local/share/miktex-texmf/fonts/type1/urw/palatino/uplbi8a.p
-fb></usr/local/share/miktex-texmf/fonts/type1/urw/palatino/uplr8a.pfb></usr/loca
-l/share/miktex-texmf/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on report.pdf (32 pages, 784671 bytes).
+e/miktex-texmf/fonts/type1/public/lm/lmr12.pfb></usr/local/share/miktex-texmf/fo
+nts/type1/public/lm/lmr6.pfb></usr/local/share/miktex-texmf/fonts/type1/public/l
+m/lmtk10.pfb></usr/local/share/miktex-texmf/fonts/type1/public/lm/lmtt10.pfb></u
+sr/local/share/miktex-texmf/fonts/type1/public/lm/lmtt12.pfb></usr/local/share/m
+iktex-texmf/fonts/type1/public/lm/lmtti10.pfb></usr/local/share/miktex-texmf/fon
+ts/type1/urw/palatino/uplb8a.pfb></usr/local/share/miktex-texmf/fonts/type1/urw/
+palatino/uplr8a.pfb>
+Output written on check.pdf (6 pages, 353896 bytes).
 
-PDF statistics: 799 PDF objects out of 1000 (max. 8388607)
- 357 named destinations out of 1000 (max. 131072)
- 544 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 191 PDF objects out of 1000 (max. 8388607)
+ 15 named destinations out of 1000 (max. 131072)
+ 296 words of extra memory for PDF output out of 10000 (max. 100000000)
 

@@ -1,0 +1,18 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Take the 0th batch of particles}
+\PYG{n}{c1Maxwell\PYGZus{}batch} \PYG{o}{=} \PYG{n}{c1Maxwell}\PYG{o}{.}\PYG{n}{batches}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{][}\PYG{l+s+s1}{\PYGZsq{}H ions\PYGZsq{}}\PYG{p}{]}
+\PYG{c+c1}{\PYGZsh{} Take the initial positions and velocities of the particles}
+\PYG{n}{c1Maxwell\PYGZus{}positions} \PYG{o}{=} \PYG{p}{[]}
+\PYG{n}{c1Maxwell\PYGZus{}velocities} \PYG{o}{=} \PYG{p}{[]}
+\PYG{k}{for} \PYG{n}{particle} \PYG{o+ow}{in} \PYG{n}{c1Maxwell\PYGZus{}batch}\PYG{o}{.}\PYG{n}{particles}\PYG{p}{:}
+\PYG{n}{c1Maxwell\PYGZus{}positions}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{particle}\PYG{o}{.}\PYG{n}{r}\PYG{p}{)}
+\PYG{n}{c1Maxwell\PYGZus{}velocities}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{particle}\PYG{o}{.}\PYG{n}{v}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{} Let\PYGZsq{}s now look at the velocities}
+\PYG{n}{c1Maxwell\PYGZus{}velocities}
+\PYG{c+c1}{\PYGZsh{} We need to check if they are really Maxwellian distributed}
+\PYG{c+c1}{\PYGZsh{} Get the speeds}
+\PYG{n}{c1Maxwell\PYGZus{}speeds} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{sqrt}\PYG{p}{(} \PYGZbs{}
+\PYG{p}{[} \PYG{p}{(}\PYG{n}{c1Maxwell\PYGZus{}velocities}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{**} \PYG{l+m+mi}{2}\PYG{p}{)} \PYG{o}{+} \PYG{p}{(}\PYG{n}{c1Maxwell\PYGZus{}velocities}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{**} \PYG{l+m+mi}{2}\PYG{p}{)} \PYG{o}{+} \PYGZbs{}
+\PYG{p}{(}\PYG{n}{c1Maxwell\PYGZus{}velocities}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{l+m+mi}{2}\PYG{p}{]} \PYG{o}{**} \PYG{l+m+mi}{2}\PYG{p}{)} \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{c1Maxwell\PYGZus{}velocities}\PYG{p}{))} \PYG{p}{]} \PYG{p}{)}
+\PYG{n}{c1Maxwell\PYGZus{}meanspeed} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{(}\PYG{n}{c1Maxwell\PYGZus{}speeds}\PYG{p}{)} \PYG{o}{/} \PYG{n}{c1Maxwell\PYGZus{}speeds}\PYG{o}{.}\PYG{n}{size}	
+\end{Verbatim}

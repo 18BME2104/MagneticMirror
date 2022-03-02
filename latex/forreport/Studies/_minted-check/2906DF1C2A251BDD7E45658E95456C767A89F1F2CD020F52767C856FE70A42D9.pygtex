@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} c2Boris means checking the Boris update}
+\PYG{n}{c2Boris} \PYG{o}{=} \PYG{n}{Run}\PYG{p}{()}
+\PYG{c+c1}{\PYGZsh{}Create 10 particles}
+\PYG{n}{c2Boris}\PYG{o}{.}\PYG{n}{create\PYGZus{}batch\PYGZus{}with\PYGZus{}file\PYGZus{}initialization}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}H+\PYGZsq{}}\PYG{p}{,} \PYG{n}{constants}\PYG{o}{.}\PYG{n}{constants}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}e\PYGZsq{}}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{],} \PYG{n}{constants}\PYG{o}{.}\PYG{n}{constants}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}m\PYGZus{}H\PYGZsq{}}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{*} \PYG{n}{constants}\PYG{o}{.}\PYG{n}{constants}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}amu\PYGZsq{}}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{],} \PYG{l+m+mi}{100}\PYG{p}{,} \PYG{l+m+mi}{10}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}H ions\PYGZsq{}}\PYG{p}{,} \PYG{n}{r\PYGZus{}index}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{v\PYGZus{}index}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{)}		
+\end{Verbatim}

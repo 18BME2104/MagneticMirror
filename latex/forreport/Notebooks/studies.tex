@@ -1,0 +1,1159 @@
+\documentclass[11pt]{article}
+
+    \usepackage[breakable]{tcolorbox}
+    \usepackage{parskip} % Stop auto-indenting (to mimic markdown behaviour)
+    
+    \usepackage{iftex}
+    \ifPDFTeX
+    	\usepackage[T1]{fontenc}
+    	\usepackage{mathpazo}
+    \else
+    	\usepackage{fontspec}
+    \fi
+
+    % Basic figure setup, for now with no caption control since it's done
+    % automatically by Pandoc (which extracts ![](path) syntax from Markdown).
+    \usepackage{graphicx}
+    % Maintain compatibility with old templates. Remove in nbconvert 6.0
+    \let\Oldincludegraphics\includegraphics
+    % Ensure that by default, figures have no caption (until we provide a
+    % proper Figure object with a Caption API and a way to capture that
+    % in the conversion process - todo).
+    \usepackage{caption}
+    \DeclareCaptionFormat{nocaption}{}
+    \captionsetup{format=nocaption,aboveskip=0pt,belowskip=0pt}
+
+    \usepackage{float}
+    \floatplacement{figure}{H} % forces figures to be placed at the correct location
+    \usepackage{xcolor} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage{textcomp} % defines textquotesingle
+    % Hack from http://tex.stackexchange.com/a/47451/13684:
+    \AtBeginDocument{%
+        \def\PYZsq{\textquotesingle}% Upright quotes in Pygmentized code
+    }
+    \usepackage{upquote} % Upright quotes for verbatim code
+    \usepackage{eurosym} % defines \euro
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics 
+                         % to support a larger range
+    \makeatletter % fix for old versions of grffile with XeLaTeX
+    \@ifpackagelater{grffile}{2019/11/01}
+    {
+      % Do nothing on new versions
+    }
+    {
+      \def\Gread@@xetex#1{%
+        \IfFileExists{"\Gin@base".bb}%
+        {\Gread@eps{\Gin@base.bb}}%
+        {\Gread@@xetex@aux#1}%
+      }
+    }
+    \makeatother
+    \usepackage[Export]{adjustbox} % Used to constrain images to a maximum size
+    \adjustboxset{max size={0.9\linewidth}{0.9\paperheight}}
+
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    % The default LaTeX title has an obnoxious amount of whitespace. By default,
+    % titling removes some of it. It also provides customization options.
+    \usepackage{titling}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    \usepackage[inline]{enumitem} % IRkernel/repr support (it uses the enumerate* environment)
+    \usepackage[normalem]{ulem} % ulem is needed to support strikethroughs (\sout)
+                                % normalem makes italics be italics, not underlines
+    \usepackage{mathrsfs}
+    
+
+    
+    % Colors for the hyperref package
+    \definecolor{urlcolor}{rgb}{0,.145,.698}
+    \definecolor{linkcolor}{rgb}{.71,0.21,0.01}
+    \definecolor{citecolor}{rgb}{.12,.54,.11}
+
+    % ANSI colors
+    \definecolor{ansi-black}{HTML}{3E424D}
+    \definecolor{ansi-black-intense}{HTML}{282C36}
+    \definecolor{ansi-red}{HTML}{E75C58}
+    \definecolor{ansi-red-intense}{HTML}{B22B31}
+    \definecolor{ansi-green}{HTML}{00A250}
+    \definecolor{ansi-green-intense}{HTML}{007427}
+    \definecolor{ansi-yellow}{HTML}{DDB62B}
+    \definecolor{ansi-yellow-intense}{HTML}{B27D12}
+    \definecolor{ansi-blue}{HTML}{208FFB}
+    \definecolor{ansi-blue-intense}{HTML}{0065CA}
+    \definecolor{ansi-magenta}{HTML}{D160C4}
+    \definecolor{ansi-magenta-intense}{HTML}{A03196}
+    \definecolor{ansi-cyan}{HTML}{60C6C8}
+    \definecolor{ansi-cyan-intense}{HTML}{258F8F}
+    \definecolor{ansi-white}{HTML}{C5C1B4}
+    \definecolor{ansi-white-intense}{HTML}{A1A6B2}
+    \definecolor{ansi-default-inverse-fg}{HTML}{FFFFFF}
+    \definecolor{ansi-default-inverse-bg}{HTML}{000000}
+
+    % common color for the border for error outputs.
+    \definecolor{outerrorbackground}{HTML}{FFDFDF}
+
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \providecommand{\tightlist}{%
+      \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Additional commands for more recent versions of Pandoc
+    \newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{{#1}}}
+    \newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{{#1}}}
+    \newcommand{\ImportTok}[1]{{#1}}
+    \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{{#1}}}}
+    \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{{#1}}}
+    \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{{#1}}}
+    \newcommand{\BuiltInTok}[1]{{#1}}
+    \newcommand{\ExtensionTok}[1]{{#1}}
+    \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{{#1}}}
+    \newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{{#1}}}
+    \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatibility definitions
+    \def\gt{>}
+    \def\lt{<}
+    \let\Oldtex\TeX
+    \let\Oldlatex\LaTeX
+    \renewcommand{\TeX}{\textrm{\Oldtex}}
+    \renewcommand{\LaTeX}{\textrm{\Oldlatex}}
+    % Document parameters
+    % Document title
+    \title{studies}
+    
+    
+    
+    
+    
+% Pygments definitions
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\@namedef{PY@tok@w}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\@namedef{PY@tok@c}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@cp}{\def\PY@tc##1{\textcolor[rgb]{0.61,0.40,0.00}{##1}}}
+\@namedef{PY@tok@k}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kp}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kt}{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\@namedef{PY@tok@o}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@ow}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\@namedef{PY@tok@nb}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@nf}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@nc}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@nn}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@ne}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.80,0.25,0.22}{##1}}}
+\@namedef{PY@tok@nv}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@no}{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\@namedef{PY@tok@nl}{\def\PY@tc##1{\textcolor[rgb]{0.46,0.46,0.00}{##1}}}
+\@namedef{PY@tok@ni}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.44,0.44,0.44}{##1}}}
+\@namedef{PY@tok@na}{\def\PY@tc##1{\textcolor[rgb]{0.41,0.47,0.13}{##1}}}
+\@namedef{PY@tok@nt}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@nd}{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\@namedef{PY@tok@s}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sd}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@si}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.64,0.35,0.47}{##1}}}
+\@namedef{PY@tok@se}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.36,0.12}{##1}}}
+\@namedef{PY@tok@sr}{\def\PY@tc##1{\textcolor[rgb]{0.64,0.35,0.47}{##1}}}
+\@namedef{PY@tok@ss}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@sx}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@m}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@gh}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\@namedef{PY@tok@gu}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\@namedef{PY@tok@gd}{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\@namedef{PY@tok@gi}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.52,0.00}{##1}}}
+\@namedef{PY@tok@gr}{\def\PY@tc##1{\textcolor[rgb]{0.89,0.00,0.00}{##1}}}
+\@namedef{PY@tok@ge}{\let\PY@it=\textit}
+\@namedef{PY@tok@gs}{\let\PY@bf=\textbf}
+\@namedef{PY@tok@gp}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\@namedef{PY@tok@go}{\def\PY@tc##1{\textcolor[rgb]{0.44,0.44,0.44}{##1}}}
+\@namedef{PY@tok@gt}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\@namedef{PY@tok@err}{\def\PY@bc##1{{\setlength{\fboxsep}{\string -\fboxrule}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}}
+\@namedef{PY@tok@kc}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kd}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kn}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kr}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@bp}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@fm}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@vc}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@vg}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@vi}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@vm}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@sa}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sb}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sc}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@dl}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@s2}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sh}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@s1}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@mb}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mf}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mh}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mi}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@il}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mo}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@ch}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@cm}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@cpf}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@c1}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@cs}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % For linebreaks inside Verbatim environment from package fancyvrb. 
+    \makeatletter
+        \newbox\Wrappedcontinuationbox 
+        \newbox\Wrappedvisiblespacebox 
+        \newcommand*\Wrappedvisiblespace {\textcolor{red}{\textvisiblespace}} 
+        \newcommand*\Wrappedcontinuationsymbol {\textcolor{red}{\llap{\tiny$\m@th\hookrightarrow$}}} 
+        \newcommand*\Wrappedcontinuationindent {3ex } 
+        \newcommand*\Wrappedafterbreak {\kern\Wrappedcontinuationindent\copy\Wrappedcontinuationbox} 
+        % Take advantage of the already applied Pygments mark-up to insert 
+        % potential linebreaks for TeX processing. 
+        %        {, <, #, %, $, ' and ": go to next line. 
+        %        _, }, ^, &, >, - and ~: stay at end of broken line. 
+        % Use of \textquotesingle for straight quote. 
+        \newcommand*\Wrappedbreaksatspecials {% 
+            \def\PYGZus{\discretionary{\char`\_}{\Wrappedafterbreak}{\char`\_}}% 
+            \def\PYGZob{\discretionary{}{\Wrappedafterbreak\char`\{}{\char`\{}}% 
+            \def\PYGZcb{\discretionary{\char`\}}{\Wrappedafterbreak}{\char`\}}}% 
+            \def\PYGZca{\discretionary{\char`\^}{\Wrappedafterbreak}{\char`\^}}% 
+            \def\PYGZam{\discretionary{\char`\&}{\Wrappedafterbreak}{\char`\&}}% 
+            \def\PYGZlt{\discretionary{}{\Wrappedafterbreak\char`\<}{\char`\<}}% 
+            \def\PYGZgt{\discretionary{\char`\>}{\Wrappedafterbreak}{\char`\>}}% 
+            \def\PYGZsh{\discretionary{}{\Wrappedafterbreak\char`\#}{\char`\#}}% 
+            \def\PYGZpc{\discretionary{}{\Wrappedafterbreak\char`\%}{\char`\%}}% 
+            \def\PYGZdl{\discretionary{}{\Wrappedafterbreak\char`\$}{\char`\$}}% 
+            \def\PYGZhy{\discretionary{\char`\-}{\Wrappedafterbreak}{\char`\-}}% 
+            \def\PYGZsq{\discretionary{}{\Wrappedafterbreak\textquotesingle}{\textquotesingle}}% 
+            \def\PYGZdq{\discretionary{}{\Wrappedafterbreak\char`\"}{\char`\"}}% 
+            \def\PYGZti{\discretionary{\char`\~}{\Wrappedafterbreak}{\char`\~}}% 
+        } 
+        % Some characters . , ; ? ! / are not pygmentized. 
+        % This macro makes them "active" and they will insert potential linebreaks 
+        \newcommand*\Wrappedbreaksatpunct {% 
+            \lccode`\~`\.\lowercase{\def~}{\discretionary{\hbox{\char`\.}}{\Wrappedafterbreak}{\hbox{\char`\.}}}% 
+            \lccode`\~`\,\lowercase{\def~}{\discretionary{\hbox{\char`\,}}{\Wrappedafterbreak}{\hbox{\char`\,}}}% 
+            \lccode`\~`\;\lowercase{\def~}{\discretionary{\hbox{\char`\;}}{\Wrappedafterbreak}{\hbox{\char`\;}}}% 
+            \lccode`\~`\:\lowercase{\def~}{\discretionary{\hbox{\char`\:}}{\Wrappedafterbreak}{\hbox{\char`\:}}}% 
+            \lccode`\~`\?\lowercase{\def~}{\discretionary{\hbox{\char`\?}}{\Wrappedafterbreak}{\hbox{\char`\?}}}% 
+            \lccode`\~`\!\lowercase{\def~}{\discretionary{\hbox{\char`\!}}{\Wrappedafterbreak}{\hbox{\char`\!}}}% 
+            \lccode`\~`\/\lowercase{\def~}{\discretionary{\hbox{\char`\/}}{\Wrappedafterbreak}{\hbox{\char`\/}}}% 
+            \catcode`\.\active
+            \catcode`\,\active 
+            \catcode`\;\active
+            \catcode`\:\active
+            \catcode`\?\active
+            \catcode`\!\active
+            \catcode`\/\active 
+            \lccode`\~`\~ 	
+        }
+    \makeatother
+
+    \let\OriginalVerbatim=\Verbatim
+    \makeatletter
+    \renewcommand{\Verbatim}[1][1]{%
+        %\parskip\z@skip
+        \sbox\Wrappedcontinuationbox {\Wrappedcontinuationsymbol}%
+        \sbox\Wrappedvisiblespacebox {\FV@SetupFont\Wrappedvisiblespace}%
+        \def\FancyVerbFormatLine ##1{\hsize\linewidth
+            \vtop{\raggedright\hyphenpenalty\z@\exhyphenpenalty\z@
+                \doublehyphendemerits\z@\finalhyphendemerits\z@
+                \strut ##1\strut}%
+        }%
+        % If the linebreak is at a space, the latter will be displayed as visible
+        % space at end of first line, and a continuation symbol starts next line.
+        % Stretch/shrink are however usually zero for typewriter font.
+        \def\FV@Space {%
+            \nobreak\hskip\z@ plus\fontdimen3\font minus\fontdimen4\font
+            \discretionary{\copy\Wrappedvisiblespacebox}{\Wrappedafterbreak}
+            {\kern\fontdimen2\font}%
+        }%
+        
+        % Allow breaks at special characters using \PYG... macros.
+        \Wrappedbreaksatspecials
+        % Breaks at punctuation characters . , ; ? ! and / need catcode=\active 	
+        \OriginalVerbatim[#1,codes*=\Wrappedbreaksatpunct]%
+    }
+    \makeatother
+
+    % Exact colors from NB
+    \definecolor{incolor}{HTML}{303F9F}
+    \definecolor{outcolor}{HTML}{D84315}
+    \definecolor{cellborder}{HTML}{CFCFCF}
+    \definecolor{cellbackground}{HTML}{F7F7F7}
+    
+    % prompt
+    \makeatletter
+    \newcommand{\boxspacing}{\kern\kvtcb@left@rule\kern\kvtcb@boxsep}
+    \makeatother
+    \newcommand{\prompt}[4]{
+        {\ttfamily\llap{{\color{#2}[#3]:\hspace{3pt}#4}}\vspace{-\baselineskip}}
+    }
+    
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=urlcolor,
+      linkcolor=linkcolor,
+      citecolor=citecolor,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+\begin{document}
+    
+    \maketitle
+    
+    
+
+    
+    \hypertarget{plasma-studies}{%
+\subsection{Plasma Studies}\label{plasma-studies}}
+
+We perform various studies on the plasma system using the simulation.
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{4}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k+kn}{import} \PY{n+nn}{import\PYZus{}ipynb}
+\PY{k+kn}{from} \PY{n+nn}{run} \PY{k+kn}{import} \PY{n}{Run}
+\PY{k+kn}{from} \PY{n+nn}{constants} \PY{k+kn}{import} \PY{n}{Constants}
+\PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k}{as} \PY{n+nn}{np}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+importing Jupyter notebook from run.ipynb
+importing Jupyter notebook from batch.ipynb
+importing Jupyter notebook from particle.ipynb
+importing Jupyter notebook from field.ipynb
+importing Jupyter notebook from constants.ipynb
+    \end{Verbatim}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{5}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{constants} \PY{o}{=} \PY{n}{Constants}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \hypertarget{section-1-checks}{%
+\subsubsection{Section 1: Checks}\label{section-1-checks}}
+
+Before we can do any studies confidently, we need to know if our program
+works as we expect it to; or wheather there might be bugs causing some
+erros. For this we perform a few checks, comparing calculations done by
+hand against the results of the program.
+
+As of now, we can check if the particle sampling and particle update is
+performed as expected.
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{ }{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+
+\end{Verbatim}
+\end{tcolorbox}
+
+    \hypertarget{sampling}{%
+\paragraph{1.1 Sampling}\label{sampling}}
+
+So far we have used the Maxwellian distribution for sampling.
+
+    \hypertarget{maxwellian-sampling}{%
+\subparagraph{1.1.1 Maxwellian sampling}\label{maxwellian-sampling}}
+
+For a Maxwellian distribution, we can calculate the average speeds of
+the particles based on the input parameters like the Plasma temperature
+and the mass of the species (assuming the same types of species for
+now). Here we get the average speeds of the sampled particles; which we
+will compare with a manual calculation.
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{6}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} c1Maxwell means checking the Maxwellian sampling}
+\PY{n}{c1Maxwell} \PY{o}{=} \PY{n}{Run}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{7}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Create 100 particles based on the data available in the files}
+\PY{n}{c1Maxwell}\PY{o}{.}\PY{n}{create\PYZus{}batch\PYZus{}with\PYZus{}file\PYZus{}initialization}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{H+}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{constants}\PY{o}{.}\PY{n}{constants}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{e}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PYZbs{}
+                                          \PY{n}{constants}\PY{o}{.}\PY{n}{constants}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{m\PYZus{}H}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{*} \PY{n}{constants}\PY{o}{.}\PY{n}{constants}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{amu}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PYZbs{}
+                                          \PY{l+m+mi}{100}\PY{p}{,} \PY{l+m+mi}{100}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{H ions}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{r\PYZus{}index}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{v\PYZus{}index}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{11}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Take the 0th batch of particles}
+\PY{n}{c1Maxwell\PYZus{}batch} \PY{o}{=} \PY{n}{c1Maxwell}\PY{o}{.}\PY{n}{batches}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{H ions}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{12}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Take the initial positions and velocities of the particles}
+\PY{n}{c1Maxwell\PYZus{}positions} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+\PY{n}{c1Maxwell\PYZus{}velocities} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+\PY{k}{for} \PY{n}{particle} \PY{o+ow}{in} \PY{n}{c1Maxwell\PYZus{}batch}\PY{o}{.}\PY{n}{particles}\PY{p}{:}
+    \PY{n}{c1Maxwell\PYZus{}positions}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{particle}\PY{o}{.}\PY{n}{r}\PY{p}{)}
+    \PY{n}{c1Maxwell\PYZus{}velocities}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{particle}\PY{o}{.}\PY{n}{v}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{14}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Let\PYZsq{}s look at the positions}
+\PY{n}{c1Maxwell\PYZus{}positions}
+\PY{c+c1}{\PYZsh{} They look fine, all particles are supposed to be initialized at [\PYZhy{}0.5, 0, 0]}
+\PY{c+c1}{\PYZsh{} where a cube of sides 1m is assumed as the chamber and is described between coordinates (\PYZhy{}0.5, 0.5) for x, y and z coordinates}
+\end{Verbatim}
+\end{tcolorbox}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{14}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+[array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ]),
+ array([-0.5,  0. ,  0. ])]
+\end{Verbatim}
+\end{tcolorbox}
+        
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{16}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Let\PYZsq{}s now look at the velocities}
+\PY{n}{c1Maxwell\PYZus{}velocities}
+\PY{c+c1}{\PYZsh{} We need to check if they are really Maxwellian distributed}
+\end{Verbatim}
+\end{tcolorbox}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{16}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+[array([ 1579.629935, -5723.201089, -2863.641674]),
+ array([  897.689953, -5029.491038, -3292.544752]),
+ array([ 386.944504, 1027.791639,  756.037653]),
+ array([-9204.054924,  9615.130475, -1667.435373]),
+ array([ -3641.215516, -10947.299598,  -3360.247147]),
+ array([-5491.759943, -7127.660213,  2834.606515]),
+ array([16625.53181 ,  7261.248008, 13182.501854]),
+ array([ 3531.057922, -8670.854777,  5576.898277]),
+ array([-6468.761439, -1081.00466 , 17040.23406 ]),
+ array([-6782.695867, -1185.527177,  5481.859317]),
+ array([ 2831.836461,  9814.523398, -4603.758126]),
+ array([ 6601.297764, -5010.938691,  3131.004259]),
+ array([   310.863591,  -1253.75245 , -11537.549212]),
+ array([17607.190221, 10702.738406, 10743.593831]),
+ array([  1841.536055,  -2739.779189, -12083.999033]),
+ array([ 4245.610812, 11143.159359, -4244.35843 ]),
+ array([ 6175.85488 , -5538.932063, -2785.536498]),
+ array([-18786.399666,  -6481.17661 ,   8700.805047]),
+ array([ -2630.875393, -12784.228172,   5763.276336]),
+ array([14103.980493, -5259.190381, 11294.072721]),
+ array([3218.123565, 2083.965365, 3701.724523]),
+ array([  8110.7652  ,   1611.055445, -10797.61461 ]),
+ array([ -5795.493516,  -6048.466929, -16270.769749]),
+ array([ -5497.184733, -12480.106514,   1557.429411]),
+ array([-13982.702604,   4446.07858 ,   8748.309843]),
+ array([ 6562.348371,  2376.507555, 16756.176696]),
+ array([ 1564.595443,  4923.296004, -1502.965034]),
+ array([ 3999.538647,  5265.782508, 20981.06687 ]),
+ array([2167.907498, 4715.441563, -383.229814]),
+ array([-8141.437181,  -707.79037 , 18484.123017]),
+ array([  4328.135274,  -2726.982622, -17110.480553]),
+ array([14064.293936,  1939.197086,  8497.465692]),
+ array([ 15755.484194,   1021.183689, -10923.123019]),
+ array([ -4505.746111, -10715.356198,  -4957.862115]),
+ array([  311.037312, 10372.211689, -7924.10112 ]),
+ array([   194.746288, -16705.966313, -25158.665103]),
+ array([3917.707815, 2788.029633, 3845.298211]),
+ array([-6805.073646,  -114.745473, -2991.933822]),
+ array([-20778.676767,   1204.886391,   1224.16076 ]),
+ array([-1049.374644, 25399.499396,  3260.046569]),
+ array([-1613.853665, 11450.244641,  6833.552532]),
+ array([-4450.714515, 15520.095122, -4093.634965]),
+ array([ -302.040006, -2774.294494,  8039.097495]),
+ array([  837.443914, 19004.422265, -3366.240414]),
+ array([-18089.011037,  -3702.184851,    973.063181]),
+ array([ 1290.989261, -6265.270624, -6101.462157]),
+ array([  627.872857,  7529.794087, -9586.239895]),
+ array([-15877.458159,  -1685.890055,   2469.728849]),
+ array([   401.980725,   4648.362411, -22877.706831]),
+ array([ 13391.765702, -13467.286656,  -5302.578527]),
+ array([  4424.274293,   1718.322218, -10218.543702]),
+ array([-16491.662572,  -1376.577214,   1212.84242 ]),
+ array([ 7398.623459, 12996.316882, -9925.234194]),
+ array([-5142.450136, -4269.804713,  9158.1664  ]),
+ array([ 2574.281443, 12535.307273,  1430.257433]),
+ array([  9149.705078, -16458.827279,   3392.746971]),
+ array([-7809.646458, -9975.384339,  6515.163693]),
+ array([ 3364.849961,  9514.632099, 10146.688711]),
+ array([11034.368466,  2228.723503, 10336.824708]),
+ array([  3592.570787,   9359.729427, -15987.66503 ]),
+ array([-9948.531042,  8687.897191, -1985.537473]),
+ array([-21346.36499 ,    315.575762,  -4095.710895]),
+ array([8745.421099, 1817.124211, -202.137507]),
+ array([-4503.432576,  5444.488763, -4660.01537 ]),
+ array([22320.899741,  -285.109853, 10270.464622]),
+ array([11379.305971,  5524.826899,  3963.333405]),
+ array([-4991.704923, -3821.720667,  2668.679899]),
+ array([-1864.217875, -1091.525555, -5304.013859]),
+ array([-11280.765472,  14952.883947,   6873.951826]),
+ array([  7157.964588,  10566.45093 , -10696.666068]),
+ array([-5803.460516,   174.639384,  7935.079774]),
+ array([-7054.045335,  4371.138014, 14677.551923]),
+ array([6675.742123, 2086.149166, 2812.089298]),
+ array([ 1629.343137, 12814.296519, -1575.882811]),
+ array([  1372.398103,   6908.124601, -11080.46534 ]),
+ array([ 4077.427095,  9806.823708, -2952.864354]),
+ array([20687.74124 , 10234.694055,  4265.535278]),
+ array([-1161.868381, -9148.174165, -5257.7664  ]),
+ array([ -9429.693013,   4349.497355, -17731.864223]),
+ array([ 4360.301531, -2415.241844, -9765.025732]),
+ array([12484.9937  , -5046.17275 ,  2094.336482]),
+ array([  920.001379, -2826.506275, -6130.965348]),
+ array([  7977.635576, -14613.882278,  -7575.019106]),
+ array([ 2208.036015, -9531.481613,  5584.708069]),
+ array([  -92.825592,  4472.404515, -2098.645854]),
+ array([ -2929.734057, -12483.318971,   -383.726147]),
+ array([ 7781.299771,  7546.658659, -7793.261556]),
+ array([ 4995.961777, -9268.285396,  8484.176491]),
+ array([11248.219314,  8449.902291, 10343.354335]),
+ array([ -9901.37255 ,  -1143.945737, -11700.414233]),
+ array([  1499.538688, -10332.224092,   1408.641439]),
+ array([17961.404303, 15944.610445,  3105.683781]),
+ array([17084.296062, -2164.739467, -2088.521291]),
+ array([-11764.890976,  -4225.774814,   7203.046946]),
+ array([ -4983.672944,   2659.037113, -14658.970414]),
+ array([-2639.873802, -7685.606637,  5666.133006]),
+ array([ -3893.19326 , -10739.510159,  12748.028668]),
+ array([3349.164108,  527.511892, 1366.528714]),
+ array([-11336.739018,  13658.143203,  13176.412033]),
+ array([  -765.772707,  -3802.623207, -10641.798323])]
+\end{Verbatim}
+\end{tcolorbox}
+        
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{22}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Get the speeds }
+\PY{n}{c1Maxwell\PYZus{}speeds} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{sqrt}\PY{p}{(} \PYZbs{}
+                           \PY{p}{[} \PY{p}{(}\PY{n}{c1Maxwell\PYZus{}velocities}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{*}\PY{o}{*} \PY{l+m+mi}{2}\PY{p}{)} \PY{o}{+} \PY{p}{(}\PY{n}{c1Maxwell\PYZus{}velocities}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]} \PY{o}{*}\PY{o}{*} \PY{l+m+mi}{2}\PY{p}{)} \PY{o}{+} \PYZbs{}
+                            \PY{p}{(}\PY{n}{c1Maxwell\PYZus{}velocities}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]} \PY{o}{*}\PY{o}{*} \PY{l+m+mi}{2}\PY{p}{)} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{c1Maxwell\PYZus{}velocities}\PY{p}{)}\PY{p}{)} \PY{p}{]} \PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{23}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{c1Maxwell\PYZus{}speeds}
+\end{Verbatim}
+\end{tcolorbox}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{23}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+array([ 6591.7148811 ,  6078.03243632,  1333.29465428, 13414.38413862,
+       12016.36716363,  9433.87309001, 22425.70814333, 10897.42570538,
+       18258.77932528,  8801.20556986, 11204.40788951,  8859.44842548,
+       11609.63277617, 23237.61100611, 12526.79838091, 12657.40060792,
+        8751.00939772, 21694.20362969, 14267.91328164, 18818.53947143,
+        5329.35224641, 13600.31224062, 18300.5367547 , 13725.80361799,
+       17082.63773428, 18151.62972763,  5380.12140539, 21998.40771087,
+        5204.04430653, 20210.06606342, 17858.82789898, 16546.05005563,
+       19198.76857515, 12637.28622839, 13056.45043995, 30200.75605565,
+        6156.93609596,  7434.63932187, 20849.54985051, 25629.35153965,
+       13431.68143601, 16656.53203751,  8509.70191245, 19318.40967731,
+       18489.60099412,  8840.1419512 , 12206.06483031, 16156.59195053,
+       23348.62590073, 19718.63427135, 11267.00801696, 16593.39886673,
+       17948.653303  , 11337.90269399, 12876.58688088, 19134.28416282,
+       14245.91971255, 14311.0352888 , 15283.1423778 , 18871.05012758,
+       13356.46609518, 21738.0250732 ,  8934.49439917,  8463.98878223,
+       24572.06333273, 13255.9544479 ,  6829.67929688,  5727.06725464,
+       19952.33374001, 16652.47751145,  9832.40275289, 16861.10712789,
+        7538.26223048, 13013.23791256, 13129.44683553, 11023.54801541,
+       23471.82121652, 10615.23133073, 20548.87457705, 10963.63763323,
+       13628.10230413,  6813.53625941, 18291.77790908, 11265.59048601,
+        4941.18742377, 12828.24383664, 13350.49095434, 13521.908112  ,
+       17461.62264403, 15370.27922475, 10535.07198209, 24217.51264119,
+       17347.08015999, 14427.53332216, 15709.64315252,  9906.69199637,
+       17117.42583262,  3655.48488503, 22106.20639955, 11326.7039619 ])
+\end{Verbatim}
+\end{tcolorbox}
+        
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{30}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{c1Maxwell\PYZus{}meanspeed} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{n}{c1Maxwell\PYZus{}speeds}\PY{p}{)} \PY{o}{/} \PY{n}{c1Maxwell\PYZus{}speeds}\PY{o}{.}\PY{n}{size}
+\PY{n}{c1Maxwell\PYZus{}meanspeed}
+\end{Verbatim}
+\end{tcolorbox}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{30}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+14202.764572898674
+\end{Verbatim}
+\end{tcolorbox}
+        
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{ }{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+
+\end{Verbatim}
+\end{tcolorbox}
+
+    \hypertarget{update}{%
+\paragraph{1.2 Update}\label{update}}
+
+Here we check if our particle update works as expected.
+
+    \hypertarget{boris-update}{%
+\subparagraph{1.2.1 Boris Update}\label{boris-update}}
+
+So far we use the Boris Algorithm to update individual particles in the
+Electric and Magnetic fields, here we set up a simple configuration, and
+observe the result of update of a single particle. We compare it to
+calculations done by hand.
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{3}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} c2Boris means checking the Boris update}
+\PY{n}{c2Boris} \PY{o}{=} \PY{n}{Run}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{4}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{}Create 10 particles}
+\PY{n}{c2Boris}\PY{o}{.}\PY{n}{create\PYZus{}batch\PYZus{}with\PYZus{}file\PYZus{}initialization}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{H+}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{constants}\PY{o}{.}\PY{n}{constants}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{e}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PYZbs{}
+                                          \PY{n}{constants}\PY{o}{.}\PY{n}{constants}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{m\PYZus{}H}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{*} \PY{n}{constants}\PY{o}{.}\PY{n}{constants}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{amu}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PYZbs{}
+                                          \PY{l+m+mi}{100}\PY{p}{,} \PY{l+m+mi}{10}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{H ions}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{r\PYZus{}index}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{v\PYZus{}index}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{5}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{c2Boris\PYZus{}index\PYZus{}update} \PY{o}{=} \PY{l+m+mi}{0} \PY{c+c1}{\PYZsh{} Update the first batch in this Run instance run\PYZus{}Boris\PYZus{}check}
+\PY{n}{c2Boris\PYZus{}particle\PYZus{}track\PYZus{}indices} \PY{o}{=} \PY{p}{[}\PY{n}{i} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{)}\PY{p}{]} \PY{c+c1}{\PYZsh{} Track all 10 particles}
+\PY{n}{c2Boris\PYZus{}dT} \PY{o}{=} \PY{l+m+mi}{10}\PY{o}{*}\PY{o}{*}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{6}\PY{p}{)} \PY{c+c1}{\PYZsh{} 1 microseconds}
+\PY{n}{c2Boris\PYZus{}stepT} \PY{o}{=} \PY{l+m+mi}{10}\PY{o}{*}\PY{o}{*}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{7}\PY{p}{)} \PY{c+c1}{\PYZsh{} 0.1 microseconds time step}
+\PY{n}{c2Boris\PYZus{}E0} \PY{o}{=} \PY{l+m+mi}{1000} \PY{c+c1}{\PYZsh{} say 1000 Volts (voltage) per meter (size of chamber) }
+\PY{n}{c2Boris\PYZus{}Edirn} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]} \PY{c+c1}{\PYZsh{}in the x\PYZhy{}direction [1,0,0]}
+\PY{n}{c2Boris\PYZus{}B0} \PY{o}{=} \PY{l+m+mi}{10} \PY{o}{*} \PY{p}{(}\PY{l+m+mi}{10}\PY{o}{*}\PY{o}{*}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{3}\PY{p}{)}\PY{p}{)} \PY{c+c1}{\PYZsh{} Meant to say 10 mT }
+\PY{n}{c2Boris\PYZus{}Bdirn} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]} \PY{c+c1}{\PYZsh{}in the y\PYZhy{}direction [0,1,0]}
+\PY{n}{c2Boris\PYZus{}argsE} \PY{o}{=} \PY{p}{[}\PY{n}{element} \PY{o}{*} \PY{n}{c2Boris\PYZus{}E0} \PY{k}{for} \PY{n}{element} \PY{o+ow}{in} \PY{n}{c2Boris\PYZus{}Edirn}\PY{p}{]} \PY{c+c1}{\PYZsh{} currently the uniform\PYZus{}E\PYZus{}field configuration is used}
+\PY{n}{c2Boris\PYZus{}argsB} \PY{o}{=} \PY{p}{[}\PY{n}{element} \PY{o}{*} \PY{n}{c2Boris\PYZus{}B0} \PY{k}{for} \PY{n}{element} \PY{o+ow}{in} \PY{n}{c2Boris\PYZus{}Bdirn}\PY{p}{]}\PY{c+c1}{\PYZsh{} currently the uniform\PYZus{}B\PYZus{}field configuration is used}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{6}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{c2Boris\PYZus{}positions\PYZus{}and\PYZus{}velocities} \PY{o}{=} \PY{n}{c2Boris}\PY{o}{.}\PY{n}{update\PYZus{}batch\PYZus{}with\PYZus{}unchanging\PYZus{}fields}\PY{p}{(}\PY{n}{c2Boris\PYZus{}index\PYZus{}update}\PY{p}{,} \PYZbs{}
+                                                                               \PY{n}{c2Boris\PYZus{}dT}\PY{p}{,} \PY{n}{c2Boris\PYZus{}stepT}\PY{p}{,} \PYZbs{}
+                                                                               \PY{n}{c2Boris\PYZus{}argsE}\PY{p}{,} \PY{n}{c2Boris\PYZus{}argsB}\PY{p}{,} \PYZbs{}
+                                                                               \PY{n}{c2Boris\PYZus{}particle\PYZus{}track\PYZus{}indices}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{7}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{}Let\PYZsq{}s inspect the positions and velocities of the particles at index 1 and 7}
+\PY{n}{c2Boris\PYZus{}p1} \PY{o}{=} \PY{n}{c2Boris\PYZus{}positions\PYZus{}and\PYZus{}velocities}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}
+\PY{n}{c2Boris\PYZus{}p7} \PY{o}{=} \PY{n}{c2Boris\PYZus{}positions\PYZus{}and\PYZus{}velocities}\PY{p}{[}\PY{l+m+mi}{7}\PY{p}{]}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{8}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{}Let\PYZsq{}s look at particle 1\PYZsq{}s positions and velocities}
+\PY{n}{c2Boris\PYZus{}p1}
+\end{Verbatim}
+\end{tcolorbox}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{8}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+[(0,
+  array([-4.98921519e-01, -5.02949104e-04, -2.74850639e-04]),
+  array([10784.80849437, -5029.491038  , -2748.50639353])),
+ (1,
+  array([-4.96859534e-01, -1.00589821e-03, -4.00658364e-04]),
+  array([20619.85191499, -5029.491038  , -1258.07724484])),
+ (2,
+  array([-4.93828311e-01, -1.50884731e-03, -2.83282555e-04]),
+  array([30312.2320901 , -5029.491038  ,  1173.75808561])),
+ (3,
+  array([-4.89851127e-01, -2.01179642e-03,  1.70051838e-04]),
+  array([39771.83801957, -5029.491038  ,  4533.34393251])),
+ (4,
+  array([-0.48496014, -0.00251475,  0.00104989]),
+  array([48909.86581774, -5029.491038  ,  8798.39924387])),
+ (5,
+  array([-0.47919618, -0.00301769,  0.00244371]),
+  array([57639.6443318 , -5029.491038  , 13938.14269746])),
+ (6,
+  array([-0.47260843, -0.00352064,  0.00443506]),
+  array([65877.44878403, -5029.491038  , 19913.49684507])),
+ (7,
+  array([-0.4652541 , -0.00402359,  0.00710279]),
+  array([73543.29487349, -5029.491038  , 26677.37013834])),
+ (8,
+  array([-0.45719793, -0.00452654,  0.01052029]),
+  array([80561.70588222, -5029.491038  , 34175.01496554])),
+ (9,
+  array([-0.44851169, -0.00502949,  0.01475474]),
+  array([86862.44551045, -5029.491038  , 42344.45911554]))]
+\end{Verbatim}
+\end{tcolorbox}
+        
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{9}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{}Let\PYZsq{}s take the positions and velocities of the particle 1 after the 3rd and the 4th time steps.}
+\PY{n}{c2Boris\PYZus{}p134\PYZus{}p} \PY{o}{=} \PY{p}{[}\PY{n}{c2Boris\PYZus{}p1}\PY{p}{[}\PY{l+m+mi}{3}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{n}{c2Boris\PYZus{}p1}\PY{p}{[}\PY{l+m+mi}{4}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{]}
+\PY{n}{c2Boris\PYZus{}p134\PYZus{}v} \PY{o}{=} \PY{p}{[}\PY{n}{c2Boris\PYZus{}p1}\PY{p}{[}\PY{l+m+mi}{3}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{,} \PY{n}{c2Boris\PYZus{}p1}\PY{p}{[}\PY{l+m+mi}{4}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{]}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{10}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{}Likewise for particle 7}
+\PY{n}{c2Boris\PYZus{}p734\PYZus{}p} \PY{o}{=} \PY{p}{[}\PY{n}{c2Boris\PYZus{}p1}\PY{p}{[}\PY{l+m+mi}{3}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{n}{c2Boris\PYZus{}p1}\PY{p}{[}\PY{l+m+mi}{4}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{]}
+\PY{n}{c2Boris\PYZus{}p734\PYZus{}v} \PY{o}{=} \PY{p}{[}\PY{n}{c2Boris\PYZus{}p1}\PY{p}{[}\PY{l+m+mi}{3}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{,} \PY{n}{c2Boris\PYZus{}p1}\PY{p}{[}\PY{l+m+mi}{4}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{]}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{11}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{}Let\PYZsq{}s look at the positions to check if they match up against the positions and velocities from above}
+\PY{n}{c2Boris\PYZus{}p134\PYZus{}p}
+\end{Verbatim}
+\end{tcolorbox}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{11}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+[array([-4.89851127e-01, -2.01179642e-03,  1.70051838e-04]),
+ array([-0.48496014, -0.00251475,  0.00104989])]
+\end{Verbatim}
+\end{tcolorbox}
+        
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{12}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{}Let\PYZsq{}s look at the velocities to check if they match up against the positions and velocities from above}
+\PY{n}{c2Boris\PYZus{}p134\PYZus{}v}
+\end{Verbatim}
+\end{tcolorbox}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{12}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+[array([39771.83801957, -5029.491038  ,  4533.34393251]),
+ array([48909.86581774, -5029.491038  ,  8798.39924387])]
+\end{Verbatim}
+\end{tcolorbox}
+        
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{13}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+sa}{f}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{The velocity changed from }\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{ }\PY{l+s+si}{\PYZob{}}\PY{p}{[}\PY{n}{c2Boris\PYZus{}p134\PYZus{}v}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{c2Boris\PYZus{}p134\PYZus{}v}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{n}{c2Boris\PYZus{}p134\PYZus{}v}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{]}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s1}{ }\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{ to }\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{ }\PY{l+s+si}{\PYZob{}}\PY{p}{[}\PY{n}{c2Boris\PYZus{}p134\PYZus{}v}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{c2Boris\PYZus{}p134\PYZus{}v}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{n}{c2Boris\PYZus{}p134\PYZus{}v}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{]}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s1}{ }\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+sa}{f}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{The position changed from }\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{ }\PY{l+s+si}{\PYZob{}}\PY{p}{[}\PY{n}{c2Boris\PYZus{}p134\PYZus{}p}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{c2Boris\PYZus{}p134\PYZus{}p}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{n}{c2Boris\PYZus{}p134\PYZus{}p}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{]}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s1}{ }\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{ to }\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{ }\PY{l+s+si}{\PYZob{}}\PY{p}{[}\PY{n}{c2Boris\PYZus{}p134\PYZus{}p}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{c2Boris\PYZus{}p134\PYZus{}p}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{n}{c2Boris\PYZus{}p134\PYZus{}p}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{]}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s1}{ }\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+The velocity changed from
+ [39771.83801956555, -5029.491038, 4533.343932509505]
+ to
+ [48909.86581773698, -5029.491038, 8798.399243869582]
+
+The position changed from
+ [-0.48985112694809785, -0.0020117964152, 0.00017005183797547688]
+ to
+ [-0.4849601403663242, -0.0025147455189999997, 0.001049891762362435]
+
+    \end{Verbatim}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{14}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{}Similary for particle 7}
+\PY{n}{c2Boris\PYZus{}p734\PYZus{}p} \PY{o}{=} \PY{p}{[}\PY{n}{c2Boris\PYZus{}p7}\PY{p}{[}\PY{l+m+mi}{3}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{n}{c2Boris\PYZus{}p7}\PY{p}{[}\PY{l+m+mi}{4}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{]}
+\PY{n}{c2Boris\PYZus{}p734\PYZus{}v} \PY{o}{=} \PY{p}{[}\PY{n}{c2Boris\PYZus{}p7}\PY{p}{[}\PY{l+m+mi}{3}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{,} \PY{n}{c2Boris\PYZus{}p7}\PY{p}{[}\PY{l+m+mi}{4}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{]}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+sa}{f}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{The velocity changed from }\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{ }\PY{l+s+si}{\PYZob{}}\PY{p}{[}\PY{n}{c2Boris\PYZus{}p734\PYZus{}v}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{c2Boris\PYZus{}p734\PYZus{}v}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{n}{c2Boris\PYZus{}p734\PYZus{}v}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{]}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s1}{ }\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{ to }\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{ }\PY{l+s+si}{\PYZob{}}\PY{p}{[}\PY{n}{c2Boris\PYZus{}p734\PYZus{}v}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{c2Boris\PYZus{}p734\PYZus{}v}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{n}{c2Boris\PYZus{}p734\PYZus{}v}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{]}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s1}{ }\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+sa}{f}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{The position changed from }\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{ }\PY{l+s+si}{\PYZob{}}\PY{p}{[}\PY{n}{c2Boris\PYZus{}p734\PYZus{}p}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{c2Boris\PYZus{}p734\PYZus{}p}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{n}{c2Boris\PYZus{}p734\PYZus{}p}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{]}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s1}{ }\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{ to }\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{ }\PY{l+s+si}{\PYZob{}}\PY{p}{[}\PY{n}{c2Boris\PYZus{}p734\PYZus{}p}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{c2Boris\PYZus{}p734\PYZus{}p}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{n}{c2Boris\PYZus{}p734\PYZus{}p}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{]}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s1}{ }\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+The velocity changed from
+ [38895.85871094631, -8670.854777, 13914.969423620274]
+ to
+ [47135.881299118584, -8670.854777, 18096.176367366777]
+
+The position changed from
+ [-0.4896669752432719, -0.0034683419108, 0.0038875496903932644]
+ to
+ [-0.48495338711336006, -0.0043354273885, 0.0056971673271299424]
+
+    \end{Verbatim}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{15}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{c2Boris\PYZus{}qp} \PY{o}{=} \PY{p}{(}\PY{n}{constants}\PY{o}{.}\PY{n}{constants}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{e}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{*} \PY{l+m+mi}{10}\PY{o}{*}\PY{o}{*}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{7}\PY{p}{)}\PY{p}{)} \PY{o}{/} \PY{p}{(}\PY{l+m+mi}{2} \PY{o}{*} \PY{n}{constants}\PY{o}{.}\PY{n}{constants}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{m\PYZus{}H}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{*} \PY{n}{constants}\PY{o}{.}\PY{n}{constants}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{amu}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{16}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{c2Boris\PYZus{}qp} 
+\end{Verbatim}
+\end{tcolorbox}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{16}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+4.78597877761177
+\end{Verbatim}
+\end{tcolorbox}
+        
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{17}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} The velocity after update 4, doing a manual update.}
+\PY{n}{c2Boris\PYZus{}vminus\PYZus{}p1} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{c2Boris\PYZus{}p134\PYZus{}v}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{c2Boris\PYZus{}qp} \PY{o}{*} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n}{c2Boris\PYZus{}argsE}\PY{p}{)}\PY{p}{)}
+\PY{n}{c2Boris\PYZus{}vplus\PYZus{}p1} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{c2Boris\PYZus{}vminus\PYZus{}p1}\PY{p}{,} \PY{l+m+mi}{2} \PY{o}{*} \PY{n}{c2Boris\PYZus{}qp} \PY{o}{*} \PY{n}{np}\PY{o}{.}\PY{n}{cross}\PY{p}{(}\PY{n}{c2Boris\PYZus{}vminus\PYZus{}p1}\PY{p}{,} \PY{n}{c2Boris\PYZus{}argsB}\PY{p}{)}\PY{p}{)}
+\PY{n}{c2Boris\PYZus{}vnew\PYZus{}p1} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{c2Boris\PYZus{}vplus\PYZus{}p1}\PY{p}{,} \PY{n}{c2Boris\PYZus{}qp} \PY{o}{*} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n}{c2Boris\PYZus{}argsE}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{18}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{c2Boris\PYZus{}vnew\PYZus{}p1}
+\PY{c+c1}{\PYZsh{}This is indeed the same as the velocity of particle 1 after update 4.}
+\PY{n}{np}\PY{o}{.}\PY{n}{isclose}\PY{p}{(}\PY{n}{c2Boris\PYZus{}vnew\PYZus{}p1}\PY{p}{,} \PY{n}{c2Boris\PYZus{}p134\PYZus{}v}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)} \PY{c+c1}{\PYZsh{}Indeed the values are close (i.e. the same)}
+\end{Verbatim}
+\end{tcolorbox}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{18}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+array([ True,  True,  True])
+\end{Verbatim}
+\end{tcolorbox}
+        
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{19}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{}Similarly for position of the particle 1 after update 4}
+\PY{n}{c2Boris\PYZus{}pnew\PYZus{}p1} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{c2Boris\PYZus{}p134\PYZus{}p}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{c2Boris\PYZus{}stepT} \PY{o}{*} \PY{n}{c2Boris\PYZus{}vnew\PYZus{}p1}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{20}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{c2Boris\PYZus{}pnew\PYZus{}p1}
+\PY{c+c1}{\PYZsh{}This is indeed the same as the position of particle 1 after update 4.}
+\PY{n}{np}\PY{o}{.}\PY{n}{isclose}\PY{p}{(}\PY{n}{c2Boris\PYZus{}pnew\PYZus{}p1}\PY{p}{,} \PY{n}{c2Boris\PYZus{}p134\PYZus{}p}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)} \PY{c+c1}{\PYZsh{}Indeed th values are close (i.e. the same)}
+\end{Verbatim}
+\end{tcolorbox}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{20}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+array([ True,  True,  True])
+\end{Verbatim}
+\end{tcolorbox}
+        
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{21}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{c2Boris\PYZus{}p134\PYZus{}p}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+\end{Verbatim}
+\end{tcolorbox}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{21}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+array([-4.89851127e-01, -2.01179642e-03,  1.70051838e-04])
+\end{Verbatim}
+\end{tcolorbox}
+        
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{22}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{c2Boris\PYZus{}p134\PYZus{}v}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+\end{Verbatim}
+\end{tcolorbox}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{22}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+array([39771.83801957, -5029.491038  ,  4533.34393251])
+\end{Verbatim}
+\end{tcolorbox}
+        
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{ }{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{23}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{}Similarly for particle 7}
+\PY{n}{c2Boris\PYZus{}vminus\PYZus{}p7} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{c2Boris\PYZus{}p734\PYZus{}v}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{c2Boris\PYZus{}qp} \PY{o}{*} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n}{c2Boris\PYZus{}argsE}\PY{p}{)}\PY{p}{)}
+\PY{n}{c2Boris\PYZus{}vplus\PYZus{}p7} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{c2Boris\PYZus{}vminus\PYZus{}p7}\PY{p}{,} \PY{l+m+mi}{2} \PY{o}{*} \PY{n}{c2Boris\PYZus{}qp} \PY{o}{*} \PY{n}{np}\PY{o}{.}\PY{n}{cross}\PY{p}{(}\PY{n}{c2Boris\PYZus{}vminus\PYZus{}p7}\PY{p}{,} \PY{n}{c2Boris\PYZus{}argsB}\PY{p}{)}\PY{p}{)}
+\PY{n}{c2Boris\PYZus{}vnew\PYZus{}p7} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{c2Boris\PYZus{}vplus\PYZus{}p7}\PY{p}{,} \PY{n}{c2Boris\PYZus{}qp} \PY{o}{*} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n}{c2Boris\PYZus{}argsE}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{24}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{np}\PY{o}{.}\PY{n}{isclose}\PY{p}{(}\PY{n}{c2Boris\PYZus{}vnew\PYZus{}p7}\PY{p}{,} \PY{n}{c2Boris\PYZus{}p734\PYZus{}v}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{24}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+array([ True,  True,  True])
+\end{Verbatim}
+\end{tcolorbox}
+        
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{25}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{c2Boris\PYZus{}pnew\PYZus{}p7} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{c2Boris\PYZus{}p734\PYZus{}p}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{c2Boris\PYZus{}stepT} \PY{o}{*} \PY{n}{c2Boris\PYZus{}vnew\PYZus{}p7}\PY{p}{)}
+\PY{n}{np}\PY{o}{.}\PY{n}{isclose}\PY{p}{(}\PY{n}{c2Boris\PYZus{}pnew\PYZus{}p7}\PY{p}{,} \PY{n}{c2Boris\PYZus{}p734\PYZus{}p}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{25}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+array([ True,  True,  True])
+\end{Verbatim}
+\end{tcolorbox}
+        
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{31}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{c2Boris\PYZus{}pnew\PYZus{}p7}
+\end{Verbatim}
+\end{tcolorbox}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{31}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+array([-0.48495339, -0.00433543,  0.00569717])
+\end{Verbatim}
+\end{tcolorbox}
+        
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{ }{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+
+\end{Verbatim}
+\end{tcolorbox}
+
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+\end{document}
