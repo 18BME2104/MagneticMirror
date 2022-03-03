@@ -45,7 +45,11 @@
 	\end{center}
 	
 	\section{Checks}
-	To verify that our program is working correctly, we perform some checks. We compare results from the program with calculations done by hand; of certain quantities and see if they agree.
+	To verify that our program is working correctly, we perform some checks. We compare results from the program with calculations done by hand; of certain quantities and see if they agree. As of now, we are doing checks on the following aspects of the program:
+	\begin{enumerate}
+		\item Sampling \color{green} \checkmark \color{black}
+		\item Update \color{green} \checkmark \color{black}
+	\end{enumerate}
 	
 	\subsection{Sampling}
 	As of now we our sampling of particle speeds is based on the Maxwell-Boltzmann distribution, that we have defined previously. We now check if the average speeds of the particles agrees with the calculations done by hand based on the plasma temperature.
@@ -61,10 +65,11 @@
 	\end{equation} which is obtained by integrating over the solid angle in the velocity variable. \\
 
 	For this density function we calculate the average speed by with the expression:
-	$$ \int_{v = - \infty}^{v = \infty} d v \: v \: \widehat{f_{m}} = \int_{v = - \infty}^{v = \infty} d v \: v \: \left(\frac{m}{2\pi KT}\right)^{\frac{3}{2}} 4 \pi v^{2} \: \mathrm{exp}\left(-\frac{v^{2}}{v_{th}^{2}}\right)$$
-	$$=  4 \pi \left(\frac{m}{2\pi KT}\right)^{\frac{3}{2}} \int_{v = - \infty}^{v = \infty} d v \: v^{3} \: \mathrm{exp}\left(-\frac{v^{2}}{v_{th}^{2}}\right)$$ $$ = 4 \pi \left(\frac{m}{2\pi KT}\right)^{\frac{3}{2}} \frac{v_{th}^{4}}{2} = 4 \pi \left(\frac{1}{\pi v_{th}^{2}}\right)^{\frac{3}{2}} \frac{v_{th}^{4}}{2}$$ $$= \frac{2}{\sqrt{\pi}} v_{th} = \frac{2}{\sqrt{\pi}} \sqrt{\frac{2 K T}{m}} = \frac{2}{\sqrt{\pi}} \sqrt{\frac{2 R T}{M}} = $$ 
-	\color{red}    \textbf{Task 1} \\
-	do the calculation here ... \color{black}
+	$$ \langle v\rangle = \int_{v = - \infty}^{v = \infty} d v \: v \: \widehat{f_{m}} = \int_{v = - \infty}^{v = \infty} d v \: v \: \left(\frac{m}{2\pi KT}\right)^{\frac{3}{2}} 4 \pi v^{2} \: \mathrm{exp}\left(-\frac{v^{2}}{v_{th}^{2}}\right)$$
+	$$=  4 \pi \left(\frac{m}{2\pi KT}\right)^{\frac{3}{2}} \int_{v = - \infty}^{v = \infty} d v \: v^{3} \: \mathrm{exp}\left(-\frac{v^{2}}{v_{th}^{2}}\right)$$ $$ = 4 \pi \left(\frac{m}{2\pi KT}\right)^{\frac{3}{2}} \frac{v_{th}^{4}}{2} = 4 \pi \left(\frac{1}{\pi v_{th}^{2}}\right)^{\frac{3}{2}} \frac{v_{th}^{4}}{2}$$ $$= \frac{2}{\sqrt{\pi}} v_{th} = \frac{2}{\sqrt{\pi}} \sqrt{\frac{2 K T}{m}} = \frac{2}{\sqrt{\pi}} \sqrt{\frac{2 R T}{M}}$$ 
+	For the Hydrogen atom particle distribution, we get \begin{tcolorbox}
+		$$\langle v\rangle = \frac{2}{\sqrt{\pi}} \sqrt{\frac{2 \cdot 8.31446261815324 \: \mathrm{J} \: \mathrm{K}^{-1} \: \mathrm{mol}^{-1} \: 10000 \: \mathrm{K}}{1.008 \times 10^{-3} \: \mathrm{kg} \: \mathrm{mol}^{-1}}} = 14492.952993825973 \: \mathrm{m}\mathrm{s}^{-1}$$
+	\end{tcolorbox}
 	
 	From section 1.1.1 Maxwellian sampling in the \textbf{studies.ipynb} notebook, we take the following:
 	
@@ -115,9 +120,7 @@ c1Maxwell_velocities.append(particle.v)
 c1Maxwell_velocities
 # We need to check if they are really Maxwellian distributed
 # Get the speeds 
-c1Maxwell_speeds = np.sqrt( \
-[ (c1Maxwell_velocities[i][0] ** 2) + (c1Maxwell_velocities[i][1] ** 2) + \
-(c1Maxwell_velocities[i][2] ** 2) for i in range(len(c1Maxwell_velocities)) ] )
+c1Maxwell_speeds = np.sqrt( [ (c1Maxwell_velocities[i][0] ** 2) + (c1Maxwell_velocities[i][1] ** 2) + (c1Maxwell_velocities[i][2] ** 2) for i in range(len(c1Maxwell_velocities)) ] )
 c1Maxwell_meanspeed = np.sum(c1Maxwell_speeds) / c1Maxwell_speeds.size	
 	\end{minted}
 We get an average speed of the distribution to be:
@@ -127,8 +130,69 @@ We get an average speed of the distribution to be:
 \end{verbatim}
 \end{tcolorbox}
 
-\color{red}  \textbf{Task 2} \\
-Check if $\frac{2}{\sqrt{\pi}} \sqrt{\frac{2 K T}{m}} = \frac{2}{\sqrt{\pi}} \sqrt{\frac{2 R T}{M}} = $ is what works out based on what I have used for sampling ... \color{black}
+We see that the mean average speed of the sampled distribution and that expected from the analytic expression are close; in fact within $2.0431826454479785 \%$ error.
+
+To be confident that our program indeed samples particles based on Maxwellian distribution as we expect it to, let's check another distribution. For convenience, let's assume Hydrogen molecules to be particles sampled with Maxwellian distribution, and check if the average speed of the sampled distribution agrees with the that expected from analytic calculation. For this we follow a similar procedure.
+
+\begin{center}
+	\begin{tcolorbox}[width=3.5cm]
+		Initialization
+	\end{tcolorbox}
+\end{center}
+\begin{minted}[
+	frame=lines,
+	framesep=2mm,
+	baselinestretch=1.2,
+	bgcolor=LightGray,
+	fontsize=\footnotesize,
+	linenos=true,
+	breaklines
+	]
+	{python}
+# Create 100 particles based on the sampled velocities of H2 gas
+# We consider just for this test case that a Hydrogen molecules to be sampled with a Maxwellian distribution
+# We create a new batch on the same Run instance
+c1Maxwell.create_batch_with_file_initialization('H2', constants.constants['e'][0], 2 * constants.constants['m_H'][0] * constants.constants['amu'][0], 100, 100, 'H2 gas', r_index=0, v_index=2)	
+\end{minted}
+\begin{center}
+	\begin{tcolorbox}[width=3cm]
+		Inspection
+	\end{tcolorbox}
+\end{center}
+\begin{minted}[
+	frame=lines,
+	framesep=2mm,
+	baselinestretch=1.2,
+	bgcolor=LightGray,
+	fontsize=\footnotesize,
+	linenos=true,
+	breaklines
+	]
+	{python}
+# Do the same as before for the second batch
+c1Maxwell_batch2 = c1Maxwell.batches[1]['H2 gas']
+c1Maxwell_positions_batch2 = []
+c1Maxwell_velocities_batch2 = []
+for particle in c1Maxwell_batch2.particles:
+c1Maxwell_positions_batch2.append(particle.r)
+c1Maxwell_velocities_batch2.append(particle.v)
+c1Maxwell_speeds_batch2 = np.sqrt( [ (c1Maxwell_velocities_batch2[i][0] ** 2) + (c1Maxwell_velocities_batch2[i][1] ** 2) + (c1Maxwell_velocities_batch2[i][2] ** 2) for i in range(len(c1Maxwell_velocities_batch2)) ] )
+c1Maxwell_meanspeed_batch2 = np.sum(c1Maxwell_speeds_batch2) / c1Maxwell_speeds_batch2.size	
+\end{minted}
+
+We get an average speed of the distribution to be:
+\begin{tcolorbox}
+	\begin{verbatim}
+		10149.754879907316
+	\end{verbatim}
+\end{tcolorbox}
+
+	For the Hydrogen molecule particle distribution, we get \begin{tcolorbox}
+	$$\langle v\rangle = \frac{2}{\sqrt{\pi}} \sqrt{\frac{2 \cdot 8.31446261815324 \: \mathrm{J} \: \mathrm{K}^{-1} \: \mathrm{mol}^{-1} \: 10000 \: \mathrm{K}}{2 \times 1.008 \times 10^{-3} \: \mathrm{kg} \: \mathrm{mol}^{-1}}} = 10248.06534135222 \: \mathrm{m}\mathrm{s}^{-1}$$
+\end{tcolorbox}
+
+We see that the mean average speed of the sampled distribution and that expected from the analytic expression are close for this distribution too; in fact within $0.9685993662716086 \%$ error. Because the errors are considerably small compared to statistical variation in the sampling, we believe the Maxwellian distribution sampling part of the program to be working as we expect it to.
+
 	\subsection{Update}
 		We recall the Boris Algorithm, that we use to update the particles in the plasma simulation.
 		\begin{center}
@@ -352,7 +416,7 @@ $$\boldsymbol{v}^{+} = \boldsymbol{v}^{-} + 2 q^{\prime} \left( \boldsymbol{v}^{
 \end{tcolorbox}
 We see that the values for $\boldsymbol{x_{3}}$, $\boldsymbol{x_{4}}$, $\boldsymbol{v_{3}}$ and $\boldsymbol{v_{4}}$ for particle 7 are close (the latter digits differ due to the differing precision of calculations); i.e. the same when done by hand and in the program.	
 
-Based on these calculations, we believe that our particle update works as expected; according to the Boris Algorithm, and this part of the program works correctly. \color{green} \checkmark \color{black}  
+Based on these calculations, we believe that our particle update works as expected; according to the Boris Algorithm, and this part of the program works correctly. 
 		
 	\section{Plasma Stream}
 	\color{red}
@@ -366,7 +430,8 @@ Based on these calculations, we believe that our particle update works as expect
 	\end{itemize}
 		while the updates are running.
 		on different batches.
-	\color{black}	
+	\color{black}	\\ 
+	We now create our first plasma system, where we can change certain parameters of the fields; so as to simulate controlling plasma in a chamber by changing the electric and magnetic fields as required.
 	
 	\section{The Magnetic Mirror configuration}
 	\color{red}

@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.14.0 (MiKTeX 22.1) (format=lualatex 2022.3.2)  2 MAR 2022 20:17
+This is LuaHBTeX, Version 1.14.0 (MiKTeX 22.1) (format=lualatex 2022.3.2)  3 MAR 2022 17:08
  system commands enabled.
 **studies.tex
 (./studies.tex
@@ -1027,22 +1027,22 @@ LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10.95> not available
 [1
 
 {/home/kushik/.miktex/texmfs/data/fonts/map/pdftex/pdftex.map}] [2] [3]
-[4] [5] [6] [7] [8] [9] [10] [11] [12] (./studies.aux)
+[4] [5] [6] [7] [8] [9] [10] [11] [12] [13] (./studies.aux)
 Package rerunfilecheck Info: File `studies.out' has not changed.
 (rerunfilecheck)             Checksum: B286E1CFB15FE199232371C74CC8168D;279.
 )
 
 Here is how much of LuaTeX's memory you used:
- 27875 strings out of 477794
- 381788,953878 words of node,token memory allocated
+ 27892 strings out of 477794
+ 381803,953878 words of node,token memory allocated
  540 words of node memory still in use:
    6 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 8 attribute, 61 glue_spec,
  8 attribute_list, 2 write nodes
-   avail lists: 1:3,2:9501,3:2003,4:11600,5:5182,6:184,7:18167,8:30,9:8093,10:78
+   avail lists: 1:2,2:9502,3:2003,4:11600,5:5181,6:184,7:18163,8:30,9:8093,10:78
 ,11:1762
- 47457 multiletter control sequences out of 65536+600000
+ 47469 multiletter control sequences out of 65536+600000
  54 fonts using 3740535 bytes
- 99i,7n,98p,1092b,639s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 99i,7n,98p,1092b,638s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/share/miktex-texmf/fonts/opentype/public/lm/lmmono10-italic.otf></us
 r/local/share/miktex-texmf/fonts/opentype/public/lm/lmroman10-bold.otf></usr/loc
 al/share/miktex-texmf/fonts/opentype/public/lm/lmmonolt10-bold.otf></usr/local/s
@@ -1053,9 +1053,9 @@ x-texmf/fonts/opentype/public/lm/lmroman12-regular.otf></usr/local/share/miktex-
 texmf/fonts/opentype/public/lm/lmroman17-regular.otf></usr/local/share/miktex-te
 xmf/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/share/miktex-texmf/font
 s/type1/public/amsfonts/cm/cmsy6.pfb>
-Output written on studies.pdf (12 pages, 95668 bytes).
+Output written on studies.pdf (13 pages, 103683 bytes).
 
-PDF statistics: 143 PDF objects out of 1000 (max. 8388607)
- 25 named destinations out of 1000 (max. 131072)
+PDF statistics: 151 PDF objects out of 1000 (max. 8388607)
+ 30 named destinations out of 1000 (max. 131072)
  32 words of extra memory for PDF output out of 10000 (max. 100000000)
 

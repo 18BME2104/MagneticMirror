@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Do the same as before for the second batch}
+\PYG{n}{c1Maxwell\PYGZus{}batch2} \PYG{o}{=} \PYG{n}{c1Maxwell}\PYG{o}{.}\PYG{n}{batches}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{][}\PYG{l+s+s1}{\PYGZsq{}H2 gas\PYGZsq{}}\PYG{p}{]}
+\PYG{n}{c1Maxwell\PYGZus{}positions\PYGZus{}batch2} \PYG{o}{=} \PYG{p}{[]}
+\PYG{n}{c1Maxwell\PYGZus{}velocities\PYGZus{}batch2} \PYG{o}{=} \PYG{p}{[]}
+\PYG{k}{for} \PYG{n}{particle} \PYG{o+ow}{in} \PYG{n}{c1Maxwell\PYGZus{}batch2}\PYG{o}{.}\PYG{n}{particles}\PYG{p}{:}
+\PYG{n}{c1Maxwell\PYGZus{}positions\PYGZus{}batch2}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{particle}\PYG{o}{.}\PYG{n}{r}\PYG{p}{)}
+\PYG{n}{c1Maxwell\PYGZus{}velocities\PYGZus{}batch2}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{particle}\PYG{o}{.}\PYG{n}{v}\PYG{p}{)}
+\PYG{n}{c1Maxwell\PYGZus{}speeds\PYGZus{}batch2} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{sqrt}\PYG{p}{(} \PYG{p}{[} \PYG{p}{(}\PYG{n}{c1Maxwell\PYGZus{}velocities\PYGZus{}batch2}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{**} \PYG{l+m+mi}{2}\PYG{p}{)} \PYG{o}{+} \PYG{p}{(}\PYG{n}{c1Maxwell\PYGZus{}velocities\PYGZus{}batch2}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{**} \PYG{l+m+mi}{2}\PYG{p}{)} \PYG{o}{+} \PYG{p}{(}\PYG{n}{c1Maxwell\PYGZus{}velocities\PYGZus{}batch2}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{l+m+mi}{2}\PYG{p}{]} \PYG{o}{**} \PYG{l+m+mi}{2}\PYG{p}{)} \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{c1Maxwell\PYGZus{}velocities\PYGZus{}batch2}\PYG{p}{))} \PYG{p}{]} \PYG{p}{)}
+\PYG{n}{c1Maxwell\PYGZus{}meanspeed\PYGZus{}batch2} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{(}\PYG{n}{c1Maxwell\PYGZus{}speeds\PYGZus{}batch2}\PYG{p}{)} \PYG{o}{/} \PYG{n}{c1Maxwell\PYGZus{}speeds\PYGZus{}batch2}\PYG{o}{.}\PYG{n}{size}	
+\end{Verbatim}

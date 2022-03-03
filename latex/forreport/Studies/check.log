@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.14.0 (MiKTeX 22.1) (format=lualatex 2022.3.2)  2 MAR 2022 20:17
+This is LuaHBTeX, Version 1.14.0 (MiKTeX 22.1) (format=lualatex 2022.3.2)  3 MAR 2022 19:46
  system commands enabled.
 **check.tex
 (./check.tex
@@ -1209,19 +1209,19 @@ LaTeX Font Info:    Trying to load font information for T1+ppl on input line 41
 (/home/kushik/.miktex/texmfs/install/tex/latex/psnfss/t1ppl.fd
 File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 53.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 57.
 
 
 (/usr/local/share/miktex-texmf/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 53.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 57.
 
 
 (/usr/local/share/miktex-texmf/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 10000) in paragraph at lines 61--62
+Underfull \hbox (badness 10000) in paragraph at lines 65--66
 
  []
 
@@ -1246,11 +1246,26 @@ File: ts1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ))
 \openout4 = check.pyg
 
-(./_minted-check/9C5F55EAF993E3C0AC0C9D0029694C877A89F1F2CD020F52767C856FE70A42
+(./_minted-check/84DFCED3DC122D7FB33BA8A31DB99CF37A89F1F2CD020F52767C856FE70A42
 D9.pygtex
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
 (Font)              Font shape `T1/lmtt/b/n' tried instead on input line 7.
 ) [2]
+\openout4 = check.pyg
+
+(./_minted-check/9A65BBB486CE3A1CDF75EFD59C98C4247A89F1F2CD020F52767C856FE70A42
+D9.pygtex)
+\openout4 = check.pyg
+
+(./_minted-check/3A9F3045E57D52A66D7BE77C814ED8FE7A89F1F2CD020F52767C856FE70A42
+D9.pygtex) [3]
+Overfull \hbox (38.5817pt too wide) in paragraph at lines 194--195
+\T1/ppl/m/n/12 from the an-a-lytic ex-pres-sion are close for this dis-tri-bu-ti
+on too; in fact within $\OT1/cmr/m/n/12 0\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 96859
+93662716086%$
+ []
+
+
 \openout4 = check.pyg
 
 (./_minted-check/2906DF1C2A251BDD7E45658E95456C767A89F1F2CD020F52767C856FE70A42
@@ -1258,48 +1273,48 @@ D9.pygtex)
 \openout4 = check.pyg
 
 (./_minted-check/E23AA2CB6B58318B8BAE4E8FC7B86BDB7A89F1F2CD020F52767C856FE70A42
-D9.pygtex)
+D9.pygtex) [4]
 \openout4 = check.pyg
- [3]
+
 (./_minted-check/D4B65FBEE4A97309D16B112E730966BE7A89F1F2CD020F52767C856FE70A42
-D9.pygtex)
-Overfull \hbox (25.45924pt too wide) detected at line 256
+D9.pygtex) [5]
+Overfull \hbox (25.45924pt too wide) detected at line 320
 \OML/cmm/m/it/12 q[] \OT1/cmr/m/n/12 = [][] = [][] = 4\OML/cmm/m/it/12 :\OT1/cm
 r/m/n/12 78597877761177 C s [][]
  []
 
 
-Overfull \hbox (41.21245pt too wide) detected at line 271
+Overfull \hbox (41.21245pt too wide) detected at line 335
 [][] \OT1/cmr/m/n/12 = [][] + 2\OML/cmm/m/it/12 q[] [] \OT1/cmr/m/n/12 = [] + 2 \OMS/cmsy/m/n/12  \OT1/cmr/m/n/12 4\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 78597877761177 []
  []
 
-[4]
-Overfull \hbox (15.31853pt too wide) detected at line 290
+
+Overfull \hbox (15.31853pt too wide) detected at line 354
 [][] \OT1/cmr/m/n/12 = [][] + \OML/cmm/m/it/12 t [][] \OT1/cmr/m/n/12 = [] + 10
 []   [] = []
  []
 
-
-Overfull \hbox (41.21245pt too wide) detected at line 332
+[6]
+Overfull \hbox (41.21245pt too wide) detected at line 396
 [][] \OT1/cmr/m/n/12 = [][] + 2\OML/cmm/m/it/12 q[] [] \OT1/cmr/m/n/12 = [] + 2 \OMS/cmsy/m/n/12  \OT1/cmr/m/n/12 4\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 78597877761177 []
  []
 
-[5] [6] (./check.aux)
+[7] [8] (./check.aux)
 Package rerunfilecheck Info: File `check.out' has not changed.
 (rerunfilecheck)             Checksum: 874037CDB000D7AE5729ECAD2B702BC3;585.
 runsystem(rm check.pyg)...executed
 )
 
 Here is how much of LuaTeX's memory you used:
- 35798 strings out of 477794
+ 35850 strings out of 477794
  100000,1144653 words of node,token memory allocated
- 1591 words of node memory still in use:
-   30 hlist, 2 vlist, 14 rule, 2 glue, 31 kern, 1 glyph, 114 attribute, 61 glue_
-spec, 114 attribute_list, 2 write, 24 pdf_literal, 24 pdf_colorstack nodes
-   avail lists: 2:2430,3:1104,4:372,5:509,6:62,7:4941,8:108,9:1205,10:16,11:249
- 54982 multiletter control sequences out of 65536+600000
+ 1700 words of node memory still in use:
+   30 hlist, 2 vlist, 14 rule, 2 glue, 44 kern, 1 glyph, 125 attribute, 61 glue_
+spec, 125 attribute_list, 2 write, 24 pdf_literal, 24 pdf_colorstack nodes
+   avail lists: 2:2491,3:1118,4:400,5:492,6:68,7:5065,8:108,9:1196,10:17,11:247
+ 54996 multiletter control sequences out of 65536+600000
  75 fonts using 4892183 bytes
- 99i,22n,95p,894b,915s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 99i,22n,95p,894b,908s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/share/miktex-texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/local/share/m
 iktex-texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/share/miktex-texmf/fonts/en
 c/dvips/base/8r.enc}</usr/local/share/miktex-texmf/fonts/type1/public/amsfonts/c
@@ -1322,9 +1337,9 @@ sr/local/share/miktex-texmf/fonts/type1/public/lm/lmtt12.pfb></usr/local/share/m
 iktex-texmf/fonts/type1/public/lm/lmtti10.pfb></usr/local/share/miktex-texmf/fon
 ts/type1/urw/palatino/uplb8a.pfb></usr/local/share/miktex-texmf/fonts/type1/urw/
 palatino/uplr8a.pfb>
-Output written on check.pdf (6 pages, 353896 bytes).
+Output written on check.pdf (8 pages, 360152 bytes).
 
-PDF statistics: 191 PDF objects out of 1000 (max. 8388607)
- 15 named destinations out of 1000 (max. 131072)
+PDF statistics: 201 PDF objects out of 1000 (max. 8388607)
+ 19 named destinations out of 1000 (max. 131072)
  296 words of extra memory for PDF output out of 10000 (max. 100000000)
 
