@@ -155,7 +155,7 @@
     \renewcommand{\LaTeX}{\textrm{\Oldlatex}}
     % Document parameters
     % Document title
-    \title{studies}
+    \title{checks}
     
     
     
@@ -379,11 +379,6 @@
     
 
     
-    \hypertarget{plasma-studies}{%
-\subsection{Plasma Studies}\label{plasma-studies}}
-
-We perform various studies on the plasma system using the simulation.
-
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
 \prompt{In}{incolor}{1}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -789,7 +784,7 @@ array([ 6591.7148811 ,  6078.03243632,  1333.29465428, 13414.38413862,
 \end{tcolorbox}
         
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{41}{\boxspacing}
+\prompt{In}{incolor}{13}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{p}{(}\PY{n}{c1Maxwell\PYZus{}meanspeed\PYZus{}expected} \PY{o}{\PYZhy{}} \PY{n}{c1Maxwell\PYZus{}meanspeed}\PY{p}{)} \PY{o}{*} \PY{l+m+mi}{100}\PY{o}{/} \PY{n}{c1Maxwell\PYZus{}meanspeed}
 \PY{c+c1}{\PYZsh{} We see a maximum of 2.04 \PYZpc{} discrepency}
@@ -797,7 +792,7 @@ array([ 6591.7148811 ,  6078.03243632,  1333.29465428, 13414.38413862,
 \end{tcolorbox}
 
             \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
-\prompt{Out}{outcolor}{41}{\boxspacing}
+\prompt{Out}{outcolor}{13}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 2.0431826454479785
 \end{Verbatim}
@@ -813,10 +808,10 @@ third (2nd) available velocity sampled file; to see if the numbers are
 still close.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{13}{\boxspacing}
+\prompt{In}{incolor}{14}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{} Create 100 particles based on the sampled velocities of H2 gas}
-\PY{c+c1}{\PYZsh{} We consider just for this test case that a Hydrogen molecule is a particle of the plasma}
+\PY{c+c1}{\PYZsh{} We consider just for this test case that a Hydrogen molecules to be sampled with a Maxwellian distribution}
 \PY{c+c1}{\PYZsh{} We create a new batch on the same Run instance}
 \PY{n}{c1Maxwell}\PY{o}{.}\PY{n}{create\PYZus{}batch\PYZus{}with\PYZus{}file\PYZus{}initialization}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{H2}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{constants}\PY{o}{.}\PY{n}{constants}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{e}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PYZbs{}
                                           \PY{l+m+mi}{2} \PY{o}{*} \PY{n}{constants}\PY{o}{.}\PY{n}{constants}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{m\PYZus{}H}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{*} \PY{n}{constants}\PY{o}{.}\PY{n}{constants}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{amu}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PYZbs{}
@@ -825,7 +820,7 @@ still close.
 \end{tcolorbox}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{38}{\boxspacing}
+\prompt{In}{incolor}{15}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{} Do the same as before for the second batch}
 \PY{n}{c1Maxwell\PYZus{}batch2} \PY{o}{=} \PY{n}{c1Maxwell}\PY{o}{.}\PY{n}{batches}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{H2 gas}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
@@ -843,14 +838,14 @@ still close.
 \end{tcolorbox}
 
             \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
-\prompt{Out}{outcolor}{38}{\boxspacing}
+\prompt{Out}{outcolor}{15}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 10149.754879907316
 \end{Verbatim}
 \end{tcolorbox}
         
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{39}{\boxspacing}
+\prompt{In}{incolor}{16}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{} We multiply the mass of Hydrogen by 2 to get the numbers for hydrogen molecule}
 \PY{n}{c1Maxwell\PYZus{}meanspeed\PYZus{}expected\PYZus{}batch2} \PY{o}{=} \PY{p}{(}\PY{l+m+mi}{2} \PY{o}{/} \PY{n}{np}\PY{o}{.}\PY{n}{sqrt}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{pi}\PY{p}{)} \PY{p}{)} \PY{o}{*} \PY{n}{np}\PY{o}{.}\PY{n}{sqrt}\PY{p}{(} \PY{p}{(}\PY{l+m+mi}{2} \PY{o}{*} \PY{n}{constants}\PY{o}{.}\PY{n}{constants}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{K}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{*} \PY{n}{constants}\PY{o}{.}\PY{n}{constants}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{N\PYZus{}A}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{*} \PY{l+m+mi}{10000}\PY{p}{)}\PY{o}{/} \PY{p}{(} \PY{l+m+mi}{2} \PY{o}{*} \PY{n}{constants}\PY{o}{.}\PY{n}{constants}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{m\PYZus{}H}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{*} \PY{l+m+mi}{10}\PY{o}{*}\PY{o}{*}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{3}\PY{p}{)}\PY{p}{)} \PY{p}{)}
@@ -859,14 +854,14 @@ still close.
 \end{tcolorbox}
 
             \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
-\prompt{Out}{outcolor}{39}{\boxspacing}
+\prompt{Out}{outcolor}{16}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 10248.06534135222
 \end{Verbatim}
 \end{tcolorbox}
         
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{42}{\boxspacing}
+\prompt{In}{incolor}{17}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{p}{(}\PY{n}{c1Maxwell\PYZus{}meanspeed\PYZus{}expected\PYZus{}batch2} \PY{o}{\PYZhy{}} \PY{n}{c1Maxwell\PYZus{}meanspeed\PYZus{}batch2}\PY{p}{)} \PY{o}{*} \PY{l+m+mi}{100}\PY{o}{/} \PY{n}{c1Maxwell\PYZus{}meanspeed\PYZus{}batch2}
 \PY{c+c1}{\PYZsh{} We see a maximum of 0.97\PYZpc{} discrepency}
@@ -874,7 +869,7 @@ still close.
 \end{tcolorbox}
 
             \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
-\prompt{Out}{outcolor}{42}{\boxspacing}
+\prompt{Out}{outcolor}{17}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 0.9685993662716086
 \end{Verbatim}
@@ -909,7 +904,7 @@ observe the result of update of a single particle. We compare it to
 calculations done by hand.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{14}{\boxspacing}
+\prompt{In}{incolor}{18}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{} c2Boris means checking the Boris update}
 \PY{n}{c2Boris} \PY{o}{=} \PY{n}{Run}\PY{p}{(}\PY{p}{)}
@@ -917,7 +912,7 @@ calculations done by hand.
 \end{tcolorbox}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{15}{\boxspacing}
+\prompt{In}{incolor}{19}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{}Create 10 particles}
 \PY{n}{c2Boris}\PY{o}{.}\PY{n}{create\PYZus{}batch\PYZus{}with\PYZus{}file\PYZus{}initialization}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{H+}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{constants}\PY{o}{.}\PY{n}{constants}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{e}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PYZbs{}
@@ -927,7 +922,7 @@ calculations done by hand.
 \end{tcolorbox}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{16}{\boxspacing}
+\prompt{In}{incolor}{20}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{c2Boris\PYZus{}index\PYZus{}update} \PY{o}{=} \PY{l+m+mi}{0} \PY{c+c1}{\PYZsh{} Update the first batch in this Run instance run\PYZus{}Boris\PYZus{}check}
 \PY{n}{c2Boris\PYZus{}particle\PYZus{}track\PYZus{}indices} \PY{o}{=} \PY{p}{[}\PY{n}{i} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{)}\PY{p}{]} \PY{c+c1}{\PYZsh{} Track all 10 particles}
@@ -943,7 +938,7 @@ calculations done by hand.
 \end{tcolorbox}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{17}{\boxspacing}
+\prompt{In}{incolor}{21}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{c2Boris\PYZus{}positions\PYZus{}and\PYZus{}velocities} \PY{o}{=} \PY{n}{c2Boris}\PY{o}{.}\PY{n}{update\PYZus{}batch\PYZus{}with\PYZus{}unchanging\PYZus{}fields}\PY{p}{(}\PY{n}{c2Boris\PYZus{}index\PYZus{}update}\PY{p}{,} \PYZbs{}
                                                                                \PY{n}{c2Boris\PYZus{}dT}\PY{p}{,} \PY{n}{c2Boris\PYZus{}stepT}\PY{p}{,} \PYZbs{}
@@ -953,7 +948,7 @@ calculations done by hand.
 \end{tcolorbox}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{18}{\boxspacing}
+\prompt{In}{incolor}{22}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{}Let\PYZsq{}s inspect the positions and velocities of the particles at index 1 and 7}
 \PY{n}{c2Boris\PYZus{}p1} \PY{o}{=} \PY{n}{c2Boris\PYZus{}positions\PYZus{}and\PYZus{}velocities}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}
@@ -962,7 +957,7 @@ calculations done by hand.
 \end{tcolorbox}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{19}{\boxspacing}
+\prompt{In}{incolor}{23}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{}Let\PYZsq{}s look at particle 1\PYZsq{}s positions and velocities}
 \PY{n}{c2Boris\PYZus{}p1}
@@ -970,7 +965,7 @@ calculations done by hand.
 \end{tcolorbox}
 
             \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
-\prompt{Out}{outcolor}{19}{\boxspacing}
+\prompt{Out}{outcolor}{23}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 [(0,
   array([-4.98921519e-01, -5.02949104e-04, -2.74850639e-04]),
@@ -1006,7 +1001,7 @@ calculations done by hand.
 \end{tcolorbox}
         
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{20}{\boxspacing}
+\prompt{In}{incolor}{24}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{}Let\PYZsq{}s take the positions and velocities of the particle 1 after the 3rd and the 4th time steps.}
 \PY{n}{c2Boris\PYZus{}p134\PYZus{}p} \PY{o}{=} \PY{p}{[}\PY{n}{c2Boris\PYZus{}p1}\PY{p}{[}\PY{l+m+mi}{3}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{n}{c2Boris\PYZus{}p1}\PY{p}{[}\PY{l+m+mi}{4}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{]}
@@ -1015,7 +1010,7 @@ calculations done by hand.
 \end{tcolorbox}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{21}{\boxspacing}
+\prompt{In}{incolor}{25}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{}Likewise for particle 7}
 \PY{n}{c2Boris\PYZus{}p734\PYZus{}p} \PY{o}{=} \PY{p}{[}\PY{n}{c2Boris\PYZus{}p1}\PY{p}{[}\PY{l+m+mi}{3}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{n}{c2Boris\PYZus{}p1}\PY{p}{[}\PY{l+m+mi}{4}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{]}
@@ -1024,7 +1019,7 @@ calculations done by hand.
 \end{tcolorbox}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{22}{\boxspacing}
+\prompt{In}{incolor}{26}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{}Let\PYZsq{}s look at the positions to check if they match up against the positions and velocities from above}
 \PY{n}{c2Boris\PYZus{}p134\PYZus{}p}
@@ -1032,7 +1027,7 @@ calculations done by hand.
 \end{tcolorbox}
 
             \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
-\prompt{Out}{outcolor}{22}{\boxspacing}
+\prompt{Out}{outcolor}{26}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 [array([-4.89851127e-01, -2.01179642e-03,  1.70051838e-04]),
  array([-0.48496014, -0.00251475,  0.00104989])]
@@ -1040,7 +1035,7 @@ calculations done by hand.
 \end{tcolorbox}
         
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{23}{\boxspacing}
+\prompt{In}{incolor}{27}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{}Let\PYZsq{}s look at the velocities to check if they match up against the positions and velocities from above}
 \PY{n}{c2Boris\PYZus{}p134\PYZus{}v}
@@ -1048,7 +1043,7 @@ calculations done by hand.
 \end{tcolorbox}
 
             \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
-\prompt{Out}{outcolor}{23}{\boxspacing}
+\prompt{Out}{outcolor}{27}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 [array([39771.83801957, -5029.491038  ,  4533.34393251]),
  array([48909.86581774, -5029.491038  ,  8798.39924387])]
@@ -1056,7 +1051,7 @@ calculations done by hand.
 \end{tcolorbox}
         
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{24}{\boxspacing}
+\prompt{In}{incolor}{28}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nb}{print}\PY{p}{(}\PY{l+s+sa}{f}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{The velocity changed from }\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{ }\PY{l+s+si}{\PYZob{}}\PY{p}{[}\PY{n}{c2Boris\PYZus{}p134\PYZus{}v}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{c2Boris\PYZus{}p134\PYZus{}v}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{n}{c2Boris\PYZus{}p134\PYZus{}v}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{]}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s1}{ }\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{ to }\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{ }\PY{l+s+si}{\PYZob{}}\PY{p}{[}\PY{n}{c2Boris\PYZus{}p134\PYZus{}v}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{c2Boris\PYZus{}p134\PYZus{}v}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{n}{c2Boris\PYZus{}p134\PYZus{}v}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{]}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s1}{ }\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
 \PY{n+nb}{print}\PY{p}{(}\PY{l+s+sa}{f}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{The position changed from }\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{ }\PY{l+s+si}{\PYZob{}}\PY{p}{[}\PY{n}{c2Boris\PYZus{}p134\PYZus{}p}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{c2Boris\PYZus{}p134\PYZus{}p}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{n}{c2Boris\PYZus{}p134\PYZus{}p}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{]}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s1}{ }\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{ to }\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{ }\PY{l+s+si}{\PYZob{}}\PY{p}{[}\PY{n}{c2Boris\PYZus{}p134\PYZus{}p}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{c2Boris\PYZus{}p134\PYZus{}p}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{n}{c2Boris\PYZus{}p134\PYZus{}p}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{]}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s1}{ }\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
@@ -1077,7 +1072,7 @@ The position changed from
     \end{Verbatim}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{25}{\boxspacing}
+\prompt{In}{incolor}{29}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{}Similary for particle 7}
 \PY{n}{c2Boris\PYZus{}p734\PYZus{}p} \PY{o}{=} \PY{p}{[}\PY{n}{c2Boris\PYZus{}p7}\PY{p}{[}\PY{l+m+mi}{3}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{n}{c2Boris\PYZus{}p7}\PY{p}{[}\PY{l+m+mi}{4}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{]}
@@ -1101,28 +1096,28 @@ The position changed from
     \end{Verbatim}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{26}{\boxspacing}
+\prompt{In}{incolor}{30}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{c2Boris\PYZus{}qp} \PY{o}{=} \PY{p}{(}\PY{n}{constants}\PY{o}{.}\PY{n}{constants}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{e}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{*} \PY{l+m+mi}{10}\PY{o}{*}\PY{o}{*}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{7}\PY{p}{)}\PY{p}{)} \PY{o}{/} \PY{p}{(}\PY{l+m+mi}{2} \PY{o}{*} \PY{n}{constants}\PY{o}{.}\PY{n}{constants}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{m\PYZus{}H}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{*} \PY{n}{constants}\PY{o}{.}\PY{n}{constants}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{amu}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{27}{\boxspacing}
+\prompt{In}{incolor}{31}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{c2Boris\PYZus{}qp} 
 \end{Verbatim}
 \end{tcolorbox}
 
             \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
-\prompt{Out}{outcolor}{27}{\boxspacing}
+\prompt{Out}{outcolor}{31}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 4.78597877761177
 \end{Verbatim}
 \end{tcolorbox}
         
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{28}{\boxspacing}
+\prompt{In}{incolor}{32}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{} The velocity after update 4, doing a manual update.}
 \PY{n}{c2Boris\PYZus{}vminus\PYZus{}p1} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{c2Boris\PYZus{}p134\PYZus{}v}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{c2Boris\PYZus{}qp} \PY{o}{*} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n}{c2Boris\PYZus{}argsE}\PY{p}{)}\PY{p}{)}
@@ -1132,7 +1127,7 @@ The position changed from
 \end{tcolorbox}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{29}{\boxspacing}
+\prompt{In}{incolor}{33}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{c2Boris\PYZus{}vnew\PYZus{}p1}
 \PY{c+c1}{\PYZsh{}This is indeed the same as the velocity of particle 1 after update 4.}
@@ -1141,14 +1136,14 @@ The position changed from
 \end{tcolorbox}
 
             \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
-\prompt{Out}{outcolor}{29}{\boxspacing}
+\prompt{Out}{outcolor}{33}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 array([ True,  True,  True])
 \end{Verbatim}
 \end{tcolorbox}
         
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{30}{\boxspacing}
+\prompt{In}{incolor}{34}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{}Similarly for position of the particle 1 after update 4}
 \PY{n}{c2Boris\PYZus{}pnew\PYZus{}p1} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{c2Boris\PYZus{}p134\PYZus{}p}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{c2Boris\PYZus{}stepT} \PY{o}{*} \PY{n}{c2Boris\PYZus{}vnew\PYZus{}p1}\PY{p}{)}
@@ -1156,70 +1151,11 @@ array([ True,  True,  True])
 \end{tcolorbox}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{31}{\boxspacing}
+\prompt{In}{incolor}{35}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{c2Boris\PYZus{}pnew\PYZus{}p1}
 \PY{c+c1}{\PYZsh{}This is indeed the same as the position of particle 1 after update 4.}
 \PY{n}{np}\PY{o}{.}\PY{n}{isclose}\PY{p}{(}\PY{n}{c2Boris\PYZus{}pnew\PYZus{}p1}\PY{p}{,} \PY{n}{c2Boris\PYZus{}p134\PYZus{}p}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)} \PY{c+c1}{\PYZsh{}Indeed th values are close (i.e. the same)}
-\end{Verbatim}
-\end{tcolorbox}
-
-            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
-\prompt{Out}{outcolor}{31}{\boxspacing}
-\begin{Verbatim}[commandchars=\\\{\}]
-array([ True,  True,  True])
-\end{Verbatim}
-\end{tcolorbox}
-        
-    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{32}{\boxspacing}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{n}{c2Boris\PYZus{}p134\PYZus{}p}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
-\end{Verbatim}
-\end{tcolorbox}
-
-            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
-\prompt{Out}{outcolor}{32}{\boxspacing}
-\begin{Verbatim}[commandchars=\\\{\}]
-array([-4.89851127e-01, -2.01179642e-03,  1.70051838e-04])
-\end{Verbatim}
-\end{tcolorbox}
-        
-    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{33}{\boxspacing}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{n}{c2Boris\PYZus{}p134\PYZus{}v}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
-\end{Verbatim}
-\end{tcolorbox}
-
-            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
-\prompt{Out}{outcolor}{33}{\boxspacing}
-\begin{Verbatim}[commandchars=\\\{\}]
-array([39771.83801957, -5029.491038  ,  4533.34393251])
-\end{Verbatim}
-\end{tcolorbox}
-        
-    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
-\begin{Verbatim}[commandchars=\\\{\}]
-
-\end{Verbatim}
-\end{tcolorbox}
-
-    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{34}{\boxspacing}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{c+c1}{\PYZsh{}Similarly for particle 7}
-\PY{n}{c2Boris\PYZus{}vminus\PYZus{}p7} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{c2Boris\PYZus{}p734\PYZus{}v}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{c2Boris\PYZus{}qp} \PY{o}{*} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n}{c2Boris\PYZus{}argsE}\PY{p}{)}\PY{p}{)}
-\PY{n}{c2Boris\PYZus{}vplus\PYZus{}p7} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{c2Boris\PYZus{}vminus\PYZus{}p7}\PY{p}{,} \PY{l+m+mi}{2} \PY{o}{*} \PY{n}{c2Boris\PYZus{}qp} \PY{o}{*} \PY{n}{np}\PY{o}{.}\PY{n}{cross}\PY{p}{(}\PY{n}{c2Boris\PYZus{}vminus\PYZus{}p7}\PY{p}{,} \PY{n}{c2Boris\PYZus{}argsB}\PY{p}{)}\PY{p}{)}
-\PY{n}{c2Boris\PYZus{}vnew\PYZus{}p7} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{c2Boris\PYZus{}vplus\PYZus{}p7}\PY{p}{,} \PY{n}{c2Boris\PYZus{}qp} \PY{o}{*} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n}{c2Boris\PYZus{}argsE}\PY{p}{)}\PY{p}{)}
-\end{Verbatim}
-\end{tcolorbox}
-
-    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{35}{\boxspacing}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{n}{np}\PY{o}{.}\PY{n}{isclose}\PY{p}{(}\PY{n}{c2Boris\PYZus{}vnew\PYZus{}p7}\PY{p}{,} \PY{n}{c2Boris\PYZus{}p734\PYZus{}v}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
 
@@ -1233,27 +1169,86 @@ array([ True,  True,  True])
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
 \prompt{In}{incolor}{36}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
-\PY{n}{c2Boris\PYZus{}pnew\PYZus{}p7} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{c2Boris\PYZus{}p734\PYZus{}p}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{c2Boris\PYZus{}stepT} \PY{o}{*} \PY{n}{c2Boris\PYZus{}vnew\PYZus{}p7}\PY{p}{)}
-\PY{n}{np}\PY{o}{.}\PY{n}{isclose}\PY{p}{(}\PY{n}{c2Boris\PYZus{}pnew\PYZus{}p7}\PY{p}{,} \PY{n}{c2Boris\PYZus{}p734\PYZus{}p}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+\PY{n}{c2Boris\PYZus{}p134\PYZus{}p}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
 \end{Verbatim}
 \end{tcolorbox}
 
             \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
 \prompt{Out}{outcolor}{36}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
-array([ True,  True,  True])
+array([-4.89851127e-01, -2.01179642e-03,  1.70051838e-04])
 \end{Verbatim}
 \end{tcolorbox}
         
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
 \prompt{In}{incolor}{37}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
-\PY{n}{c2Boris\PYZus{}pnew\PYZus{}p7}
+\PY{n}{c2Boris\PYZus{}p134\PYZus{}v}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
 \end{Verbatim}
 \end{tcolorbox}
 
             \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
 \prompt{Out}{outcolor}{37}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+array([39771.83801957, -5029.491038  ,  4533.34393251])
+\end{Verbatim}
+\end{tcolorbox}
+        
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{ }{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{38}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{}Similarly for particle 7}
+\PY{n}{c2Boris\PYZus{}vminus\PYZus{}p7} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{c2Boris\PYZus{}p734\PYZus{}v}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{c2Boris\PYZus{}qp} \PY{o}{*} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n}{c2Boris\PYZus{}argsE}\PY{p}{)}\PY{p}{)}
+\PY{n}{c2Boris\PYZus{}vplus\PYZus{}p7} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{c2Boris\PYZus{}vminus\PYZus{}p7}\PY{p}{,} \PY{l+m+mi}{2} \PY{o}{*} \PY{n}{c2Boris\PYZus{}qp} \PY{o}{*} \PY{n}{np}\PY{o}{.}\PY{n}{cross}\PY{p}{(}\PY{n}{c2Boris\PYZus{}vminus\PYZus{}p7}\PY{p}{,} \PY{n}{c2Boris\PYZus{}argsB}\PY{p}{)}\PY{p}{)}
+\PY{n}{c2Boris\PYZus{}vnew\PYZus{}p7} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{c2Boris\PYZus{}vplus\PYZus{}p7}\PY{p}{,} \PY{n}{c2Boris\PYZus{}qp} \PY{o}{*} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n}{c2Boris\PYZus{}argsE}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{39}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{np}\PY{o}{.}\PY{n}{isclose}\PY{p}{(}\PY{n}{c2Boris\PYZus{}vnew\PYZus{}p7}\PY{p}{,} \PY{n}{c2Boris\PYZus{}p734\PYZus{}v}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{39}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+array([ True,  True,  True])
+\end{Verbatim}
+\end{tcolorbox}
+        
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{40}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{c2Boris\PYZus{}pnew\PYZus{}p7} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{c2Boris\PYZus{}p734\PYZus{}p}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{c2Boris\PYZus{}stepT} \PY{o}{*} \PY{n}{c2Boris\PYZus{}vnew\PYZus{}p7}\PY{p}{)}
+\PY{n}{np}\PY{o}{.}\PY{n}{isclose}\PY{p}{(}\PY{n}{c2Boris\PYZus{}pnew\PYZus{}p7}\PY{p}{,} \PY{n}{c2Boris\PYZus{}p734\PYZus{}p}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{40}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+array([ True,  True,  True])
+\end{Verbatim}
+\end{tcolorbox}
+        
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{41}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{c2Boris\PYZus{}pnew\PYZus{}p7}
+\end{Verbatim}
+\end{tcolorbox}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{41}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 array([-0.48495339, -0.00433543,  0.00569717])
 \end{Verbatim}

@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.14.0 (MiKTeX 22.1) (format=lualatex 2022.3.2)  3 MAR 2022 19:46
+This is LuaHBTeX, Version 1.14.0 (MiKTeX 22.1) (format=lualatex 2022.3.2)  8 MAR 2022 14:50
  system commands enabled.
 **check.tex
 (./check.tex
@@ -1266,6 +1266,12 @@ on too; in fact within $\OT1/cmr/m/n/12 0\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 96859
  []
 
 
+Overfull \hbox (16.76822pt too wide) in paragraph at lines 214--215
+\T1/ppl/m/n/12 com-pare it to the out-put of an al-go-rithm. From sec-tion 1.2.1
+ Boris Up-date in the \T1/ppl/b/n/12 checks.ipynb
+ []
+
+
 \openout4 = check.pyg
 
 (./_minted-check/2906DF1C2A251BDD7E45658E95456C767A89F1F2CD020F52767C856FE70A42
@@ -1337,7 +1343,7 @@ sr/local/share/miktex-texmf/fonts/type1/public/lm/lmtt12.pfb></usr/local/share/m
 iktex-texmf/fonts/type1/public/lm/lmtti10.pfb></usr/local/share/miktex-texmf/fon
 ts/type1/urw/palatino/uplb8a.pfb></usr/local/share/miktex-texmf/fonts/type1/urw/
 palatino/uplr8a.pfb>
-Output written on check.pdf (8 pages, 360152 bytes).
+Output written on check.pdf (8 pages, 360599 bytes).
 
 PDF statistics: 201 PDF objects out of 1000 (max. 8388607)
  19 named destinations out of 1000 (max. 131072)
