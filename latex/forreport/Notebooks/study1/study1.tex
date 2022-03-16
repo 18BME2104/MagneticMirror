@@ -1,0 +1,1855 @@
+\documentclass[11pt]{article}
+
+    \usepackage[breakable]{tcolorbox}
+    \usepackage{parskip} % Stop auto-indenting (to mimic markdown behaviour)
+    
+    \usepackage{iftex}
+    \ifPDFTeX
+    	\usepackage[T1]{fontenc}
+    	\usepackage{mathpazo}
+    \else
+    	\usepackage{fontspec}
+    \fi
+
+    % Basic figure setup, for now with no caption control since it's done
+    % automatically by Pandoc (which extracts ![](path) syntax from Markdown).
+    \usepackage{graphicx}
+    % Maintain compatibility with old templates. Remove in nbconvert 6.0
+    \let\Oldincludegraphics\includegraphics
+    % Ensure that by default, figures have no caption (until we provide a
+    % proper Figure object with a Caption API and a way to capture that
+    % in the conversion process - todo).
+    \usepackage{caption}
+    \DeclareCaptionFormat{nocaption}{}
+    \captionsetup{format=nocaption,aboveskip=0pt,belowskip=0pt}
+
+    \usepackage{float}
+    \floatplacement{figure}{H} % forces figures to be placed at the correct location
+    \usepackage{xcolor} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage{textcomp} % defines textquotesingle
+    % Hack from http://tex.stackexchange.com/a/47451/13684:
+    \AtBeginDocument{%
+        \def\PYZsq{\textquotesingle}% Upright quotes in Pygmentized code
+    }
+    \usepackage{upquote} % Upright quotes for verbatim code
+    \usepackage{eurosym} % defines \euro
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics 
+                         % to support a larger range
+    \makeatletter % fix for old versions of grffile with XeLaTeX
+    \@ifpackagelater{grffile}{2019/11/01}
+    {
+      % Do nothing on new versions
+    }
+    {
+      \def\Gread@@xetex#1{%
+        \IfFileExists{"\Gin@base".bb}%
+        {\Gread@eps{\Gin@base.bb}}%
+        {\Gread@@xetex@aux#1}%
+      }
+    }
+    \makeatother
+    \usepackage[Export]{adjustbox} % Used to constrain images to a maximum size
+    \adjustboxset{max size={0.9\linewidth}{0.9\paperheight}}
+
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    % The default LaTeX title has an obnoxious amount of whitespace. By default,
+    % titling removes some of it. It also provides customization options.
+    \usepackage{titling}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    \usepackage[inline]{enumitem} % IRkernel/repr support (it uses the enumerate* environment)
+    \usepackage[normalem]{ulem} % ulem is needed to support strikethroughs (\sout)
+                                % normalem makes italics be italics, not underlines
+    \usepackage{mathrsfs}
+    
+
+    
+    % Colors for the hyperref package
+    \definecolor{urlcolor}{rgb}{0,.145,.698}
+    \definecolor{linkcolor}{rgb}{.71,0.21,0.01}
+    \definecolor{citecolor}{rgb}{.12,.54,.11}
+
+    % ANSI colors
+    \definecolor{ansi-black}{HTML}{3E424D}
+    \definecolor{ansi-black-intense}{HTML}{282C36}
+    \definecolor{ansi-red}{HTML}{E75C58}
+    \definecolor{ansi-red-intense}{HTML}{B22B31}
+    \definecolor{ansi-green}{HTML}{00A250}
+    \definecolor{ansi-green-intense}{HTML}{007427}
+    \definecolor{ansi-yellow}{HTML}{DDB62B}
+    \definecolor{ansi-yellow-intense}{HTML}{B27D12}
+    \definecolor{ansi-blue}{HTML}{208FFB}
+    \definecolor{ansi-blue-intense}{HTML}{0065CA}
+    \definecolor{ansi-magenta}{HTML}{D160C4}
+    \definecolor{ansi-magenta-intense}{HTML}{A03196}
+    \definecolor{ansi-cyan}{HTML}{60C6C8}
+    \definecolor{ansi-cyan-intense}{HTML}{258F8F}
+    \definecolor{ansi-white}{HTML}{C5C1B4}
+    \definecolor{ansi-white-intense}{HTML}{A1A6B2}
+    \definecolor{ansi-default-inverse-fg}{HTML}{FFFFFF}
+    \definecolor{ansi-default-inverse-bg}{HTML}{000000}
+
+    % common color for the border for error outputs.
+    \definecolor{outerrorbackground}{HTML}{FFDFDF}
+
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \providecommand{\tightlist}{%
+      \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Additional commands for more recent versions of Pandoc
+    \newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{{#1}}}
+    \newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{{#1}}}
+    \newcommand{\ImportTok}[1]{{#1}}
+    \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{{#1}}}}
+    \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{{#1}}}
+    \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{{#1}}}
+    \newcommand{\BuiltInTok}[1]{{#1}}
+    \newcommand{\ExtensionTok}[1]{{#1}}
+    \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{{#1}}}
+    \newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{{#1}}}
+    \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatibility definitions
+    \def\gt{>}
+    \def\lt{<}
+    \let\Oldtex\TeX
+    \let\Oldlatex\LaTeX
+    \renewcommand{\TeX}{\textrm{\Oldtex}}
+    \renewcommand{\LaTeX}{\textrm{\Oldlatex}}
+    % Document parameters
+    % Document title
+    \title{study1}
+    
+    
+    
+    
+    
+% Pygments definitions
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\@namedef{PY@tok@w}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\@namedef{PY@tok@c}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@cp}{\def\PY@tc##1{\textcolor[rgb]{0.61,0.40,0.00}{##1}}}
+\@namedef{PY@tok@k}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kp}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kt}{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\@namedef{PY@tok@o}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@ow}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\@namedef{PY@tok@nb}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@nf}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@nc}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@nn}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@ne}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.80,0.25,0.22}{##1}}}
+\@namedef{PY@tok@nv}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@no}{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\@namedef{PY@tok@nl}{\def\PY@tc##1{\textcolor[rgb]{0.46,0.46,0.00}{##1}}}
+\@namedef{PY@tok@ni}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.44,0.44,0.44}{##1}}}
+\@namedef{PY@tok@na}{\def\PY@tc##1{\textcolor[rgb]{0.41,0.47,0.13}{##1}}}
+\@namedef{PY@tok@nt}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@nd}{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\@namedef{PY@tok@s}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sd}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@si}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.64,0.35,0.47}{##1}}}
+\@namedef{PY@tok@se}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.36,0.12}{##1}}}
+\@namedef{PY@tok@sr}{\def\PY@tc##1{\textcolor[rgb]{0.64,0.35,0.47}{##1}}}
+\@namedef{PY@tok@ss}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@sx}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@m}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@gh}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\@namedef{PY@tok@gu}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\@namedef{PY@tok@gd}{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\@namedef{PY@tok@gi}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.52,0.00}{##1}}}
+\@namedef{PY@tok@gr}{\def\PY@tc##1{\textcolor[rgb]{0.89,0.00,0.00}{##1}}}
+\@namedef{PY@tok@ge}{\let\PY@it=\textit}
+\@namedef{PY@tok@gs}{\let\PY@bf=\textbf}
+\@namedef{PY@tok@gp}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\@namedef{PY@tok@go}{\def\PY@tc##1{\textcolor[rgb]{0.44,0.44,0.44}{##1}}}
+\@namedef{PY@tok@gt}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\@namedef{PY@tok@err}{\def\PY@bc##1{{\setlength{\fboxsep}{\string -\fboxrule}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}}
+\@namedef{PY@tok@kc}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kd}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kn}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kr}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@bp}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@fm}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@vc}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@vg}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@vi}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@vm}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@sa}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sb}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sc}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@dl}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@s2}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sh}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@s1}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@mb}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mf}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mh}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mi}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@il}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mo}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@ch}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@cm}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@cpf}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@c1}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@cs}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % For linebreaks inside Verbatim environment from package fancyvrb. 
+    \makeatletter
+        \newbox\Wrappedcontinuationbox 
+        \newbox\Wrappedvisiblespacebox 
+        \newcommand*\Wrappedvisiblespace {\textcolor{red}{\textvisiblespace}} 
+        \newcommand*\Wrappedcontinuationsymbol {\textcolor{red}{\llap{\tiny$\m@th\hookrightarrow$}}} 
+        \newcommand*\Wrappedcontinuationindent {3ex } 
+        \newcommand*\Wrappedafterbreak {\kern\Wrappedcontinuationindent\copy\Wrappedcontinuationbox} 
+        % Take advantage of the already applied Pygments mark-up to insert 
+        % potential linebreaks for TeX processing. 
+        %        {, <, #, %, $, ' and ": go to next line. 
+        %        _, }, ^, &, >, - and ~: stay at end of broken line. 
+        % Use of \textquotesingle for straight quote. 
+        \newcommand*\Wrappedbreaksatspecials {% 
+            \def\PYGZus{\discretionary{\char`\_}{\Wrappedafterbreak}{\char`\_}}% 
+            \def\PYGZob{\discretionary{}{\Wrappedafterbreak\char`\{}{\char`\{}}% 
+            \def\PYGZcb{\discretionary{\char`\}}{\Wrappedafterbreak}{\char`\}}}% 
+            \def\PYGZca{\discretionary{\char`\^}{\Wrappedafterbreak}{\char`\^}}% 
+            \def\PYGZam{\discretionary{\char`\&}{\Wrappedafterbreak}{\char`\&}}% 
+            \def\PYGZlt{\discretionary{}{\Wrappedafterbreak\char`\<}{\char`\<}}% 
+            \def\PYGZgt{\discretionary{\char`\>}{\Wrappedafterbreak}{\char`\>}}% 
+            \def\PYGZsh{\discretionary{}{\Wrappedafterbreak\char`\#}{\char`\#}}% 
+            \def\PYGZpc{\discretionary{}{\Wrappedafterbreak\char`\%}{\char`\%}}% 
+            \def\PYGZdl{\discretionary{}{\Wrappedafterbreak\char`\$}{\char`\$}}% 
+            \def\PYGZhy{\discretionary{\char`\-}{\Wrappedafterbreak}{\char`\-}}% 
+            \def\PYGZsq{\discretionary{}{\Wrappedafterbreak\textquotesingle}{\textquotesingle}}% 
+            \def\PYGZdq{\discretionary{}{\Wrappedafterbreak\char`\"}{\char`\"}}% 
+            \def\PYGZti{\discretionary{\char`\~}{\Wrappedafterbreak}{\char`\~}}% 
+        } 
+        % Some characters . , ; ? ! / are not pygmentized. 
+        % This macro makes them "active" and they will insert potential linebreaks 
+        \newcommand*\Wrappedbreaksatpunct {% 
+            \lccode`\~`\.\lowercase{\def~}{\discretionary{\hbox{\char`\.}}{\Wrappedafterbreak}{\hbox{\char`\.}}}% 
+            \lccode`\~`\,\lowercase{\def~}{\discretionary{\hbox{\char`\,}}{\Wrappedafterbreak}{\hbox{\char`\,}}}% 
+            \lccode`\~`\;\lowercase{\def~}{\discretionary{\hbox{\char`\;}}{\Wrappedafterbreak}{\hbox{\char`\;}}}% 
+            \lccode`\~`\:\lowercase{\def~}{\discretionary{\hbox{\char`\:}}{\Wrappedafterbreak}{\hbox{\char`\:}}}% 
+            \lccode`\~`\?\lowercase{\def~}{\discretionary{\hbox{\char`\?}}{\Wrappedafterbreak}{\hbox{\char`\?}}}% 
+            \lccode`\~`\!\lowercase{\def~}{\discretionary{\hbox{\char`\!}}{\Wrappedafterbreak}{\hbox{\char`\!}}}% 
+            \lccode`\~`\/\lowercase{\def~}{\discretionary{\hbox{\char`\/}}{\Wrappedafterbreak}{\hbox{\char`\/}}}% 
+            \catcode`\.\active
+            \catcode`\,\active 
+            \catcode`\;\active
+            \catcode`\:\active
+            \catcode`\?\active
+            \catcode`\!\active
+            \catcode`\/\active 
+            \lccode`\~`\~ 	
+        }
+    \makeatother
+
+    \let\OriginalVerbatim=\Verbatim
+    \makeatletter
+    \renewcommand{\Verbatim}[1][1]{%
+        %\parskip\z@skip
+        \sbox\Wrappedcontinuationbox {\Wrappedcontinuationsymbol}%
+        \sbox\Wrappedvisiblespacebox {\FV@SetupFont\Wrappedvisiblespace}%
+        \def\FancyVerbFormatLine ##1{\hsize\linewidth
+            \vtop{\raggedright\hyphenpenalty\z@\exhyphenpenalty\z@
+                \doublehyphendemerits\z@\finalhyphendemerits\z@
+                \strut ##1\strut}%
+        }%
+        % If the linebreak is at a space, the latter will be displayed as visible
+        % space at end of first line, and a continuation symbol starts next line.
+        % Stretch/shrink are however usually zero for typewriter font.
+        \def\FV@Space {%
+            \nobreak\hskip\z@ plus\fontdimen3\font minus\fontdimen4\font
+            \discretionary{\copy\Wrappedvisiblespacebox}{\Wrappedafterbreak}
+            {\kern\fontdimen2\font}%
+        }%
+        
+        % Allow breaks at special characters using \PYG... macros.
+        \Wrappedbreaksatspecials
+        % Breaks at punctuation characters . , ; ? ! and / need catcode=\active 	
+        \OriginalVerbatim[#1,codes*=\Wrappedbreaksatpunct]%
+    }
+    \makeatother
+
+    % Exact colors from NB
+    \definecolor{incolor}{HTML}{303F9F}
+    \definecolor{outcolor}{HTML}{D84315}
+    \definecolor{cellborder}{HTML}{CFCFCF}
+    \definecolor{cellbackground}{HTML}{F7F7F7}
+    
+    % prompt
+    \makeatletter
+    \newcommand{\boxspacing}{\kern\kvtcb@left@rule\kern\kvtcb@boxsep}
+    \makeatother
+    \newcommand{\prompt}[4]{
+        {\ttfamily\llap{{\color{#2}[#3]:\hspace{3pt}#4}}\vspace{-\baselineskip}}
+    }
+    
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=urlcolor,
+      linkcolor=linkcolor,
+      citecolor=citecolor,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+\begin{document}
+    
+    \maketitle
+    
+    
+
+    
+    \hypertarget{study-1-plasma-stream}{%
+\section{Study 1 Plasma Stream}\label{study-1-plasma-stream}}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{1}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Make imports}
+\PY{k+kn}{import} \PY{n+nn}{import\PYZus{}ipynb}
+\PY{k+kn}{from} \PY{n+nn}{run} \PY{k+kn}{import} \PY{n}{Run}
+\PY{k+kn}{from} \PY{n+nn}{constants} \PY{k+kn}{import} \PY{n}{Constants}
+\PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k}{as} \PY{n+nn}{np}
+\PY{k+kn}{import} \PY{n+nn}{matplotlib}\PY{n+nn}{.}\PY{n+nn}{pyplot} \PY{k}{as} \PY{n+nn}{plt}
+\PY{c+c1}{\PYZsh{}import matplotlib.animation as animation}
+\PY{k+kn}{from} \PY{n+nn}{mpl\PYZus{}toolkits}\PY{n+nn}{.}\PY{n+nn}{mplot3d} \PY{k+kn}{import} \PY{n}{Axes3D}
+
+\PY{k+kn}{from} \PY{n+nn}{tempfile} \PY{k+kn}{import} \PY{n}{NamedTemporaryFile}
+\PY{k+kn}{import} \PY{n+nn}{base64} 
+\PY{k+kn}{from} \PY{n+nn}{matplotlib} \PY{k+kn}{import} \PY{n}{animation}
+\PY{k+kn}{from} \PY{n+nn}{IPython}\PY{n+nn}{.}\PY{n+nn}{display} \PY{k+kn}{import} \PY{n}{HTML}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+importing Jupyter notebook from run.ipynb
+importing Jupyter notebook from batch.ipynb
+importing Jupyter notebook from particle.ipynb
+importing Jupyter notebook from field.ipynb
+importing Jupyter notebook from constants.ipynb
+    \end{Verbatim}
+
+    \hypertarget{setup}{%
+\subsubsection{1. Setup}\label{setup}}
+
+This consists of the following: 1. Defining parameters 2. Creating a
+batch of particle 3. Updating the batch of particle
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{2}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{}Create a constants object instance to access the constants from constants.ipynb file}
+\PY{n}{constants} \PY{o}{=} \PY{n}{Constants}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{3}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Create a run object instance}
+\PY{n}{s1} \PY{o}{=} \PY{n}{Run}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{4}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Create 100 Hydrogen ions whose:}
+\PY{c+c1}{\PYZsh{} speeds are Maxwellian sampled, velocity directions are uniform randomly sampled}
+\PY{c+c1}{\PYZsh{} positions are all sampled such that particles start at [\PYZhy{}0.5, 0, 0] }
+\PY{c+c1}{\PYZsh{} a chamber 1m x 1m x 1m with extreme points [\PYZhy{}0.5, \PYZhy{}0.5, \PYZhy{}0.5] and [0.5, 0.5, 0.5] considered}
+\PY{n}{s1}\PY{o}{.}\PY{n}{create\PYZus{}batch\PYZus{}with\PYZus{}file\PYZus{}initialization}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{H+}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{constants}\PY{o}{.}\PY{n}{constants}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{e}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PYZbs{}
+                                          \PY{n}{constants}\PY{o}{.}\PY{n}{constants}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{m\PYZus{}H}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{*} \PY{n}{constants}\PY{o}{.}\PY{n}{constants}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{amu}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PYZbs{}
+                                          \PY{l+m+mi}{100}\PY{p}{,} \PY{l+m+mi}{100}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{H ions}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{r\PYZus{}index}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{v\PYZus{}index}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{5}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Take the first batch in this run object}
+\PY{n}{s1\PYZus{}batch1} \PY{o}{=} \PY{n}{s1}\PY{o}{.}\PY{n}{batches}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{H ions}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{6}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Let\PYZsq{}s consider Electric field being flipped in direction, and taken up a few scales}
+\PY{n}{E\PYZus{}scale} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mi}{3}\PY{p}{,} \PY{l+m+mi}{4}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mi}{4}\PY{p}{,} \PY{l+m+mi}{5}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mi}{5}\PY{p}{]}
+\PY{c+c1}{\PYZsh{} Let\PYZsq{}s consider a case with constant Magnetic field}
+\PY{n}{B\PYZus{}scale} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{1} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{E\PYZus{}scale}\PY{p}{)}\PY{p}{)}\PY{p}{]}
+
+\PY{c+c1}{\PYZsh{} NOT THIS NOW EB\PYZus{}scale = [(i, j) for i in range(10) for j in range(10)] \PYZsh{} list of tuples (0,0) ... (9,9)}
+
+\PY{n}{s1\PYZus{}index\PYZus{}update} \PY{o}{=} \PY{l+m+mi}{0} \PY{c+c1}{\PYZsh{} Update the first batch in this Run instance }
+\PY{n}{s1\PYZus{}particle\PYZus{}track\PYZus{}indices} \PY{o}{=} \PY{p}{[}\PY{n}{i} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{100}\PY{p}{)}\PY{p}{]} \PY{c+c1}{\PYZsh{} Track all 100 particles}
+\PY{n}{s1\PYZus{}dT} \PY{o}{=} \PY{l+m+mi}{10}\PY{o}{*}\PY{o}{*}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{7}\PY{p}{)} \PY{c+c1}{\PYZsh{} 0.1 microseconds}
+\PY{n}{s1\PYZus{}stepT} \PY{o}{=} \PY{l+m+mi}{10}\PY{o}{*}\PY{o}{*}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{9}\PY{p}{)} \PY{c+c1}{\PYZsh{} 0.001 microseconds time step}
+\PY{n}{s1\PYZus{}E0} \PY{o}{=} \PY{l+m+mi}{1000} \PY{c+c1}{\PYZsh{} say 1000 Volts (voltage) per meter (size of chamber) }
+\PY{n}{s1\PYZus{}Edirn} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]} \PY{c+c1}{\PYZsh{}in the x\PYZhy{}direction [1,0,0]}
+\PY{n}{s1\PYZus{}B0} \PY{o}{=} \PY{l+m+mi}{10} \PY{o}{*} \PY{p}{(}\PY{l+m+mi}{10}\PY{o}{*}\PY{o}{*}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{3}\PY{p}{)}\PY{p}{)} \PY{c+c1}{\PYZsh{} Meant to say 10 mT }
+\PY{n}{s1\PYZus{}Bdirn} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]} \PY{c+c1}{\PYZsh{}in the y\PYZhy{}direction [0,1,0]}
+\PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+\PY{l+s+sd}{Electric field in x\PYZhy{}direction and Magnetic field in y\PYZhy{}direction}
+\PY{l+s+sd}{will show E x B drift in z direction; sometimes up and sometimes down,}
+\PY{l+s+sd}{depending on the sign of the Electric field}
+\PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+
+\PY{n}{s1\PYZus{}argsE} \PY{o}{=} \PY{p}{[}\PY{n}{element} \PY{o}{*} \PY{n}{s1\PYZus{}E0} \PY{k}{for} \PY{n}{element} \PY{o+ow}{in} \PY{n}{s1\PYZus{}Edirn}\PY{p}{]} \PY{c+c1}{\PYZsh{} currently the uniform\PYZus{}E\PYZus{}field configuration is used}
+\PY{n}{s1\PYZus{}argsB} \PY{o}{=} \PY{p}{[}\PY{n}{element} \PY{o}{*} \PY{n}{s1\PYZus{}B0} \PY{k}{for} \PY{n}{element} \PY{o+ow}{in} \PY{n}{s1\PYZus{}Bdirn}\PY{p}{]} \PY{c+c1}{\PYZsh{} currently the uniform\PYZus{}B\PYZus{}field configuration is used}
+
+\PY{n}{s1\PYZus{}batch\PYZus{}ps\PYZus{}and\PYZus{}vs} \PY{o}{=} \PY{n+nb}{dict}\PY{p}{(}\PY{p}{)}
+
+\PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{E\PYZus{}scale}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+    \PY{n}{desc} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{E\PYZus{}scale = }\PY{l+s+s1}{\PYZsq{}} \PY{o}{+} \PY{n+nb}{str}\PY{p}{(}\PY{n}{E\PYZus{}scale}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)} \PY{o}{+} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ }\PY{l+s+s1}{\PYZsq{}} \PY{o}{+} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{B\PYZus{}scale = }\PY{l+s+s1}{\PYZsq{}} \PY{o}{+} \PY{n+nb}{str}\PY{p}{(}\PY{n}{B\PYZus{}scale}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}
+    \PY{n}{s1\PYZus{}batch1\PYZus{}ps\PYZus{}and\PYZus{}vs\PYZus{}once} \PY{o}{=} \PY{n}{s1}\PY{o}{.}\PY{n}{update\PYZus{}batch\PYZus{}with\PYZus{}unchanging\PYZus{}fields}\PYZbs{}
+    \PY{p}{(}\PY{n}{s1\PYZus{}index\PYZus{}update}\PY{p}{,} \PY{n}{s1\PYZus{}dT}\PY{p}{,} \PY{n}{s1\PYZus{}stepT}\PY{p}{,} \PY{p}{[}\PY{n}{elem} \PY{o}{*}\PY{n}{E\PYZus{}scale}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{k}{for} \PY{n}{elem} \PY{o+ow}{in} \PY{n}{s1\PYZus{}argsE}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{n}{elem} \PY{o}{*}\PY{n}{E\PYZus{}scale}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{k}{for} \PY{n}{elem} \PY{o+ow}{in} \PY{n}{s1\PYZus{}argsB}\PY{p}{]} \PY{o}{*} \PY{n}{B\PYZus{}scale}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{,} \PY{n}{s1\PYZus{}particle\PYZus{}track\PYZus{}indices}\PY{p}{)}
+    \PY{n}{s1\PYZus{}batch\PYZus{}ps\PYZus{}and\PYZus{}vs}\PY{p}{[}\PY{n}{desc}\PY{p}{]} \PY{o}{=} \PY{n}{s1\PYZus{}batch1\PYZus{}ps\PYZus{}and\PYZus{}vs\PYZus{}once}
+
+\PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+\PY{l+s+sd}{s1\PYZus{}batch\PYZus{}ps\PYZus{}and\PYZus{}vs will be of the form : }
+\PY{l+s+sd}{\PYZob{} }
+\PY{l+s+sd}{    \PYZsq{}E\PYZus{}scale = 0 B\PYZus{}scale = 1\PYZsq{}: \PYZob{}}
+\PY{l+s+sd}{                                    0 (means 0th particle): [}
+\PY{l+s+sd}{                                                                (0 (means 0th timestep), array of position, array of velocity)}
+\PY{l+s+sd}{                                    ] }
+\PY{l+s+sd}{    \PYZcb{}}
+\PY{l+s+sd}{\PYZcb{}}
+
+\PY{l+s+sd}{so it is a dictionary whose keys are strings describing the E and B field scales and}
+\PY{l+s+sd}{values are particles update history which is:}
+\PY{l+s+sd}{    a dictionary whose keys are intergers representing particles and values are update history for that particle}
+\PY{l+s+sd}{    which is:}
+\PY{l+s+sd}{        list of tuples (time step, position, velocity)}
+\PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+\end{Verbatim}
+\end{tcolorbox}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{6}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+"\textbackslash{}ns1\_batch\_ps\_and\_vs will be of the form : \textbackslash{}n\{ \textbackslash{}n    'E\_scale = 0 B\_scale = 1':
+\{\textbackslash{}n                                    0 (means 0th particle): [\textbackslash{}n
+(0 (means 0th timestep), array of position, array of velocity)\textbackslash{}n
+] \textbackslash{}n    \}\textbackslash{}n\}\textbackslash{}n\textbackslash{}nso it is a dictionary whose keys are strings describing the E
+and B field scales and\textbackslash{}nvalues are particles update history which is:\textbackslash{}n    a
+dictionary whose keys are intergers representing particles and values are update
+history for that particle\textbackslash{}n    which is:\textbackslash{}n        list of tuples (time step,
+position, velocity)\textbackslash{}n"
+\end{Verbatim}
+\end{tcolorbox}
+        
+    \hypertarget{extract}{%
+\subsubsection{2. Extract}\label{extract}}
+
+This includes working to maintain positions and velocities of the
+particles during the updates.
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{7}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{s1\PYZus{}descE\PYZus{}is\PYZus{}1} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{E\PYZus{}scale = }\PY{l+s+s1}{\PYZsq{}} \PY{o}{+} \PY{n+nb}{str}\PY{p}{(}\PY{n}{E\PYZus{}scale}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)} \PY{o}{+} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ }\PY{l+s+s1}{\PYZsq{}} \PY{o}{+} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{B\PYZus{}scale = }\PY{l+s+s1}{\PYZsq{}} \PY{o}{+} \PY{n+nb}{str}\PY{p}{(}\PY{n}{B\PYZus{}scale}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}
+\PY{n}{s1\PYZus{}descE\PYZus{}is\PYZus{}n1} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{E\PYZus{}scale = }\PY{l+s+s1}{\PYZsq{}} \PY{o}{+} \PY{n+nb}{str}\PY{p}{(}\PY{n}{E\PYZus{}scale}\PY{p}{[}\PY{l+m+mi}{3}\PY{p}{]}\PY{p}{)} \PY{o}{+} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ }\PY{l+s+s1}{\PYZsq{}} \PY{o}{+} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{B\PYZus{}scale = }\PY{l+s+s1}{\PYZsq{}} \PY{o}{+} \PY{n+nb}{str}\PY{p}{(}\PY{n}{B\PYZus{}scale}\PY{p}{[}\PY{l+m+mi}{3}\PY{p}{]}\PY{p}{)}
+\PY{c+c1}{\PYZsh{} Extract update histories for two field configs}
+\PY{n}{s1\PYZus{}histories\PYZus{}E1} \PY{o}{=} \PY{n}{s1\PYZus{}batch\PYZus{}ps\PYZus{}and\PYZus{}vs}\PY{p}{[}\PY{n}{s1\PYZus{}descE\PYZus{}is\PYZus{}1}\PY{p}{]}
+\PY{n}{s1\PYZus{}histories\PYZus{}nE1} \PY{o}{=} \PY{n}{s1\PYZus{}batch\PYZus{}ps\PYZus{}and\PYZus{}vs}\PY{p}{[}\PY{n}{s1\PYZus{}descE\PYZus{}is\PYZus{}n1}\PY{p}{]}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{8}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Extract information on 0th particle\PYZsq{}s update history in both cases}
+\PY{n}{s1\PYZus{}descE\PYZus{}is\PYZus{}1\PYZus{}p0} \PY{o}{=} \PY{n}{s1\PYZus{}histories\PYZus{}E1}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+\PY{n}{s1\PYZus{}descE\PYZus{}is\PYZus{}n1\PYZus{}p0} \PY{o}{=}  \PY{n}{s1\PYZus{}histories\PYZus{}nE1}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{9}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{}Get positions and velocities of each of the particle\PYZsq{}s update history}
+\PY{n}{s1\PYZus{}descE\PYZus{}is\PYZus{}1\PYZus{}p0\PYZus{}ps} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+\PY{n}{s1\PYZus{}descE\PYZus{}is\PYZus{}1\PYZus{}p0\PYZus{}vs} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+
+\PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{s1\PYZus{}descE\PYZus{}is\PYZus{}1\PYZus{}p0}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+    \PY{n}{s1\PYZus{}descE\PYZus{}is\PYZus{}1\PYZus{}p0\PYZus{}ps}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{s1\PYZus{}descE\PYZus{}is\PYZus{}1\PYZus{}p0}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+    \PY{n}{s1\PYZus{}descE\PYZus{}is\PYZus{}1\PYZus{}p0\PYZus{}vs}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{s1\PYZus{}descE\PYZus{}is\PYZus{}1\PYZus{}p0}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}
+    
+\PY{n}{s1\PYZus{}descE\PYZus{}is\PYZus{}n1\PYZus{}p0\PYZus{}ps} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+\PY{n}{s1\PYZus{}descE\PYZus{}is\PYZus{}n1\PYZus{}p0\PYZus{}vs} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+
+\PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{s1\PYZus{}descE\PYZus{}is\PYZus{}n1\PYZus{}p0}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+    \PY{n}{s1\PYZus{}descE\PYZus{}is\PYZus{}n1\PYZus{}p0\PYZus{}ps}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{s1\PYZus{}descE\PYZus{}is\PYZus{}n1\PYZus{}p0}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+    \PY{n}{s1\PYZus{}descE\PYZus{}is\PYZus{}n1\PYZus{}p0\PYZus{}vs}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{s1\PYZus{}descE\PYZus{}is\PYZus{}n1\PYZus{}p0}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{10}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Particle 0\PYZsq{}s position update history when the Electric field is scaled by 1.}
+\PY{n}{s1\PYZus{}descE\PYZus{}is\PYZus{}1\PYZus{}p0\PYZus{}ps}
+\end{Verbatim}
+\end{tcolorbox}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{10}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+[array([-0.49968556, -0.00113892, -0.00056986]),
+ array([-0.49968378, -0.00114464, -0.00057272]),
+ array([-0.4996819 , -0.00115036, -0.00057558]),
+ array([-0.49967993, -0.00115609, -0.00057844]),
+ array([-0.49967786, -0.00116181, -0.00058129]),
+ array([-0.49967569, -0.00116753, -0.00058415]),
+ array([-0.49967342, -0.00117326, -0.000587  ]),
+ array([-0.49967105, -0.00117898, -0.00058985]),
+ array([-0.49966859, -0.0011847 , -0.00059269]),
+ array([-0.49966602, -0.00119043, -0.00059554]),
+ array([-0.49966336, -0.00119615, -0.00059838]),
+ array([-0.4996606 , -0.00120187, -0.00060122]),
+ array([-0.49965774, -0.0012076 , -0.00060405]),
+ array([-0.49965478, -0.00121332, -0.00060689]),
+ array([-0.49965172, -0.00121904, -0.00060972]),
+ array([-0.49964857, -0.00122477, -0.00061254]),
+ array([-0.49964532, -0.00123049, -0.00061537]),
+ array([-0.49964196, -0.00123621, -0.00061819]),
+ array([-0.49963851, -0.00124193, -0.00062101]),
+ array([-0.49963497, -0.00124766, -0.00062382]),
+ array([-0.49963132, -0.00125338, -0.00062663]),
+ array([-0.49962757, -0.0012591 , -0.00062944]),
+ array([-0.49962373, -0.00126483, -0.00063224]),
+ array([-0.49961979, -0.00127055, -0.00063504]),
+ array([-0.49961575, -0.00127627, -0.00063784]),
+ array([-0.49961161, -0.001282  , -0.00064063]),
+ array([-0.49960737, -0.00128772, -0.00064342]),
+ array([-0.49960304, -0.00129344, -0.00064621]),
+ array([-0.4995986 , -0.00129917, -0.00064899]),
+ array([-0.49959407, -0.00130489, -0.00065176]),
+ array([-0.49958944, -0.00131061, -0.00065453]),
+ array([-0.49958471, -0.00131634, -0.0006573 ]),
+ array([-0.49957988, -0.00132206, -0.00066006]),
+ array([-0.49957496, -0.00132778, -0.00066282]),
+ array([-0.49956993, -0.00133351, -0.00066557]),
+ array([-0.49956481, -0.00133923, -0.00066832]),
+ array([-0.49955959, -0.00134495, -0.00067107]),
+ array([-0.49955427, -0.00135068, -0.0006738 ]),
+ array([-0.49954885, -0.0013564 , -0.00067654]),
+ array([-0.49954334, -0.00136212, -0.00067926]),
+ array([-0.49953772, -0.00136785, -0.00068199]),
+ array([-0.49953201, -0.00137357, -0.0006847 ]),
+ array([-0.4995262 , -0.00137929, -0.00068742]),
+ array([-0.49952029, -0.00138501, -0.00069012]),
+ array([-0.49951428, -0.00139074, -0.00069282]),
+ array([-0.49950817, -0.00139646, -0.00069552]),
+ array([-0.49950197, -0.00140218, -0.00069821]),
+ array([-0.49949567, -0.00140791, -0.00070089]),
+ array([-0.49948927, -0.00141363, -0.00070356]),
+ array([-0.49948277, -0.00141935, -0.00070623]),
+ array([-0.49947617, -0.00142508, -0.0007089 ]),
+ array([-0.49946948, -0.0014308 , -0.00071156]),
+ array([-0.49946268, -0.00143652, -0.00071421]),
+ array([-0.49945579, -0.00144225, -0.00071685]),
+ array([-0.4994488 , -0.00144797, -0.00071949]),
+ array([-0.49944171, -0.00145369, -0.00072212]),
+ array([-0.49943452, -0.00145942, -0.00072475]),
+ array([-0.49942724, -0.00146514, -0.00072736]),
+ array([-0.49941985, -0.00147086, -0.00072997]),
+ array([-0.49941237, -0.00147659, -0.00073258]),
+ array([-0.49940479, -0.00148231, -0.00073517]),
+ array([-0.49939712, -0.00148803, -0.00073776]),
+ array([-0.49938934, -0.00149376, -0.00074034]),
+ array([-0.49938147, -0.00149948, -0.00074292]),
+ array([-0.49937349, -0.0015052 , -0.00074549]),
+ array([-0.49936542, -0.00151093, -0.00074804]),
+ array([-0.49935725, -0.00151665, -0.0007506 ]),
+ array([-0.49934899, -0.00152237, -0.00075314]),
+ array([-0.49934062, -0.00152809, -0.00075567]),
+ array([-0.49933216, -0.00153382, -0.0007582 ]),
+ array([-0.4993236 , -0.00153954, -0.00076072]),
+ array([-0.49931494, -0.00154526, -0.00076323]),
+ array([-0.49930618, -0.00155099, -0.00076573]),
+ array([-0.49929732, -0.00155671, -0.00076823]),
+ array([-0.49928837, -0.00156243, -0.00077071]),
+ array([-0.49927932, -0.00156816, -0.00077319]),
+ array([-0.49927017, -0.00157388, -0.00077566]),
+ array([-0.49926092, -0.0015796 , -0.00077812]),
+ array([-0.49925157, -0.00158533, -0.00078057]),
+ array([-0.49924213, -0.00159105, -0.00078301]),
+ array([-0.49923259, -0.00159677, -0.00078544]),
+ array([-0.49922294, -0.0016025 , -0.00078786]),
+ array([-0.49921321, -0.00160822, -0.00079028]),
+ array([-0.49920337, -0.00161394, -0.00079268]),
+ array([-0.49919344, -0.00161967, -0.00079508]),
+ array([-0.4991834 , -0.00162539, -0.00079746]),
+ array([-0.49917327, -0.00163111, -0.00079984]),
+ array([-0.49916304, -0.00163684, -0.00080221]),
+ array([-0.49915272, -0.00164256, -0.00080456]),
+ array([-0.49914229, -0.00164828, -0.00080691]),
+ array([-0.49913177, -0.00165401, -0.00080924]),
+ array([-0.49912115, -0.00165973, -0.00081157]),
+ array([-0.49911043, -0.00166545, -0.00081389]),
+ array([-0.49909961, -0.00167117, -0.00081619]),
+ array([-0.4990887 , -0.0016769 , -0.00081849]),
+ array([-0.49907769, -0.00168262, -0.00082077]),
+ array([-0.49906658, -0.00168834, -0.00082305]),
+ array([-0.49905537, -0.00169407, -0.00082531]),
+ array([-0.49904406, -0.00169979, -0.00082756])]
+\end{Verbatim}
+\end{tcolorbox}
+        
+    \hypertarget{plots}{%
+\subsubsection{3. Plots}\label{plots}}
+
+This includes making plots for the position and velocities of the
+particles.
+
+    \hypertarget{position-history-of-particle-0-when-the-electric-field-was-scaled-by-1}{%
+\paragraph{Position history of particle 0 when the electric field was
+scaled by
+1}\label{position-history-of-particle-0-when-the-electric-field-was-scaled-by-1}}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{11}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Plot the position update history of particle 0 when the electric field is scaled by 1}
+\PY{n}{s1\PYZus{}descE\PYZus{}is\PYZus{}1\PYZus{}p0\PYZus{}ps\PYZus{}fig} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{p}{)}
+\PY{n}{s1\PYZus{}descE\PYZus{}is\PYZus{}1\PYZus{}p0\PYZus{}ps\PYZus{}ax} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{axes}\PY{p}{(}\PY{n}{projection}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{3d}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\PY{n}{s1\PYZus{}descE\PYZus{}is\PYZus{}1\PYZus{}p0\PYZus{}ps\PYZus{}ax}\PY{o}{.}\PY{n}{view\PYZus{}init}\PY{p}{(}\PY{l+m+mi}{50}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mi}{20}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} Data for three\PYZhy{}dimensional scattered points}
+\PY{c+c1}{\PYZsh{} for position update history of particle 0 when the Electric field was scaled by 1}
+\PY{n}{s1\PYZus{}descE\PYZus{}is\PYZus{}1\PYZus{}p0\PYZus{}ps\PYZus{}zdata} \PY{o}{=} \PY{p}{[}\PY{n}{elem}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]} \PY{k}{for} \PY{n}{elem} \PY{o+ow}{in} \PY{n}{s1\PYZus{}descE\PYZus{}is\PYZus{}1\PYZus{}p0\PYZus{}ps}\PY{p}{]}
+\PY{n}{s1\PYZus{}descE\PYZus{}is\PYZus{}1\PYZus{}p0\PYZus{}ps\PYZus{}xdata} \PY{o}{=} \PY{p}{[}\PY{n}{elem}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{k}{for} \PY{n}{elem} \PY{o+ow}{in} \PY{n}{s1\PYZus{}descE\PYZus{}is\PYZus{}1\PYZus{}p0\PYZus{}ps}\PY{p}{]}
+\PY{n}{s1\PYZus{}descE\PYZus{}is\PYZus{}1\PYZus{}p0\PYZus{}ps\PYZus{}ydata} \PY{o}{=} \PY{p}{[}\PY{n}{elem}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]} \PY{k}{for} \PY{n}{elem} \PY{o+ow}{in} \PY{n}{s1\PYZus{}descE\PYZus{}is\PYZus{}1\PYZus{}p0\PYZus{}ps}\PY{p}{]}
+\PY{n}{s1\PYZus{}descE\PYZus{}is\PYZus{}1\PYZus{}p0\PYZus{}ps\PYZus{}ax}\PY{o}{.}\PY{n}{scatter3D}\PY{p}{(}\PY{n}{s1\PYZus{}descE\PYZus{}is\PYZus{}1\PYZus{}p0\PYZus{}ps\PYZus{}xdata}\PY{p}{,} \PY{n}{s1\PYZus{}descE\PYZus{}is\PYZus{}1\PYZus{}p0\PYZus{}ps\PYZus{}ydata}\PY{p}{,} \PY{n}{s1\PYZus{}descE\PYZus{}is\PYZus{}1\PYZus{}p0\PYZus{}ps\PYZus{}zdata}\PY{p}{,}\PYZbs{}
+                              \PY{n}{c}\PY{o}{=}\PY{n}{s1\PYZus{}descE\PYZus{}is\PYZus{}1\PYZus{}p0\PYZus{}ps\PYZus{}zdata}\PY{p}{,} \PY{n}{cmap}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Greens}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{;}
+\PY{c+c1}{\PYZsh{}plt.savefig(\PYZsq{}EplusPs\PYZsq{}, dpi=\PYZsq{}figure\PYZsq{}, format=\PYZsq{}png\PYZsq{})}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_15_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \hypertarget{position-history-of-particle-0-when-the-electric-field-was-scaled-by--1}{%
+\paragraph{Position history of particle 0 when the electric field was
+scaled by
+-1}\label{position-history-of-particle-0-when-the-electric-field-was-scaled-by--1}}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{12}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Plot the position update history of particle 0 when the electric field is scaled by \PYZhy{}1}
+\PY{c+c1}{\PYZsh{} We see an opposite curve to the previous figure}
+\PY{n}{s1\PYZus{}descE\PYZus{}is\PYZus{}n1\PYZus{}p0\PYZus{}ps\PYZus{}fig} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{p}{)}
+\PY{n}{s1\PYZus{}descE\PYZus{}is\PYZus{}n1\PYZus{}p0\PYZus{}ps\PYZus{}ax} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{axes}\PY{p}{(}\PY{n}{projection}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{3d}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\PY{n}{s1\PYZus{}descE\PYZus{}is\PYZus{}n1\PYZus{}p0\PYZus{}ps\PYZus{}ax}\PY{o}{.}\PY{n}{view\PYZus{}init}\PY{p}{(}\PY{l+m+mi}{50}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mi}{20}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} Data for three\PYZhy{}dimensional scattered points}
+\PY{c+c1}{\PYZsh{} for position update history of particle 0 when the Electric field was scaled by \PYZhy{}1}
+\PY{n}{s1\PYZus{}descE\PYZus{}is\PYZus{}n1\PYZus{}p0\PYZus{}ps\PYZus{}zdata} \PY{o}{=} \PY{p}{[}\PY{n}{elem}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]} \PY{k}{for} \PY{n}{elem} \PY{o+ow}{in} \PY{n}{s1\PYZus{}descE\PYZus{}is\PYZus{}n1\PYZus{}p0\PYZus{}ps}\PY{p}{]}
+\PY{n}{s1\PYZus{}descE\PYZus{}is\PYZus{}n1\PYZus{}p0\PYZus{}ps\PYZus{}xdata} \PY{o}{=} \PY{p}{[}\PY{n}{elem}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{k}{for} \PY{n}{elem} \PY{o+ow}{in} \PY{n}{s1\PYZus{}descE\PYZus{}is\PYZus{}n1\PYZus{}p0\PYZus{}ps}\PY{p}{]}
+\PY{n}{s1\PYZus{}descE\PYZus{}is\PYZus{}n1\PYZus{}p0\PYZus{}ps\PYZus{}ydata} \PY{o}{=} \PY{p}{[}\PY{n}{elem}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]} \PY{k}{for} \PY{n}{elem} \PY{o+ow}{in} \PY{n}{s1\PYZus{}descE\PYZus{}is\PYZus{}n1\PYZus{}p0\PYZus{}ps}\PY{p}{]}
+\PY{n}{s1\PYZus{}descE\PYZus{}is\PYZus{}n1\PYZus{}p0\PYZus{}ps\PYZus{}ax}\PY{o}{.}\PY{n}{scatter3D}\PY{p}{(}\PY{n}{s1\PYZus{}descE\PYZus{}is\PYZus{}n1\PYZus{}p0\PYZus{}ps\PYZus{}xdata}\PY{p}{,} \PY{n}{s1\PYZus{}descE\PYZus{}is\PYZus{}n1\PYZus{}p0\PYZus{}ps\PYZus{}ydata}\PY{p}{,} \PYZbs{}
+                                  \PY{n}{s1\PYZus{}descE\PYZus{}is\PYZus{}n1\PYZus{}p0\PYZus{}ps\PYZus{}zdata}\PY{p}{,} \PY{n}{c}\PY{o}{=}\PY{n}{s1\PYZus{}descE\PYZus{}is\PYZus{}n1\PYZus{}p0\PYZus{}ps\PYZus{}zdata}\PY{p}{,} \PY{n}{cmap}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Greens}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{;}
+\PY{c+c1}{\PYZsh{}plt.savefig(\PYZsq{}EminusPs\PYZsq{}, dpi=\PYZsq{}figure\PYZsq{}, format=\PYZsq{}png\PYZsq{})}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_17_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \hypertarget{position-history-of-particle-0-during-all-electric-field-values}{%
+\paragraph{Position history of particle 0 during all electric field
+values}\label{position-history-of-particle-0-during-all-electric-field-values}}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{13}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} take for a field configuration}
+\PY{n}{s1\PYZus{}allFieldkeys} \PY{o}{=} \PY{n+nb}{list}\PY{p}{(}\PY{n}{s1\PYZus{}batch\PYZus{}ps\PYZus{}and\PYZus{}vs}\PY{o}{.}\PY{n}{keys}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+\PY{k}{for} \PY{n}{akey} \PY{o+ow}{in} \PY{n}{s1\PYZus{}allFieldkeys}\PY{p}{:}
+    \PY{n}{s1\PYZus{}histories} \PY{o}{=} \PY{n}{s1\PYZus{}batch\PYZus{}ps\PYZus{}and\PYZus{}vs}\PY{p}{[}\PY{n}{akey}\PY{p}{]}
+    
+    \PY{c+c1}{\PYZsh{}Take particle 0}
+    \PY{n}{s1\PYZus{}p0} \PY{o}{=} \PY{n}{s1\PYZus{}histories}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+    
+    \PY{c+c1}{\PYZsh{}Take ps and vs}
+    \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{s1\PYZus{}p0}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+        \PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{s1\PYZus{}p0}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+        \PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{s1\PYZus{}p0}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps}\PY{p}{)}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{14}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}fig} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{p}{)}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}ax} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{axes}\PY{p}{(}\PY{n}{projection}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{3d}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}ax}\PY{o}{.}\PY{n}{view\PYZus{}init}\PY{p}{(}\PY{l+m+mi}{20}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mi}{50}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} Data for three\PYZhy{}dimensional scattered points}
+\PY{c+c1}{\PYZsh{} for position update history of particle 0 during all field configurations}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}zdata} \PY{o}{=} \PY{p}{[}\PY{n}{elem}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]} \PY{k}{for} \PY{n}{elem} \PY{o+ow}{in} \PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps}\PY{p}{]} \PY{c+c1}{\PYZsh{} Animate this plot as well.}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}xdata} \PY{o}{=} \PY{p}{[}\PY{n}{elem}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{k}{for} \PY{n}{elem} \PY{o+ow}{in} \PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps}\PY{p}{]}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}ydata} \PY{o}{=} \PY{p}{[}\PY{n}{elem}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]} \PY{k}{for} \PY{n}{elem} \PY{o+ow}{in} \PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps}\PY{p}{]}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}ax}\PY{o}{.}\PY{n}{scatter3D}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}xdata}\PY{p}{,} \PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}ydata}\PY{p}{,} \PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}zdata}\PY{p}{,}\PYZbs{}
+                            \PY{n}{c}\PY{o}{=}\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}zdata}\PY{p}{,} \PY{n}{cmap}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Greens}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{;}
+\PY{c+c1}{\PYZsh{}plt.savefig(\PYZsq{}ps1\PYZsq{}, dpi=\PYZsq{}figure\PYZsq{}, format=\PYZsq{}png\PYZsq{})}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_20_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{15}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Plot x and y positions}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}xy\PYZus{}fig} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{p}{)}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}xy\PYZus{}ax} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{axes}\PY{p}{(}\PY{p}{)}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}xy\PYZus{}ax}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}xdata}\PY{p}{,} \PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}ydata}\PY{p}{)}\PY{p}{;}
+\PY{c+c1}{\PYZsh{}plt.savefig(\PYZsq{}psxy1\PYZsq{}, dpi=\PYZsq{}figure\PYZsq{}, format=\PYZsq{}png\PYZsq{})}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_21_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{16}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Plot y and z positions}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}yz\PYZus{}fig} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{p}{)}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}yz\PYZus{}ax} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{axes}\PY{p}{(}\PY{p}{)}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}yz\PYZus{}ax}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}ydata}\PY{p}{,} \PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}zdata}\PY{p}{)}\PY{p}{;}
+\PY{c+c1}{\PYZsh{}plt.savefig(\PYZsq{}psyz1\PYZsq{}, dpi=\PYZsq{}figure\PYZsq{}, format=\PYZsq{}png\PYZsq{})}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_22_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{18}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Plot x and z positions}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}xz\PYZus{}fig} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{p}{)}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}xz\PYZus{}ax} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{axes}\PY{p}{(}\PY{p}{)}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}xz\PYZus{}ax}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}xdata}\PY{p}{,} \PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}zdata}\PY{p}{)}\PY{p}{;}
+\PY{c+c1}{\PYZsh{}plt.savefig(\PYZsq{}psxz1\PYZsq{}, dpi=\PYZsq{}figure\PYZsq{}, format=\PYZsq{}png\PYZsq{})}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_23_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{19}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Plot x position}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}x\PYZus{}fig} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{p}{)}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}x\PYZus{}ax} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{axes}\PY{p}{(}\PY{p}{)}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}x\PYZus{}ax}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{arange}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}xdata}\PY{p}{)}\PY{p}{)}\PY{p}{,} \PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}xdata}\PY{p}{)}\PY{p}{;}
+\PY{c+c1}{\PYZsh{}plt.savefig(\PYZsq{}psx1\PYZsq{}, dpi=\PYZsq{}figure\PYZsq{}, format=\PYZsq{}png\PYZsq{})}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_24_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{20}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Plot y position}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}y\PYZus{}fig} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{p}{)}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}y\PYZus{}ax} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{axes}\PY{p}{(}\PY{p}{)}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}y\PYZus{}ax}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{arange}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}ydata}\PY{p}{)}\PY{p}{)}\PY{p}{,} \PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}ydata}\PY{p}{)}\PY{p}{;}
+\PY{c+c1}{\PYZsh{}plt.savefig(\PYZsq{}psy1\PYZsq{}, dpi=\PYZsq{}figure\PYZsq{}, format=\PYZsq{}png\PYZsq{})}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_25_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{21}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Plot z position}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}z\PYZus{}fig} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{p}{)}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}z\PYZus{}ax} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{axes}\PY{p}{(}\PY{p}{)}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}z\PYZus{}ax}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{arange}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}zdata}\PY{p}{)}\PY{p}{)}\PY{p}{,} \PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}zdata}\PY{p}{)}\PY{p}{;}
+\PY{c+c1}{\PYZsh{}plt.savefig(\PYZsq{}psz1\PYZsq{}, dpi=\PYZsq{}figure\PYZsq{}, format=\PYZsq{}png\PYZsq{})}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_26_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{23}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Plot the velocity}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}fig} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{p}{)}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}ax} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{axes}\PY{p}{(}\PY{n}{projection}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{3d}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}ax}\PY{o}{.}\PY{n}{view\PYZus{}init}\PY{p}{(}\PY{l+m+mi}{20}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mi}{80}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} Data for three\PYZhy{}dimensional scattered points}
+\PY{c+c1}{\PYZsh{} for position update history of particle 0 during all field configurations}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}zdata} \PY{o}{=} \PY{p}{[}\PY{n}{elem}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]} \PY{k}{for} \PY{n}{elem} \PY{o+ow}{in} \PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs}\PY{p}{]} \PY{c+c1}{\PYZsh{} Animate this plot as well.}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}xdata} \PY{o}{=} \PY{p}{[}\PY{n}{elem}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{k}{for} \PY{n}{elem} \PY{o+ow}{in} \PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs}\PY{p}{]}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}ydata} \PY{o}{=} \PY{p}{[}\PY{n}{elem}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]} \PY{k}{for} \PY{n}{elem} \PY{o+ow}{in} \PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs}\PY{p}{]}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}ax}\PY{o}{.}\PY{n}{scatter3D}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}xdata}\PY{p}{,} \PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}ydata}\PY{p}{,} \PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}zdata}\PY{p}{,}\PYZbs{}
+                            \PY{n}{c}\PY{o}{=}\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}zdata}\PY{p}{,} \PY{n}{cmap}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Greens}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{;}
+\PY{c+c1}{\PYZsh{}plt.savefig(\PYZsq{}vs1\PYZsq{}, dpi=\PYZsq{}figure\PYZsq{}, format=\PYZsq{}png\PYZsq{})}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_27_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{25}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Plot x and y velocities}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}xy\PYZus{}fig} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{p}{)}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}xy\PYZus{}ax} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{axes}\PY{p}{(}\PY{p}{)}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}xy\PYZus{}ax}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}xdata}\PY{p}{,} \PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}ydata}\PY{p}{)}\PY{p}{;}
+\PY{c+c1}{\PYZsh{}plt.savefig(\PYZsq{}vsxy1\PYZsq{}, dpi=\PYZsq{}figure\PYZsq{}, format=\PYZsq{}png\PYZsq{})}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_28_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{26}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Plot y and z velocities}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}yz\PYZus{}fig} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{p}{)}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}yz\PYZus{}ax} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{axes}\PY{p}{(}\PY{p}{)}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}yz\PYZus{}ax}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}ydata}\PY{p}{,} \PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}zdata}\PY{p}{)}\PY{p}{;}
+\PY{c+c1}{\PYZsh{}plt.savefig(\PYZsq{}vsyz1\PYZsq{}, dpi=\PYZsq{}figure\PYZsq{}, format=\PYZsq{}png\PYZsq{})}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_29_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{27}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Plot x and z velocities}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}xz\PYZus{}fig} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{p}{)}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}xz\PYZus{}ax} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{axes}\PY{p}{(}\PY{p}{)}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}xz\PYZus{}ax}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}xdata}\PY{p}{,} \PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}zdata}\PY{p}{)}\PY{p}{;}
+\PY{c+c1}{\PYZsh{}plt.savefig(\PYZsq{}vsxz1\PYZsq{}, dpi=\PYZsq{}figure\PYZsq{}, format=\PYZsq{}png\PYZsq{})}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_30_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{28}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Plot x velocity}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}x\PYZus{}fig} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{p}{)}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}x\PYZus{}ax} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{axes}\PY{p}{(}\PY{p}{)}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}x\PYZus{}ax}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{arange}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}xdata}\PY{p}{)}\PY{p}{)}\PY{p}{,} \PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}xdata}\PY{p}{)}\PY{p}{;}
+\PY{c+c1}{\PYZsh{}plt.savefig(\PYZsq{}vsx1\PYZsq{}, dpi=\PYZsq{}figure\PYZsq{}, format=\PYZsq{}png\PYZsq{})}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_31_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{29}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Plot y velocity}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}y\PYZus{}fig} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{p}{)}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}y\PYZus{}ax} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{axes}\PY{p}{(}\PY{p}{)}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}y\PYZus{}ax}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{arange}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}ydata}\PY{p}{)}\PY{p}{)}\PY{p}{,} \PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}ydata}\PY{p}{)}\PY{p}{;}
+\PY{c+c1}{\PYZsh{}plt.savefig(\PYZsq{}vsy1\PYZsq{}, dpi=\PYZsq{}figure\PYZsq{}, format=\PYZsq{}png\PYZsq{})}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_32_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{30}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Plot z velocity}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}z\PYZus{}fig} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{p}{)}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}z\PYZus{}ax} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{axes}\PY{p}{(}\PY{p}{)}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}z\PYZus{}ax}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{arange}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}zdata}\PY{p}{)}\PY{p}{)}\PY{p}{,} \PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}zdata}\PY{p}{)}\PY{p}{;}
+\PY{c+c1}{\PYZsh{}plt.savefig(\PYZsq{}vsz1\PYZsq{}, dpi=\PYZsq{}figure\PYZsq{}, format=\PYZsq{}png\PYZsq{})}
+\PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+\PY{l+s+sd}{We can see the E cross B drift here as well}
+\PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_33_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \hypertarget{animations}{%
+\subsubsection{4. Animations}\label{animations}}
+
+This includes animations of the particle positions and velocities
+
+    \hypertarget{credit-for-aruxiliary-code-for-animation}{%
+\paragraph{Credit for aruxiliary code for
+animation}\label{credit-for-aruxiliary-code-for-animation}}
+
+https://flothesof.github.io/charged-particle-trajectories-E-and-B-fields.html
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{31}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{VIDEO\PYZus{}TAG} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}\PYZdq{}\PYZdq{}}\PY{l+s+s2}{\PYZlt{}video controls\PYZgt{}}
+\PY{l+s+s2}{     \PYZlt{}source src=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{data:video/x\PYZhy{}m4v;base64,}\PY{l+s+si}{\PYZob{}0\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{ type=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{video/mp4}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZgt{}}
+\PY{l+s+s2}{     Your browser does not support the video tag.}
+\PY{l+s+s2}{    \PYZlt{}/video\PYZgt{}}\PY{l+s+s2}{\PYZdq{}\PYZdq{}\PYZdq{}}
+
+\PY{k}{def} \PY{n+nf}{anim\PYZus{}to\PYZus{}html}\PY{p}{(}\PY{n}{anim}\PY{p}{)}\PY{p}{:}
+    \PY{k}{if} \PY{o+ow}{not} \PY{n+nb}{hasattr}\PY{p}{(}\PY{n}{anim}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZus{}encoded\PYZus{}video}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{:}
+        \PY{n}{f} \PY{o}{=} \PY{n}{NamedTemporaryFile}\PY{p}{(}\PY{n}{suffix}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{.mp4}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{delete}\PY{o}{=}\PY{k+kc}{False}\PY{p}{)}
+        \PY{n}{anim}\PY{o}{.}\PY{n}{save}\PY{p}{(}\PY{n}{f}\PY{o}{.}\PY{n}{name}\PY{p}{,} \PY{n}{fps}\PY{o}{=}\PY{l+m+mi}{20}\PY{p}{,} \PY{n}{extra\PYZus{}args}\PY{o}{=}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{}vcodec}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{libx264}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{}pix\PYZus{}fmt}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{yuv420p}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+        \PY{n}{f}\PY{o}{.}\PY{n}{flush}\PY{p}{(}\PY{p}{)}
+        \PY{n}{video} \PY{o}{=} \PY{n+nb}{open}\PY{p}{(}\PY{n}{f}\PY{o}{.}\PY{n}{name}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{rb}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{o}{.}\PY{n}{read}\PY{p}{(}\PY{p}{)}
+        \PY{n}{f}\PY{o}{.}\PY{n}{close}\PY{p}{(}\PY{p}{)}
+        \PY{n}{anim}\PY{o}{.}\PY{n}{\PYZus{}encoded\PYZus{}video} \PY{o}{=} \PY{n}{base64}\PY{o}{.}\PY{n}{b64encode}\PY{p}{(}\PY{n}{video}\PY{p}{)}\PY{o}{.}\PY{n}{decode}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{utf\PYZhy{}8}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+
+    \PY{k}{return} \PY{n}{VIDEO\PYZus{}TAG}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{anim}\PY{o}{.}\PY{n}{\PYZus{}encoded\PYZus{}video}\PY{p}{)}
+
+
+
+\PY{k}{def} \PY{n+nf}{display\PYZus{}animation}\PY{p}{(}\PY{n}{anim}\PY{p}{)}\PY{p}{:}
+    \PY{n}{plt}\PY{o}{.}\PY{n}{close}\PY{p}{(}\PY{n}{anim}\PY{o}{.}\PY{n}{\PYZus{}fig}\PY{p}{)}
+    \PY{k}{return} \PY{n}{HTML}\PY{p}{(}\PY{n}{anim\PYZus{}to\PYZus{}html}\PY{p}{(}\PY{n}{anim}\PY{p}{)}\PY{p}{)}
+
+\PY{k}{def} \PY{n+nf}{plot\PYZus{}animation\PYZus{}3d}\PY{p}{(}\PY{n}{positions}\PY{p}{)}\PY{p}{:}
+    \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+\PY{l+s+sd}{    This function can plot both positions and velocities}
+\PY{l+s+sd}{    \PYZsq{}\PYZsq{}\PYZsq{}}
+
+    \PY{c+c1}{\PYZsh{}positions = np.array([xdata, ydata, zdata])}
+    \PY{n}{FRAMES} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{shape}\PY{p}{(}\PY{n}{positions}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+    \PY{c+c1}{\PYZsh{} Here positions has shape (198, 3) where each entry is a position which is an array of x,y,z coordinates}
+    \PY{n}{fig} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{p}{)}
+    \PY{n}{ax} \PY{o}{=} \PY{n}{fig}\PY{o}{.}\PY{n}{add\PYZus{}subplot}\PY{p}{(}\PY{l+m+mi}{111}\PY{p}{,} \PY{n}{projection}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{3d}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+
+    \PY{k}{def} \PY{n+nf}{init}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+        \PY{n}{ax}\PY{o}{.}\PY{n}{view\PYZus{}init}\PY{p}{(}\PY{n}{elev}\PY{o}{=}\PY{l+m+mf}{10.}\PY{p}{,} \PY{n}{azim}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}
+        \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}xlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{x}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}ylabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{y}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}zlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{z}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+
+    \PY{c+c1}{\PYZsh{} animation function.  This is called sequentially}
+    \PY{k}{def} \PY{n+nf}{animate}\PY{p}{(}\PY{n}{i}\PY{p}{)}\PY{p}{:}
+        \PY{n}{current\PYZus{}index} \PY{o}{=} \PY{n+nb}{int}\PY{p}{(}\PY{n}{positions}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{/} \PY{n}{FRAMES} \PY{o}{*} \PY{n}{i}\PY{p}{)}
+        \PY{n}{ax}\PY{o}{.}\PY{n}{cla}\PY{p}{(}\PY{p}{)}
+        \PY{n}{ax}\PY{o}{.}\PY{n}{view\PYZus{}init}\PY{p}{(}\PY{n}{elev}\PY{o}{=}\PY{l+m+mf}{10.}\PY{p}{,} \PY{n}{azim}\PY{o}{=}\PY{n}{i}\PY{p}{)}
+        \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}xlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{x}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}ylabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{y}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}zlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{z}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+        \PY{c+c1}{\PYZsh{} For line plot uncomment the following line}
+        \PY{c+c1}{\PYZsh{} ax.plot3D(positions[:current\PYZus{}index, 0], positions[:current\PYZus{}index, 1], positions[:current\PYZus{}index, 2])}
+        \PY{n}{ax}\PY{o}{.}\PY{n}{scatter3D}\PY{p}{(}\PY{n}{positions}\PY{p}{[}\PY{p}{:}\PY{n}{current\PYZus{}index}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{positions}\PY{p}{[}\PY{p}{:}\PY{n}{current\PYZus{}index}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{n}{positions}\PY{p}{[}\PY{p}{:}\PY{n}{current\PYZus{}index}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}
+         
+    \PY{c+c1}{\PYZsh{} call the animator.}
+    \PY{n}{anim} \PY{o}{=} \PY{n}{animation}\PY{o}{.}\PY{n}{FuncAnimation}\PY{p}{(}\PY{n}{fig}\PY{p}{,} \PY{n}{animate}\PY{p}{,} \PY{n}{init\PYZus{}func}\PY{o}{=}\PY{n}{init}\PY{p}{,} \PY{n}{frames}\PY{o}{=}\PY{n}{FRAMES}\PY{p}{,} \PY{n}{interval}\PY{o}{=}\PY{l+m+mi}{100}\PY{p}{)}
+    
+    \PY{k}{return} \PY{n}{anim}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{33}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}anim} \PY{o}{=} \PY{n}{plot\PYZus{}animation\PYZus{}3d}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} call our new function to display the animation}
+\PY{n}{display\PYZus{}animation}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}anim}\PY{p}{)}
+\PY{c+c1}{\PYZsh{}s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}anim.save(r\PYZsq{}ps1.mp4\PYZsq{})   \PYZsh{}Uncomment this line to save the animation to an mp4 file}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \hypertarget{also-say-this-to-sir-when-sending-the-video}{%
+\subsubsection{Also say this to sir when sending the
+video}\label{also-say-this-to-sir-when-sending-the-video}}
+
+\hypertarget{electric-field-along-x-axis-magnetic-field-along-y-axis.-the-e-cross-b-drift-can-be-seen-in-the-animation}{%
+\paragraph{Electric field along x axis, magnetic field along y axis. The
+E cross B drift can be seen in the
+animation,}\label{electric-field-along-x-axis-magnetic-field-along-y-axis.-the-e-cross-b-drift-can-be-seen-in-the-animation}}
+
+the particle moves sometimes down sometimes up along the z-axis, as the
+electric field changes sign
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{34}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{def} \PY{n+nf}{plot\PYZus{}animation\PYZus{}2d}\PY{p}{(}\PY{n}{positions}\PY{p}{,} \PY{n}{exclude}\PY{p}{)}\PY{p}{:}
+    \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+\PY{l+s+sd}{    This function can plot both positions and velocities}
+\PY{l+s+sd}{    exclude can be 0, 1 or 2:}
+\PY{l+s+sd}{    if exclude = 2, this means exclude the z data of the given array and plot the x and y data}
+\PY{l+s+sd}{    \PYZsq{}\PYZsq{}\PYZsq{}}
+    
+    \PY{n}{available} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}
+    \PY{n}{available}\PY{o}{.}\PY{n}{remove}\PY{p}{(}\PY{n}{exclude}\PY{p}{)}
+    
+    \PY{c+c1}{\PYZsh{}positions = np.array([xdata, ydata, zdata])}
+    \PY{n}{FRAMES} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{shape}\PY{p}{(}\PY{n}{positions}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+    \PY{c+c1}{\PYZsh{} Here positions has shape (198, 3) where each entry is a position which is an array of x,y,z coordinates}
+    \PY{n}{fig} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{p}{)}
+    \PY{n}{ax} \PY{o}{=} \PY{n}{fig}\PY{o}{.}\PY{n}{add\PYZus{}subplot}\PY{p}{(}\PY{l+m+mi}{111}\PY{p}{)}
+
+    \PY{k}{def} \PY{n+nf}{init}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+        \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}xlabel}\PY{p}{(}\PY{n+nb}{chr}\PY{p}{(}\PY{n}{available}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{+} \PY{l+m+mi}{120}\PY{p}{)}\PY{p}{)}
+        \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}ylabel}\PY{p}{(}\PY{n+nb}{chr}\PY{p}{(}\PY{n}{available}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]} \PY{o}{+} \PY{l+m+mi}{120}\PY{p}{)}\PY{p}{)}
+
+    \PY{c+c1}{\PYZsh{} animation function.  This is called sequentially}
+    \PY{k}{def} \PY{n+nf}{animate}\PY{p}{(}\PY{n}{i}\PY{p}{)}\PY{p}{:}
+        \PY{n}{current\PYZus{}index} \PY{o}{=} \PY{n+nb}{int}\PY{p}{(}\PY{n}{positions}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{/} \PY{n}{FRAMES} \PY{o}{*} \PY{n}{i}\PY{p}{)}
+        \PY{n}{ax}\PY{o}{.}\PY{n}{cla}\PY{p}{(}\PY{p}{)}
+        \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}xlabel}\PY{p}{(}\PY{n+nb}{chr}\PY{p}{(}\PY{n}{available}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{+} \PY{l+m+mi}{120}\PY{p}{)}\PY{p}{)}
+        \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}ylabel}\PY{p}{(}\PY{n+nb}{chr}\PY{p}{(}\PY{n}{available}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]} \PY{o}{+} \PY{l+m+mi}{120}\PY{p}{)}\PY{p}{)}
+        \PY{c+c1}{\PYZsh{} For line plot uncomment the following line}
+        \PY{c+c1}{\PYZsh{} ax.plot3D(positions[:current\PYZus{}index, 0], positions[:current\PYZus{}index, 1], positions[:current\PYZus{}index, 2])}
+        \PY{n}{ax}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{positions}\PY{p}{[}\PY{p}{:}\PY{n}{current\PYZus{}index}\PY{p}{,} \PY{n}{available}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{]}\PY{p}{,} \PY{n}{positions}\PY{p}{[}\PY{p}{:}\PY{n}{current\PYZus{}index}\PY{p}{,} \PY{n}{available}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{]}\PY{p}{)}
+         
+    \PY{c+c1}{\PYZsh{} call the animator.}
+    \PY{n}{anim} \PY{o}{=} \PY{n}{animation}\PY{o}{.}\PY{n}{FuncAnimation}\PY{p}{(}\PY{n}{fig}\PY{p}{,} \PY{n}{animate}\PY{p}{,} \PY{n}{init\PYZus{}func}\PY{o}{=}\PY{n}{init}\PY{p}{,} \PY{n}{frames}\PY{o}{=}\PY{n}{FRAMES}\PY{p}{,} \PY{n}{interval}\PY{o}{=}\PY{l+m+mi}{100}\PY{p}{)}
+    
+    \PY{k}{return} \PY{n}{anim}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{35}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+\PY{l+s+sd}{x and y positions}
+\PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}xy\PYZus{}anim} \PY{o}{=} \PY{n}{plot\PYZus{}animation\PYZus{}2d}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps}\PY{p}{,} \PY{n}{exclude}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} call our new function to display the animation}
+\PY{n}{display\PYZus{}animation}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}xy\PYZus{}anim}\PY{p}{)}
+\PY{c+c1}{\PYZsh{}s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}xy\PYZus{}anim.save(r\PYZsq{}psxy1.mp4\PYZsq{})   \PYZsh{}Uncomment this line to save the animation to an mp4 file}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{36}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+\PY{l+s+sd}{y and z positions}
+\PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}yz\PYZus{}anim} \PY{o}{=} \PY{n}{plot\PYZus{}animation\PYZus{}2d}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps}\PY{p}{,} \PY{n}{exclude}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} call our new function to display the animation}
+\PY{n}{display\PYZus{}animation}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}yz\PYZus{}anim}\PY{p}{)}
+\PY{c+c1}{\PYZsh{}s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}yz\PYZus{}anim.save(r\PYZsq{}psyz1.mp4\PYZsq{})}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{37}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+\PY{l+s+sd}{x and z positions}
+\PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}xz\PYZus{}anim} \PY{o}{=} \PY{n}{plot\PYZus{}animation\PYZus{}2d}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps}\PY{p}{,} \PY{n}{exclude}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} call our new function to display the animation}
+\PY{n}{display\PYZus{}animation}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}xz\PYZus{}anim}\PY{p}{)}
+\PY{c+c1}{\PYZsh{}s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}xz\PYZus{}anim.save(r\PYZsq{}psxz1.mp4\PYZsq{})}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{38}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{def} \PY{n+nf}{plot\PYZus{}animation\PYZus{}1d}\PY{p}{(}\PY{n}{positions}\PY{p}{,} \PY{n}{include}\PY{p}{)}\PY{p}{:}
+    \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+\PY{l+s+sd}{    This function can plot both positions and velocities}
+\PY{l+s+sd}{    include can be 0, 1 or 2.}
+\PY{l+s+sd}{    if include = 2, this means plot the z data of the array}
+\PY{l+s+sd}{    \PYZsq{}\PYZsq{}\PYZsq{}}
+    
+    \PY{c+c1}{\PYZsh{}positions = np.array([xdata, ydata, zdata])}
+    \PY{n}{FRAMES} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{shape}\PY{p}{(}\PY{n}{positions}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+    \PY{c+c1}{\PYZsh{} Here positions has shape (198, 3) where each entry is a position which is an array of x,y,z coordinates}
+    \PY{n}{fig} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{p}{)}
+    \PY{n}{ax} \PY{o}{=} \PY{n}{fig}\PY{o}{.}\PY{n}{add\PYZus{}subplot}\PY{p}{(}\PY{l+m+mi}{111}\PY{p}{)}
+
+    \PY{k}{def} \PY{n+nf}{init}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+        \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}xlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{step}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}ylabel}\PY{p}{(}\PY{n+nb}{chr}\PY{p}{(}\PY{n}{include} \PY{o}{+} \PY{l+m+mi}{120}\PY{p}{)}\PY{p}{)}
+
+    \PY{c+c1}{\PYZsh{} animation function.  This is called sequentially}
+    \PY{k}{def} \PY{n+nf}{animate}\PY{p}{(}\PY{n}{i}\PY{p}{)}\PY{p}{:}
+        \PY{n}{current\PYZus{}index} \PY{o}{=} \PY{n+nb}{int}\PY{p}{(}\PY{n}{positions}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{/} \PY{n}{FRAMES} \PY{o}{*} \PY{n}{i}\PY{p}{)}
+        \PY{n}{ax}\PY{o}{.}\PY{n}{cla}\PY{p}{(}\PY{p}{)}
+        \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}xlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{step}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}ylabel}\PY{p}{(}\PY{n+nb}{chr}\PY{p}{(}\PY{n}{include} \PY{o}{+} \PY{l+m+mi}{120}\PY{p}{)}\PY{p}{)}
+        \PY{c+c1}{\PYZsh{} For line plot uncomment the following line}
+        \PY{c+c1}{\PYZsh{} ax.plot3D(positions[:current\PYZus{}index, 0], positions[:current\PYZus{}index, 1], positions[:current\PYZus{}index, 2])}
+        \PY{n}{ax}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{arange}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{positions}\PY{p}{)}\PY{p}{)}\PY{p}{[}\PY{p}{:}\PY{n}{current\PYZus{}index}\PY{p}{]}\PY{p}{,} \PY{n}{positions}\PY{p}{[}\PY{p}{:}\PY{n}{current\PYZus{}index}\PY{p}{,} \PY{n}{include}\PY{p}{]}\PY{p}{)}
+         
+    \PY{c+c1}{\PYZsh{} call the animator.}
+    \PY{n}{anim} \PY{o}{=} \PY{n}{animation}\PY{o}{.}\PY{n}{FuncAnimation}\PY{p}{(}\PY{n}{fig}\PY{p}{,} \PY{n}{animate}\PY{p}{,} \PY{n}{init\PYZus{}func}\PY{o}{=}\PY{n}{init}\PY{p}{,} \PY{n}{frames}\PY{o}{=}\PY{n}{FRAMES}\PY{p}{,} \PY{n}{interval}\PY{o}{=}\PY{l+m+mi}{100}\PY{p}{)}
+    
+    \PY{k}{return} \PY{n}{anim}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{39}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+\PY{l+s+sd}{x positions}
+\PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}x\PYZus{}anim} \PY{o}{=} \PY{n}{plot\PYZus{}animation\PYZus{}1d}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps}\PY{p}{,} \PY{n}{include}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} call our new function to display the animation}
+\PY{n}{display\PYZus{}animation}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}x\PYZus{}anim}\PY{p}{)}
+\PY{c+c1}{\PYZsh{}s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}x\PYZus{}anim.save(r\PYZsq{}psx1.mp4\PYZsq{})   \PYZsh{}Uncomment this line to save the animation to an mp4 file}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{40}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+\PY{l+s+sd}{y positions}
+\PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}y\PYZus{}anim} \PY{o}{=} \PY{n}{plot\PYZus{}animation\PYZus{}1d}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps}\PY{p}{,} \PY{n}{include}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} call our new function to display the animation}
+\PY{n}{display\PYZus{}animation}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}y\PYZus{}anim}\PY{p}{)}
+\PY{c+c1}{\PYZsh{}s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}y\PYZus{}anim.save(r\PYZsq{}psy1.mp4\PYZsq{})}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{41}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+\PY{l+s+sd}{z positions}
+\PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}z\PYZus{}anim} \PY{o}{=} \PY{n}{plot\PYZus{}animation\PYZus{}1d}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps}\PY{p}{,} \PY{n}{include}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} call our new function to display the animation}
+\PY{n}{display\PYZus{}animation}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}z\PYZus{}anim}\PY{p}{)}
+\PY{c+c1}{\PYZsh{}s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}z\PYZus{}anim.save(r\PYZsq{}psz1.mp4\PYZsq{})}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{42}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Plot the velocity}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}anim} \PY{o}{=} \PY{n}{plot\PYZus{}animation\PYZus{}3d}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs}\PY{p}{)}
+\PY{n}{display\PYZus{}animation}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}anim}\PY{p}{)}
+\PY{c+c1}{\PYZsh{}s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}anim.save(r\PYZsq{}vs1.mp4\PYZsq{})}
+\PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+\PY{l+s+sd}{We can see that the velocity is constant for the time when the electric field is 0}
+\PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+\end{Verbatim}
+\end{tcolorbox}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{42}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+'\textbackslash{}nWe can see that the velocity is constant for the time when the electric field
+is 0\textbackslash{}n'
+\end{Verbatim}
+\end{tcolorbox}
+        
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{43}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Plot x and y velocities}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}xy\PYZus{}anim} \PY{o}{=} \PY{n}{plot\PYZus{}animation\PYZus{}2d}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs}\PY{p}{,} \PY{n}{exclude}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}
+\PY{n}{display\PYZus{}animation}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}xy\PYZus{}anim}\PY{p}{)}
+\PY{c+c1}{\PYZsh{}s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}xy\PYZus{}anim.save(r\PYZsq{}vsxy1.mp4\PYZsq{})}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{44}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Plot y and z velocities}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}yz\PYZus{}anim} \PY{o}{=} \PY{n}{plot\PYZus{}animation\PYZus{}2d}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs}\PY{p}{,} \PY{n}{exclude}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}
+\PY{n}{display\PYZus{}animation}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}yz\PYZus{}anim}\PY{p}{)}
+\PY{c+c1}{\PYZsh{}s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}yz\PYZus{}anim.save(r\PYZsq{}vsyz1.mp4\PYZsq{})}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{45}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Plot x and z velocities}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}xz\PYZus{}anim} \PY{o}{=} \PY{n}{plot\PYZus{}animation\PYZus{}2d}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs}\PY{p}{,} \PY{n}{exclude}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
+\PY{n}{display\PYZus{}animation}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}xz\PYZus{}anim}\PY{p}{)}
+\PY{c+c1}{\PYZsh{}s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}xz\PYZus{}anim.save(r\PYZsq{}vsxz1.mp4\PYZsq{})}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{46}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Plot x velocity}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}x\PYZus{}anim} \PY{o}{=} \PY{n}{plot\PYZus{}animation\PYZus{}1d}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs}\PY{p}{,} \PY{n}{include}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}
+\PY{n}{display\PYZus{}animation}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}x\PYZus{}anim}\PY{p}{)}
+\PY{c+c1}{\PYZsh{}s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}x\PYZus{}anim.save(r\PYZsq{}vsx1.mp4\PYZsq{})}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{47}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Plot y velocity}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}y\PYZus{}anim} \PY{o}{=} \PY{n}{plot\PYZus{}animation\PYZus{}1d}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs}\PY{p}{,} \PY{n}{include}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
+\PY{n}{display\PYZus{}animation}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}y\PYZus{}anim}\PY{p}{)}
+\PY{c+c1}{\PYZsh{}s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}y\PYZus{}anim.save(r\PYZsq{}vsy1.mp4\PYZsq{})}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{48}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Plot z velocity}
+\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}z\PYZus{}anim} \PY{o}{=} \PY{n}{plot\PYZus{}animation\PYZus{}1d}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs}\PY{p}{,} \PY{n}{include}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}
+\PY{n}{display\PYZus{}animation}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}z\PYZus{}anim}\PY{p}{)}
+\PY{c+c1}{\PYZsh{}s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}z\PYZus{}anim.save(r\PYZsq{}vsz1.mp4\PYZsq{})}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{ }{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+
+\end{Verbatim}
+\end{tcolorbox}
+
+    \hypertarget{multi-particle-plots}{%
+\paragraph{Multi particle plots}\label{multi-particle-plots}}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{83}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{def} \PY{n+nf}{multiplot\PYZus{}animation\PYZus{}3d}\PY{p}{(}\PY{n}{positions}\PY{p}{)}\PY{p}{:}
+    \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+\PY{l+s+sd}{    Here each element of positions is data for 1 particle that one would give as input to}
+\PY{l+s+sd}{    plot\PYZus{}animation\PYZus{}3d function, i.e. position or velocity update history of 1 particle}
+\PY{l+s+sd}{    }
+\PY{l+s+sd}{    This function can plot both positions and velocities}
+\PY{l+s+sd}{    \PYZsq{}\PYZsq{}\PYZsq{}}
+
+    \PY{c+c1}{\PYZsh{}positions = np.array(np.array([xdata, ydata, zdata]))}
+    \PY{n}{FRAMES} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{shape}\PY{p}{(}\PY{n}{positions}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}
+    \PY{c+c1}{\PYZsh{} Here positions has shape (10, 1089, 3) }
+    \PY{n}{fig} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{p}{)}
+    \PY{n}{ax} \PY{o}{=} \PY{n}{fig}\PY{o}{.}\PY{n}{add\PYZus{}subplot}\PY{p}{(}\PY{l+m+mi}{111}\PY{p}{,} \PY{n}{projection}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{3d}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+
+    \PY{k}{def} \PY{n+nf}{init}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+        \PY{n}{ax}\PY{o}{.}\PY{n}{view\PYZus{}init}\PY{p}{(}\PY{n}{elev}\PY{o}{=}\PY{l+m+mf}{20.}\PY{p}{,} \PY{n}{azim}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}
+        \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}xlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{x}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}ylabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{y}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}zlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{z}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+
+    \PY{c+c1}{\PYZsh{} animation function.  This is called sequentially}
+    \PY{k}{def} \PY{n+nf}{animate}\PY{p}{(}\PY{n}{i}\PY{p}{)}\PY{p}{:}
+        \PY{n}{current\PYZus{}index} \PY{o}{=} \PY{n+nb}{int}\PY{p}{(}\PY{n}{positions}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]} \PY{o}{/} \PY{n}{FRAMES} \PY{o}{*} \PY{n}{i}\PY{p}{)}
+        \PY{n}{ax}\PY{o}{.}\PY{n}{cla}\PY{p}{(}\PY{p}{)}
+        \PY{n}{ax}\PY{o}{.}\PY{n}{view\PYZus{}init}\PY{p}{(}\PY{n}{elev}\PY{o}{=}\PY{l+m+mf}{20.}\PY{p}{,} \PY{n}{azim}\PY{o}{=}\PY{n}{i}\PY{p}{)}
+        \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}xlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{x}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}ylabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{y}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}zlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{z}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+        \PY{c+c1}{\PYZsh{} For line plot uncomment the following line}
+        \PY{c+c1}{\PYZsh{} ax.plot3D(positions[:current\PYZus{}index, 0], positions[:current\PYZus{}index, 1], positions[:current\PYZus{}index, 2])}
+        \PY{k}{for} \PY{n}{position} \PY{o+ow}{in} \PY{n}{positions}\PY{p}{:}
+            \PY{n}{ax}\PY{o}{.}\PY{n}{scatter3D}\PY{p}{(}\PY{n}{position}\PY{p}{[}\PY{p}{:}\PY{n}{current\PYZus{}index}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{position}\PY{p}{[}\PY{p}{:}\PY{n}{current\PYZus{}index}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{n}{position}\PY{p}{[}\PY{p}{:}\PY{n}{current\PYZus{}index}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}
+         
+    \PY{c+c1}{\PYZsh{} call the animator.}
+    \PY{n}{anim} \PY{o}{=} \PY{n}{animation}\PY{o}{.}\PY{n}{FuncAnimation}\PY{p}{(}\PY{n}{fig}\PY{p}{,} \PY{n}{animate}\PY{p}{,} \PY{n}{init\PYZus{}func}\PY{o}{=}\PY{n}{init}\PY{p}{,} \PY{n}{frames}\PY{o}{=}\PY{n}{FRAMES}\PY{p}{,} \PY{n}{interval}\PY{o}{=}\PY{l+m+mi}{100}\PY{p}{)}
+    
+    \PY{k}{return} \PY{n}{anim}
+
+\PY{c+c1}{\PYZsh{} Currently plots x and y positions}
+\PY{k}{def} \PY{n+nf}{multiplot\PYZus{}animation\PYZus{}2d}\PY{p}{(}\PY{n}{positions}\PY{p}{,} \PY{n}{exclude}\PY{p}{)}\PY{p}{:}
+    \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+\PY{l+s+sd}{    Here each element of positions is data for 1 particle that one would give as input to}
+\PY{l+s+sd}{    plot\PYZus{}animation\PYZus{}3d function, i.e. position or velocity update history of 1 particle}
+\PY{l+s+sd}{    }
+\PY{l+s+sd}{    This function can plot both positions and velocities}
+\PY{l+s+sd}{    exclude can be 0, 1 or 2:}
+\PY{l+s+sd}{    if exclude = 2, this means exclude the z data of the given array and plot the x and y data}
+\PY{l+s+sd}{    \PYZsq{}\PYZsq{}\PYZsq{}}
+    
+    \PY{n}{available} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}
+    \PY{n}{available}\PY{o}{.}\PY{n}{remove}\PY{p}{(}\PY{n}{exclude}\PY{p}{)}
+    
+    \PY{c+c1}{\PYZsh{}positions = np.array(np.array([xdata, ydata, zdata]))}
+    \PY{n}{FRAMES} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{shape}\PY{p}{(}\PY{n}{positions}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}
+    \PY{c+c1}{\PYZsh{} Here positions has shape (10, 1089, 3) }
+    \PY{n}{fig} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{p}{)}
+    \PY{n}{ax} \PY{o}{=} \PY{n}{fig}\PY{o}{.}\PY{n}{add\PYZus{}subplot}\PY{p}{(}\PY{l+m+mi}{111}\PY{p}{)}
+
+    \PY{k}{def} \PY{n+nf}{init}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+        \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}xlabel}\PY{p}{(}\PY{n+nb}{chr}\PY{p}{(}\PY{n}{available}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{+} \PY{l+m+mi}{120}\PY{p}{)}\PY{p}{)}
+        \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}ylabel}\PY{p}{(}\PY{n+nb}{chr}\PY{p}{(}\PY{n}{available}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]} \PY{o}{+} \PY{l+m+mi}{120}\PY{p}{)}\PY{p}{)}
+
+    \PY{c+c1}{\PYZsh{} animation function.  This is called sequentially}
+    \PY{k}{def} \PY{n+nf}{animate}\PY{p}{(}\PY{n}{i}\PY{p}{)}\PY{p}{:}
+        \PY{n}{current\PYZus{}index} \PY{o}{=} \PY{n+nb}{int}\PY{p}{(}\PY{n}{positions}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]} \PY{o}{/} \PY{n}{FRAMES} \PY{o}{*} \PY{n}{i}\PY{p}{)}
+        \PY{n}{ax}\PY{o}{.}\PY{n}{cla}\PY{p}{(}\PY{p}{)}
+        \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}xlabel}\PY{p}{(}\PY{n+nb}{chr}\PY{p}{(}\PY{n}{available}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{+} \PY{l+m+mi}{120}\PY{p}{)}\PY{p}{)}
+        \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}ylabel}\PY{p}{(}\PY{n+nb}{chr}\PY{p}{(}\PY{n}{available}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]} \PY{o}{+} \PY{l+m+mi}{120}\PY{p}{)}\PY{p}{)}
+        \PY{c+c1}{\PYZsh{} For line plot uncomment the following line}
+        \PY{c+c1}{\PYZsh{} ax.plot3D(positions[:current\PYZus{}index, 0], positions[:current\PYZus{}index, 1], positions[:current\PYZus{}index, 2])}
+        \PY{k}{for} \PY{n}{position} \PY{o+ow}{in} \PY{n}{positions}\PY{p}{:}
+            \PY{n}{ax}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{position}\PY{p}{[}\PY{p}{:}\PY{n}{current\PYZus{}index}\PY{p}{,} \PY{n}{available}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{]}\PY{p}{,} \PY{n}{position}\PY{p}{[}\PY{p}{:}\PY{n}{current\PYZus{}index}\PY{p}{,} \PY{n}{available}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{]}\PY{p}{)}
+         
+    \PY{c+c1}{\PYZsh{} call the animator.}
+    \PY{n}{anim} \PY{o}{=} \PY{n}{animation}\PY{o}{.}\PY{n}{FuncAnimation}\PY{p}{(}\PY{n}{fig}\PY{p}{,} \PY{n}{animate}\PY{p}{,} \PY{n}{init\PYZus{}func}\PY{o}{=}\PY{n}{init}\PY{p}{,} \PY{n}{frames}\PY{o}{=}\PY{n}{FRAMES}\PY{p}{,} \PY{n}{interval}\PY{o}{=}\PY{l+m+mi}{100}\PY{p}{)}
+    
+    \PY{k}{return} \PY{n}{anim}
+
+\PY{k}{def} \PY{n+nf}{multiplot\PYZus{}animation\PYZus{}1d}\PY{p}{(}\PY{n}{positions}\PY{p}{,} \PY{n}{include}\PY{p}{)}\PY{p}{:}
+    \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}Here each element of positions is data for 1 particle that one would give as input to}
+\PY{l+s+sd}{    plot\PYZus{}animation\PYZus{}3d function, i.e. position or velocity update history of 1 particle}
+\PY{l+s+sd}{    }
+\PY{l+s+sd}{    This function can plot both positions and velocities}
+\PY{l+s+sd}{    include can be 0, 1 or 2.}
+\PY{l+s+sd}{    if include = 2, this means plot the z data of the array}
+\PY{l+s+sd}{    \PYZsq{}\PYZsq{}\PYZsq{}}
+    
+    \PY{c+c1}{\PYZsh{}positions = np.array(np.array([xdata, ydata, zdata]))}
+    \PY{n}{FRAMES} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{shape}\PY{p}{(}\PY{n}{positions}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}
+    \PY{c+c1}{\PYZsh{} Here positions has shape (10, 1089, 3) }
+    \PY{n}{fig} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{p}{)}
+    \PY{n}{ax} \PY{o}{=} \PY{n}{fig}\PY{o}{.}\PY{n}{add\PYZus{}subplot}\PY{p}{(}\PY{l+m+mi}{111}\PY{p}{)}
+
+    \PY{k}{def} \PY{n+nf}{init}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+        \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}xlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{step}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}ylabel}\PY{p}{(}\PY{n+nb}{chr}\PY{p}{(}\PY{n}{include} \PY{o}{+} \PY{l+m+mi}{120}\PY{p}{)}\PY{p}{)}
+
+    \PY{c+c1}{\PYZsh{} animation function.  This is called sequentially}
+    \PY{k}{def} \PY{n+nf}{animate}\PY{p}{(}\PY{n}{i}\PY{p}{)}\PY{p}{:}
+        \PY{n}{current\PYZus{}index} \PY{o}{=} \PY{n+nb}{int}\PY{p}{(}\PY{n}{positions}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]} \PY{o}{/} \PY{n}{FRAMES} \PY{o}{*} \PY{n}{i}\PY{p}{)}
+        \PY{n}{ax}\PY{o}{.}\PY{n}{cla}\PY{p}{(}\PY{p}{)}
+        \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}xlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{step}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}ylabel}\PY{p}{(}\PY{n+nb}{chr}\PY{p}{(}\PY{n}{include} \PY{o}{+} \PY{l+m+mi}{120}\PY{p}{)}\PY{p}{)}
+        \PY{c+c1}{\PYZsh{} For line plot uncomment the following line}
+        \PY{c+c1}{\PYZsh{} ax.plot3D(positions[:current\PYZus{}index, 0], positions[:current\PYZus{}index, 1], positions[:current\PYZus{}index, 2])}
+        \PY{k}{for} \PY{n}{position} \PY{o+ow}{in} \PY{n}{positions}\PY{p}{:}
+            \PY{n}{ax}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{arange}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{position}\PY{p}{)}\PY{p}{)}\PY{p}{[}\PY{p}{:}\PY{n}{current\PYZus{}index}\PY{p}{]}\PY{p}{,} \PY{n}{position}\PY{p}{[}\PY{p}{:}\PY{n}{current\PYZus{}index}\PY{p}{,} \PY{n}{include}\PY{p}{]}\PY{p}{)}
+         
+    \PY{c+c1}{\PYZsh{} call the animator.}
+    \PY{n}{anim} \PY{o}{=} \PY{n}{animation}\PY{o}{.}\PY{n}{FuncAnimation}\PY{p}{(}\PY{n}{fig}\PY{p}{,} \PY{n}{animate}\PY{p}{,} \PY{n}{init\PYZus{}func}\PY{o}{=}\PY{n}{init}\PY{p}{,} \PY{n}{frames}\PY{o}{=}\PY{n}{FRAMES}\PY{p}{,} \PY{n}{interval}\PY{o}{=}\PY{l+m+mi}{100}\PY{p}{)}
+    
+    \PY{k}{return} \PY{n}{anim}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{71}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{s1\PYZus{}particles} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{10}\PY{p}{,} \PY{l+m+mi}{20}\PY{p}{,} \PY{l+m+mi}{30}\PY{p}{,} \PY{l+m+mi}{40}\PY{p}{,} \PY{l+m+mi}{50}\PY{p}{,} \PY{l+m+mi}{60}\PY{p}{,} \PY{l+m+mi}{70}\PY{p}{,} \PY{l+m+mi}{80}\PY{p}{,} \PY{l+m+mi}{90}\PY{p}{]} \PY{c+c1}{\PYZsh{} take particles at these indices}
+\PY{n}{s1\PYZus{}allFieldkeys} \PY{o}{=} \PY{n+nb}{list}\PY{p}{(}\PY{n}{s1\PYZus{}batch\PYZus{}ps\PYZus{}and\PYZus{}vs}\PY{o}{.}\PY{n}{keys}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+\PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}ps} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+\PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}vs} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+
+\PY{k}{for} \PY{n}{aparticle} \PY{o+ow}{in} \PY{n}{s1\PYZus{}particles}\PY{p}{:}
+    \PY{n}{s1\PYZus{}allfield\PYZus{}ap\PYZus{}ps} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+    \PY{n}{s1\PYZus{}allfield\PYZus{}ap\PYZus{}vs} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+    
+    \PY{c+c1}{\PYZsh{} Same procedure for as a single particle}
+    \PY{k}{for} \PY{n}{akey} \PY{o+ow}{in} \PY{n}{s1\PYZus{}allFieldkeys}\PY{p}{:}
+        \PY{n}{s1\PYZus{}histories} \PY{o}{=} \PY{n}{s1\PYZus{}batch\PYZus{}ps\PYZus{}and\PYZus{}vs}\PY{p}{[}\PY{n}{akey}\PY{p}{]}
+
+        \PY{c+c1}{\PYZsh{}Take aparticle}
+        \PY{n}{s1\PYZus{}ap} \PY{o}{=} \PY{n}{s1\PYZus{}histories}\PY{p}{[}\PY{n}{aparticle}\PY{p}{]}
+
+        \PY{c+c1}{\PYZsh{}Take ps and vs}
+        \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{s1\PYZus{}p0}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+            \PY{n}{s1\PYZus{}allfield\PYZus{}ap\PYZus{}ps}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{s1\PYZus{}ap}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+            \PY{n}{s1\PYZus{}allfield\PYZus{}ap\PYZus{}vs}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{s1\PYZus{}ap}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}
+    \PY{n}{s1\PYZus{}allfield\PYZus{}ap\PYZus{}ps} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}ap\PYZus{}ps}\PY{p}{)}
+    \PY{n}{s1\PYZus{}allfield\PYZus{}ap\PYZus{}vs} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}ap\PYZus{}vs}\PY{p}{)}
+    
+    \PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}ps}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}ap\PYZus{}ps}\PY{p}{)}
+    \PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}vs}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}ap\PYZus{}vs}\PY{p}{)}
+
+\PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}ps} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}ps}\PY{p}{)}
+\PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}vs} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}vs}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{92}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Plot the positions}
+\PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}ps\PYZus{}fig} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{p}{)}
+\PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}ps\PYZus{}ax} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{axes}\PY{p}{(}\PY{n}{projection}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{3d}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}ps\PYZus{}ax}\PY{o}{.}\PY{n}{view\PYZus{}init}\PY{p}{(}\PY{l+m+mi}{20}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mi}{80}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} Data for three\PYZhy{}dimensional scattered points}
+\PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{s1\PYZus{}particles}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+    
+    \PY{n}{s1\PYZus{}allfield\PYZus{}ap\PYZus{}ps\PYZus{}zdata} \PY{o}{=} \PY{p}{[}\PY{n}{elem}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]} \PY{k}{for} \PY{n}{elem} \PY{o+ow}{in} \PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}ps}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{]} \PY{c+c1}{\PYZsh{} Animate this plot as well.}
+    \PY{n}{s1\PYZus{}allfield\PYZus{}ap\PYZus{}ps\PYZus{}xdata} \PY{o}{=} \PY{p}{[}\PY{n}{elem}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{k}{for} \PY{n}{elem} \PY{o+ow}{in} \PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}ps}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{]}
+    \PY{n}{s1\PYZus{}allfield\PYZus{}ap\PYZus{}ps\PYZus{}ydata} \PY{o}{=} \PY{p}{[}\PY{n}{elem}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]} \PY{k}{for} \PY{n}{elem} \PY{o+ow}{in} \PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}ps}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{]}
+    \PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}ps\PYZus{}ax}\PY{o}{.}\PY{n}{scatter3D}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}ap\PYZus{}ps\PYZus{}xdata}\PY{p}{,} \PY{n}{s1\PYZus{}allfield\PYZus{}ap\PYZus{}ps\PYZus{}ydata}\PY{p}{,} \PY{n}{s1\PYZus{}allfield\PYZus{}ap\PYZus{}ps\PYZus{}zdata}\PY{p}{,}\PYZbs{}
+                            \PY{n}{c}\PY{o}{=}\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}ps\PYZus{}zdata}\PY{p}{)}\PY{p}{;}
+\PY{c+c1}{\PYZsh{}plt.savefig(\PYZsq{}multips1\PYZsq{}, dpi=\PYZsq{}figure\PYZsq{}, format=\PYZsq{}png\PYZsq{})}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_58_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{93}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Plot x positions}
+\PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}ps\PYZus{}x\PYZus{}fig} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{p}{)}
+\PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}ps\PYZus{}x\PYZus{}ax} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{axes}\PY{p}{(}\PY{p}{)}
+\PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{s1\PYZus{}particles}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+    \PY{c+c1}{\PYZsh{}s1\PYZus{}allfield\PYZus{}ap\PYZus{}ps\PYZus{}zdata = [elem[2] for elem in s1\PYZus{}allfield\PYZus{}10p\PYZus{}ps[i]] \PYZsh{} Animate this plot as well.}
+    \PY{n}{s1\PYZus{}allfield\PYZus{}ap\PYZus{}ps\PYZus{}xdata} \PY{o}{=} \PY{p}{[}\PY{n}{elem}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{k}{for} \PY{n}{elem} \PY{o+ow}{in} \PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}ps}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{]}
+    \PY{c+c1}{\PYZsh{}s1\PYZus{}allfield\PYZus{}ap\PYZus{}ps\PYZus{}ydata = [elem[1] for elem in s1\PYZus{}allfield\PYZus{}10p\PYZus{}ps[i]]}
+    \PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}ps\PYZus{}x\PYZus{}ax}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{arange}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}ap\PYZus{}ps\PYZus{}xdata}\PY{p}{)}\PY{p}{)}\PY{p}{,} \PY{n}{s1\PYZus{}allfield\PYZus{}ap\PYZus{}ps\PYZus{}xdata}\PY{p}{)}\PY{p}{;}
+\PY{c+c1}{\PYZsh{}plt.savefig(\PYZsq{}multipsx1\PYZsq{}, dpi=\PYZsq{}figure\PYZsq{}, format=\PYZsq{}png\PYZsq{})}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_59_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{94}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Plot y positions}
+\PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}ps\PYZus{}y\PYZus{}fig} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{p}{)}
+\PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}ps\PYZus{}y\PYZus{}ax} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{axes}\PY{p}{(}\PY{p}{)}
+\PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{s1\PYZus{}particles}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+    \PY{c+c1}{\PYZsh{}s1\PYZus{}allfield\PYZus{}ap\PYZus{}ps\PYZus{}zdata = [elem[2] for elem in s1\PYZus{}allfield\PYZus{}10p\PYZus{}ps[i]] \PYZsh{} Animate this plot as well.}
+    \PY{c+c1}{\PYZsh{}s1\PYZus{}allfield\PYZus{}ap\PYZus{}ps\PYZus{}xdata = [elem[0] for elem in s1\PYZus{}allfield\PYZus{}10p\PYZus{}ps[i]]}
+    \PY{n}{s1\PYZus{}allfield\PYZus{}ap\PYZus{}ps\PYZus{}ydata} \PY{o}{=} \PY{p}{[}\PY{n}{elem}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]} \PY{k}{for} \PY{n}{elem} \PY{o+ow}{in} \PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}ps}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{]}
+    \PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}ps\PYZus{}y\PYZus{}ax}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{arange}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}ap\PYZus{}ps\PYZus{}ydata}\PY{p}{)}\PY{p}{)}\PY{p}{,} \PY{n}{s1\PYZus{}allfield\PYZus{}ap\PYZus{}ps\PYZus{}ydata}\PY{p}{)}\PY{p}{;}
+\PY{c+c1}{\PYZsh{}plt.savefig(\PYZsq{}multipsy1\PYZsq{}, dpi=\PYZsq{}figure\PYZsq{}, format=\PYZsq{}png\PYZsq{})}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_60_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{95}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Plot z positions}
+\PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}ps\PYZus{}z\PYZus{}fig} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{p}{)}
+\PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}ps\PYZus{}z\PYZus{}ax} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{axes}\PY{p}{(}\PY{p}{)}
+\PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{s1\PYZus{}particles}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+    \PY{n}{s1\PYZus{}allfield\PYZus{}ap\PYZus{}ps\PYZus{}zdata} \PY{o}{=} \PY{p}{[}\PY{n}{elem}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]} \PY{k}{for} \PY{n}{elem} \PY{o+ow}{in} \PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}ps}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{]} \PY{c+c1}{\PYZsh{} Animate this plot as well.}
+    \PY{c+c1}{\PYZsh{}s1\PYZus{}allfield\PYZus{}ap\PYZus{}ps\PYZus{}xdata = [elem[0] for elem in s1\PYZus{}allfield\PYZus{}10p\PYZus{}ps[i]]}
+    \PY{c+c1}{\PYZsh{}s1\PYZus{}allfield\PYZus{}ap\PYZus{}ps\PYZus{}ydata = [elem[1] for elem in s1\PYZus{}allfield\PYZus{}10p\PYZus{}ps[i]]}
+    \PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}ps\PYZus{}z\PYZus{}ax}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{arange}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}ap\PYZus{}ps\PYZus{}zdata}\PY{p}{)}\PY{p}{)}\PY{p}{,} \PY{n}{s1\PYZus{}allfield\PYZus{}ap\PYZus{}ps\PYZus{}zdata}\PY{p}{)}\PY{p}{;}
+\PY{c+c1}{\PYZsh{}plt.savefig(\PYZsq{}multipsz1\PYZsq{}, dpi=\PYZsq{}figure\PYZsq{}, format=\PYZsq{}png\PYZsq{})}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_61_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{100}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Animate the positions}
+\PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}ps\PYZus{}anim} \PY{o}{=} \PY{n}{multiplot\PYZus{}animation\PYZus{}3d}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}ps}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} call our new function to display the animation}
+\PY{n}{display\PYZus{}animation}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}ps\PYZus{}anim}\PY{p}{)}
+\PY{c+c1}{\PYZsh{}s1\PYZus{}allfield\PYZus{}10p\PYZus{}ps\PYZus{}anim.save(r\PYZsq{}multips1.mp4\PYZsq{})   \PYZsh{}Uncomment this line to save the animation to an mp4 file}
+\PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+\PY{l+s+sd}{The particles are not getting closer. But going far away rather.}
+\PY{l+s+sd}{The scale is growing larger so the whole picture is zooming out.}
+\PY{l+s+sd}{That is why it looks like particles are moving closer even though they are not.}
+\PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+\end{Verbatim}
+\end{tcolorbox}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{100}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+'\textbackslash{}nThe particles are not getting closer. But going far away rather.\textbackslash{}nThe scale
+is growing larger so the whole picture is zooming out.\textbackslash{}nThat is why it looks
+like particles are moving closer even though they are not.\textbackslash{}n'
+\end{Verbatim}
+\end{tcolorbox}
+        
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{102}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+\PY{l+s+sd}{x positions}
+\PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+\PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}ps\PYZus{}x\PYZus{}anim} \PY{o}{=} \PY{n}{multiplot\PYZus{}animation\PYZus{}1d}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}ps}\PY{p}{,} \PY{n}{include}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} call our new function to display the animation}
+\PY{n}{display\PYZus{}animation}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}ps\PYZus{}x\PYZus{}anim}\PY{p}{)}
+\PY{c+c1}{\PYZsh{}s1\PYZus{}allfield\PYZus{}10p\PYZus{}ps\PYZus{}x\PYZus{}anim.save(r\PYZsq{}multipsx1.mp4\PYZsq{})   \PYZsh{}Uncomment this line to save the animation to an mp4 file}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{104}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+\PY{l+s+sd}{y positions}
+\PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+\PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}ps\PYZus{}y\PYZus{}anim} \PY{o}{=} \PY{n}{multiplot\PYZus{}animation\PYZus{}1d}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}ps}\PY{p}{,} \PY{n}{include}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} call our new function to display the animation}
+\PY{n}{display\PYZus{}animation}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}ps\PYZus{}y\PYZus{}anim}\PY{p}{)}
+\PY{c+c1}{\PYZsh{}s1\PYZus{}allfield\PYZus{}10p\PYZus{}ps\PYZus{}y\PYZus{}anim.save(r\PYZsq{}multipsy1.mp4\PYZsq{})   \PYZsh{}Uncomment this line to save the animation to an mp4 file}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{106}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+\PY{l+s+sd}{z positions}
+\PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+\PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}ps\PYZus{}z\PYZus{}anim} \PY{o}{=} \PY{n}{multiplot\PYZus{}animation\PYZus{}1d}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}ps}\PY{p}{,} \PY{n}{include}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} call our new function to display the animation}
+\PY{n}{display\PYZus{}animation}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}ps\PYZus{}z\PYZus{}anim}\PY{p}{)}
+\PY{c+c1}{\PYZsh{}s1\PYZus{}allfield\PYZus{}10p\PYZus{}ps\PYZus{}z\PYZus{}anim.save(r\PYZsq{}multipsz1.mp4\PYZsq{})   \PYZsh{}Uncomment this line to save the animation to an mp4 file}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{96}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Plot the velocities}
+\PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}vs\PYZus{}fig} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{p}{)}
+\PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}vs\PYZus{}ax} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{axes}\PY{p}{(}\PY{n}{projection}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{3d}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}vs\PYZus{}ax}\PY{o}{.}\PY{n}{view\PYZus{}init}\PY{p}{(}\PY{l+m+mi}{20}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mi}{120}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} Data for three\PYZhy{}dimensional scattered points}
+\PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{s1\PYZus{}particles}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+    
+    \PY{n}{s1\PYZus{}allfield\PYZus{}ap\PYZus{}vs\PYZus{}zdata} \PY{o}{=} \PY{p}{[}\PY{n}{elem}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]} \PY{k}{for} \PY{n}{elem} \PY{o+ow}{in} \PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}vs}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{]} \PY{c+c1}{\PYZsh{} Animate this plot as well.}
+    \PY{n}{s1\PYZus{}allfield\PYZus{}ap\PYZus{}vs\PYZus{}xdata} \PY{o}{=} \PY{p}{[}\PY{n}{elem}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{k}{for} \PY{n}{elem} \PY{o+ow}{in} \PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}vs}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{]}
+    \PY{n}{s1\PYZus{}allfield\PYZus{}ap\PYZus{}vs\PYZus{}ydata} \PY{o}{=} \PY{p}{[}\PY{n}{elem}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]} \PY{k}{for} \PY{n}{elem} \PY{o+ow}{in} \PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}vs}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{]}
+    \PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}vs\PYZus{}ax}\PY{o}{.}\PY{n}{scatter3D}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}ap\PYZus{}vs\PYZus{}xdata}\PY{p}{,} \PY{n}{s1\PYZus{}allfield\PYZus{}ap\PYZus{}vs\PYZus{}ydata}\PY{p}{,} \PY{n}{s1\PYZus{}allfield\PYZus{}ap\PYZus{}vs\PYZus{}zdata}\PY{p}{,}\PYZbs{}
+                            \PY{n}{c}\PY{o}{=}\PY{n}{s1\PYZus{}allfield\PYZus{}p0\PYZus{}vs\PYZus{}zdata}\PY{p}{)}\PY{p}{;}
+\PY{c+c1}{\PYZsh{}plt.savefig(\PYZsq{}multivs1\PYZsq{}, dpi=\PYZsq{}figure\PYZsq{}, format=\PYZsq{}png\PYZsq{})}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_66_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{97}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Plot x velocities}
+\PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}vs\PYZus{}x\PYZus{}fig} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{p}{)}
+\PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}vs\PYZus{}x\PYZus{}ax} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{axes}\PY{p}{(}\PY{p}{)}
+\PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{s1\PYZus{}particles}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+    \PY{c+c1}{\PYZsh{}s1\PYZus{}allfield\PYZus{}ap\PYZus{}vs\PYZus{}zdata = [elem[2] for elem in s1\PYZus{}allfield\PYZus{}10p\PYZus{}vs[i]] \PYZsh{} Animate this plot as well.}
+    \PY{n}{s1\PYZus{}allfield\PYZus{}ap\PYZus{}vs\PYZus{}xdata} \PY{o}{=} \PY{p}{[}\PY{n}{elem}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{k}{for} \PY{n}{elem} \PY{o+ow}{in} \PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}vs}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{]}
+    \PY{c+c1}{\PYZsh{}s1\PYZus{}allfield\PYZus{}ap\PYZus{}vs\PYZus{}ydata = [elem[1] for elem in s1\PYZus{}allfield\PYZus{}10p\PYZus{}vs[i]]}
+    \PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}vs\PYZus{}x\PYZus{}ax}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{arange}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}ap\PYZus{}vs\PYZus{}xdata}\PY{p}{)}\PY{p}{)}\PY{p}{,} \PY{n}{s1\PYZus{}allfield\PYZus{}ap\PYZus{}vs\PYZus{}xdata}\PY{p}{)}\PY{p}{;}
+\PY{c+c1}{\PYZsh{}plt.savefig(\PYZsq{}multivsx1\PYZsq{}, dpi=\PYZsq{}figure\PYZsq{}, format=\PYZsq{}png\PYZsq{})}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_67_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{98}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Plot y velocities}
+\PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}vs\PYZus{}y\PYZus{}fig} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{p}{)}
+\PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}vs\PYZus{}y\PYZus{}ax} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{axes}\PY{p}{(}\PY{p}{)}
+\PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{s1\PYZus{}particles}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+    \PY{c+c1}{\PYZsh{}s1\PYZus{}allfield\PYZus{}ap\PYZus{}vs\PYZus{}zdata = [elem[2] for elem in s1\PYZus{}allfield\PYZus{}10p\PYZus{}vs[i]] \PYZsh{} Animate this plot as well.}
+    \PY{c+c1}{\PYZsh{}s1\PYZus{}allfield\PYZus{}ap\PYZus{}vs\PYZus{}xdata = [elem[0] for elem in s1\PYZus{}allfield\PYZus{}10p\PYZus{}vs[i]]}
+    \PY{n}{s1\PYZus{}allfield\PYZus{}ap\PYZus{}vs\PYZus{}ydata} \PY{o}{=} \PY{p}{[}\PY{n}{elem}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]} \PY{k}{for} \PY{n}{elem} \PY{o+ow}{in} \PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}vs}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{]}
+    \PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}vs\PYZus{}y\PYZus{}ax}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{arange}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}ap\PYZus{}vs\PYZus{}ydata}\PY{p}{)}\PY{p}{)}\PY{p}{,} \PY{n}{s1\PYZus{}allfield\PYZus{}ap\PYZus{}vs\PYZus{}ydata}\PY{p}{)}\PY{p}{;}
+\PY{c+c1}{\PYZsh{}plt.savefig(\PYZsq{}multivsy1\PYZsq{}, dpi=\PYZsq{}figure\PYZsq{}, format=\PYZsq{}png\PYZsq{})}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_68_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{99}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Plot z velocities}
+\PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}vs\PYZus{}z\PYZus{}fig} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{p}{)}
+\PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}vs\PYZus{}z\PYZus{}ax} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{axes}\PY{p}{(}\PY{p}{)}
+\PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{s1\PYZus{}particles}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+    \PY{n}{s1\PYZus{}allfield\PYZus{}ap\PYZus{}vs\PYZus{}zdata} \PY{o}{=} \PY{p}{[}\PY{n}{elem}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]} \PY{k}{for} \PY{n}{elem} \PY{o+ow}{in} \PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}vs}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{]} \PY{c+c1}{\PYZsh{} Animate this plot as well.}
+    \PY{c+c1}{\PYZsh{}s1\PYZus{}allfield\PYZus{}ap\PYZus{}vs\PYZus{}xdata = [elem[0] for elem in s1\PYZus{}allfield\PYZus{}10p\PYZus{}vs[i]]}
+    \PY{c+c1}{\PYZsh{}s1\PYZus{}allfield\PYZus{}ap\PYZus{}vs\PYZus{}ydata = [elem[1] for elem in s1\PYZus{}allfield\PYZus{}10p\PYZus{}vs[i]]}
+    \PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}vs\PYZus{}z\PYZus{}ax}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{arange}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}ap\PYZus{}vs\PYZus{}zdata}\PY{p}{)}\PY{p}{)}\PY{p}{,} \PY{n}{s1\PYZus{}allfield\PYZus{}ap\PYZus{}vs\PYZus{}zdata}\PY{p}{)}\PY{p}{;}
+\PY{c+c1}{\PYZsh{}plt.savefig(\PYZsq{}multivsz1\PYZsq{}, dpi=\PYZsq{}figure\PYZsq{}, format=\PYZsq{}png\PYZsq{})}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_69_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{108}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Animate the velocities}
+\PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}vs\PYZus{}anim} \PY{o}{=} \PY{n}{multiplot\PYZus{}animation\PYZus{}3d}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}vs}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} call our new function to display the animation}
+\PY{n}{display\PYZus{}animation}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}vs\PYZus{}anim}\PY{p}{)}
+\PY{c+c1}{\PYZsh{}s1\PYZus{}allfield\PYZus{}10p\PYZus{}vs\PYZus{}anim.save(r\PYZsq{}multivs1.mp4\PYZsq{})   \PYZsh{}Uncomment this line to save the animation to an mp4 file}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{110}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+\PY{l+s+sd}{x velocities}
+\PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+\PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}vs\PYZus{}x\PYZus{}anim} \PY{o}{=} \PY{n}{multiplot\PYZus{}animation\PYZus{}1d}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}vs}\PY{p}{,} \PY{n}{include}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} call our new function to display the animation}
+\PY{n}{display\PYZus{}animation}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}vs\PYZus{}x\PYZus{}anim}\PY{p}{)}
+\PY{c+c1}{\PYZsh{}s1\PYZus{}allfield\PYZus{}10p\PYZus{}vs\PYZus{}x\PYZus{}anim.save(r\PYZsq{}multivsx1.mp4\PYZsq{})   \PYZsh{}Uncomment this line to save the animation to an mp4 file}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{116}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+\PY{l+s+sd}{y velocities}
+\PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+\PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}vs\PYZus{}y\PYZus{}anim} \PY{o}{=} \PY{n}{multiplot\PYZus{}animation\PYZus{}1d}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}vs}\PY{p}{,} \PY{n}{include}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} call our new function to display the animation}
+\PY{n}{display\PYZus{}animation}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}vs\PYZus{}y\PYZus{}anim}\PY{p}{)}
+\PY{c+c1}{\PYZsh{}s1\PYZus{}allfield\PYZus{}10p\PYZus{}vs\PYZus{}y\PYZus{}anim.save(r\PYZsq{}multivsy1.mp4\PYZsq{})   \PYZsh{}Uncomment this line to save the animation to an mp4 file}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_72_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{117}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+\PY{l+s+sd}{z velocities}
+\PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+\PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}vs\PYZus{}z\PYZus{}anim} \PY{o}{=} \PY{n}{multiplot\PYZus{}animation\PYZus{}1d}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}vs}\PY{p}{,} \PY{n}{include}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} call our new function to display the animation}
+\PY{n}{display\PYZus{}animation}\PY{p}{(}\PY{n}{s1\PYZus{}allfield\PYZus{}10p\PYZus{}vs\PYZus{}z\PYZus{}anim}\PY{p}{)}
+\PY{c+c1}{\PYZsh{}s1\PYZus{}allfield\PYZus{}10p\PYZus{}vs\PYZus{}z\PYZus{}anim.save(r\PYZsq{}multivsz1.mp4\PYZsq{})   \PYZsh{}Uncomment this line to save the animation to an mp4 file}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_73_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{ }{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+
+\end{Verbatim}
+\end{tcolorbox}
+
+    \hypertarget{implement-other-field-configurations}{%
+\subsection{Implement other field
+configurations}\label{implement-other-field-configurations}}
+
+Use the field configurations: Helmholtz coil for Magnetic field, radial
+E field for Electric field; so that the Electric and Magnetic field
+strength are around the same values as in the first case \#\#\# Multi
+plot for 10 particles 1. positions and velocties 2. just scatter plot
+for positions and velocities
+
+Maybe later if there is time 1. single particle plots for position and
+velocity 2. just scatter plot for position and velocities
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{ }{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{ }{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+
+\end{Verbatim}
+\end{tcolorbox}
+
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+\end{document}
