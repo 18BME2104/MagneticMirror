@@ -1,0 +1,21 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{VIDEO\PYGZus{}TAG} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}\PYGZdq{}\PYGZdq{}\PYGZlt{}video controls\PYGZgt{}}
+\PYG{l+s+s2}{\PYGZlt{}source src=\PYGZdq{}data:video/x\PYGZhy{}m4v;base64,}\PYG{l+s+si}{\PYGZob{}0\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{} type=\PYGZdq{}video/mp4\PYGZdq{}\PYGZgt{}}
+\PYG{l+s+s2}{Your browser does not support the video tag.}
+\PYG{l+s+s2}{\PYGZlt{}/video\PYGZgt{}\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+
+\PYG{k}{def} \PYG{n+nf}{anim\PYGZus{}to\PYGZus{}html}\PYG{p}{(}\PYG{n}{anim}\PYG{p}{):}
+	\PYG{k}{if} \PYG{o+ow}{not} \PYG{n+nb}{hasattr}\PYG{p}{(}\PYG{n}{anim}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}\PYGZus{}encoded\PYGZus{}video\PYGZsq{}}\PYG{p}{):}
+		\PYG{n}{f} \PYG{o}{=} \PYG{n}{NamedTemporaryFile}\PYG{p}{(}\PYG{n}{suffix}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}.mp4\PYGZsq{}}\PYG{p}{,} \PYG{n}{delete}\PYG{o}{=}\PYG{k+kc}{False}\PYG{p}{)}
+		\PYG{n}{anim}\PYG{o}{.}\PYG{n}{save}\PYG{p}{(}\PYG{n}{f}\PYG{o}{.}\PYG{n}{name}\PYG{p}{,} \PYG{n}{fps}\PYG{o}{=}\PYG{l+m+mi}{20}\PYG{p}{,} \PYG{n}{extra\PYGZus{}args}\PYG{o}{=}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}\PYGZhy{}vcodec\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}libx264\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}\PYGZhy{}pix\PYGZus{}fmt\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}yuv420p\PYGZsq{}}\PYG{p}{])}
+		\PYG{n}{f}\PYG{o}{.}\PYG{n}{flush}\PYG{p}{()}
+		\PYG{n}{video} \PYG{o}{=} \PYG{n+nb}{open}\PYG{p}{(}\PYG{n}{f}\PYG{o}{.}\PYG{n}{name}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}rb\PYGZdq{}}\PYG{p}{)}\PYG{o}{.}\PYG{n}{read}\PYG{p}{()}
+		\PYG{n}{f}\PYG{o}{.}\PYG{n}{close}\PYG{p}{()}
+		\PYG{n}{anim}\PYG{o}{.}\PYG{n}{\PYGZus{}encoded\PYGZus{}video} \PYG{o}{=} \PYG{n}{base64}\PYG{o}{.}\PYG{n}{b64encode}\PYG{p}{(}\PYG{n}{video}\PYG{p}{)}\PYG{o}{.}\PYG{n}{decode}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}utf\PYGZhy{}8\PYGZsq{}}\PYG{p}{)}
+	
+	\PYG{k}{return} \PYG{n}{VIDEO\PYGZus{}TAG}\PYG{o}{.}\PYG{n}{format}\PYG{p}{(}\PYG{n}{anim}\PYG{o}{.}\PYG{n}{\PYGZus{}encoded\PYGZus{}video}\PYG{p}{)}
+
+\PYG{k}{def} \PYG{n+nf}{display\PYGZus{}animation}\PYG{p}{(}\PYG{n}{anim}\PYG{p}{):}
+	\PYG{n}{plt}\PYG{o}{.}\PYG{n}{close}\PYG{p}{(}\PYG{n}{anim}\PYG{o}{.}\PYG{n}{\PYGZus{}fig}\PYG{p}{)}
+	\PYG{k}{return} \PYG{n}{HTML}\PYG{p}{(}\PYG{n}{anim\PYGZus{}to\PYGZus{}html}\PYG{p}{(}\PYG{n}{anim}\PYG{p}{))}
+\end{Verbatim}

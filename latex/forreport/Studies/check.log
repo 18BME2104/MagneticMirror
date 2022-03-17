@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.14.0 (MiKTeX 22.1) (format=lualatex 2022.3.10)  13 MAR 2022 19:11
+This is LuaHBTeX, Version 1.14.0 (MiKTeX 22.1) (format=lualatex 2022.3.17)  17 MAR 2022 19:42
  system commands enabled.
 **check.tex
 (./check.tex
@@ -437,15 +437,7 @@ LaTeX Font Info:    Trying to load font information for T1+lmr on input line 11
 (/usr/local/share/miktex-texmf/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ))
-(/usr/local/share/miktex-texmf/tex/latex/base/inputenc.sty
-Package: inputenc 2021/02/14 v1.3d Input encoding file
-\inpenc@prehook=\toks28
-\inpenc@posthook=\toks29
-
-
-Package inputenc Warning: inputenc package ignored with utf8 based engines.
-
-) (/usr/local/share/miktex-texmf/tex/latex/xcolor/xcolor.sty
+(/usr/local/share/miktex-texmf/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2021/10/31 v2.13 LaTeX color extensions (UK)
 
 (/usr/local/share/miktex-texmf/tex/latex/graphics-cfg/color.cfg
@@ -469,7 +461,7 @@ Package: pgfgantt 2018/01/10 v5.0 Draw Gantt diagrams with TikZ
 (/usr/local/share/miktex-texmf/tex/latex/pgf/basiclayer/pgf.sty
 (/usr/local/share/miktex-texmf/tex/latex/pgf/utilities/pgfrcs.sty
 (/usr/local/share/miktex-texmf/tex/generic/pgf/utilities/pgfutil-common.tex
-\pgfutil@everybye=\toks30
+\pgfutil@everybye=\toks28
 \pgfutil@tempdima=\dimen179
 \pgfutil@tempdimb=\dimen180
 
@@ -488,12 +480,12 @@ Package: pgf 2021/05/15 v3.1.9a (3.1.9a)
 Package: pgfsys 2021/05/15 v3.1.9a (3.1.9a)
 
 (/usr/local/share/miktex-texmf/tex/generic/pgf/utilities/pgfkeys.code.tex
-\pgfkeys@pathtoks=\toks31
-\pgfkeys@temptoks=\toks32
+\pgfkeys@pathtoks=\toks29
+\pgfkeys@temptoks=\toks30
 
 (/usr/local/share/miktex-texmf/tex/generic/pgf/utilities/pgfkeysfiltered.code.t
 ex
-\pgfkeys@tmptoks=\toks33
+\pgfkeys@tmptoks=\toks31
 ))
 \pgf@x=\dimen181
 \pgf@y=\dimen182
@@ -511,9 +503,9 @@ ex
 \c@pgf@countb=\count300
 \c@pgf@countc=\count301
 \c@pgf@countd=\count302
-\t@pgf@toka=\toks34
-\t@pgf@tokb=\toks35
-\t@pgf@tokc=\toks36
+\t@pgf@toka=\toks32
+\t@pgf@tokb=\toks33
+\t@pgf@tokc=\toks34
 \pgf@sys@id@count=\count303
  (/usr/local/share/miktex-texmf/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2021/05/15 v3.1.9a (3.1.9a)
@@ -547,9 +539,9 @@ Package: pgfcore 2021/05/15 v3.1.9a (3.1.9a)
 \pgfmath@dimen=\dimen191
 \pgfmath@count=\count306
 \pgfmath@box=\box101
-\pgfmath@toks=\toks37
-\pgfmath@stack@operand=\toks38
-\pgfmath@stack@operation=\toks39
+\pgfmath@toks=\toks35
+\pgfmath@stack@operand=\toks36
+\pgfmath@stack@operation=\toks37
 )
 (/usr/local/share/miktex-texmf/tex/generic/pgf/math/pgfmathfunctions.code.tex
 (/usr/local/share/miktex-texmf/tex/generic/pgf/math/pgfmathfunctions.basic.code
@@ -693,8 +685,8 @@ Package: pgffor 2021/05/15 v3.1.9a (3.1.9a)
 (/usr/local/share/miktex-texmf/tex/generic/pgf/math/pgfmath.code.tex)
 \pgffor@iter=\dimen274
 \pgffor@skip=\dimen275
-\pgffor@stack=\toks40
-\pgffor@toks=\toks41
+\pgffor@stack=\toks38
+\pgffor@toks=\toks39
 ))
 (/usr/local/share/miktex-texmf/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
 Package: tikz 2021/05/15 v3.1.9a (3.1.9a)
@@ -817,38 +809,15 @@ Package: ifthen 2020/11/24 v1.1c Standard LaTeX ifthen package (DPC)
 \rotFPtop=\skip56
 \rotFPbot=\skip57
 \rot@float@box=\box113
-\rot@mess@toks=\toks42
+\rot@mess@toks=\toks40
 )
-(/home/kushik/.miktex/texmfs/install/tex/latex/realboxes/realboxes.sty
-Package: realboxes 2011/08/08 v0.2 Change box commands to read there content as
- real boxes
-
-(/home/kushik/.miktex/texmfs/install/tex/latex/collectbox/collectbox.sty
-Package: collectbox 2012/05/17 v0.4b Collect macro arguments as boxes
-\collectedbox=\box114
-)
-(/home/kushik/.miktex/texmfs/install/tex/latex/adjustbox/adjcalc.sty
-Package: adjcalc 2012/05/16 v1.1 Provides advanced setlength with multiple back
--ends (calc, etex, pgfmath)
-
-(/usr/local/share/miktex-texmf/tex/latex/xkeyval/xkeyval.sty
-Package: xkeyval 2020/11/20 v2.8 package option processing (HA)
-
-(/usr/local/share/miktex-texmf/tex/generic/xkeyval/xkeyval.tex
-(/usr/local/share/miktex-texmf/tex/generic/xkeyval/xkvutils.tex
-\XKV@toks=\toks43
-\XKV@tempa@toks=\toks44
-)
-\XKV@depth=\count348
-File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
-))))
 (/usr/local/share/miktex-texmf/tex/latex/tcolorbox/tcolorbox.sty
 Package: tcolorbox 2022/01/07 version 5.0.2 text color boxes
 
 (/usr/local/share/miktex-texmf/tex/latex/tools/verbatim.sty
 Package: verbatim 2020-07-07 v1.5u LaTeX2e package for verbatim enhancements
-\every@verbatim=\toks45
-\verbatim@line=\toks46
+\every@verbatim=\toks41
+\verbatim@line=\toks42
 \verbatim@in@stream=\read3
 )
 (/usr/local/share/miktex-texmf/tex/latex/environ/environ.sty
@@ -859,29 +828,29 @@ Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 ))
 (/usr/local/share/miktex-texmf/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count349
+\etb@tempcnta=\count348
 )
-\tcb@titlebox=\box115
-\tcb@upperbox=\box116
-\tcb@lowerbox=\box117
-\tcb@phantombox=\box118
-\c@tcbbreakpart=\count350
-\c@tcblayer=\count351
-\c@tcolorbox@number=\count352
+\tcb@titlebox=\box114
+\tcb@upperbox=\box115
+\tcb@lowerbox=\box116
+\tcb@phantombox=\box117
+\c@tcbbreakpart=\count349
+\c@tcblayer=\count350
+\c@tcolorbox@number=\count351
+\tcb@temp=\box118
 \tcb@temp=\box119
 \tcb@temp=\box120
 \tcb@temp=\box121
-\tcb@temp=\box122
 
 (/usr/local/share/miktex-texmf/tex/latex/tcolorbox/tcbraster.code.tex
 Library (tcolorbox): 'tcbraster.code.tex' version '5.0.2'
-\c@tcbrastercolumn=\count353
-\c@tcbrasterrow=\count354
-\c@tcbrasternum=\count355
-\c@tcbraster=\count356
+\c@tcbrastercolumn=\count352
+\c@tcbrasterrow=\count353
+\c@tcbrasternum=\count354
+\c@tcbraster=\count355
 ) (/usr/local/share/miktex-texmf/tex/latex/tcolorbox/tcbskins.code.tex
 Library (tcolorbox): 'tcbskins.code.tex' version '5.0.2'
-\tcb@waterbox=\box123
+\tcb@waterbox=\box122
 (/usr/local/share/miktex-texmf/tex/latex/tcolorbox/tcbskinsjigsaw.code.tex
 Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '5.0.2'
 )) (/usr/local/share/miktex-texmf/tex/latex/tcolorbox/tcbbreakable.code.tex
@@ -890,9 +859,9 @@ Library (tcolorbox): 'tcbbreakable.code.tex' version '5.0.2'
 Package: pdfcol 2019/12/29 v1.6 Handle new color stacks for pdfTeX (HO)
 )
 Package pdfcol Info: New color stack `tcb@breakable' = 1 on input line 23.
-\tcb@testbox=\box124
-\tcb@totalupperbox=\box125
-\tcb@totallowerbox=\box126
+\tcb@testbox=\box123
+\tcb@totalupperbox=\box124
+\tcb@totallowerbox=\box125
 
 (/usr/local/share/miktex-texmf/tex/generic/iftex/ifluatex.sty
 Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
@@ -906,7 +875,7 @@ Library (tcolorbox): 'tcbfitting.code.tex' version '5.0.2'
 \tcbfitdim=\dimen286
 \tcb@lowerfitdim=\dimen287
 \tcb@upperfitdim=\dimen288
-\tcb@cur@hbadness=\count357
+\tcb@cur@hbadness=\count356
 ) (/usr/local/share/miktex-texmf/tex/latex/tcolorbox/tcbxparse.code.tex
 Library (tcolorbox): 'tcbxparse.code.tex' version '5.0.2'
 (/usr/local/share/miktex-texmf/tex/latex/l3packages/xparse/xparse.sty
@@ -915,8 +884,8 @@ Package: expl3 2022-02-24 L3 programming layer (loader)
 
 (/usr/local/share/miktex-texmf/tex/latex/l3backend/l3backend-luatex.def
 File: l3backend-luatex.def 2022-02-07 L3 backend support: PDF output (LuaTeX)
-\l__color_backend_stack_int=\count358
-\l__pdf_internal_box=\box127
+\l__color_backend_stack_int=\count357
+\l__pdf_internal_box=\box126
 ))
 Package: xparse 2022-01-12 L3 Experimental document command parser
 ))
@@ -925,24 +894,24 @@ Library (tcolorbox): 'tcblistingsutf8.code.tex' version '5.0.2'
 (/usr/local/share/miktex-texmf/tex/latex/tcolorbox/tcblistings.code.tex
 Library (tcolorbox): 'tcblistings.code.tex' version '5.0.2'
 (/usr/local/share/miktex-texmf/tex/latex/listings/listings.sty
-\lst@mode=\count359
-\lst@gtempboxa=\box128
-\lst@token=\toks47
-\lst@length=\count360
+\lst@mode=\count358
+\lst@gtempboxa=\box127
+\lst@token=\toks43
+\lst@length=\count359
 \lst@currlwidth=\dimen289
-\lst@column=\count361
-\lst@pos=\count362
+\lst@column=\count360
+\lst@pos=\count361
 \lst@lostspace=\dimen290
 \lst@width=\dimen291
-\lst@newlines=\count363
-\lst@lineno=\count364
+\lst@newlines=\count362
+\lst@lineno=\count363
 \lst@maxwidth=\dimen292
 
 (/usr/local/share/miktex-texmf/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
-\c@lstnumber=\count365
-\lst@skipnumbers=\count366
-\lst@framebox=\box129
+\c@lstnumber=\count364
+\lst@skipnumbers=\count365
+\lst@framebox=\box128
 )
 (/usr/local/share/miktex-texmf/tex/latex/listings/listings.cfg
 File: listings.cfg 2020/03/24 1.8d listings configuration
@@ -957,7 +926,7 @@ Library (tcolorbox): 'tcbprocessing.code.tex' version '5.0.2'
 Package: shellesc 2019/11/08 v1.0c unified shell escape interface for LaTeX
 Package shellesc Info: Unrestricted shell escape enabled on input line 75.
 ))
-\c@tcblisting=\count367
+\c@tcblisting=\count366
 ))
 Package tcolorbox Info: Library `listingsutf8' is compatible with pdftex only. 
 Library `listings` is loaded instead. on input line 29.
@@ -986,11 +955,11 @@ Package: fvextra 2019/02/04 v1.4 fvextra - extensions and patches for fancyvrb
 
 (/home/kushik/.miktex/texmfs/install/tex/latex/fancyvrb/fancyvrb.sty
 Package: fancyvrb 2021/12/21 4.1b verbatim text (tvz,hv)
-\FV@CodeLineNo=\count368
+\FV@CodeLineNo=\count367
 \FV@InFile=\read4
-\FV@TabBox=\box130
-\c@FancyVerbLine=\count369
-\FV@StepNumber=\count370
+\FV@TabBox=\box129
+\c@FancyVerbLine=\count368
+\FV@StepNumber=\count369
 \FV@OutFile=\write4
 )
 (/home/kushik/.miktex/texmfs/install/tex/latex/upquote/upquote.sty
@@ -1002,56 +971,56 @@ Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
 ))
 (/home/kushik/.miktex/texmfs/install/tex/latex/lineno/lineno.sty
 Package: lineno 2005/11/02 line numbers on paragraphs v4.41
-\linenopenalty=\count371
-\output=\toks48
-\linenoprevgraf=\count372
+\linenopenalty=\count370
+\output=\toks44
+\linenoprevgraf=\count371
 \linenumbersep=\dimen293
 \linenumberwidth=\dimen294
-\c@linenumber=\count373
-\c@pagewiselinenumber=\count374
-\c@LN@truepage=\count375
-\c@internallinenumber=\count376
-\c@internallinenumbers=\count377
+\c@linenumber=\count372
+\c@pagewiselinenumber=\count373
+\c@LN@truepage=\count374
+\c@internallinenumber=\count375
+\c@internallinenumbers=\count376
 \quotelinenumbersep=\dimen295
 \bframerule=\dimen296
 \bframesep=\dimen297
-\bframebox=\box131
+\bframebox=\box130
 LaTeX Info: Redefining \\ on input line 3056.
 )
-\c@FV@TrueTabGroupLevel=\count378
-\c@FV@TrueTabCounter=\count379
-\FV@TabBox@Group=\box132
+\c@FV@TrueTabGroupLevel=\count377
+\c@FV@TrueTabCounter=\count378
+\FV@TabBox@Group=\box131
 \FV@TmpLength=\skip58
-\c@FV@HighlightLinesStart=\count380
-\c@FV@HighlightLinesStop=\count381
-\FV@LoopCount=\count382
-\FV@NCharsBox=\box133
+\c@FV@HighlightLinesStart=\count379
+\c@FV@HighlightLinesStop=\count380
+\FV@LoopCount=\count381
+\FV@NCharsBox=\box132
 \FV@BreakIndent=\dimen298
-\FV@BreakIndentNChars=\count383
+\FV@BreakIndentNChars=\count382
 \FV@BreakSymbolSepLeft=\dimen299
-\FV@BreakSymbolSepLeftNChars=\count384
+\FV@BreakSymbolSepLeftNChars=\count383
 \FV@BreakSymbolSepRight=\dimen300
-\FV@BreakSymbolSepRightNChars=\count385
+\FV@BreakSymbolSepRightNChars=\count384
 \FV@BreakSymbolIndentLeft=\dimen301
-\FV@BreakSymbolIndentLeftNChars=\count386
+\FV@BreakSymbolIndentLeftNChars=\count385
 \FV@BreakSymbolIndentRight=\dimen302
-\FV@BreakSymbolIndentRightNChars=\count387
-\c@FancyVerbLineBreakLast=\count388
-\FV@LineBox=\box134
-\FV@LineIndentBox=\box135
+\FV@BreakSymbolIndentRightNChars=\count386
+\c@FancyVerbLineBreakLast=\count387
+\FV@LineBox=\box133
+\FV@LineIndentBox=\box134
 \FV@LineWidth=\dimen303
 )
 (/usr/local/share/miktex-texmf/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count389
-\calc@Bcount=\count390
+\calc@Acount=\count388
+\calc@Bcount=\count389
 \calc@Adimen=\dimen304
 \calc@Bdimen=\dimen305
 \calc@Askip=\skip59
 \calc@Bskip=\skip60
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count391
+\calc@Ccount=\count390
 \calc@Cskip=\skip61
 )
 (/home/kushik/.miktex/texmfs/install/tex/latex/ifplatform/ifplatform.sty
@@ -1067,8 +1036,8 @@ runsystem(rm -- "check.w18")...executed
 )
 (/home/kushik/.miktex/texmfs/install/tex/latex/xstring/xstring.sty
 (/home/kushik/.miktex/texmfs/install/tex/generic/xstring/xstring.tex
-\integerpart=\count392
-\decimalpart=\count393
+\integerpart=\count391
+\decimalpart=\count392
 )
 Package: xstring 2021/07/21 v1.84 String manipulations (CT)
 )
@@ -1081,12 +1050,12 @@ Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
 \FrameSep=\dimen309
 )
 \minted@appexistsfile=\read5
-\minted@bgbox=\box136
+\minted@bgbox=\box135
 \minted@code=\write5
-\c@minted@FancyVerbLineTemp=\count394
-\c@minted@pygmentizecounter=\count395
-\@float@every@listing=\toks49
-\c@listing=\count396
+\c@minted@FancyVerbLineTemp=\count393
+\c@minted@pygmentizecounter=\count394
+\@float@every@listing=\toks45
+\c@listing=\count395
 )
 runsystem(mkdir -p _minted-check)...executed
 runsystem(which pygmentize && touch check.aex)...executed
@@ -1094,31 +1063,31 @@ runsystem(rm check.aex)...executed
  (./check.aux)
 \openout1 = check.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 39.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 3
-9.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 43.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 4
+3.
  (/usr/local/share/miktex-texmf/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: luatex
@@ -1156,17 +1125,17 @@ LaTeX Font Info:    ... okay on input line 39.
 
 (/usr/local/share/miktex-texmf/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count397
+\scratchcounter=\count396
 \scratchdimen=\dimen310
-\scratchbox=\box137
-\nofMPsegments=\count398
-\nofMParguments=\count399
-\everyMPshowfont=\toks50
-\MPscratchCnt=\count400
+\scratchbox=\box136
+\nofMPsegments=\count397
+\nofMParguments=\count398
+\everyMPshowfont=\toks46
+\MPscratchCnt=\count399
 \MPscratchDim=\dimen311
-\MPnumerator=\count401
-\makeMPintoPDFobject=\count402
-\everyMPtoPDFconversion=\toks51
+\MPnumerator=\count400
+\makeMPintoPDFobject=\count401
+\everyMPtoPDFconversion=\toks47
 ) (/usr/local/share/miktex-texmf/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -1175,7 +1144,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 (/usr/local/share/miktex-texmf/tex/latex/00miktex/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring OFF on input line 39.
+Package hyperref Info: Link coloring OFF on input line 43.
 
 (/usr/local/share/miktex-texmf/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
@@ -1187,11 +1156,11 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count403
+\c@section@level=\count402
 )
-LaTeX Info: Redefining \ref on input line 39.
-LaTeX Info: Redefining \pageref on input line 39.
-LaTeX Info: Redefining \nameref on input line 39.
+LaTeX Info: Redefining \ref on input line 43.
+LaTeX Info: Redefining \pageref on input line 43.
+LaTeX Info: Redefining \nameref on input line 43.
  (./check.out) (./check.out)
 \@outlinefile=\write6
 
@@ -1200,26 +1169,26 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: listings package is loaded.
 Package caption Info: rotating package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\c@lstlisting=\count404
-LaTeX Font Info:    Trying to load font information for T1+ppl on input line 41
+\c@lstlisting=\count403
+LaTeX Font Info:    Trying to load font information for T1+ppl on input line 45
 .
 
 (/home/kushik/.miktex/texmfs/install/tex/latex/psnfss/t1ppl.fd
 File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 57.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 61.
 
 
 (/usr/local/share/miktex-texmf/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 57.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 61.
 
 
 (/usr/local/share/miktex-texmf/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 10000) in paragraph at lines 65--66
+Underfull \hbox (badness 10000) in paragraph at lines 69--70
 
  []
 
@@ -1257,14 +1226,14 @@ D9.pygtex)
 
 (./_minted-check/3A9F3045E57D52A66D7BE77C814ED8FE7A89F1F2CD020F52767C856FE70A42
 D9.pygtex) [3]
-Overfull \hbox (38.5817pt too wide) in paragraph at lines 194--195
+Overfull \hbox (38.5817pt too wide) in paragraph at lines 198--199
 \T1/ppl/m/n/12 from the an-a-lytic ex-pres-sion are close for this dis-tri-bu-ti
 on too; in fact within $\OT1/cmr/m/n/12 0\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 96859
 93662716086%$
  []
 
 
-Overfull \hbox (16.76822pt too wide) in paragraph at lines 214--215
+Overfull \hbox (16.76822pt too wide) in paragraph at lines 218--219
 \T1/ppl/m/n/12 com-pare it to the out-put of an al-go-rithm. From sec-tion 1.2.1
  Boris Up-date in the \T1/ppl/b/n/12 checks.ipynb
  []
@@ -1282,46 +1251,236 @@ D9.pygtex) [4]
 
 (./_minted-check/D4B65FBEE4A97309D16B112E730966BE7A89F1F2CD020F52767C856FE70A42
 D9.pygtex) [5]
-Overfull \hbox (25.45924pt too wide) detected at line 320
+Overfull \hbox (25.45924pt too wide) detected at line 324
 \OML/cmm/m/it/12 q[] \OT1/cmr/m/n/12 = [][] = [][] = 4\OML/cmm/m/it/12 :\OT1/cm
 r/m/n/12 78597877761177 C s [][]
  []
 
 
-Overfull \hbox (41.21245pt too wide) detected at line 335
+Overfull \hbox (41.21245pt too wide) detected at line 339
 [][] \OT1/cmr/m/n/12 = [][] + 2\OML/cmm/m/it/12 q[] [] \OT1/cmr/m/n/12 = [] + 2 \OMS/cmsy/m/n/12  \OT1/cmr/m/n/12 4\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 78597877761177 []
  []
 
 
-Overfull \hbox (15.31853pt too wide) detected at line 354
+Overfull \hbox (15.31853pt too wide) detected at line 358
 [][] \OT1/cmr/m/n/12 = [][] + \OML/cmm/m/it/12 t [][] \OT1/cmr/m/n/12 = [] + 10
 []   [] = []
  []
 
 [6]
-Overfull \hbox (41.21245pt too wide) detected at line 396
+Overfull \hbox (41.21245pt too wide) detected at line 400
 [][] \OT1/cmr/m/n/12 = [][] + 2\OML/cmm/m/it/12 q[] [] \OT1/cmr/m/n/12 = [] + 2 \OMS/cmsy/m/n/12  \OT1/cmr/m/n/12 4\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 78597877761177 []
  []
 
-[7] [8] (./check.aux)
+
+\openout4 = check.pyg
+[7]
+(./_minted-check/574F58877404486AC01CC3AA368375327A89F1F2CD020F52767C856FE70A42
+D9.pygtex)
+\openout4 = check.pyg
+
+(./_minted-check/073E186A24AA6E02324A5D867A4C62DC7A89F1F2CD020F52767C856FE70A42
+D9.pygtex)
+Overfull \vbox (2.77989pt too high) detected at line 489
+ []
+
+[8]
+\openout4 = check.pyg
+
+(./_minted-check/6BFD61FC3083EC8780E531D2924572917A89F1F2CD020F52767C856FE70A42
+D9.pygtex)
+\openout4 = check.pyg
+
+(./_minted-check/CD52927FF2083CB7BB44D7EA0DD5552B7A89F1F2CD020F52767C856FE70A42
+D9.pygtex) [9]
+<EplusPs1.png, id=148, 433.62pt x 289.08pt>
+File: EplusPs1.png Graphic file (type png)
+<use EplusPs1.png>
+Package luatex.def Info: EplusPs1.png  used on input line 577.
+(luatex.def)             Requested size: 229.87704pt x 170.71451pt.
+<EminusPs1.png, id=149, 433.62pt x 289.08pt>
+File: EminusPs1.png Graphic file (type png)
+<use EminusPs1.png>
+Package luatex.def Info: EminusPs1.png  used on input line 578.
+(luatex.def)             Requested size: 229.87704pt x 170.71451pt.
+ [10]
+\openout4 = check.pyg
+
+(./_minted-check/B9B15527A12E871D1EED1FF191E22D987A89F1F2CD020F52767C856FE70A42
+D9.pygtex) [11<./EplusPs1.png><./EminusPs1.png>]
+\openout4 = check.pyg
+
+(./_minted-check/F5DCB65C84AC15CD956D14558BDE95027A89F1F2CD020F52767C856FE70A42
+D9.pygtex)
+<ps1.png, id=162, 433.62pt x 289.08pt>
+File: ps1.png Graphic file (type png)
+<use ps1.png>
+Package luatex.def Info: ps1.png  used on input line 662.
+(luatex.def)             Requested size: 229.87704pt x 170.71451pt.
+<psx1.png, id=163, 433.62pt x 289.08pt>
+File: psx1.png Graphic file (type png)
+<use psx1.png>
+Package luatex.def Info: psx1.png  used on input line 663.
+(luatex.def)             Requested size: 229.87704pt x 170.71451pt.
+<psy1.png, id=164, 433.62pt x 289.08pt>
+File: psy1.png Graphic file (type png)
+<use psy1.png>
+Package luatex.def Info: psy1.png  used on input line 668.
+(luatex.def)             Requested size: 229.87704pt x 170.71451pt.
+<psz1.png, id=165, 433.62pt x 289.08pt>
+File: psz1.png Graphic file (type png)
+<use psz1.png>
+Package luatex.def Info: psz1.png  used on input line 669.
+(luatex.def)             Requested size: 229.87704pt x 170.71451pt.
+ [12]
+\openout4 = check.pyg
+
+(./_minted-check/4CA71E760C5E568BF7D4A2AD99714DEA7A89F1F2CD020F52767C856FE70A42
+D9.pygtex) [13<./ps1.png><./psx1.png><./psy1.png><./psz1.png>]
+<vs1.png, id=180, 433.62pt x 289.08pt>
+File: vs1.png Graphic file (type png)
+<use vs1.png>
+Package luatex.def Info: vs1.png  used on input line 721.
+(luatex.def)             Requested size: 229.87704pt x 170.71451pt.
+<vsx1.png, id=181, 433.62pt x 289.08pt>
+File: vsx1.png Graphic file (type png)
+<use vsx1.png>
+Package luatex.def Info: vsx1.png  used on input line 722.
+(luatex.def)             Requested size: 229.87704pt x 170.71451pt.
+<vsy1.png, id=182, 433.62pt x 289.08pt>
+File: vsy1.png Graphic file (type png)
+<use vsy1.png>
+Package luatex.def Info: vsy1.png  used on input line 727.
+(luatex.def)             Requested size: 229.87704pt x 170.71451pt.
+<vsz1.png, id=183, 433.62pt x 289.08pt>
+File: vsz1.png Graphic file (type png)
+<use vsz1.png>
+Package luatex.def Info: vsz1.png  used on input line 728.
+(luatex.def)             Requested size: 229.87704pt x 170.71451pt.
+ [14<./vs1.png><./vsx1.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 737--738
+
+ []
+
+[15<./vsy1.png><./vsz1.png>]
+\openout4 = check.pyg
+
+(./_minted-check/6E092D43161D2196DC83FAA73D89681E7A89F1F2CD020F52767C856FE70A42
+D9.pygtex) [16]
+\openout4 = check.pyg
+
+(./_minted-check/A10332EE40AB8689B9C0808B01CF65FA7A89F1F2CD020F52767C856FE70A42
+D9.pygtex) [17]
+\openout4 = check.pyg
+
+(./_minted-check/6D7CD9B41DEF26F00FC421CA4A26FAAE7A89F1F2CD020F52767C856FE70A42
+D9.pygtex) [18]
+\openout4 = check.pyg
+
+(./_minted-check/7B63026D410BE6BCEA9D3E8F8941D4617A89F1F2CD020F52767C856FE70A42
+D9.pygtex) [19]
+Underfull \vbox (badness 10000) detected at line 998
+ []
+
+
+Overfull \vbox (9.56775pt too high) detected at line 998
+ []
+
+[20]
+<multips1.png, id=232, 433.62pt x 289.08pt>
+File: multips1.png Graphic file (type png)
+<use multips1.png>
+Package luatex.def Info: multips1.png  used on input line 1004.
+(luatex.def)             Requested size: 229.87704pt x 170.71451pt.
+<multipsx1.png, id=233, 433.62pt x 289.08pt>
+File: multipsx1.png Graphic file (type png)
+<use multipsx1.png>
+Package luatex.def Info: multipsx1.png  used on input line 1005.
+(luatex.def)             Requested size: 229.87704pt x 170.71451pt.
+<multipsy1.png, id=234, 433.62pt x 289.08pt>
+File: multipsy1.png Graphic file (type png)
+<use multipsy1.png>
+Package luatex.def Info: multipsy1.png  used on input line 1010.
+(luatex.def)             Requested size: 229.87704pt x 170.71451pt.
+<multipsz1.png, id=235, 433.62pt x 289.08pt>
+File: multipsz1.png Graphic file (type png)
+<use multipsz1.png>
+Package luatex.def Info: multipsz1.png  used on input line 1011.
+(luatex.def)             Requested size: 229.87704pt x 170.71451pt.
+ [21<./multips1.png><./multipsx1.png>]
+\openout4 = check.pyg
+
+(./_minted-check/03F85A78344D8B60BF68C7B32EB216077A89F1F2CD020F52767C856FE70A42
+D9.pygtex)
+Underfull \vbox (badness 1688) detected at line 1073
+ []
+
+[22<./multipsy1.png><./multipsz1.png>]
+<multivs1.png, id=256, 433.62pt x 289.08pt>
+File: multivs1.png Graphic file (type png)
+<use multivs1.png>
+Package luatex.def Info: multivs1.png  used on input line 1078.
+(luatex.def)             Requested size: 229.87704pt x 170.71451pt.
+<multivsx1.png, id=257, 433.62pt x 289.08pt>
+File: multivsx1.png Graphic file (type png)
+<use multivsx1.png>
+Package luatex.def Info: multivsx1.png  used on input line 1079.
+(luatex.def)             Requested size: 229.87704pt x 170.71451pt.
+<multivsy1.png, id=258, 433.62pt x 289.08pt>
+File: multivsy1.png Graphic file (type png)
+<use multivsy1.png>
+Package luatex.def Info: multivsy1.png  used on input line 1084.
+(luatex.def)             Requested size: 229.87704pt x 170.71451pt.
+<multivsz1.png, id=259, 433.62pt x 289.08pt>
+File: multivsz1.png Graphic file (type png)
+<use multivsz1.png>
+Package luatex.def Info: multivsz1.png  used on input line 1085.
+(luatex.def)             Requested size: 229.87704pt x 170.71451pt.
+ [23]
+\openout4 = check.pyg
+
+(./_minted-check/8E14FCAB79DA0D7C44145B9762FBB7247A89F1F2CD020F52767C856FE70A42
+D9.pygtex)
+Overfull \vbox (7.40924pt too high) detected at line 1173
+ []
+
+[24<./multivs1.png><./multivsx1.png><./multivsy1.png><./multivsz1.png>]
+Underfull \vbox (badness 10000) detected at line 1173
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 1173
+ []
+
+[25]
+\openout4 = check.pyg
+
+(./_minted-check/F011979E352C65F033BF820C959EC5417A89F1F2CD020F52767C856FE70A42
+D9.pygtex) [26]
+Underfull \hbox (badness 10000) in paragraph at lines 1236--1239
+
+ []
+
+[27] [28] (./check.aux)
 Package rerunfilecheck Info: File `check.out' has not changed.
-(rerunfilecheck)             Checksum: 874037CDB000D7AE5729ECAD2B702BC3;585.
+(rerunfilecheck)             Checksum: E619B61941C901721D2FFB318D2289B6;1375.
 runsystem(rm check.pyg)...executed
 )
 
 Here is how much of LuaTeX's memory you used:
- 35797 strings out of 477792
+ 35859 strings out of 477792
  100000,1144653 words of node,token memory allocated
- 1700 words of node memory still in use:
-   30 hlist, 2 vlist, 14 rule, 2 glue, 44 kern, 1 glyph, 125 attribute, 61 glue_
-spec, 125 attribute_list, 2 write, 24 pdf_literal, 24 pdf_colorstack nodes
-   avail lists: 2:2491,3:1118,4:400,5:492,6:68,7:5065,8:108,9:1196,10:17,11:247
- 54952 multiletter control sequences out of 65536+600000
- 75 fonts using 4892183 bytes
+ 2169 words of node memory still in use:
+   30 hlist, 2 vlist, 14 rule, 2 glue, 109 kern, 1 glyph, 161 attribute, 61 glue
+_spec, 161 attribute_list, 2 write, 24 pdf_literal, 24 pdf_colorstack nodes
+   avail lists: 2:4263,3:1118,4:604,5:428,6:126,7:6148,8:108,9:1201,10:21,11:321
+
+ 54722 multiletter control sequences out of 65536+600000
+ 77 fonts using 5053063 bytes
  99i,22n,95p,894b,908s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/share/miktex-texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/local/share/m
-iktex-texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/share/miktex-texmf/fonts/en
-c/dvips/base/8r.enc}</usr/local/share/miktex-texmf/fonts/type1/public/amsfonts/c
+{/usr/local/share/miktex-texmf/fonts/enc/dvips/base/8r.enc}{/usr/local/share/mik
+tex-texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/local/share/miktex-texmf/fonts/enc
+/dvips/lm/lm-ec.enc}</usr/local/share/miktex-texmf/fonts/type1/public/amsfonts/c
 m/cmbx12.pfb></usr/local/share/miktex-texmf/fonts/type1/public/amsfonts/cm/cmbx8
 .pfb></usr/local/share/miktex-texmf/fonts/type1/public/amsfonts/cm/cmex10.pfb></
 usr/local/share/miktex-texmf/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/loc
@@ -1340,10 +1499,11 @@ m/lmtk10.pfb></usr/local/share/miktex-texmf/fonts/type1/public/lm/lmtt10.pfb></u
 sr/local/share/miktex-texmf/fonts/type1/public/lm/lmtt12.pfb></usr/local/share/m
 iktex-texmf/fonts/type1/public/lm/lmtti10.pfb></usr/local/share/miktex-texmf/fon
 ts/type1/urw/palatino/uplb8a.pfb></usr/local/share/miktex-texmf/fonts/type1/urw/
-palatino/uplr8a.pfb>
-Output written on check.pdf (8 pages, 360599 bytes).
+palatino/uplr8a.pfb></usr/local/share/miktex-texmf/fonts/type1/urw/palatino/uplr
+i8a.pfb>
+Output written on check.pdf (28 pages, 679586 bytes).
 
-PDF statistics: 201 PDF objects out of 1000 (max. 8388607)
- 19 named destinations out of 1000 (max. 131072)
- 296 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 378 PDF objects out of 1000 (max. 8388607)
+ 54 named destinations out of 1000 (max. 131072)
+ 336 words of extra memory for PDF output out of 10000 (max. 100000000)
 

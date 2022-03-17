@@ -1,0 +1,74 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{multiplot\PYGZus{}animation\PYGZus{}3d}\PYG{p}{(}\PYG{n}{positions}\PYG{p}{):}
+	\PYG{l+s+sd}{\PYGZsq{}\PYGZsq{}\PYGZsq{}}
+\PYG{l+s+sd}{	Here each element of positions is data for 1 particle that one would give as input to}
+\PYG{l+s+sd}{	plot\PYGZus{}animation\PYGZus{}3d function, i.e. position or velocity update history of 1 particle}
+\PYG{l+s+sd}{	}
+\PYG{l+s+sd}{	This function can plot both positions and velocities}
+\PYG{l+s+sd}{	\PYGZsq{}\PYGZsq{}\PYGZsq{}}
+	
+	\PYG{c+c1}{\PYGZsh{}positions = np.array(np.array([xdata, ydata, zdata]))}
+	\PYG{n}{FRAMES} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{shape}\PYG{p}{(}\PYG{n}{positions}\PYG{p}{)[}\PYG{l+m+mi}{1}\PYG{p}{]}
+	\PYG{c+c1}{\PYGZsh{} Here positions has shape (10, 1089, 3)}
+	\PYG{n}{fig} \PYG{o}{=} \PYG{n}{plt}\PYG{o}{.}\PYG{n}{figure}\PYG{p}{()}
+	\PYG{n}{ax} \PYG{o}{=} \PYG{n}{fig}\PYG{o}{.}\PYG{n}{add\PYGZus{}subplot}\PYG{p}{(}\PYG{l+m+mi}{111}\PYG{p}{,} \PYG{n}{projection}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}3d\PYGZsq{}}\PYG{p}{)}
+	
+	\PYG{k}{def} \PYG{n+nf}{init}\PYG{p}{():}
+		\PYG{n}{ax}\PYG{o}{.}\PYG{n}{view\PYGZus{}init}\PYG{p}{(}\PYG{n}{elev}\PYG{o}{=}\PYG{l+m+mf}{20.}\PYG{p}{,} \PYG{n}{azim}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{)}
+		\PYG{n}{ax}\PYG{o}{.}\PYG{n}{set\PYGZus{}xlabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}x\PYGZsq{}}\PYG{p}{)}
+		\PYG{n}{ax}\PYG{o}{.}\PYG{n}{set\PYGZus{}ylabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}y\PYGZsq{}}\PYG{p}{)}
+		\PYG{n}{ax}\PYG{o}{.}\PYG{n}{set\PYGZus{}zlabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}z\PYGZsq{}}\PYG{p}{)}
+	
+	\PYG{c+c1}{\PYGZsh{} animation function.  This is called sequentially}
+	\PYG{k}{def} \PYG{n+nf}{animate}\PYG{p}{(}\PYG{n}{i}\PYG{p}{):}
+		\PYG{n}{current\PYGZus{}index} \PYG{o}{=} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n}{positions}\PYG{o}{.}\PYG{n}{shape}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{/} \PYG{n}{FRAMES} \PYG{o}{*} \PYG{n}{i}\PYG{p}{)}
+		\PYG{n}{ax}\PYG{o}{.}\PYG{n}{cla}\PYG{p}{()}
+		\PYG{n}{ax}\PYG{o}{.}\PYG{n}{view\PYGZus{}init}\PYG{p}{(}\PYG{n}{elev}\PYG{o}{=}\PYG{l+m+mf}{20.}\PYG{p}{,} \PYG{n}{azim}\PYG{o}{=}\PYG{n}{i}\PYG{p}{)}
+		\PYG{n}{ax}\PYG{o}{.}\PYG{n}{set\PYGZus{}xlabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}x\PYGZsq{}}\PYG{p}{)}
+		\PYG{n}{ax}\PYG{o}{.}\PYG{n}{set\PYGZus{}ylabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}y\PYGZsq{}}\PYG{p}{)}
+		\PYG{n}{ax}\PYG{o}{.}\PYG{n}{set\PYGZus{}zlabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}z\PYGZsq{}}\PYG{p}{)}
+		\PYG{c+c1}{\PYGZsh{} For line plot uncomment the following line}
+		\PYG{c+c1}{\PYGZsh{} ax.plot3D(positions[:current\PYGZus{}index, 0], positions[:current\PYGZus{}index, 1], positions[:current\PYGZus{}index, 2])}
+		\PYG{k}{for} \PYG{n}{position} \PYG{o+ow}{in} \PYG{n}{positions}\PYG{p}{:}
+		\PYG{n}{ax}\PYG{o}{.}\PYG{n}{scatter3D}\PYG{p}{(}\PYG{n}{position}\PYG{p}{[:}\PYG{n}{current\PYGZus{}index}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{],} \PYG{n}{position}\PYG{p}{[:}\PYG{n}{current\PYGZus{}index}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{],} \PYG{n}{position}\PYG{p}{[:}\PYG{n}{current\PYGZus{}index}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{])}
+	
+		\PYG{c+c1}{\PYGZsh{} call the animator.}
+		\PYG{n}{anim} \PYG{o}{=} \PYG{n}{animation}\PYG{o}{.}\PYG{n}{FuncAnimation}\PYG{p}{(}\PYG{n}{fig}\PYG{p}{,} \PYG{n}{animate}\PYG{p}{,} \PYG{n}{init\PYGZus{}func}\PYG{o}{=}\PYG{n}{init}\PYG{p}{,} \PYG{n}{frames}\PYG{o}{=}\PYG{n}{FRAMES}\PYG{p}{,} \PYG{n}{interval}\PYG{o}{=}\PYG{l+m+mi}{100}\PYG{p}{)}
+		
+		\PYG{k}{return} \PYG{n}{anim}
+		
+\PYG{k}{def} \PYG{n+nf}{multiplot\PYGZus{}animation\PYGZus{}1d}\PYG{p}{(}\PYG{n}{positions}\PYG{p}{,} \PYG{n}{include}\PYG{p}{):}
+	\PYG{l+s+sd}{\PYGZsq{}\PYGZsq{}\PYGZsq{}Here each element of positions is data for 1 particle that one would give as input to}
+\PYG{l+s+sd}{	plot\PYGZus{}animation\PYGZus{}3d function, i.e. position or velocity update history of 1 particle}
+\PYG{l+s+sd}{	}
+\PYG{l+s+sd}{	This function can plot both positions and velocities}
+\PYG{l+s+sd}{	include can be 0, 1 or 2.}
+\PYG{l+s+sd}{	if include = 2, this means plot the z data of the array}
+\PYG{l+s+sd}{	\PYGZsq{}\PYGZsq{}\PYGZsq{}}
+	
+	\PYG{c+c1}{\PYGZsh{}positions = np.array(np.array([xdata, ydata, zdata]))}
+	\PYG{n}{FRAMES} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{shape}\PYG{p}{(}\PYG{n}{positions}\PYG{p}{)[}\PYG{l+m+mi}{1}\PYG{p}{]}
+	\PYG{c+c1}{\PYGZsh{} Here positions has shape (10, 1089, 3)}
+	\PYG{n}{fig} \PYG{o}{=} \PYG{n}{plt}\PYG{o}{.}\PYG{n}{figure}\PYG{p}{()}
+	\PYG{n}{ax} \PYG{o}{=} \PYG{n}{fig}\PYG{o}{.}\PYG{n}{add\PYGZus{}subplot}\PYG{p}{(}\PYG{l+m+mi}{111}\PYG{p}{)}
+	
+	\PYG{k}{def} \PYG{n+nf}{init}\PYG{p}{():}
+		\PYG{n}{ax}\PYG{o}{.}\PYG{n}{set\PYGZus{}xlabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}step\PYGZsq{}}\PYG{p}{)}
+		\PYG{n}{ax}\PYG{o}{.}\PYG{n}{set\PYGZus{}ylabel}\PYG{p}{(}\PYG{n+nb}{chr}\PYG{p}{(}\PYG{n}{include} \PYG{o}{+} \PYG{l+m+mi}{120}\PYG{p}{))}
+		
+	\PYG{c+c1}{\PYGZsh{} animation function.  This is called sequentially}
+	\PYG{k}{def} \PYG{n+nf}{animate}\PYG{p}{(}\PYG{n}{i}\PYG{p}{):}
+		\PYG{n}{current\PYGZus{}index} \PYG{o}{=} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n}{positions}\PYG{o}{.}\PYG{n}{shape}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{/} \PYG{n}{FRAMES} \PYG{o}{*} \PYG{n}{i}\PYG{p}{)}
+		\PYG{n}{ax}\PYG{o}{.}\PYG{n}{cla}\PYG{p}{()}
+		\PYG{n}{ax}\PYG{o}{.}\PYG{n}{set\PYGZus{}xlabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}step\PYGZsq{}}\PYG{p}{)}
+		\PYG{n}{ax}\PYG{o}{.}\PYG{n}{set\PYGZus{}ylabel}\PYG{p}{(}\PYG{n+nb}{chr}\PYG{p}{(}\PYG{n}{include} \PYG{o}{+} \PYG{l+m+mi}{120}\PYG{p}{))}
+		\PYG{c+c1}{\PYGZsh{} For line plot uncomment the following line}
+		\PYG{c+c1}{\PYGZsh{} ax.plot3D(positions[:current\PYGZus{}index, 0], positions[:current\PYGZus{}index, 1], positions[:current\PYGZus{}index, 2])}
+		\PYG{k}{for} \PYG{n}{position} \PYG{o+ow}{in} \PYG{n}{positions}\PYG{p}{:}
+		\PYG{n}{ax}\PYG{o}{.}\PYG{n}{scatter}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{position}\PYG{p}{))[:}\PYG{n}{current\PYGZus{}index}\PYG{p}{],} \PYG{n}{position}\PYG{p}{[:}\PYG{n}{current\PYGZus{}index}\PYG{p}{,} \PYG{n}{include}\PYG{p}{])}
+		
+		\PYG{c+c1}{\PYGZsh{} call the animator.}
+		\PYG{n}{anim} \PYG{o}{=} \PYG{n}{animation}\PYG{o}{.}\PYG{n}{FuncAnimation}\PYG{p}{(}\PYG{n}{fig}\PYG{p}{,} \PYG{n}{animate}\PYG{p}{,} \PYG{n}{init\PYGZus{}func}\PYG{o}{=}\PYG{n}{init}\PYG{p}{,} \PYG{n}{frames}\PYG{o}{=}\PYG{n}{FRAMES}\PYG{p}{,} \PYG{n}{interval}\PYG{o}{=}\PYG{l+m+mi}{100}\PYG{p}{)}
+		
+		\PYG{k}{return} \PYG{n}{anim}
+\end{Verbatim}

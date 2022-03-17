@@ -1,0 +1,28 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Take the first batch in this run object}
+\PYG{n}{s1\PYGZus{}batch1} \PYG{o}{=} \PYG{n}{s1}\PYG{o}{.}\PYG{n}{batches}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{][}\PYG{l+s+s1}{\PYGZsq{}H ions\PYGZsq{}}\PYG{p}{]}
+
+\PYG{c+c1}{\PYGZsh{} Let\PYGZsq{}s consider Electric field being flipped in direction, and taken up a few scales}
+\PYG{n}{E\PYGZus{}scale} \PYG{o}{=} \PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{3}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{3}\PYG{p}{,} \PYG{l+m+mi}{4}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{4}\PYG{p}{,} \PYG{l+m+mi}{5}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{5}\PYG{p}{]}
+\PYG{c+c1}{\PYGZsh{} Let\PYGZsq{}s consider a case with constant Magnetic field}
+\PYG{n}{B\PYGZus{}scale} \PYG{o}{=} \PYG{p}{[}\PYG{l+m+mi}{1} \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{E\PYGZus{}scale}\PYG{p}{))]}
+
+\PYG{n}{s1\PYGZus{}index\PYGZus{}update} \PYG{o}{=} \PYG{l+m+mi}{0} \PYG{c+c1}{\PYGZsh{} Update the first batch in this Run instance}
+\PYG{n}{s1\PYGZus{}particle\PYGZus{}track\PYGZus{}indices} \PYG{o}{=} \PYG{p}{[}\PYG{n}{i} \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{100}\PYG{p}{)]} \PYG{c+c1}{\PYGZsh{} Track all 100 particles}
+\PYG{n}{s1\PYGZus{}dT} \PYG{o}{=} \PYG{l+m+mi}{10}\PYG{o}{**}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{7}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} 0.1 microseconds}
+\PYG{n}{s1\PYGZus{}stepT} \PYG{o}{=} \PYG{l+m+mi}{10}\PYG{o}{**}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{9}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} 0.001 microseconds time step}
+\PYG{n}{s1\PYGZus{}E0} \PYG{o}{=} \PYG{l+m+mi}{1000} \PYG{c+c1}{\PYGZsh{} say 1000 Volts (voltage) per meter (size of chamber)}
+\PYG{n}{s1\PYGZus{}Edirn} \PYG{o}{=} \PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{c+c1}{\PYGZsh{}in the x\PYGZhy{}direction [1,0,0]}
+\PYG{n}{s1\PYGZus{}B0} \PYG{o}{=} \PYG{l+m+mi}{10} \PYG{o}{*} \PYG{p}{(}\PYG{l+m+mi}{10}\PYG{o}{**}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{3}\PYG{p}{))} \PYG{c+c1}{\PYGZsh{} Meant to say 10 mT}
+\PYG{n}{s1\PYGZus{}Bdirn} \PYG{o}{=} \PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{c+c1}{\PYGZsh{}in the y\PYGZhy{}direction [0,1,0]}
+
+\PYG{n}{s1\PYGZus{}argsE} \PYG{o}{=} \PYG{p}{[}\PYG{n}{element} \PYG{o}{*} \PYG{n}{s1\PYGZus{}E0} \PYG{k}{for} \PYG{n}{element} \PYG{o+ow}{in} \PYG{n}{s1\PYGZus{}Edirn}\PYG{p}{]} \PYG{c+c1}{\PYGZsh{} currently the uniform\PYGZus{}E\PYGZus{}field configuration is used}
+\PYG{n}{s1\PYGZus{}argsB} \PYG{o}{=} \PYG{p}{[}\PYG{n}{element} \PYG{o}{*} \PYG{n}{s1\PYGZus{}B0} \PYG{k}{for} \PYG{n}{element} \PYG{o+ow}{in} \PYG{n}{s1\PYGZus{}Bdirn}\PYG{p}{]} \PYG{c+c1}{\PYGZsh{} currently the uniform\PYGZus{}B\PYGZus{}field configuration is used}
+
+\PYG{n}{s1\PYGZus{}batch\PYGZus{}ps\PYGZus{}and\PYGZus{}vs} \PYG{o}{=} \PYG{n+nb}{dict}\PYG{p}{()}
+
+\PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{E\PYGZus{}scale}\PYG{p}{)):}
+	\PYG{n}{desc} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}E\PYGZus{}scale = \PYGZsq{}} \PYG{o}{+} \PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{E\PYGZus{}scale}\PYG{p}{[}\PYG{n}{i}\PYG{p}{])} \PYG{o}{+} \PYG{l+s+s1}{\PYGZsq{} \PYGZsq{}} \PYG{o}{+} \PYG{l+s+s1}{\PYGZsq{}B\PYGZus{}scale = \PYGZsq{}} \PYG{o}{+} \PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{B\PYGZus{}scale}\PYG{p}{[}\PYG{n}{i}\PYG{p}{])}
+	\PYG{n}{s1\PYGZus{}batch1\PYGZus{}ps\PYGZus{}and\PYGZus{}vs\PYGZus{}once} \PYG{o}{=} \PYG{n}{s1}\PYG{o}{.}\PYG{n}{update\PYGZus{}batch\PYGZus{}with\PYGZus{}unchanging\PYGZus{}fields}\PYG{p}{(}\PYG{n}{s1\PYGZus{}index\PYGZus{}update}\PYG{p}{,} \PYG{n}{s1\PYGZus{}dT}\PYG{p}{,} \PYG{n}{s1\PYGZus{}stepT}\PYG{p}{,} \PYG{p}{[}\PYG{n}{elem} \PYG{o}{*}\PYG{n}{E\PYGZus{}scale}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{k}{for} \PYG{n}{elem} \PYG{o+ow}{in} \PYG{n}{s1\PYGZus{}argsE}\PYG{p}{],} \PYG{p}{[}\PYG{n}{elem} \PYG{o}{*}\PYG{n}{E\PYGZus{}scale}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{k}{for} \PYG{n}{elem} \PYG{o+ow}{in} \PYG{n}{s1\PYGZus{}argsB}\PYG{p}{]} \PYG{o}{*} \PYG{n}{B\PYGZus{}scale}\PYG{p}{[}\PYG{n}{i}\PYG{p}{],} \PYG{n}{s1\PYGZus{}particle\PYGZus{}track\PYGZus{}indices}\PYG{p}{)}
+	\PYG{n}{s1\PYGZus{}batch\PYGZus{}ps\PYGZus{}and\PYGZus{}vs}\PYG{p}{[}\PYG{n}{desc}\PYG{p}{]} \PYG{o}{=} \PYG{n}{s1\PYGZus{}batch1\PYGZus{}ps\PYGZus{}and\PYGZus{}vs\PYGZus{}once}
+\end{Verbatim}
