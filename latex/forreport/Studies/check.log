@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.14.0 (MiKTeX 22.1) (format=lualatex 2022.3.17)  17 MAR 2022 19:42
+This is LuaHBTeX, Version 1.14.0 (MiKTeX 22.1) (format=lualatex 2022.3.17)  18 MAR 2022 15:24
  system commands enabled.
 **check.tex
 (./check.tex
@@ -1293,12 +1293,12 @@ D9.pygtex)
 
 (./_minted-check/CD52927FF2083CB7BB44D7EA0DD5552B7A89F1F2CD020F52767C856FE70A42
 D9.pygtex) [9]
-<EplusPs1.png, id=148, 433.62pt x 289.08pt>
+<EplusPs1.png, id=140, 433.62pt x 289.08pt>
 File: EplusPs1.png Graphic file (type png)
 <use EplusPs1.png>
 Package luatex.def Info: EplusPs1.png  used on input line 577.
 (luatex.def)             Requested size: 229.87704pt x 170.71451pt.
-<EminusPs1.png, id=149, 433.62pt x 289.08pt>
+<EminusPs1.png, id=141, 433.62pt x 289.08pt>
 File: EminusPs1.png Graphic file (type png)
 <use EminusPs1.png>
 Package luatex.def Info: EminusPs1.png  used on input line 578.
@@ -1312,22 +1312,22 @@ D9.pygtex) [11<./EplusPs1.png><./EminusPs1.png>]
 
 (./_minted-check/F5DCB65C84AC15CD956D14558BDE95027A89F1F2CD020F52767C856FE70A42
 D9.pygtex)
-<ps1.png, id=162, 433.62pt x 289.08pt>
+<ps1.png, id=154, 433.62pt x 289.08pt>
 File: ps1.png Graphic file (type png)
 <use ps1.png>
 Package luatex.def Info: ps1.png  used on input line 662.
 (luatex.def)             Requested size: 229.87704pt x 170.71451pt.
-<psx1.png, id=163, 433.62pt x 289.08pt>
+<psx1.png, id=155, 433.62pt x 289.08pt>
 File: psx1.png Graphic file (type png)
 <use psx1.png>
 Package luatex.def Info: psx1.png  used on input line 663.
 (luatex.def)             Requested size: 229.87704pt x 170.71451pt.
-<psy1.png, id=164, 433.62pt x 289.08pt>
+<psy1.png, id=156, 433.62pt x 289.08pt>
 File: psy1.png Graphic file (type png)
 <use psy1.png>
 Package luatex.def Info: psy1.png  used on input line 668.
 (luatex.def)             Requested size: 229.87704pt x 170.71451pt.
-<psz1.png, id=165, 433.62pt x 289.08pt>
+<psz1.png, id=157, 433.62pt x 289.08pt>
 File: psz1.png Graphic file (type png)
 <use psz1.png>
 Package luatex.def Info: psz1.png  used on input line 669.
@@ -1337,22 +1337,22 @@ Package luatex.def Info: psz1.png  used on input line 669.
 
 (./_minted-check/4CA71E760C5E568BF7D4A2AD99714DEA7A89F1F2CD020F52767C856FE70A42
 D9.pygtex) [13<./ps1.png><./psx1.png><./psy1.png><./psz1.png>]
-<vs1.png, id=180, 433.62pt x 289.08pt>
+<vs1.png, id=172, 433.62pt x 289.08pt>
 File: vs1.png Graphic file (type png)
 <use vs1.png>
 Package luatex.def Info: vs1.png  used on input line 721.
 (luatex.def)             Requested size: 229.87704pt x 170.71451pt.
-<vsx1.png, id=181, 433.62pt x 289.08pt>
+<vsx1.png, id=173, 433.62pt x 289.08pt>
 File: vsx1.png Graphic file (type png)
 <use vsx1.png>
 Package luatex.def Info: vsx1.png  used on input line 722.
 (luatex.def)             Requested size: 229.87704pt x 170.71451pt.
-<vsy1.png, id=182, 433.62pt x 289.08pt>
+<vsy1.png, id=174, 433.62pt x 289.08pt>
 File: vsy1.png Graphic file (type png)
 <use vsy1.png>
 Package luatex.def Info: vsy1.png  used on input line 727.
 (luatex.def)             Requested size: 229.87704pt x 170.71451pt.
-<vsz1.png, id=183, 433.62pt x 289.08pt>
+<vsz1.png, id=175, 433.62pt x 289.08pt>
 File: vsz1.png Graphic file (type png)
 <use vsz1.png>
 Package luatex.def Info: vsz1.png  used on input line 728.
@@ -1377,105 +1377,107 @@ D9.pygtex) [17]
 D9.pygtex) [18]
 \openout4 = check.pyg
 
-(./_minted-check/7B63026D410BE6BCEA9D3E8F8941D4617A89F1F2CD020F52767C856FE70A42
+(./_minted-check/218F1B9ED9F966CE0C457491A62B57777A89F1F2CD020F52767C856FE70A42
 D9.pygtex) [19]
-Underfull \vbox (badness 10000) detected at line 998
+Underfull \vbox (badness 10000) detected at line 990
  []
 
 
-Overfull \vbox (9.56775pt too high) detected at line 998
+Underfull \vbox (badness 10000) detected at line 990
  []
 
 [20]
-<multips1.png, id=232, 433.62pt x 289.08pt>
+<multips1.png, id=224, 433.62pt x 289.08pt>
 File: multips1.png Graphic file (type png)
 <use multips1.png>
-Package luatex.def Info: multips1.png  used on input line 1004.
+Package luatex.def Info: multips1.png  used on input line 996.
 (luatex.def)             Requested size: 229.87704pt x 170.71451pt.
-<multipsx1.png, id=233, 433.62pt x 289.08pt>
+<multipsx1.png, id=225, 433.62pt x 289.08pt>
 File: multipsx1.png Graphic file (type png)
 <use multipsx1.png>
-Package luatex.def Info: multipsx1.png  used on input line 1005.
+Package luatex.def Info: multipsx1.png  used on input line 997.
 (luatex.def)             Requested size: 229.87704pt x 170.71451pt.
-<multipsy1.png, id=234, 433.62pt x 289.08pt>
+<multipsy1.png, id=226, 433.62pt x 289.08pt>
 File: multipsy1.png Graphic file (type png)
 <use multipsy1.png>
-Package luatex.def Info: multipsy1.png  used on input line 1010.
+Package luatex.def Info: multipsy1.png  used on input line 1002.
 (luatex.def)             Requested size: 229.87704pt x 170.71451pt.
-<multipsz1.png, id=235, 433.62pt x 289.08pt>
+<multipsz1.png, id=227, 433.62pt x 289.08pt>
 File: multipsz1.png Graphic file (type png)
 <use multipsz1.png>
-Package luatex.def Info: multipsz1.png  used on input line 1011.
+Package luatex.def Info: multipsz1.png  used on input line 1003.
 (luatex.def)             Requested size: 229.87704pt x 170.71451pt.
- [21<./multips1.png><./multipsx1.png>]
+
 \openout4 = check.pyg
-
-(./_minted-check/03F85A78344D8B60BF68C7B32EB216077A89F1F2CD020F52767C856FE70A42
+ [21<./multips1.png><./multipsx1.png><./multipsy1.png><./multipsz1.png>]
+(./_minted-check/52C8AE5A08EB742393879CD49A0AC2A17A89F1F2CD020F52767C856FE70A42
 D9.pygtex)
-Underfull \vbox (badness 1688) detected at line 1073
- []
-
-[22<./multipsy1.png><./multipsz1.png>]
-<multivs1.png, id=256, 433.62pt x 289.08pt>
+<multivs1.png, id=244, 433.62pt x 289.08pt>
 File: multivs1.png Graphic file (type png)
 <use multivs1.png>
-Package luatex.def Info: multivs1.png  used on input line 1078.
+Package luatex.def Info: multivs1.png  used on input line 1063.
 (luatex.def)             Requested size: 229.87704pt x 170.71451pt.
-<multivsx1.png, id=257, 433.62pt x 289.08pt>
+<multivsx1.png, id=245, 433.62pt x 289.08pt>
 File: multivsx1.png Graphic file (type png)
 <use multivsx1.png>
-Package luatex.def Info: multivsx1.png  used on input line 1079.
+Package luatex.def Info: multivsx1.png  used on input line 1064.
 (luatex.def)             Requested size: 229.87704pt x 170.71451pt.
-<multivsy1.png, id=258, 433.62pt x 289.08pt>
+<multivsy1.png, id=246, 433.62pt x 289.08pt>
 File: multivsy1.png Graphic file (type png)
 <use multivsy1.png>
-Package luatex.def Info: multivsy1.png  used on input line 1084.
+Package luatex.def Info: multivsy1.png  used on input line 1069.
 (luatex.def)             Requested size: 229.87704pt x 170.71451pt.
-<multivsz1.png, id=259, 433.62pt x 289.08pt>
+<multivsz1.png, id=247, 433.62pt x 289.08pt>
 File: multivsz1.png Graphic file (type png)
 <use multivsz1.png>
-Package luatex.def Info: multivsz1.png  used on input line 1085.
+Package luatex.def Info: multivsz1.png  used on input line 1070.
 (luatex.def)             Requested size: 229.87704pt x 170.71451pt.
- [23]
+ [22]
 \openout4 = check.pyg
 
 (./_minted-check/8E14FCAB79DA0D7C44145B9762FBB7247A89F1F2CD020F52767C856FE70A42
 D9.pygtex)
-Overfull \vbox (7.40924pt too high) detected at line 1173
+Overfull \vbox (7.40924pt too high) detected at line 1158
  []
 
-[24<./multivs1.png><./multivsx1.png><./multivsy1.png><./multivsz1.png>]
-Underfull \vbox (badness 10000) detected at line 1173
+[23<./multivs1.png><./multivsx1.png><./multivsy1.png><./multivsz1.png>]
+Underfull \vbox (badness 10000) detected at line 1158
  []
 
 
-Underfull \vbox (badness 10000) detected at line 1173
+Underfull \vbox (badness 10000) detected at line 1158
  []
 
-[25]
+[24]
 \openout4 = check.pyg
 
 (./_minted-check/F011979E352C65F033BF820C959EC5417A89F1F2CD020F52767C856FE70A42
-D9.pygtex) [26]
-Underfull \hbox (badness 10000) in paragraph at lines 1236--1239
+D9.pygtex) [25]
+Underfull \hbox (badness 10000) in paragraph at lines 1221--1224
 
  []
 
-[27] [28] (./check.aux)
-Package rerunfilecheck Info: File `check.out' has not changed.
-(rerunfilecheck)             Checksum: E619B61941C901721D2FFB318D2289B6;1375.
+[26] [27] (./check.aux)
+
+Package rerunfilecheck Warning: File `check.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `check.out':
+(rerunfilecheck)             Before: 6978144920E9E3C1830F644B14FAFBA1;964
+(rerunfilecheck)             After:  E619B61941C901721D2FFB318D2289B6;1375.
 runsystem(rm check.pyg)...executed
 )
 
 Here is how much of LuaTeX's memory you used:
- 35859 strings out of 477792
+ 35856 strings out of 477792
  100000,1144653 words of node,token memory allocated
  2169 words of node memory still in use:
    30 hlist, 2 vlist, 14 rule, 2 glue, 109 kern, 1 glyph, 161 attribute, 61 glue
 _spec, 161 attribute_list, 2 write, 24 pdf_literal, 24 pdf_colorstack nodes
-   avail lists: 2:4263,3:1118,4:604,5:428,6:126,7:6148,8:108,9:1201,10:21,11:321
+   avail lists: 2:3857,3:1118,4:582,5:428,6:118,7:6097,8:108,9:1201,10:21,11:321
 
- 54722 multiletter control sequences out of 65536+600000
+ 54720 multiletter control sequences out of 65536+600000
  77 fonts using 5053063 bytes
  99i,22n,95p,894b,908s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/share/miktex-texmf/fonts/enc/dvips/base/8r.enc}{/usr/local/share/mik
@@ -1501,9 +1503,9 @@ iktex-texmf/fonts/type1/public/lm/lmtti10.pfb></usr/local/share/miktex-texmf/fon
 ts/type1/urw/palatino/uplb8a.pfb></usr/local/share/miktex-texmf/fonts/type1/urw/
 palatino/uplr8a.pfb></usr/local/share/miktex-texmf/fonts/type1/urw/palatino/uplr
 i8a.pfb>
-Output written on check.pdf (28 pages, 679586 bytes).
+Output written on check.pdf (27 pages, 676720 bytes).
 
-PDF statistics: 378 PDF objects out of 1000 (max. 8388607)
- 54 named destinations out of 1000 (max. 131072)
- 336 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 368 PDF objects out of 1000 (max. 8388607)
+ 53 named destinations out of 1000 (max. 131072)
+ 320 words of extra memory for PDF output out of 10000 (max. 100000000)
 

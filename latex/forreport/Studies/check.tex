@@ -732,7 +732,7 @@ We get the following output.
 \begin{tcolorbox}[width=3cm]
 	$\mathbf{E} \times \mathbf{B}$ drift
 \end{tcolorbox}
-	$\mathbf{E} \times \mathbf{B}$ drift is the drift of a particle in direction perpendicular to the electric and the magnetic fields, which is along the $z$-axis in this example. We can see the effect of $\mathbf{E} \times \mathbf{B}$ drift in figure(\ref{ps1}) and figure(\ref{psz1}), although we also see the effect of particle having a non-zero initial velocity in some direction. What we see in figure(\ref{ps1}) which is perhaps more clear in figure(\ref{psz1}) is that the particle initially moving downwards along the $z$-axis. But following events of changing the sign of the electric field, the particle moves upwards until the next event of the change of sign of the electric field. As the strength of the electric field becomes greater later along the update, we see that the drifts cover longer distances.
+	$\mathbf{E} \times \mathbf{B}$ drift is the drift of a particle in direction perpendicular to the electric and the magnetic fields, which is along the $z$-axis in this example. We can see the effect of $\mathbf{E} \times \mathbf{B}$ drift in figure(\ref{ps1}) and figure(\ref{psz1}), although we also see the effect of particle having a non-zero initial velocity in some direction. What we see in figure(\ref{ps1}) which is perhaps more clear in figure(\ref{psz1}) is that the particle is initially moving downwards along the $z$-axis. But following events of changing the sign of the electric field, the particle moves upwards until the next event of the change of sign of the electric field. As the strength of the electric field becomes greater later along the update, we see that the drifts cover longer distances.
 	
 	In figure (\ref{vsz1}) we also see the effect of $\mathbf{E} \times \mathbf{B}$ drift, as the velocity of the particle along the direction perpendicular to the electric and magnetic field changes when we change the direction of the electric field. It seems like the $z$-component of the acceleration might have sudden discontinuities and one might expect the change in direction of the electric field  to affect the $\mathbf{E} \times \mathbf{B}$ drift. In figure (\ref{vsx1}) we see that the changes are sharp when we change the sign of the electric field. As we increase the strength of the electric field, we observe that the velocities increase to greater values. \\
 	
@@ -741,7 +741,7 @@ We get the following output.
 	A thing to notice is that we started by saying that we might want to consider a cube of size 1m x 1m x 1m; which would be a reasonable size for a plasma chamber, and we see that the particle stays well within the box. This means that such a time frame of plasma control might be relevant to processes in surface engineering where particles in hot plasma have some high velocity and participate in the processes in timescales of microseconds as in the example. 
 
 \begin{tcolorbox}
-	Animations been generated for all plots and they help us understand these update histories better. 
+	Animations have been generated for all plots and they help us understand these update histories better. 
 \end{tcolorbox}	
 	Animations were generated using the following parts of the program.
 \begin{minted}[
@@ -933,20 +933,20 @@ s1_allfield_ap_vs = []
 
 # Same procedure for as a single particle
 for akey in s1_allFieldkeys:
-s1_histories = s1_batch_ps_and_vs[akey]
+	s1_histories = s1_batch_ps_and_vs[akey]
 
 #Take aparticle
 s1_ap = s1_histories[aparticle]
 
 #Take ps and vs
 for i in range(len(s1_p0)):
-s1_allfield_ap_ps.append(s1_ap[i][1])
-s1_allfield_ap_vs.append(s1_ap[i][2])
-s1_allfield_ap_ps = np.array(s1_allfield_ap_ps)
-s1_allfield_ap_vs = np.array(s1_allfield_ap_vs)
-
-s1_allfield_10p_ps.append(s1_allfield_ap_ps)
-s1_allfield_10p_vs.append(s1_allfield_ap_vs)
+	s1_allfield_ap_ps.append(s1_ap[i][1])
+	s1_allfield_ap_vs.append(s1_ap[i][2])
+	s1_allfield_ap_ps = np.array(s1_allfield_ap_ps)
+	s1_allfield_ap_vs = np.array(s1_allfield_ap_vs)
+	
+	s1_allfield_10p_ps.append(s1_allfield_ap_ps)
+	s1_allfield_10p_vs.append(s1_allfield_ap_vs)
 
 s1_allfield_10p_ps = np.array(s1_allfield_10p_ps)
 s1_allfield_10p_vs = np.array(s1_allfield_10p_vs)
@@ -958,42 +958,34 @@ s1_allfield_10p_ps_ax.view_init(20, -80)
 
 # Data for three-dimensional scattered points
 for i in range(len(s1_particles)):
-
-s1_allfield_ap_ps_zdata = [elem[2] for elem in s1_allfield_10p_ps[i]] # Animate this plot as well.
-s1_allfield_ap_ps_xdata = [elem[0] for elem in s1_allfield_10p_ps[i]]
-s1_allfield_ap_ps_ydata = [elem[1] for elem in s1_allfield_10p_ps[i]]
-s1_allfield_10p_ps_ax.scatter3D(s1_allfield_ap_ps_xdata, s1_allfield_ap_ps_ydata, s1_allfield_ap_ps_zdata,\
-c=s1_allfield_p0_ps_zdata);
+	s1_allfield_ap_ps_zdata = [elem[2] for elem in s1_allfield_10p_ps[i]] 
+	s1_allfield_ap_ps_xdata = [elem[0] for elem in s1_allfield_10p_ps[i]]
+	s1_allfield_ap_ps_ydata = [elem[1] for elem in s1_allfield_10p_ps[i]]
+	s1_allfield_10p_ps_ax.scatter3D(s1_allfield_ap_ps_xdata, s1_allfield_ap_ps_ydata, s1_allfield_ap_ps_zdata, c=s1_allfield_p0_ps_zdata);
 plt.savefig('multips1', dpi='figure', format='png')
 
 # Plot x positions
 s1_allfield_10p_ps_x_fig = plt.figure()
 s1_allfield_10p_ps_x_ax = plt.axes()
 for i in range(len(s1_particles)):
-#s1_allfield_ap_ps_zdata = [elem[2] for elem in s1_allfield_10p_ps[i]] # Animate this plot as well.
-s1_allfield_ap_ps_xdata = [elem[0] for elem in s1_allfield_10p_ps[i]]
-#s1_allfield_ap_ps_ydata = [elem[1] for elem in s1_allfield_10p_ps[i]]
-s1_allfield_10p_ps_x_ax.scatter(np.arange(len(s1_allfield_ap_ps_xdata)), s1_allfield_ap_ps_xdata);
+	s1_allfield_ap_ps_xdata = [elem[0] for elem in s1_allfield_10p_ps[i]]
+	s1_allfield_10p_ps_x_ax.scatter(np.arange(len(s1_allfield_ap_ps_xdata)), s1_allfield_ap_ps_xdata);
 plt.savefig('multipsx1', dpi='figure', format='png')
 
 # Plot y positions
 s1_allfield_10p_ps_y_fig = plt.figure()
 s1_allfield_10p_ps_y_ax = plt.axes()
 for i in range(len(s1_particles)):
-#s1_allfield_ap_ps_zdata = [elem[2] for elem in s1_allfield_10p_ps[i]] # Animate this plot as well.
-#s1_allfield_ap_ps_xdata = [elem[0] for elem in s1_allfield_10p_ps[i]]
-s1_allfield_ap_ps_ydata = [elem[1] for elem in s1_allfield_10p_ps[i]]
-s1_allfield_10p_ps_y_ax.scatter(np.arange(len(s1_allfield_ap_ps_ydata)), s1_allfield_ap_ps_ydata);
+	s1_allfield_ap_ps_ydata = [elem[1] for elem in s1_allfield_10p_ps[i]]
+	s1_allfield_10p_ps_y_ax.scatter(np.arange(len(s1_allfield_ap_ps_ydata)), s1_allfield_ap_ps_ydata);
 plt.savefig('multipsy1', dpi='figure', format='png')
 
 # Plot z positions
 s1_allfield_10p_ps_z_fig = plt.figure()
 s1_allfield_10p_ps_z_ax = plt.axes()
 for i in range(len(s1_particles)):
-s1_allfield_ap_ps_zdata = [elem[2] for elem in s1_allfield_10p_ps[i]] # Animate this plot as well.
-#s1_allfield_ap_ps_xdata = [elem[0] for elem in s1_allfield_10p_ps[i]]
-#s1_allfield_ap_ps_ydata = [elem[1] for elem in s1_allfield_10p_ps[i]]
-s1_allfield_10p_ps_z_ax.scatter(np.arange(len(s1_allfield_ap_ps_zdata)), s1_allfield_ap_ps_zdata);
+	s1_allfield_ap_ps_zdata = [elem[2] for elem in s1_allfield_10p_ps[i]].
+	s1_allfield_10p_ps_z_ax.scatter(np.arange(len(s1_allfield_ap_ps_zdata)), s1_allfield_ap_ps_zdata);
 plt.savefig('multipsz1', dpi='figure', format='png')
 \end{minted}
 	
@@ -1033,42 +1025,35 @@ s1_allfield_10p_vs_ax.view_init(20, -120)
 
 # Data for three-dimensional scattered points
 for i in range(len(s1_particles)):
-
-s1_allfield_ap_vs_zdata = [elem[2] for elem in s1_allfield_10p_vs[i]] # Animate this plot as well.
-s1_allfield_ap_vs_xdata = [elem[0] for elem in s1_allfield_10p_vs[i]]
-s1_allfield_ap_vs_ydata = [elem[1] for elem in s1_allfield_10p_vs[i]]
-s1_allfield_10p_vs_ax.scatter3D(s1_allfield_ap_vs_xdata, s1_allfield_ap_vs_ydata, s1_allfield_ap_vs_zdata,\
-c=s1_allfield_p0_vs_zdata);
+	s1_allfield_ap_vs_zdata = [elem[2] for elem in s1_allfield_10p_vs[i]] # Animate this plot as well.
+	s1_allfield_ap_vs_xdata = [elem[0] for elem in s1_allfield_10p_vs[i]]
+	s1_allfield_ap_vs_ydata = [elem[1] for elem in s1_allfield_10p_vs[i]]
+	s1_allfield_10p_vs_ax.scatter3D(s1_allfield_ap_vs_xdata, s1_allfield_ap_vs_ydata, s1_allfield_ap_vs_zdata,\
+	c=s1_allfield_p0_vs_zdata);
 plt.savefig('multivs1', dpi='figure', format='png')
 
 # Plot x velocities
 s1_allfield_10p_vs_x_fig = plt.figure()
 s1_allfield_10p_vs_x_ax = plt.axes()
 for i in range(len(s1_particles)):
-#s1_allfield_ap_vs_zdata = [elem[2] for elem in s1_allfield_10p_vs[i]] # Animate this plot as well.
-s1_allfield_ap_vs_xdata = [elem[0] for elem in s1_allfield_10p_vs[i]]
-#s1_allfield_ap_vs_ydata = [elem[1] for elem in s1_allfield_10p_vs[i]]
-s1_allfield_10p_vs_x_ax.scatter(np.arange(len(s1_allfield_ap_vs_xdata)), s1_allfield_ap_vs_xdata);
+	s1_allfield_ap_vs_xdata = [elem[0] for elem in s1_allfield_10p_vs[i]]
+	s1_allfield_10p_vs_x_ax.scatter(np.arange(len(s1_allfield_ap_vs_xdata)), s1_allfield_ap_vs_xdata);
 plt.savefig('multivsx1', dpi='figure', format='png')
 
 # Plot y velocities
 s1_allfield_10p_vs_y_fig = plt.figure()
 s1_allfield_10p_vs_y_ax = plt.axes()
 for i in range(len(s1_particles)):
-#s1_allfield_ap_vs_zdata = [elem[2] for elem in s1_allfield_10p_vs[i]] # Animate this plot as well.
-#s1_allfield_ap_vs_xdata = [elem[0] for elem in s1_allfield_10p_vs[i]]
-s1_allfield_ap_vs_ydata = [elem[1] for elem in s1_allfield_10p_vs[i]]
-s1_allfield_10p_vs_y_ax.scatter(np.arange(len(s1_allfield_ap_vs_ydata)), s1_allfield_ap_vs_ydata);
+	s1_allfield_ap_vs_ydata = [elem[1] for elem in s1_allfield_10p_vs[i]]
+	s1_allfield_10p_vs_y_ax.scatter(np.arange(len(s1_allfield_ap_vs_ydata)), s1_allfield_ap_vs_ydata);
 plt.savefig('multivsy1', dpi='figure', format='png')
 
 # Plot z velocities
 s1_allfield_10p_vs_z_fig = plt.figure()
 s1_allfield_10p_vs_z_ax = plt.axes()
 for i in range(len(s1_particles)):
-s1_allfield_ap_vs_zdata = [elem[2] for elem in s1_allfield_10p_vs[i]] # Animate this plot as well.
-#s1_allfield_ap_vs_xdata = [elem[0] for elem in s1_allfield_10p_vs[i]]
-#s1_allfield_ap_vs_ydata = [elem[1] for elem in s1_allfield_10p_vs[i]]
-s1_allfield_10p_vs_z_ax.scatter(np.arange(len(s1_allfield_ap_vs_zdata)), s1_allfield_ap_vs_zdata);
+	s1_allfield_ap_vs_zdata = [elem[2] for elem in s1_allfield_10p_vs[i]]
+	s1_allfield_10p_vs_z_ax.scatter(np.arange(len(s1_allfield_ap_vs_zdata)), s1_allfield_ap_vs_zdata);
 plt.savefig('multivsz1', dpi='figure', format='png')
 \end{minted}
 	
