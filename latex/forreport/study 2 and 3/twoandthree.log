@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.14.0 (MiKTeX 22.1) (format=lualatex 2022.3.28)  8 APR 2022 20:49
+This is LuaHBTeX, Version 1.14.0 (MiKTeX 22.1) (format=lualatex 2022.3.28)  11 APR 2022 14:37
  system commands enabled.
 **twoandthree.tex
 (./twoandthree.tex
@@ -437,658 +437,51 @@ LaTeX Font Info:    Trying to load font information for T1+lmr on input line 11
 (/usr/local/share/miktex-texmf/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ))
-(/usr/local/share/miktex-texmf/tex/latex/xcolor/xcolor.sty
-Package: xcolor 2021/10/31 v2.13 LaTeX color extensions (UK)
-
-(/usr/local/share/miktex-texmf/tex/latex/graphics-cfg/color.cfg
-File: color.cfg 2016/01/02 v1.6 sample color configuration
-)
-Package xcolor Info: Driver file: luatex.def on input line 227.
-Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1352.
-Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1356.
-Package xcolor Info: Model `RGB' extended on input line 1368.
-Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1370.
-Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1371.
-Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1372.
-Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1373.
-Package xcolor Info: Model `Gray' substituted by `gray' on input line 1374.
-Package xcolor Info: Model `wave' substituted by `hsb' on input line 1375.
-)
-(/home/kushik/.miktex/texmfs/install/tex/latex/pgfgantt/pgfgantt.sty
-Package: pgfgantt 2018/01/10 v5.0 Draw Gantt diagrams with TikZ
-
-(/usr/local/share/miktex-texmf/tex/latex/pgf/frontendlayer/tikz.sty
-(/usr/local/share/miktex-texmf/tex/latex/pgf/basiclayer/pgf.sty
-(/usr/local/share/miktex-texmf/tex/latex/pgf/utilities/pgfrcs.sty
-(/usr/local/share/miktex-texmf/tex/generic/pgf/utilities/pgfutil-common.tex
-\pgfutil@everybye=\toks28
-\pgfutil@tempdima=\dimen179
-\pgfutil@tempdimb=\dimen180
-
-(/usr/local/share/miktex-texmf/tex/generic/pgf/utilities/pgfutil-common-lists.t
-ex)) (/usr/local/share/miktex-texmf/tex/generic/pgf/utilities/pgfutil-latex.def
-\pgfutil@abb=\box100
-) (/usr/local/share/miktex-texmf/tex/generic/pgf/utilities/pgfrcs.code.tex
-(/usr/local/share/miktex-texmf/tex/generic/pgf/pgf.revision.tex)
-Package: pgfrcs 2021/05/15 v3.1.9a (3.1.9a)
-))
-Package: pgf 2021/05/15 v3.1.9a (3.1.9a)
-
-(/usr/local/share/miktex-texmf/tex/latex/pgf/basiclayer/pgfcore.sty
-(/usr/local/share/miktex-texmf/tex/latex/pgf/systemlayer/pgfsys.sty
-(/usr/local/share/miktex-texmf/tex/generic/pgf/systemlayer/pgfsys.code.tex
-Package: pgfsys 2021/05/15 v3.1.9a (3.1.9a)
-
-(/usr/local/share/miktex-texmf/tex/generic/pgf/utilities/pgfkeys.code.tex
-\pgfkeys@pathtoks=\toks29
-\pgfkeys@temptoks=\toks30
-
-(/usr/local/share/miktex-texmf/tex/generic/pgf/utilities/pgfkeysfiltered.code.t
-ex
-\pgfkeys@tmptoks=\toks31
-))
-\pgf@x=\dimen181
-\pgf@y=\dimen182
-\pgf@xa=\dimen183
-\pgf@ya=\dimen184
-\pgf@xb=\dimen185
-\pgf@yb=\dimen186
-\pgf@xc=\dimen187
-\pgf@yc=\dimen188
-\pgf@xd=\dimen189
-\pgf@yd=\dimen190
-\w@pgf@writea=\write3
-\r@pgf@reada=\read2
-\c@pgf@counta=\count299
-\c@pgf@countb=\count300
-\c@pgf@countc=\count301
-\c@pgf@countd=\count302
-\t@pgf@toka=\toks32
-\t@pgf@tokb=\toks33
-\t@pgf@tokc=\toks34
-\pgf@sys@id@count=\count303
- (/usr/local/share/miktex-texmf/tex/generic/pgf/systemlayer/pgf.cfg
-File: pgf.cfg 2021/05/15 v3.1.9a (3.1.9a)
-)
-Driver file for pgf: pgfsys-luatex.def
-
-(/usr/local/share/miktex-texmf/tex/generic/pgf/systemlayer/pgfsys-luatex.def
-File: pgfsys-luatex.def 2021/05/15 v3.1.9a (3.1.9a)
-
-(/usr/local/share/miktex-texmf/tex/generic/pgf/systemlayer/pgfsys-common-pdf.de
-f
-File: pgfsys-common-pdf.def 2021/05/15 v3.1.9a (3.1.9a)
-)))
-(/usr/local/share/miktex-texmf/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.
-tex
-File: pgfsyssoftpath.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfsyssoftpath@smallbuffer@items=\count304
-\pgfsyssoftpath@bigbuffer@items=\count305
-)
-(/usr/local/share/miktex-texmf/tex/generic/pgf/systemlayer/pgfsysprotocol.code.
-tex
-File: pgfsysprotocol.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-))
-(/usr/local/share/miktex-texmf/tex/generic/pgf/basiclayer/pgfcore.code.tex
-Package: pgfcore 2021/05/15 v3.1.9a (3.1.9a)
-
-(/usr/local/share/miktex-texmf/tex/generic/pgf/math/pgfmath.code.tex
-(/usr/local/share/miktex-texmf/tex/generic/pgf/math/pgfmathcalc.code.tex
-(/usr/local/share/miktex-texmf/tex/generic/pgf/math/pgfmathutil.code.tex)
-(/usr/local/share/miktex-texmf/tex/generic/pgf/math/pgfmathparser.code.tex
-\pgfmath@dimen=\dimen191
-\pgfmath@count=\count306
-\pgfmath@box=\box101
-\pgfmath@toks=\toks35
-\pgfmath@stack@operand=\toks36
-\pgfmath@stack@operation=\toks37
-)
-(/usr/local/share/miktex-texmf/tex/generic/pgf/math/pgfmathfunctions.code.tex
-(/usr/local/share/miktex-texmf/tex/generic/pgf/math/pgfmathfunctions.basic.code
-.tex)
-(/usr/local/share/miktex-texmf/tex/generic/pgf/math/pgfmathfunctions.trigonomet
-ric.code.tex)
-(/usr/local/share/miktex-texmf/tex/generic/pgf/math/pgfmathfunctions.random.cod
-e.tex)
-(/usr/local/share/miktex-texmf/tex/generic/pgf/math/pgfmathfunctions.comparison
-.code.tex)
-(/usr/local/share/miktex-texmf/tex/generic/pgf/math/pgfmathfunctions.base.code.
-tex)
-(/usr/local/share/miktex-texmf/tex/generic/pgf/math/pgfmathfunctions.round.code
-.tex)
-(/usr/local/share/miktex-texmf/tex/generic/pgf/math/pgfmathfunctions.misc.code.
-tex)
-(/usr/local/share/miktex-texmf/tex/generic/pgf/math/pgfmathfunctions.integerari
-thmetics.code.tex)))
-(/usr/local/share/miktex-texmf/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count307
-))
-(/usr/local/share/miktex-texmf/tex/generic/pgf/math/pgfint.code.tex)
-(/usr/local/share/miktex-texmf/tex/generic/pgf/basiclayer/pgfcorepoints.code.te
-x
-File: pgfcorepoints.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@picminx=\dimen192
-\pgf@picmaxx=\dimen193
-\pgf@picminy=\dimen194
-\pgf@picmaxy=\dimen195
-\pgf@pathminx=\dimen196
-\pgf@pathmaxx=\dimen197
-\pgf@pathminy=\dimen198
-\pgf@pathmaxy=\dimen199
-\pgf@xx=\dimen256
-\pgf@xy=\dimen257
-\pgf@yx=\dimen258
-\pgf@yy=\dimen259
-\pgf@zx=\dimen260
-\pgf@zy=\dimen261
-)
-(/usr/local/share/miktex-texmf/tex/generic/pgf/basiclayer/pgfcorepathconstruct.
-code.tex
-File: pgfcorepathconstruct.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@path@lastx=\dimen262
-\pgf@path@lasty=\dimen263
-)
-(/usr/local/share/miktex-texmf/tex/generic/pgf/basiclayer/pgfcorepathusage.code
-.tex
-File: pgfcorepathusage.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@shorten@end@additional=\dimen264
-\pgf@shorten@start@additional=\dimen265
-)
-(/usr/local/share/miktex-texmf/tex/generic/pgf/basiclayer/pgfcorescopes.code.te
-x
-File: pgfcorescopes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfpic=\box102
-\pgf@hbox=\box103
-\pgf@layerbox@main=\box104
-\pgf@picture@serial@count=\count308
-)
-(/usr/local/share/miktex-texmf/tex/generic/pgf/basiclayer/pgfcoregraphicstate.c
-ode.tex
-File: pgfcoregraphicstate.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgflinewidth=\dimen266
-)
-(/usr/local/share/miktex-texmf/tex/generic/pgf/basiclayer/pgfcoretransformation
-s.code.tex
-File: pgfcoretransformations.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@pt@x=\dimen267
-\pgf@pt@y=\dimen268
-\pgf@pt@temp=\dimen269
-)
-(/usr/local/share/miktex-texmf/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
-File: pgfcorequick.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-)
-(/usr/local/share/miktex-texmf/tex/generic/pgf/basiclayer/pgfcoreobjects.code.t
-ex
-File: pgfcoreobjects.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-)
-(/usr/local/share/miktex-texmf/tex/generic/pgf/basiclayer/pgfcorepathprocessing
-.code.tex
-File: pgfcorepathprocessing.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-)
-(/usr/local/share/miktex-texmf/tex/generic/pgf/basiclayer/pgfcorearrows.code.te
-x
-File: pgfcorearrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfarrowsep=\dimen270
-)
-(/usr/local/share/miktex-texmf/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
-File: pgfcoreshade.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@max=\dimen271
-\pgf@sys@shading@range@num=\count309
-\pgf@shadingcount=\count310
-)
-(/usr/local/share/miktex-texmf/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
-File: pgfcoreimage.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-
-(/usr/local/share/miktex-texmf/tex/generic/pgf/basiclayer/pgfcoreexternal.code.
-tex
-File: pgfcoreexternal.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfexternal@startupbox=\box105
-))
-(/usr/local/share/miktex-texmf/tex/generic/pgf/basiclayer/pgfcorelayers.code.te
-x
-File: pgfcorelayers.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-)
-(/usr/local/share/miktex-texmf/tex/generic/pgf/basiclayer/pgfcoretransparency.c
-ode.tex
-File: pgfcoretransparency.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-)
-(/usr/local/share/miktex-texmf/tex/generic/pgf/basiclayer/pgfcorepatterns.code.
-tex
-File: pgfcorepatterns.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-)
-(/usr/local/share/miktex-texmf/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex
-File: pgfcorerdf.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-)))
-(/usr/local/share/miktex-texmf/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
-File: pgfmoduleshapes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfnodeparttextbox=\box106
-) (/usr/local/share/miktex-texmf/tex/generic/pgf/modules/pgfmoduleplot.code.tex
-File: pgfmoduleplot.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-)
-(/usr/local/share/miktex-texmf/tex/latex/pgf/compatibility/pgfcomp-version-0-65
-.sty
-Package: pgfcomp-version-0-65 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@nodesepstart=\dimen272
-\pgf@nodesepend=\dimen273
-)
-(/usr/local/share/miktex-texmf/tex/latex/pgf/compatibility/pgfcomp-version-1-18
-.sty
-Package: pgfcomp-version-1-18 2021/05/15 v3.1.9a (3.1.9a)
-)) (/usr/local/share/miktex-texmf/tex/latex/pgf/utilities/pgffor.sty
-(/usr/local/share/miktex-texmf/tex/latex/pgf/utilities/pgfkeys.sty
-(/usr/local/share/miktex-texmf/tex/generic/pgf/utilities/pgfkeys.code.tex))
-(/usr/local/share/miktex-texmf/tex/latex/pgf/math/pgfmath.sty
-(/usr/local/share/miktex-texmf/tex/generic/pgf/math/pgfmath.code.tex))
-(/usr/local/share/miktex-texmf/tex/generic/pgf/utilities/pgffor.code.tex
-Package: pgffor 2021/05/15 v3.1.9a (3.1.9a)
-
-(/usr/local/share/miktex-texmf/tex/generic/pgf/math/pgfmath.code.tex)
-\pgffor@iter=\dimen274
-\pgffor@skip=\dimen275
-\pgffor@stack=\toks38
-\pgffor@toks=\toks39
-))
-(/usr/local/share/miktex-texmf/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
-Package: tikz 2021/05/15 v3.1.9a (3.1.9a)
-
-(/usr/local/share/miktex-texmf/tex/generic/pgf/libraries/pgflibraryplothandlers
-.code.tex
-File: pgflibraryplothandlers.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@plot@mark@count=\count311
-\pgfplotmarksize=\dimen276
-)
-\tikz@lastx=\dimen277
-\tikz@lasty=\dimen278
-\tikz@lastxsaved=\dimen279
-\tikz@lastysaved=\dimen280
-\tikz@lastmovetox=\dimen281
-\tikz@lastmovetoy=\dimen282
-\tikzleveldistance=\dimen283
-\tikzsiblingdistance=\dimen284
-\tikz@figbox=\box107
-\tikz@figbox@bg=\box108
-\tikz@tempbox=\box109
-\tikz@tempbox@bg=\box110
-\tikztreelevel=\count312
-\tikznumberofchildren=\count313
-\tikznumberofcurrentchild=\count314
-\tikz@fig@count=\count315
-
-(/usr/local/share/miktex-texmf/tex/generic/pgf/modules/pgfmodulematrix.code.tex
-File: pgfmodulematrix.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfmatrixcurrentrow=\count316
-\pgfmatrixcurrentcolumn=\count317
-\pgf@matrix@numberofcolumns=\count318
-)
-\tikz@expandcount=\count319
-
-(/usr/local/share/miktex-texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tik
-zlibrarytopaths.code.tex
-File: tikzlibrarytopaths.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-)))
-(/usr/local/share/miktex-texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tik
-zlibraryarrows.code.tex
-File: tikzlibraryarrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-
-(/usr/local/share/miktex-texmf/tex/generic/pgf/libraries/pgflibraryarrows.code.
-tex
-File: pgflibraryarrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\arrowsize=\dimen285
-))
-(/usr/local/share/miktex-texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tik
-zlibrarybackgrounds.code.tex
-File: tikzlibrarybackgrounds.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@layerbox@background=\box111
-\pgf@layerboxsaved@background=\box112
-)
-(/usr/local/share/miktex-texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tik
-zlibrarycalc.code.tex
-File: tikzlibrarycalc.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-)
-(/usr/local/share/miktex-texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tik
-zlibrarypatterns.code.tex
-File: tikzlibrarypatterns.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-
-(/usr/local/share/miktex-texmf/tex/generic/pgf/libraries/pgflibrarypatterns.cod
-e.tex
-File: pgflibrarypatterns.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-))
-(/usr/local/share/miktex-texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tik
-zlibrarypositioning.code.tex
-File: tikzlibrarypositioning.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-)
-(/usr/local/share/miktex-texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tik
-zlibraryshapes.geometric.code.tex
-File: tikzlibraryshapes.geometric.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-
-(/usr/local/share/miktex-texmf/tex/generic/pgf/libraries/shapes/pgflibraryshape
-s.geometric.code.tex
-File: pgflibraryshapes.geometric.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-))
-(/usr/local/share/miktex-texmf/tex/latex/pgf/utilities/pgfcalendar.sty
-(/usr/local/share/miktex-texmf/tex/generic/pgf/utilities/pgfcalendar.code.tex
-File: pgfcalendar.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-
-(/usr/local/share/miktex-texmf/tex/generic/pgf/math/pgfint.code.tex)
-\pgfcalendarcurrentjulian=\count320
-\pgf@cal@easter@Y=\count321
-\pgf@cal@easter@G=\count322
-\pgf@cal@easter@C=\count323
-\pgf@cal@easter@X=\count324
-\pgf@cal@easter@Z=\count325
-\pgf@cal@easter@D=\count326
-\pgf@cal@easter@E=\count327
-\pgf@cal@easter@N=\count328
-\pgf@cal@easter@M=\count329
-\pgf@cal@easter@julianday=\count330
-))
-\gtt@currentline=\count331
-\gtt@lasttitleline=\count332
-\gtt@currgrid=\count333
-\gtt@chartwidth=\count334
-\gtt@lasttitleslot=\count335
-\gtt@elementid=\count336
-\gtt@today@slot=\count337
-\gtt@startjulian=\count338
-\gtt@endjulian=\count339
-\gtt@chartid=\count340
-\gtt@vrule@slot=\count341
-\gtt@calendar@slots=\count342
-\gtt@calendar@weeknumber=\count343
-\gtt@calendar@startofweek=\count344
-\gtt@left@slot=\count345
-\gtt@right@slot=\count346
-)
 (/usr/local/share/miktex-texmf/tex/latex/graphics/rotating.sty
 Package: rotating 2016/08/11 v2.16d rotated objects in LaTeX
 
 (/usr/local/share/miktex-texmf/tex/latex/base/ifthen.sty
 Package: ifthen 2020/11/24 v1.1c Standard LaTeX ifthen package (DPC)
 )
-\c@r@tfl@t=\count347
+\c@r@tfl@t=\count299
 \rotFPtop=\skip56
 \rotFPbot=\skip57
-\rot@float@box=\box113
-\rot@mess@toks=\toks40
+\rot@float@box=\box100
+\rot@mess@toks=\toks28
 )
-(/usr/local/share/miktex-texmf/tex/latex/tcolorbox/tcolorbox.sty
-Package: tcolorbox 2022/01/07 version 5.0.2 text color boxes
-
-(/usr/local/share/miktex-texmf/tex/latex/tools/verbatim.sty
-Package: verbatim 2020-07-07 v1.5u LaTeX2e package for verbatim enhancements
-\every@verbatim=\toks41
-\verbatim@line=\toks42
-\verbatim@in@stream=\read3
-)
-(/usr/local/share/miktex-texmf/tex/latex/environ/environ.sty
-Package: environ 2014/05/04 v0.3 A new way to define environments
-
-(/usr/local/share/miktex-texmf/tex/latex/trimspaces/trimspaces.sty
-Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
-))
-(/usr/local/share/miktex-texmf/tex/latex/etoolbox/etoolbox.sty
-Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count348
-)
-\tcb@titlebox=\box114
-\tcb@upperbox=\box115
-\tcb@lowerbox=\box116
-\tcb@phantombox=\box117
-\c@tcbbreakpart=\count349
-\c@tcblayer=\count350
-\c@tcolorbox@number=\count351
-\tcb@temp=\box118
-\tcb@temp=\box119
-\tcb@temp=\box120
-\tcb@temp=\box121
-
-(/usr/local/share/miktex-texmf/tex/latex/tcolorbox/tcbraster.code.tex
-Library (tcolorbox): 'tcbraster.code.tex' version '5.0.2'
-\c@tcbrastercolumn=\count352
-\c@tcbrasterrow=\count353
-\c@tcbrasternum=\count354
-\c@tcbraster=\count355
-) (/usr/local/share/miktex-texmf/tex/latex/tcolorbox/tcbskins.code.tex
-Library (tcolorbox): 'tcbskins.code.tex' version '5.0.2'
-\tcb@waterbox=\box122
-(/usr/local/share/miktex-texmf/tex/latex/tcolorbox/tcbskinsjigsaw.code.tex
-Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '5.0.2'
-)) (/usr/local/share/miktex-texmf/tex/latex/tcolorbox/tcbbreakable.code.tex
-Library (tcolorbox): 'tcbbreakable.code.tex' version '5.0.2'
-(/usr/local/share/miktex-texmf/tex/generic/oberdiek/pdfcol.sty
-Package: pdfcol 2019/12/29 v1.6 Handle new color stacks for pdfTeX (HO)
-)
-Package pdfcol Info: New color stack `tcb@breakable' = 1 on input line 23.
-\tcb@testbox=\box123
-\tcb@totalupperbox=\box124
-\tcb@totallowerbox=\box125
-
-(/usr/local/share/miktex-texmf/tex/generic/iftex/ifluatex.sty
-Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
-))
-(/usr/local/share/miktex-texmf/tex/latex/tcolorbox/tcbhooks.code.tex
-Library (tcolorbox): 'tcbhooks.code.tex' version '5.0.2'
-) (/usr/local/share/miktex-texmf/tex/latex/tcolorbox/tcbtheorems.code.tex
-Library (tcolorbox): 'tcbtheorems.code.tex' version '5.0.2'
-) (/usr/local/share/miktex-texmf/tex/latex/tcolorbox/tcbfitting.code.tex
-Library (tcolorbox): 'tcbfitting.code.tex' version '5.0.2'
-\tcbfitdim=\dimen286
-\tcb@lowerfitdim=\dimen287
-\tcb@upperfitdim=\dimen288
-\tcb@cur@hbadness=\count356
-) (/usr/local/share/miktex-texmf/tex/latex/tcolorbox/tcbxparse.code.tex
-Library (tcolorbox): 'tcbxparse.code.tex' version '5.0.2'
-(/usr/local/share/miktex-texmf/tex/latex/l3packages/xparse/xparse.sty
-(/usr/local/share/miktex-texmf/tex/latex/l3kernel/expl3.sty
-Package: expl3 2022-02-24 L3 programming layer (loader) 
-
 (/usr/local/share/miktex-texmf/tex/latex/l3backend/l3backend-luatex.def
 File: l3backend-luatex.def 2022-02-07 L3 backend support: PDF output (LuaTeX)
-\l__color_backend_stack_int=\count357
-\l__pdf_internal_box=\box126
-))
-Package: xparse 2022-01-12 L3 Experimental document command parser
-))
-(/usr/local/share/miktex-texmf/tex/latex/tcolorbox/tcblistingsutf8.code.tex
-Library (tcolorbox): 'tcblistingsutf8.code.tex' version '5.0.2'
-(/usr/local/share/miktex-texmf/tex/latex/tcolorbox/tcblistings.code.tex
-Library (tcolorbox): 'tcblistings.code.tex' version '5.0.2'
-(/usr/local/share/miktex-texmf/tex/latex/listings/listings.sty
-\lst@mode=\count358
-\lst@gtempboxa=\box127
-\lst@token=\toks43
-\lst@length=\count359
-\lst@currlwidth=\dimen289
-\lst@column=\count360
-\lst@pos=\count361
-\lst@lostspace=\dimen290
-\lst@width=\dimen291
-\lst@newlines=\count362
-\lst@lineno=\count363
-\lst@maxwidth=\dimen292
-
-(/usr/local/share/miktex-texmf/tex/latex/listings/lstmisc.sty
-File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
-\c@lstnumber=\count364
-\lst@skipnumbers=\count365
-\lst@framebox=\box128
+\l__color_backend_stack_int=\count300
+\l__pdf_internal_box=\box101
 )
-(/usr/local/share/miktex-texmf/tex/latex/listings/listings.cfg
-File: listings.cfg 2020/03/24 1.8d listings configuration
-))
-Package: listings 2020/03/24 1.8d (Carsten Heinz)
-
-(/usr/local/share/miktex-texmf/tex/latex/tcolorbox/tcblistingscore.code.tex
-Library (tcolorbox): 'tcblistingscore.code.tex' version '5.0.2'
-(/usr/local/share/miktex-texmf/tex/latex/tcolorbox/tcbprocessing.code.tex
-Library (tcolorbox): 'tcbprocessing.code.tex' version '5.0.2'
-(/usr/local/share/miktex-texmf/tex/latex/tools/shellesc.sty
-Package: shellesc 2019/11/08 v1.0c unified shell escape interface for LaTeX
-Package shellesc Info: Unrestricted shell escape enabled on input line 75.
-))
-\c@tcblisting=\count366
-))
-Package tcolorbox Info: Library `listingsutf8' is compatible with pdftex only. 
-Library `listings` is loaded instead. on input line 29.
-)
-(/usr/local/share/miktex-texmf/tex/latex/tcolorbox/tcbexternal.code.tex
-Library (tcolorbox): 'tcbexternal.code.tex' version '5.0.2'
-) (/usr/local/share/miktex-texmf/tex/latex/tcolorbox/tcbmagazine.code.tex
-Library (tcolorbox): 'tcbmagazine.code.tex' version '5.0.2'
-) (/usr/local/share/miktex-texmf/tex/latex/tcolorbox/tcbvignette.code.tex
-Library (tcolorbox): 'tcbvignette.code.tex' version '5.0.2'
-
-(/usr/local/share/miktex-texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tik
-zlibraryfadings.code.tex
-File: tikzlibraryfadings.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-
-(/usr/local/share/miktex-texmf/tex/generic/pgf/libraries/pgflibraryfadings.code
-.tex
-File: pgflibraryfadings.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-))) (/usr/local/share/miktex-texmf/tex/latex/tcolorbox/tcbposter.code.tex
-Library (tcolorbox): 'tcbposter.code.tex' version '5.0.2'
-)) (/home/kushik/.miktex/texmfs/install/tex/latex/minted/minted.sty
-Package: minted 2021/12/24 v2.6 Yet another Pygments shim for LaTeX
-
-(/home/kushik/.miktex/texmfs/install/tex/latex/fvextra/fvextra.sty
-Package: fvextra 2019/02/04 v1.4 fvextra - extensions and patches for fancyvrb
-
-(/usr/local/share/miktex-texmf/tex/latex/fancyvrb/fancyvrb.sty
-Package: fancyvrb 2021/12/21 4.1b verbatim text (tvz,hv)
-\FV@CodeLineNo=\count367
-\FV@InFile=\read4
-\FV@TabBox=\box129
-\c@FancyVerbLine=\count368
-\FV@StepNumber=\count369
-\FV@OutFile=\write4
-)
-(/home/kushik/.miktex/texmfs/install/tex/latex/upquote/upquote.sty
-Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
-tim
-
-(/usr/local/share/miktex-texmf/tex/latex/base/textcomp.sty
-Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
-))
-(/home/kushik/.miktex/texmfs/install/tex/latex/lineno/lineno.sty
-Package: lineno 2005/11/02 line numbers on paragraphs v4.41
-\linenopenalty=\count370
-\output=\toks44
-\linenoprevgraf=\count371
-\linenumbersep=\dimen293
-\linenumberwidth=\dimen294
-\c@linenumber=\count372
-\c@pagewiselinenumber=\count373
-\c@LN@truepage=\count374
-\c@internallinenumber=\count375
-\c@internallinenumbers=\count376
-\quotelinenumbersep=\dimen295
-\bframerule=\dimen296
-\bframesep=\dimen297
-\bframebox=\box130
-LaTeX Info: Redefining \\ on input line 3056.
-)
-\c@FV@TrueTabGroupLevel=\count377
-\c@FV@TrueTabCounter=\count378
-\FV@TabBox@Group=\box131
-\FV@TmpLength=\skip58
-\c@FV@HighlightLinesStart=\count379
-\c@FV@HighlightLinesStop=\count380
-\FV@LoopCount=\count381
-\FV@NCharsBox=\box132
-\FV@BreakIndent=\dimen298
-\FV@BreakIndentNChars=\count382
-\FV@BreakSymbolSepLeft=\dimen299
-\FV@BreakSymbolSepLeftNChars=\count383
-\FV@BreakSymbolSepRight=\dimen300
-\FV@BreakSymbolSepRightNChars=\count384
-\FV@BreakSymbolIndentLeft=\dimen301
-\FV@BreakSymbolIndentLeftNChars=\count385
-\FV@BreakSymbolIndentRight=\dimen302
-\FV@BreakSymbolIndentRightNChars=\count386
-\c@FancyVerbLineBreakLast=\count387
-\FV@LineBox=\box133
-\FV@LineIndentBox=\box134
-\FV@LineWidth=\dimen303
-)
-(/usr/local/share/miktex-texmf/tex/latex/tools/calc.sty
-Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count388
-\calc@Bcount=\count389
-\calc@Adimen=\dimen304
-\calc@Bdimen=\dimen305
-\calc@Askip=\skip59
-\calc@Bskip=\skip60
-LaTeX Info: Redefining \setlength on input line 80.
-LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count390
-\calc@Cskip=\skip61
-)
-(/home/kushik/.miktex/texmfs/install/tex/latex/ifplatform/ifplatform.sty
-Package: ifplatform 2017/10/13 v0.4a Testing for the operating system
-
-(/home/kushik/.miktex/texmfs/install/tex/generic/catchfile/catchfile.sty
-Package: catchfile 2019/12/09 v1.8 Catch the contents of a file (HO)
-)
-runsystem(uname -s > "twoandthree.w18")...executed
-
-(./twoandthree.w18)
-runsystem(rm -- "twoandthree.w18")...executed
-)
-(/home/kushik/.miktex/texmfs/install/tex/latex/xstring/xstring.sty
-(/home/kushik/.miktex/texmfs/install/tex/generic/xstring/xstring.tex
-\integerpart=\count391
-\decimalpart=\count392
-)
-Package: xstring 2021/07/21 v1.84 String manipulations (CT)
-)
-(/home/kushik/.miktex/texmfs/install/tex/latex/framed/framed.sty
-Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
-\OuterFrameSep=\skip62
-\fb@frw=\dimen306
-\fb@frh=\dimen307
-\FrameRule=\dimen308
-\FrameSep=\dimen309
-)
-\minted@appexistsfile=\read5
-\minted@bgbox=\box135
-\minted@code=\write5
-\c@minted@FancyVerbLineTemp=\count393
-\c@minted@pygmentizecounter=\count394
-\@float@every@listing=\toks45
-\c@listing=\count395
-)
-runsystem(mkdir -p _minted-twoandthree)...executed
-runsystem(which pygmentize && touch twoandthree.aex)...executed
-runsystem(rm twoandthree.aex)...executed
-
 (./twoandthree.aux)
 \openout1 = twoandthree.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 43.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 4
-3.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 15.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 1
+5.
  (/usr/local/share/miktex-texmf/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: luatex
@@ -1126,17 +519,17 @@ LaTeX Font Info:    ... okay on input line 43.
 
 (/usr/local/share/miktex-texmf/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count396
-\scratchdimen=\dimen310
-\scratchbox=\box136
-\nofMPsegments=\count397
-\nofMParguments=\count398
-\everyMPshowfont=\toks46
-\MPscratchCnt=\count399
-\MPscratchDim=\dimen311
-\MPnumerator=\count400
-\makeMPintoPDFobject=\count401
-\everyMPtoPDFconversion=\toks47
+\scratchcounter=\count301
+\scratchdimen=\dimen179
+\scratchbox=\box102
+\nofMPsegments=\count302
+\nofMParguments=\count303
+\everyMPshowfont=\toks29
+\MPscratchCnt=\count304
+\MPscratchDim=\dimen180
+\MPnumerator=\count305
+\makeMPintoPDFobject=\count306
+\everyMPtoPDFconversion=\toks30
 ) (/usr/local/share/miktex-texmf/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -1145,7 +538,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 (/usr/local/share/miktex-texmf/tex/latex/00miktex/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring OFF on input line 43.
+Package hyperref Info: Link coloring OFF on input line 15.
 
 (/usr/local/share/miktex-texmf/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
@@ -1157,230 +550,422 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count402
+\c@section@level=\count307
 )
-LaTeX Info: Redefining \ref on input line 43.
-LaTeX Info: Redefining \pageref on input line 43.
-LaTeX Info: Redefining \nameref on input line 43.
+LaTeX Info: Redefining \ref on input line 15.
+LaTeX Info: Redefining \pageref on input line 15.
+LaTeX Info: Redefining \nameref on input line 15.
  (./twoandthree.out) (./twoandthree.out)
-\@outlinefile=\write6
+\@outlinefile=\write3
 
-\openout6 = twoandthree.out
+\openout3 = twoandthree.out
 Package caption Info: Begin \AtBeginDocument code.
-Package caption Info: listings package is loaded.
 Package caption Info: rotating package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\c@lstlisting=\count403
-<ps2.png, id=54, 433.62pt x 289.08pt>
-File: ps2.png Graphic file (type png)
-<use ps2.png>
-Package luatex.def Info: ps2.png  used on input line 51.
-(luatex.def)             Requested size: 229.87704pt x 170.71451pt.
-<psx2.png, id=55, 433.62pt x 289.08pt>
-File: psx2.png Graphic file (type png)
-<use psx2.png>
-Package luatex.def Info: psx2.png  used on input line 52.
-(luatex.def)             Requested size: 229.87704pt x 170.71451pt.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 52.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 24.
 
 
 (/usr/local/share/miktex-texmf/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 52.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 24.
 
 
 (/usr/local/share/miktex-texmf/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<psy2.png, id=56, 433.62pt x 289.08pt>
-File: psy2.png Graphic file (type png)
-<use psy2.png>
-Package luatex.def Info: psy2.png  used on input line 57.
+<ps2Bz.png, id=35, 433.62pt x 289.08pt>
+File: ps2Bz.png Graphic file (type png)
+<use ps2Bz.png>
+Package luatex.def Info: ps2Bz.png  used on input line 54.
 (luatex.def)             Requested size: 229.87704pt x 170.71451pt.
-<psz2.png, id=57, 433.62pt x 289.08pt>
-File: psz2.png Graphic file (type png)
-<use psz2.png>
-Package luatex.def Info: psz2.png  used on input line 58.
+<psx2Bz.png, id=36, 433.62pt x 289.08pt>
+File: psx2Bz.png Graphic file (type png)
+<use psx2Bz.png>
+Package luatex.def Info: psx2Bz.png  used on input line 55.
 (luatex.def)             Requested size: 229.87704pt x 170.71451pt.
-<vs2.png, id=58, 433.62pt x 289.08pt>
-File: vs2.png Graphic file (type png)
-<use vs2.png>
-Package luatex.def Info: vs2.png  used on input line 65.
+<psy2Bz.png, id=37, 433.62pt x 289.08pt>
+File: psy2Bz.png Graphic file (type png)
+<use psy2Bz.png>
+Package luatex.def Info: psy2Bz.png  used on input line 60.
 (luatex.def)             Requested size: 229.87704pt x 170.71451pt.
-<vsx2.png, id=59, 433.62pt x 289.08pt>
-File: vsx2.png Graphic file (type png)
-<use vsx2.png>
-Package luatex.def Info: vsx2.png  used on input line 66.
-(luatex.def)             Requested size: 229.87704pt x 170.71451pt.
-<vsy2.png, id=60, 433.62pt x 289.08pt>
-File: vsy2.png Graphic file (type png)
-<use vsy2.png>
-Package luatex.def Info: vsy2.png  used on input line 71.
-(luatex.def)             Requested size: 229.87704pt x 170.71451pt.
-<vsz2.png, id=61, 433.62pt x 289.08pt>
-File: vsz2.png Graphic file (type png)
-<use vsz2.png>
-Package luatex.def Info: vsz2.png  used on input line 72.
+<psz2Bz.png, id=38, 433.62pt x 289.08pt>
+File: psz2Bz.png Graphic file (type png)
+<use psz2Bz.png>
+Package luatex.def Info: psz2Bz.png  used on input line 61.
 (luatex.def)             Requested size: 229.87704pt x 170.71451pt.
  [1
 
-{/home/kushik/.miktex/texmfs/data/fonts/map/pdftex/pdftex.map}<./ps2.png><./psx2
-.png><./psy2.png><./psz2.png>]
-<multips2.png, id=76, 433.62pt x 289.08pt>
+{/home/kushik/.miktex/texmfs/data/fonts/map/pdftex/pdftex.map}]
+<vs2Bz.png, id=53, 433.62pt x 289.08pt>
+File: vs2Bz.png Graphic file (type png)
+<use vs2Bz.png>
+Package luatex.def Info: vs2Bz.png  used on input line 67.
+(luatex.def)             Requested size: 229.87704pt x 170.71451pt.
+<vsx2Bz.png, id=54, 433.62pt x 289.08pt>
+File: vsx2Bz.png Graphic file (type png)
+<use vsx2Bz.png>
+Package luatex.def Info: vsx2Bz.png  used on input line 68.
+(luatex.def)             Requested size: 229.87704pt x 170.71451pt.
+<vsy2Bz.png, id=55, 433.62pt x 289.08pt>
+File: vsy2Bz.png Graphic file (type png)
+<use vsy2Bz.png>
+Package luatex.def Info: vsy2Bz.png  used on input line 73.
+(luatex.def)             Requested size: 229.87704pt x 170.71451pt.
+<vsz2Bz.png, id=56, 433.62pt x 289.08pt>
+File: vsz2Bz.png Graphic file (type png)
+<use vsz2Bz.png>
+Package luatex.def Info: vsz2Bz.png  used on input line 74.
+(luatex.def)             Requested size: 229.87704pt x 170.71451pt.
+ [2<./ps2Bz.png><./psx2Bz.png><./psy2Bz.png><./psz2Bz.png>]
+<multips2Bz.png, id=71, 433.62pt x 289.08pt>
+File: multips2Bz.png Graphic file (type png)
+<use multips2Bz.png>
+Package luatex.def Info: multips2Bz.png  used on input line 80.
+(luatex.def)             Requested size: 229.87704pt x 170.71451pt.
+<multipsx2Bz.png, id=72, 433.62pt x 289.08pt>
+File: multipsx2Bz.png Graphic file (type png)
+<use multipsx2Bz.png>
+Package luatex.def Info: multipsx2Bz.png  used on input line 81.
+(luatex.def)             Requested size: 229.87704pt x 170.71451pt.
+<multipsy2Bz.png, id=73, 433.62pt x 289.08pt>
+File: multipsy2Bz.png Graphic file (type png)
+<use multipsy2Bz.png>
+Package luatex.def Info: multipsy2Bz.png  used on input line 86.
+(luatex.def)             Requested size: 229.87704pt x 170.71451pt.
+<multipsz2Bz.png, id=74, 433.62pt x 289.08pt>
+File: multipsz2Bz.png Graphic file (type png)
+<use multipsz2Bz.png>
+Package luatex.def Info: multipsz2Bz.png  used on input line 87.
+(luatex.def)             Requested size: 229.87704pt x 170.71451pt.
+ [3<./vs2Bz.png><./vsx2Bz.png><./vsy2Bz.png><./vsz2Bz.png>]
+<multivs2Bz.png, id=94, 433.62pt x 289.08pt>
+File: multivs2Bz.png Graphic file (type png)
+<use multivs2Bz.png>
+Package luatex.def Info: multivs2Bz.png  used on input line 93.
+(luatex.def)             Requested size: 229.87704pt x 170.71451pt.
+<multivsx2Bz.png, id=95, 433.62pt x 289.08pt>
+File: multivsx2Bz.png Graphic file (type png)
+<use multivsx2Bz.png>
+Package luatex.def Info: multivsx2Bz.png  used on input line 94.
+(luatex.def)             Requested size: 229.87704pt x 170.71451pt.
+<multivsy2Bz.png, id=96, 433.62pt x 289.08pt>
+File: multivsy2Bz.png Graphic file (type png)
+<use multivsy2Bz.png>
+Package luatex.def Info: multivsy2Bz.png  used on input line 99.
+(luatex.def)             Requested size: 229.87704pt x 170.71451pt.
+<multivsz2Bz.png, id=97, 433.62pt x 289.08pt>
+File: multivsz2Bz.png Graphic file (type png)
+<use multivsz2Bz.png>
+Package luatex.def Info: multivsz2Bz.png  used on input line 100.
+(luatex.def)             Requested size: 229.87704pt x 170.71451pt.
+ [4<./multips2Bz.png><./multipsx2Bz.png><./multipsy2Bz.png><./multipsz2Bz.png>]
+ [5<./multivs2Bz.png><./multivsx2Bz.png><./multivsy2Bz.png><./multivsz2Bz.png>]
+<ps2.png, id=123, 433.62pt x 289.08pt>
+File: ps2.png Graphic file (type png)
+<use ps2.png>
+Package luatex.def Info: ps2.png  used on input line 120.
+(luatex.def)             Requested size: 229.87704pt x 170.71451pt.
+<psx2.png, id=124, 433.62pt x 289.08pt>
+File: psx2.png Graphic file (type png)
+<use psx2.png>
+Package luatex.def Info: psx2.png  used on input line 121.
+(luatex.def)             Requested size: 229.87704pt x 170.71451pt.
+<psy2.png, id=125, 433.62pt x 289.08pt>
+File: psy2.png Graphic file (type png)
+<use psy2.png>
+Package luatex.def Info: psy2.png  used on input line 126.
+(luatex.def)             Requested size: 229.87704pt x 170.71451pt.
+<psz2.png, id=126, 433.62pt x 289.08pt>
+File: psz2.png Graphic file (type png)
+<use psz2.png>
+Package luatex.def Info: psz2.png  used on input line 127.
+(luatex.def)             Requested size: 229.87704pt x 170.71451pt.
+<vs2.png, id=131, 433.62pt x 289.08pt>
+File: vs2.png Graphic file (type png)
+<use vs2.png>
+Package luatex.def Info: vs2.png  used on input line 133.
+(luatex.def)             Requested size: 229.87704pt x 170.71451pt.
+<vsx2.png, id=132, 433.62pt x 289.08pt>
+File: vsx2.png Graphic file (type png)
+<use vsx2.png>
+Package luatex.def Info: vsx2.png  used on input line 134.
+(luatex.def)             Requested size: 229.87704pt x 170.71451pt.
+<vsy2.png, id=133, 433.62pt x 289.08pt>
+File: vsy2.png Graphic file (type png)
+<use vsy2.png>
+Package luatex.def Info: vsy2.png  used on input line 139.
+(luatex.def)             Requested size: 229.87704pt x 170.71451pt.
+<vsz2.png, id=134, 433.62pt x 289.08pt>
+File: vsz2.png Graphic file (type png)
+<use vsz2.png>
+Package luatex.def Info: vsz2.png  used on input line 140.
+(luatex.def)             Requested size: 229.87704pt x 170.71451pt.
+ [6<./ps2.png><./psx2.png><./psy2.png><./psz2.png>]
+<multips2.png, id=150, 433.62pt x 289.08pt>
 File: multips2.png Graphic file (type png)
 <use multips2.png>
-Package luatex.def Info: multips2.png  used on input line 80.
+Package luatex.def Info: multips2.png  used on input line 146.
 (luatex.def)             Requested size: 229.87704pt x 170.71451pt.
-<multipsx2.png, id=77, 433.62pt x 289.08pt>
+<multipsx2.png, id=151, 433.62pt x 289.08pt>
 File: multipsx2.png Graphic file (type png)
 <use multipsx2.png>
-Package luatex.def Info: multipsx2.png  used on input line 81.
+Package luatex.def Info: multipsx2.png  used on input line 147.
 (luatex.def)             Requested size: 229.87704pt x 170.71451pt.
-<multipsy2.png, id=78, 433.62pt x 289.08pt>
+<multipsy2.png, id=152, 433.62pt x 289.08pt>
 File: multipsy2.png Graphic file (type png)
 <use multipsy2.png>
-Package luatex.def Info: multipsy2.png  used on input line 86.
+Package luatex.def Info: multipsy2.png  used on input line 152.
 (luatex.def)             Requested size: 229.87704pt x 170.71451pt.
-<multipsz2.png, id=79, 433.62pt x 289.08pt>
+<multipsz2.png, id=153, 433.62pt x 289.08pt>
 File: multipsz2.png Graphic file (type png)
 <use multipsz2.png>
-Package luatex.def Info: multipsz2.png  used on input line 87.
+Package luatex.def Info: multipsz2.png  used on input line 153.
 (luatex.def)             Requested size: 229.87704pt x 170.71451pt.
- [2<./vs2.png><./vsx2.png><./vsy2.png><./vsz2.png>]
-<multivs2.png, id=90, 433.62pt x 289.08pt>
+ [7<./vs2.png><./vsx2.png><./vsy2.png><./vsz2.png>]
+<multivs2.png, id=169, 433.62pt x 289.08pt>
 File: multivs2.png Graphic file (type png)
 <use multivs2.png>
-Package luatex.def Info: multivs2.png  used on input line 94.
+Package luatex.def Info: multivs2.png  used on input line 159.
 (luatex.def)             Requested size: 229.87704pt x 170.71451pt.
-<multivsx2.png, id=91, 433.62pt x 289.08pt>
+<multivsx2.png, id=170, 433.62pt x 289.08pt>
 File: multivsx2.png Graphic file (type png)
 <use multivsx2.png>
-Package luatex.def Info: multivsx2.png  used on input line 95.
+Package luatex.def Info: multivsx2.png  used on input line 160.
 (luatex.def)             Requested size: 229.87704pt x 170.71451pt.
-<multivsy2.png, id=92, 433.62pt x 289.08pt>
+<multivsy2.png, id=171, 433.62pt x 289.08pt>
 File: multivsy2.png Graphic file (type png)
 <use multivsy2.png>
-Package luatex.def Info: multivsy2.png  used on input line 100.
+Package luatex.def Info: multivsy2.png  used on input line 165.
 (luatex.def)             Requested size: 229.87704pt x 170.71451pt.
-<multivsz2.png, id=93, 433.62pt x 289.08pt>
+<multivsz2.png, id=172, 433.62pt x 289.08pt>
 File: multivsz2.png Graphic file (type png)
 <use multivsz2.png>
-Package luatex.def Info: multivsz2.png  used on input line 101.
+Package luatex.def Info: multivsz2.png  used on input line 166.
 (luatex.def)             Requested size: 229.87704pt x 170.71451pt.
- [3<./multips2.png><./multipsx2.png><./multipsy2.png><./multipsz2.png>]
-<ps3.png, id=104, 433.62pt x 289.08pt>
+ [8<./multips2.png><./multipsx2.png><./multipsy2.png><./multipsz2.png>] [9<./mul
+tivs2.png><./multivsx2.png><./multivsy2.png><./multivsz2.png>]
+Overfull \hbox (54.35127pt too wide) detected at line 180
+\OML/cmm/m/it/12  \OT1/cmr/m/n/12 = [][] = [] \OMS/cmsy/m/n/12  [] \OT1/cmr/m
+/n/12 = 13438\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 549997326772 []
+ []
+
+<parabolic speed sampling.png, id=200, 433.62pt x 289.08pt>
+File: parabolic speed sampling.png Graphic file (type png)
+<use parabolic speed sampling.png>
+Package luatex.def Info: parabolic speed sampling.png  used on input line 184.
+(luatex.def)             Requested size: 229.87704pt x 170.71451pt.
+<maxwellian speed sampling.png, id=201, 433.62pt x 289.08pt>
+File: maxwellian speed sampling.png Graphic file (type png)
+<use maxwellian speed sampling.png>
+Package luatex.def Info: maxwellian speed sampling.png  used on input line 185.
+
+(luatex.def)             Requested size: 229.87704pt x 170.71451pt.
+[10<./parabolic speed sampling.png><./maxwellian speed sampling.png>]
+<ps3Bz.png, id=215, 433.62pt x 289.08pt>
+File: ps3Bz.png Graphic file (type png)
+<use ps3Bz.png>
+Package luatex.def Info: ps3Bz.png  used on input line 205.
+(luatex.def)             Requested size: 229.87704pt x 170.71451pt.
+<psx3Bz.png, id=216, 433.62pt x 289.08pt>
+File: psx3Bz.png Graphic file (type png)
+<use psx3Bz.png>
+Package luatex.def Info: psx3Bz.png  used on input line 206.
+(luatex.def)             Requested size: 229.87704pt x 170.71451pt.
+<psy3Bz.png, id=217, 433.62pt x 289.08pt>
+File: psy3Bz.png Graphic file (type png)
+<use psy3Bz.png>
+Package luatex.def Info: psy3Bz.png  used on input line 211.
+(luatex.def)             Requested size: 229.87704pt x 170.71451pt.
+<psz3Bz.png, id=218, 433.62pt x 289.08pt>
+File: psz3Bz.png Graphic file (type png)
+<use psz3Bz.png>
+Package luatex.def Info: psz3Bz.png  used on input line 212.
+(luatex.def)             Requested size: 229.87704pt x 170.71451pt.
+<vs3Bz.png, id=219, 433.62pt x 289.08pt>
+File: vs3Bz.png Graphic file (type png)
+<use vs3Bz.png>
+Package luatex.def Info: vs3Bz.png  used on input line 218.
+(luatex.def)             Requested size: 229.87704pt x 170.71451pt.
+<vsx3Bz.png, id=220, 433.62pt x 289.08pt>
+File: vsx3Bz.png Graphic file (type png)
+<use vsx3Bz.png>
+Package luatex.def Info: vsx3Bz.png  used on input line 219.
+(luatex.def)             Requested size: 229.87704pt x 170.71451pt.
+ [11<./ps3Bz.png><./psx3Bz.png><./psy3Bz.png><./psz3Bz.png>]
+<vsy3Bz.png, id=232, 433.62pt x 289.08pt>
+File: vsy3Bz.png Graphic file (type png)
+<use vsy3Bz.png>
+Package luatex.def Info: vsy3Bz.png  used on input line 224.
+(luatex.def)             Requested size: 229.87704pt x 170.71451pt.
+<vsz3Bz.png, id=233, 433.62pt x 289.08pt>
+File: vsz3Bz.png Graphic file (type png)
+<use vsz3Bz.png>
+Package luatex.def Info: vsz3Bz.png  used on input line 225.
+(luatex.def)             Requested size: 229.87704pt x 170.71451pt.
+<subps3Bz.png, id=234, 1445.4pt x 1445.4pt>
+File: subps3Bz.png Graphic file (type png)
+<use subps3Bz.png>
+Package luatex.def Info: subps3Bz.png  used on input line 230.
+(luatex.def)             Requested size: 469.74944pt x 625.96501pt.
+<subpsx3Bz.png, id=235, 1445.4pt x 1445.4pt>
+File: subpsx3Bz.png Graphic file (type png)
+<use subpsx3Bz.png>
+Package luatex.def Info: subpsx3Bz.png  used on input line 233.
+(luatex.def)             Requested size: 469.74944pt x 569.06311pt.
+ [12<./vs3Bz.png><./vsx3Bz.png><./vsy3Bz.png><./vsz3Bz.png>] [13<./subps3Bz.png>
+]
+<subpsy3Bz.png, id=252, 1445.4pt x 1445.4pt>
+File: subpsy3Bz.png Graphic file (type png)
+<use subpsy3Bz.png>
+Package luatex.def Info: subpsy3Bz.png  used on input line 236.
+(luatex.def)             Requested size: 469.74944pt x 569.06311pt.
+<subpsz3Bz.png, id=253, 1445.4pt x 1445.4pt>
+File: subpsz3Bz.png Graphic file (type png)
+<use subpsz3Bz.png>
+Package luatex.def Info: subpsz3Bz.png  used on input line 239.
+(luatex.def)             Requested size: 469.74944pt x 569.06311pt.
+ [14<./subpsx3Bz.png>]
+[15<./subpsy3Bz.png>]
+<subvs3Bz.png, id=266, 1445.4pt x 1445.4pt>
+File: subvs3Bz.png Graphic file (type png)
+<use subvs3Bz.png>
+Package luatex.def Info: subvs3Bz.png  used on input line 243.
+(luatex.def)             Requested size: 469.74944pt x 625.96501pt.
+<subvsx3Bz.png, id=267, 1445.4pt x 1445.4pt>
+File: subvsx3Bz.png Graphic file (type png)
+<use subvsx3Bz.png>
+Package luatex.def Info: subvsx3Bz.png  used on input line 246.
+(luatex.def)             Requested size: 469.74944pt x 569.06311pt.
+ [16<./subpsz3Bz.png>] [17<./subvs3Bz.png>]
+<subvsy3Bz.png, id=280, 1445.4pt x 1445.4pt>
+File: subvsy3Bz.png Graphic file (type png)
+<use subvsy3Bz.png>
+Package luatex.def Info: subvsy3Bz.png  used on input line 249.
+(luatex.def)             Requested size: 469.74944pt x 569.06311pt.
+<subvsz3Bz.png, id=281, 1445.4pt x 1445.4pt>
+File: subvsz3Bz.png Graphic file (type png)
+<use subvsz3Bz.png>
+Package luatex.def Info: subvsz3Bz.png  used on input line 252.
+(luatex.def)             Requested size: 469.74944pt x 569.06311pt.
+ [18<./subvsx3Bz.png>] [19<./subvsy3Bz.png>] [20<./subvsz3Bz.png>]
+<ps3.png, id=300, 433.62pt x 289.08pt>
 File: ps3.png Graphic file (type png)
 <use ps3.png>
-Package luatex.def Info: ps3.png  used on input line 111.
+Package luatex.def Info: ps3.png  used on input line 270.
 (luatex.def)             Requested size: 229.87704pt x 170.71451pt.
-<psx3.png, id=105, 433.62pt x 289.08pt>
+<psx3.png, id=301, 433.62pt x 289.08pt>
 File: psx3.png Graphic file (type png)
 <use psx3.png>
-Package luatex.def Info: psx3.png  used on input line 112.
+Package luatex.def Info: psx3.png  used on input line 271.
 (luatex.def)             Requested size: 229.87704pt x 170.71451pt.
-<psy3.png, id=106, 433.62pt x 289.08pt>
+<psy3.png, id=302, 433.62pt x 289.08pt>
 File: psy3.png Graphic file (type png)
 <use psy3.png>
-Package luatex.def Info: psy3.png  used on input line 117.
+Package luatex.def Info: psy3.png  used on input line 276.
 (luatex.def)             Requested size: 229.87704pt x 170.71451pt.
-<psz3.png, id=107, 433.62pt x 289.08pt>
+<psz3.png, id=303, 433.62pt x 289.08pt>
 File: psz3.png Graphic file (type png)
 <use psz3.png>
-Package luatex.def Info: psz3.png  used on input line 118.
+Package luatex.def Info: psz3.png  used on input line 277.
 (luatex.def)             Requested size: 229.87704pt x 170.71451pt.
- [4<./multivs2.png><./multivsx2.png><./multivsy2.png><./multivsz2.png>]
-<vs3.png, id=118, 433.62pt x 289.08pt>
+ [21<./ps3.png><./psx3.png>]
+<vs3.png, id=312, 433.62pt x 289.08pt>
 File: vs3.png Graphic file (type png)
 <use vs3.png>
-Package luatex.def Info: vs3.png  used on input line 125.
+Package luatex.def Info: vs3.png  used on input line 283.
 (luatex.def)             Requested size: 229.87704pt x 170.71451pt.
-<vsx3.png, id=119, 433.62pt x 289.08pt>
+<vsx3.png, id=313, 433.62pt x 289.08pt>
 File: vsx3.png Graphic file (type png)
 <use vsx3.png>
-Package luatex.def Info: vsx3.png  used on input line 126.
+Package luatex.def Info: vsx3.png  used on input line 284.
 (luatex.def)             Requested size: 229.87704pt x 170.71451pt.
-<vsy3.png, id=120, 433.62pt x 289.08pt>
+<vsy3.png, id=314, 433.62pt x 289.08pt>
 File: vsy3.png Graphic file (type png)
 <use vsy3.png>
-Package luatex.def Info: vsy3.png  used on input line 131.
+Package luatex.def Info: vsy3.png  used on input line 289.
 (luatex.def)             Requested size: 229.87704pt x 170.71451pt.
-<vsz3.png, id=121, 433.62pt x 289.08pt>
+<vsz3.png, id=315, 433.62pt x 289.08pt>
 File: vsz3.png Graphic file (type png)
 <use vsz3.png>
-Package luatex.def Info: vsz3.png  used on input line 132.
+Package luatex.def Info: vsz3.png  used on input line 290.
 (luatex.def)             Requested size: 229.87704pt x 170.71451pt.
- [5<./ps3.png><./psx3.png><./psy3.png><./psz3.png>]
-<subps3.png, id=132, 1445.4pt x 1445.4pt>
+[22<./psy3.png><./psz3.png><./vs3.png><./vsx3.png>]
+<subps3.png, id=326, 1445.4pt x 1445.4pt>
 File: subps3.png Graphic file (type png)
 <use subps3.png>
-Package luatex.def Info: subps3.png  used on input line 139.
+Package luatex.def Info: subps3.png  used on input line 295.
 (luatex.def)             Requested size: 469.74944pt x 625.96501pt.
-<subpsx3.png, id=133, 1445.4pt x 1445.4pt>
+<subpsx3.png, id=327, 1445.4pt x 1445.4pt>
 File: subpsx3.png Graphic file (type png)
 <use subpsx3.png>
-Package luatex.def Info: subpsx3.png  used on input line 142.
-(luatex.def)             Requested size: 469.74944pt x 625.96501pt.
- [6<./vs3.png><./vsx3.png><./vsy3.png><./vsz3.png>]
-[7<./subps3.png>]
-<subpsy3.png, id=150, 1445.4pt x 1445.4pt>
+Package luatex.def Info: subpsx3.png  used on input line 298.
+(luatex.def)             Requested size: 469.74944pt x 569.06311pt.
+ [23<./vsy3.png><./vsz3.png>] [24<./subps3.png>]
+<subpsy3.png, id=341, 1445.4pt x 1445.4pt>
 File: subpsy3.png Graphic file (type png)
 <use subpsy3.png>
-Package luatex.def Info: subpsy3.png  used on input line 145.
-(luatex.def)             Requested size: 469.74944pt x 625.96501pt.
- [8<./subpsx3.png>]
-<subpsz3.png, id=157, 1445.4pt x 1445.4pt>
+Package luatex.def Info: subpsy3.png  used on input line 301.
+(luatex.def)             Requested size: 469.74944pt x 569.06311pt.
+<subpsz3.png, id=342, 1445.4pt x 1445.4pt>
 File: subpsz3.png Graphic file (type png)
 <use subpsz3.png>
-Package luatex.def Info: subpsz3.png  used on input line 148.
-(luatex.def)             Requested size: 469.74944pt x 625.96501pt.
- [9<./subpsy3.png>] [10<./subpsz3.png>]
-<subvs3.png, id=170, 1445.4pt x 1445.4pt>
+Package luatex.def Info: subpsz3.png  used on input line 304.
+(luatex.def)             Requested size: 469.74944pt x 569.06311pt.
+ [25<./subpsx3.png>] [26<./subpsy3.png>]
+<subvs3.png, id=355, 1445.4pt x 1445.4pt>
 File: subvs3.png Graphic file (type png)
 <use subvs3.png>
-Package luatex.def Info: subvs3.png  used on input line 152.
+Package luatex.def Info: subvs3.png  used on input line 308.
 (luatex.def)             Requested size: 469.74944pt x 625.96501pt.
-<subvsx3.png, id=171, 1445.4pt x 1445.4pt>
+<subvsx3.png, id=356, 1445.4pt x 1445.4pt>
 File: subvsx3.png Graphic file (type png)
 <use subvsx3.png>
-Package luatex.def Info: subvsx3.png  used on input line 155.
-(luatex.def)             Requested size: 469.74944pt x 625.96501pt.
-
-[11] [12<./subvs3.png>]
-<subvsy3.png, id=183, 1445.4pt x 1445.4pt>
+Package luatex.def Info: subvsx3.png  used on input line 311.
+(luatex.def)             Requested size: 469.74944pt x 569.06311pt.
+ [27<./subpsz3.png>] [28<./subvs3.png>]
+<subvsy3.png, id=369, 1445.4pt x 1445.4pt>
 File: subvsy3.png Graphic file (type png)
 <use subvsy3.png>
-Package luatex.def Info: subvsy3.png  used on input line 158.
-(luatex.def)             Requested size: 469.74944pt x 625.96501pt.
- [13<./subvsx3.png>]
-<subvsz3.png, id=190, 1445.4pt x 1445.4pt>
+Package luatex.def Info: subvsy3.png  used on input line 314.
+(luatex.def)             Requested size: 469.74944pt x 569.06311pt.
+<subvsz3.png, id=370, 1445.4pt x 1445.4pt>
 File: subvsz3.png Graphic file (type png)
 <use subvsz3.png>
-Package luatex.def Info: subvsz3.png  used on input line 161.
-(luatex.def)             Requested size: 469.74944pt x 625.96501pt.
- [14<./subvsy3.png>] [15<./subvsz3.png>] [16] (./twoandthree.aux)
+Package luatex.def Info: subvsz3.png  used on input line 317.
+(luatex.def)             Requested size: 469.74944pt x 569.06311pt.
+ [29<./subvsx3.png>] [30<./subvsy3.png>] [31<./subvsz3.png>] [32] [33] (./twoan
+dthree.aux)
 Package rerunfilecheck Info: File `twoandthree.out' has not changed.
-(rerunfilecheck)             Checksum: 3C47F38EFF28ADB5F193BB65E96C5491;257.
+(rerunfilecheck)             Checksum: 7412E95CA7888D060F4B7F31D87838B5;2088.
 )
 
 Here is how much of LuaTeX's memory you used:
- 35191 strings out of 477792
- 100000,1144653 words of node,token memory allocated
- 1320 words of node memory still in use:
-   30 hlist, 2 vlist, 14 rule, 2 glue, 4 kern, 1 glyph, 80 attribute, 61 glue_sp
-ec, 80 attribute_list, 2 write, 24 pdf_literal, 24 pdf_colorstack nodes
-   avail lists: 2:602,3:234,4:95,5:134,6:57,7:1157,8:17,9:416,10:8,11:75
- 54413 multiletter control sequences out of 65536+600000
- 37 fonts using 2170639 bytes
- 99i,8n,95p,430b,511s stack positions out of 10000i,1000n,20000p,200000b,80000s
-{/usr/local/share/miktex-texmf/fonts/enc/dvips/lm/lm-ec.enc}</usr/local/share/mi
-ktex-texmf/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/share/miktex-te
-xmf/fonts/type1/public/lm/lmbx12.pfb></usr/local/share/miktex-texmf/fonts/type1/
-public/lm/lmr12.pfb></usr/local/share/miktex-texmf/fonts/type1/public/lm/lmri12.
-pfb>
-Output written on twoandthree.pdf (16 pages, 1471069 bytes).
+ 13677 strings out of 477792
+ 100000,552014 words of node,token memory allocated
+ 522 words of node memory still in use:
+   6 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 8 attribute, 58 glue_spec,
+ 8 attribute_list, 1 write nodes
+   avail lists: 2:572,3:306,4:21,5:419,6:64,7:8041,8:98,9:433,10:14,11:553
+ 33563 multiletter control sequences out of 65536+600000
+ 51 fonts using 3123271 bytes
+ 60i,8n,61p,2712b,457s stack positions out of 10000i,1000n,20000p,200000b,80000s
+{/usr/local/share/miktex-texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/share/mi
+ktex-texmf/fonts/enc/dvips/lm/lm-ts1.enc}</usr/local/share/miktex-texmf/fonts/ty
+pe1/public/amsfonts/cm/cmbx12.pfb></usr/local/share/miktex-texmf/fonts/type1/pub
+lic/amsfonts/cm/cmex10.pfb></usr/local/share/miktex-texmf/fonts/type1/public/ams
+fonts/cm/cmmi12.pfb></usr/local/share/miktex-texmf/fonts/type1/public/amsfonts/c
+m/cmmi8.pfb></usr/local/share/miktex-texmf/fonts/type1/public/amsfonts/cm/cmmib1
+0.pfb></usr/local/share/miktex-texmf/fonts/type1/public/amsfonts/cm/cmr12.pfb></
+usr/local/share/miktex-texmf/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local
+/share/miktex-texmf/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/share/
+miktex-texmf/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/share/miktex-t
+exmf/fonts/type1/public/lm/lmbx12.pfb></usr/local/share/miktex-texmf/fonts/type1
+/public/lm/lmr12.pfb></usr/local/share/miktex-texmf/fonts/type1/public/lm/lmr8.p
+fb></usr/local/share/miktex-texmf/fonts/type1/public/lm/lmri12.pfb>
+Output written on twoandthree.pdf (33 pages, 2727798 bytes).
 
-PDF statistics: 229 PDF objects out of 1000 (max. 8388607)
- 41 named destinations out of 1000 (max. 131072)
- 280 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 453 PDF objects out of 1000 (max. 8388607)
+ 85 named destinations out of 1000 (max. 131072)
+ 65 words of extra memory for PDF output out of 10000 (max. 100000000)
 
