@@ -1,2 +1,1 @@
-# MagneticMirror
-Magnetic Mirror Effect in Magnetron Plasma: Modeling of Plasma Parameters
+# Plasma Simulation with Lorentz force
